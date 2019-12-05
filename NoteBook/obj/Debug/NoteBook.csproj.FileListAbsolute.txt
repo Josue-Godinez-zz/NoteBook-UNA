@@ -7,3 +7,4 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\obj\Debug\NoteBook.Propert
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\obj\Debug\NoteBook.exe
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\obj\Debug\NoteBook.pdb
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\obj\Debug\NoteBook.interfazCategorias.resources
