@@ -13,13 +13,34 @@ namespace NoteBook
         
         classCategorias()
         {
-
+            nombreCategoria = "";
+            colorCategoria = "";
         }
 
         classCategorias(string nombreCategoria, string colorCategoria)
         {
             this.nombreCategoria = nombreCategoria;
             this.colorCategoria = colorCategoria; 
+        }
+
+        public void setnombreCategoria(string nombreCategoria)
+        {
+            this.nombreCategoria = nombreCategoria;
+        }
+
+        public void setcolorCategoria(string colorCategoria)
+        {
+            this.colorCategoria = colorCategoria;
+        }
+
+        public string getnombreCotegoria()
+        {
+            return nombreCategoria;
+        }
+
+        public string getcolorCategoria()
+        {
+            return colorCategoria;
         }
     }
 }
