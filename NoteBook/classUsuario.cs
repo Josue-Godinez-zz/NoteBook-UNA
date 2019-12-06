@@ -10,13 +10,13 @@ namespace NoteBook
     {
         private string nombreUsuario;
         private string contrasenaUsuario;
-        classUsuario()
+        public classUsuario()
         {
             nombreUsuario = "";
             contrasenaUsuario = "";
         }
         
-        classUsuario(string nombreUsuario, string contrasenaUsuario)
+        public classUsuario(string nombreUsuario, string contrasenaUsuario)
         {
             this.nombreUsuario = nombreUsuario;
             this.contrasenaUsuario = contrasenaUsuario;
@@ -30,6 +30,16 @@ namespace NoteBook
         public void setcontraseñaUsuario(string contrasenaUsuario)
         {
             this.contrasenaUsuario = contrasenaUsuario;
+        }
+
+        public string getnombreUsuario()
+        {
+            return nombreUsuario;
+        }
+
+        public string getcontraseñaUsuario()
+        {
+            return contrasenaUsuario;
         }
     }
 }

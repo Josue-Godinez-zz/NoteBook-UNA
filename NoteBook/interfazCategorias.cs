@@ -16,5 +16,10 @@ namespace NoteBook
         {
             InitializeComponent();
         }
+
+        private void interfazCategorias_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

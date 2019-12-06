@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NoteBook
 {
-    public partial class Form1 : Form
+    public partial class fPrincipal : Form
     {
-        public Form1()
+        public fPrincipal()
         {
             InitializeComponent();
         }
@@ -24,12 +24,15 @@ namespace NoteBook
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            fPrincipal auxiliar = new fPrincipal();
+            interfazCategorias aux = new interfazCategorias();
+            aux.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnRegistro_Click(object sender, EventArgs e)
         {
-
+            interfazRegistro emergente = new interfazRegistro();
+            emergente.Show();
         }
     }
 }

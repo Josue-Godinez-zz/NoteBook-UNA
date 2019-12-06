@@ -60,6 +60,12 @@
     <Compile Include="interfazCategorias.Designer.cs">
       <DependentUpon>interfazCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="interfazRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfazRegistro.Designer.cs">
+      <DependentUpon>interfazRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="interfazCategorias.resx">
       <DependentUpon>interfazCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfazRegistro.resx">
+      <DependentUpon>interfazRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -42,5 +42,7 @@ namespace NoteBook
         {
             return colorCategoria;
         }
+
+
     }
 }

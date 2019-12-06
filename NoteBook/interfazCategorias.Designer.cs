@@ -48,6 +48,7 @@
             this.Controls.Add(this.label1);
             this.Name = "interfazCategorias";
             this.Text = "interfazCategorias";
+            this.Load += new System.EventHandler(this.interfazCategorias_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
