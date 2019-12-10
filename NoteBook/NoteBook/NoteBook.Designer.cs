@@ -1,0 +1,170 @@
+﻿namespace NoteBook
+{
+    partial class NoteBookForm
+    {
+        /// <summary>
+        /// Variable del diseñador necesaria.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Limpiar los recursos que se estén usando.
+        /// </summary>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Código generado por el Diseñador de Windows Forms
+
+        /// <summary>
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
+            this.vistaSuperiorPanel = new System.Windows.Forms.Panel();
+            this.vistaLateralPanel = new System.Windows.Forms.Panel();
+            this.signUpButton = new System.Windows.Forms.Button();
+            this.logInButton = new System.Windows.Forms.Button();
+            this.createBookButton = new System.Windows.Forms.Button();
+            this.sortCategoriesButton = new System.Windows.Forms.Button();
+            this.logActivitiesButton = new System.Windows.Forms.Button();
+            this.libraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.vistaSuperiorPanel.SuspendLayout();
+            this.vistaLateralPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // vistaSuperiorPanel
+            // 
+            this.vistaSuperiorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.vistaSuperiorPanel.Controls.Add(this.logInButton);
+            this.vistaSuperiorPanel.Controls.Add(this.signUpButton);
+            this.vistaSuperiorPanel.Location = new System.Drawing.Point(0, 1);
+            this.vistaSuperiorPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.vistaSuperiorPanel.Name = "vistaSuperiorPanel";
+            this.vistaSuperiorPanel.Size = new System.Drawing.Size(799, 100);
+            this.vistaSuperiorPanel.TabIndex = 0;
+            // 
+            // vistaLateralPanel
+            // 
+            this.vistaLateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.vistaLateralPanel.Controls.Add(this.logActivitiesButton);
+            this.vistaLateralPanel.Controls.Add(this.sortCategoriesButton);
+            this.vistaLateralPanel.Controls.Add(this.createBookButton);
+            this.vistaLateralPanel.Location = new System.Drawing.Point(0, 100);
+            this.vistaLateralPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.vistaLateralPanel.Name = "vistaLateralPanel";
+            this.vistaLateralPanel.Size = new System.Drawing.Size(152, 349);
+            this.vistaLateralPanel.TabIndex = 1;
+            // 
+            // signUpButton
+            // 
+            this.signUpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signUpButton.BackgroundImage")));
+            this.signUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.signUpButton.Location = new System.Drawing.Point(249, 20);
+            this.signUpButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.signUpButton.Name = "signUpButton";
+            this.signUpButton.Size = new System.Drawing.Size(50, 50);
+            this.signUpButton.TabIndex = 0;
+            this.signUpButton.UseVisualStyleBackColor = true;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
+            // 
+            // logInButton
+            // 
+            this.logInButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logInButton.BackgroundImage")));
+            this.logInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logInButton.Location = new System.Drawing.Point(471, 20);
+            this.logInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logInButton.Name = "logInButton";
+            this.logInButton.Size = new System.Drawing.Size(50, 50);
+            this.logInButton.TabIndex = 1;
+            this.logInButton.UseVisualStyleBackColor = true;
+            // 
+            // createBookButton
+            // 
+            this.createBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("createBookButton.BackgroundImage")));
+            this.createBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.createBookButton.Location = new System.Drawing.Point(47, 35);
+            this.createBookButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.createBookButton.Name = "createBookButton";
+            this.createBookButton.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.createBookButton.Size = new System.Drawing.Size(50, 50);
+            this.createBookButton.TabIndex = 0;
+            this.createBookButton.UseVisualStyleBackColor = true;
+            // 
+            // sortCategoriesButton
+            // 
+            this.sortCategoriesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sortCategoriesButton.BackgroundImage")));
+            this.sortCategoriesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.sortCategoriesButton.Location = new System.Drawing.Point(47, 135);
+            this.sortCategoriesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.sortCategoriesButton.Name = "sortCategoriesButton";
+            this.sortCategoriesButton.Size = new System.Drawing.Size(50, 50);
+            this.sortCategoriesButton.TabIndex = 1;
+            this.sortCategoriesButton.UseVisualStyleBackColor = true;
+            // 
+            // logActivitiesButton
+            // 
+            this.logActivitiesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logActivitiesButton.BackgroundImage")));
+            this.logActivitiesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logActivitiesButton.Location = new System.Drawing.Point(47, 235);
+            this.logActivitiesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logActivitiesButton.Name = "logActivitiesButton";
+            this.logActivitiesButton.Size = new System.Drawing.Size(50, 50);
+            this.logActivitiesButton.TabIndex = 2;
+            this.logActivitiesButton.UseVisualStyleBackColor = true;
+            // 
+            // libraryTableLayoutPanel
+            // 
+            this.libraryTableLayoutPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.libraryTableLayoutPanel.ColumnCount = 2;
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.libraryTableLayoutPanel.Location = new System.Drawing.Point(169, 119);
+            this.libraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.libraryTableLayoutPanel.Name = "libraryTableLayoutPanel";
+            this.libraryTableLayoutPanel.RowCount = 2;
+            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.libraryTableLayoutPanel.Size = new System.Drawing.Size(619, 320);
+            this.libraryTableLayoutPanel.TabIndex = 2;
+            // 
+            // NoteBookForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.libraryTableLayoutPanel);
+            this.Controls.Add(this.vistaLateralPanel);
+            this.Controls.Add(this.vistaSuperiorPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "NoteBookForm";
+            this.Text = "NoteBook";
+            this.vistaSuperiorPanel.ResumeLayout(false);
+            this.vistaLateralPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel vistaSuperiorPanel;
+        private System.Windows.Forms.Panel vistaLateralPanel;
+        private System.Windows.Forms.Button logInButton;
+        private System.Windows.Forms.Button signUpButton;
+        private System.Windows.Forms.Button logActivitiesButton;
+        private System.Windows.Forms.Button sortCategoriesButton;
+        private System.Windows.Forms.Button createBookButton;
+        private System.Windows.Forms.TableLayoutPanel libraryTableLayoutPanel;
+    }
+}
+

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NoteBook
+namespace UNA.NoteBook
 {
-    public class Usuario
+    public class User
     {
-        public int NombreUsuario
+        public string NameUser
         {
             get;
             set;
         }
 
-        public int ContraseñaUsuario
+        public string PasswordUser
         {
             get;
             set;
