@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
             this.vistaSuperiorPanel = new System.Windows.Forms.Panel();
-            this.vistaLateralPanel = new System.Windows.Forms.Panel();
-            this.signUpButton = new System.Windows.Forms.Button();
             this.logInButton = new System.Windows.Forms.Button();
-            this.createBookButton = new System.Windows.Forms.Button();
-            this.sortCategoriesButton = new System.Windows.Forms.Button();
+            this.signUpButton = new System.Windows.Forms.Button();
+            this.vistaLateralPanel = new System.Windows.Forms.Panel();
             this.logActivitiesButton = new System.Windows.Forms.Button();
+            this.sortCategoriesButton = new System.Windows.Forms.Button();
+            this.createBookButton = new System.Windows.Forms.Button();
             this.libraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.signOutButton = new System.Windows.Forms.Button();
             this.vistaSuperiorPanel.SuspendLayout();
             this.vistaLateralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +53,34 @@
             this.vistaSuperiorPanel.Size = new System.Drawing.Size(799, 100);
             this.vistaSuperiorPanel.TabIndex = 0;
             // 
+            // logInButton
+            // 
+            this.logInButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logInButton.BackgroundImage")));
+            this.logInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logInButton.Location = new System.Drawing.Point(484, 20);
+            this.logInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logInButton.Name = "logInButton";
+            this.logInButton.Size = new System.Drawing.Size(50, 50);
+            this.logInButton.TabIndex = 1;
+            this.logInButton.UseVisualStyleBackColor = true;
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
+            // 
+            // signUpButton
+            // 
+            this.signUpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signUpButton.BackgroundImage")));
+            this.signUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.signUpButton.Location = new System.Drawing.Point(275, 20);
+            this.signUpButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.signUpButton.Name = "signUpButton";
+            this.signUpButton.Size = new System.Drawing.Size(50, 50);
+            this.signUpButton.TabIndex = 0;
+            this.signUpButton.UseVisualStyleBackColor = true;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
+            // 
             // vistaLateralPanel
             // 
-            this.vistaLateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.vistaLateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.vistaLateralPanel.Controls.Add(this.signOutButton);
             this.vistaLateralPanel.Controls.Add(this.logActivitiesButton);
             this.vistaLateralPanel.Controls.Add(this.sortCategoriesButton);
             this.vistaLateralPanel.Controls.Add(this.createBookButton);
@@ -64,62 +90,39 @@
             this.vistaLateralPanel.Size = new System.Drawing.Size(152, 349);
             this.vistaLateralPanel.TabIndex = 1;
             // 
-            // signUpButton
+            // logActivitiesButton
             // 
-            this.signUpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signUpButton.BackgroundImage")));
-            this.signUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.signUpButton.Location = new System.Drawing.Point(249, 20);
-            this.signUpButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(50, 50);
-            this.signUpButton.TabIndex = 0;
-            this.signUpButton.UseVisualStyleBackColor = true;
-            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
-            // 
-            // logInButton
-            // 
-            this.logInButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logInButton.BackgroundImage")));
-            this.logInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logInButton.Location = new System.Drawing.Point(471, 20);
-            this.logInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(50, 50);
-            this.logInButton.TabIndex = 1;
-            this.logInButton.UseVisualStyleBackColor = true;
-            // 
-            // createBookButton
-            // 
-            this.createBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("createBookButton.BackgroundImage")));
-            this.createBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.createBookButton.Location = new System.Drawing.Point(47, 35);
-            this.createBookButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.createBookButton.Name = "createBookButton";
-            this.createBookButton.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.createBookButton.Size = new System.Drawing.Size(50, 50);
-            this.createBookButton.TabIndex = 0;
-            this.createBookButton.UseVisualStyleBackColor = true;
+            this.logActivitiesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logActivitiesButton.BackgroundImage")));
+            this.logActivitiesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logActivitiesButton.Location = new System.Drawing.Point(47, 192);
+            this.logActivitiesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logActivitiesButton.Name = "logActivitiesButton";
+            this.logActivitiesButton.Size = new System.Drawing.Size(50, 50);
+            this.logActivitiesButton.TabIndex = 2;
+            this.logActivitiesButton.UseVisualStyleBackColor = true;
             // 
             // sortCategoriesButton
             // 
             this.sortCategoriesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sortCategoriesButton.BackgroundImage")));
             this.sortCategoriesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.sortCategoriesButton.Location = new System.Drawing.Point(47, 135);
+            this.sortCategoriesButton.Location = new System.Drawing.Point(47, 104);
             this.sortCategoriesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sortCategoriesButton.Name = "sortCategoriesButton";
             this.sortCategoriesButton.Size = new System.Drawing.Size(50, 50);
             this.sortCategoriesButton.TabIndex = 1;
             this.sortCategoriesButton.UseVisualStyleBackColor = true;
             // 
-            // logActivitiesButton
+            // createBookButton
             // 
-            this.logActivitiesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logActivitiesButton.BackgroundImage")));
-            this.logActivitiesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.logActivitiesButton.Location = new System.Drawing.Point(47, 235);
-            this.logActivitiesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.logActivitiesButton.Name = "logActivitiesButton";
-            this.logActivitiesButton.Size = new System.Drawing.Size(50, 50);
-            this.logActivitiesButton.TabIndex = 2;
-            this.logActivitiesButton.UseVisualStyleBackColor = true;
+            this.createBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("createBookButton.BackgroundImage")));
+            this.createBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.createBookButton.Location = new System.Drawing.Point(47, 19);
+            this.createBookButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.createBookButton.Name = "createBookButton";
+            this.createBookButton.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.createBookButton.Size = new System.Drawing.Size(50, 50);
+            this.createBookButton.TabIndex = 0;
+            this.createBookButton.UseVisualStyleBackColor = true;
             // 
             // libraryTableLayoutPanel
             // 
@@ -135,6 +138,18 @@
             this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.libraryTableLayoutPanel.Size = new System.Drawing.Size(619, 320);
             this.libraryTableLayoutPanel.TabIndex = 2;
+            // 
+            // signOutButton
+            // 
+            this.signOutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signOutButton.BackgroundImage")));
+            this.signOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.signOutButton.Enabled = false;
+            this.signOutButton.Location = new System.Drawing.Point(47, 280);
+            this.signOutButton.Name = "signOutButton";
+            this.signOutButton.Size = new System.Drawing.Size(50, 50);
+            this.signOutButton.TabIndex = 3;
+            this.signOutButton.UseVisualStyleBackColor = true;
+            this.signOutButton.Click += new System.EventHandler(this.signOutButton_Click);
             // 
             // NoteBookForm
             // 
@@ -165,6 +180,7 @@
         private System.Windows.Forms.Button sortCategoriesButton;
         private System.Windows.Forms.Button createBookButton;
         private System.Windows.Forms.TableLayoutPanel libraryTableLayoutPanel;
+        private System.Windows.Forms.Button signOutButton;
     }
 }
 

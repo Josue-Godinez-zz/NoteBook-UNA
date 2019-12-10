@@ -14,7 +14,8 @@ namespace NoteBook
     public partial class NoteBookForm : Form
     {
         List<User> users= new List<User>();
-
+        bool login = false;
+        User actualSesion = null;
         public NoteBookForm()
         {
             InitializeComponent();
@@ -28,11 +29,49 @@ namespace NoteBook
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            NoteBookRegister noteBookRegister = new NoteBookRegister(users);
+            NoteBookRegisterForm noteBookRegister = new NoteBookRegisterForm(users);
             if(noteBookRegister.ShowDialog() == DialogResult.OK)
             {
                 users.Add(noteBookRegister.NewUser);
+                MessageBox.Show("Usuario Creado Exitosamente","Felicidades");
+                login = true;
+                signOutButton.Enabled = true;
             }
+        }
+
+        private void logInButton_Click(object sender, EventArgs e)
+        {
+            if(users.Count != 0 && login == false)
+            {
+                NoteBookSignInForm noteBookSignInForm = new NoteBookSignInForm(users);
+                if (noteBookSignInForm.ShowDialog() == DialogResult.OK)
+                {
+                    login = true;
+                    actualSesion = noteBookSignInForm.User;
+                    MessageBox.Show("'"+actualSesion.NameUser+"' A Iniciado Sesion" , "Inicio de Sesion");
+                    signOutButton.Enabled = true;
+                }
+            }
+            else if(users.Count == 0)
+            {
+                MessageBox.Show("No Hay Usuarios Registrados", "Error");
+            }
+            else if(login == true)
+            {
+                NotebookProfileForm notebookProfileForm = new NotebookProfileForm();
+                {
+                    if(notebookProfileForm.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                }
+            }
+        }
+
+        private void signOutButton_Click(object sender, EventArgs e)
+        {
+            login = false;
+            signOutButton.Enabled = false;
         }
     }
 }

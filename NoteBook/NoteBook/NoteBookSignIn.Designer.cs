@@ -1,6 +1,6 @@
 ﻿namespace NoteBook
 {
-    partial class NoteBookRegisterForm
+    partial class NoteBookSignInForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,82 +29,42 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookRegisterForm));
-            this.iconRegisterPictureBox = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookSignInForm));
             this.panelSuperior = new System.Windows.Forms.Panel();
-            this.nameUserLabel = new System.Windows.Forms.Label();
-            this.nameUserTextBox = new System.Windows.Forms.TextBox();
-            this.passwordUserLabel = new System.Windows.Forms.Label();
-            this.passwordUserTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelInferior = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.confirmationButton = new System.Windows.Forms.Button();
-            this.confirmationPasswordLabel = new System.Windows.Forms.Label();
-            this.confirmationPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.nameUserLabel = new System.Windows.Forms.Label();
+            this.passwordUserLabel = new System.Windows.Forms.Label();
+            this.nameUserTextBox = new System.Windows.Forms.TextBox();
+            this.passwordUserTextBox = new System.Windows.Forms.TextBox();
             this.verificationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.iconRegisterPictureBox)).BeginInit();
             this.panelSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.verificationErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // iconRegisterPictureBox
-            // 
-            this.iconRegisterPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("iconRegisterPictureBox.Image")));
-            this.iconRegisterPictureBox.Location = new System.Drawing.Point(113, 12);
-            this.iconRegisterPictureBox.Name = "iconRegisterPictureBox";
-            this.iconRegisterPictureBox.Size = new System.Drawing.Size(65, 65);
-            this.iconRegisterPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconRegisterPictureBox.TabIndex = 0;
-            this.iconRegisterPictureBox.TabStop = false;
-            // 
             // panelSuperior
             // 
             this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panelSuperior.Controls.Add(this.iconRegisterPictureBox);
+            this.panelSuperior.Controls.Add(this.pictureBox1);
             this.panelSuperior.Location = new System.Drawing.Point(0, 0);
             this.panelSuperior.Name = "panelSuperior";
             this.panelSuperior.Size = new System.Drawing.Size(295, 90);
-            this.panelSuperior.TabIndex = 1;
+            this.panelSuperior.TabIndex = 2;
             // 
-            // nameUserLabel
+            // pictureBox1
             // 
-            this.nameUserLabel.AutoSize = true;
-            this.nameUserLabel.Location = new System.Drawing.Point(105, 105);
-            this.nameUserLabel.Name = "nameUserLabel";
-            this.nameUserLabel.Size = new System.Drawing.Size(106, 13);
-            this.nameUserLabel.TabIndex = 2;
-            this.nameUserLabel.Text = "Nombre De Usuaraio";
-            this.nameUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // nameUserTextBox
-            // 
-            this.nameUserTextBox.Location = new System.Drawing.Point(84, 121);
-            this.nameUserTextBox.MaxLength = 15;
-            this.nameUserTextBox.Name = "nameUserTextBox";
-            this.nameUserTextBox.Size = new System.Drawing.Size(138, 20);
-            this.nameUserTextBox.TabIndex = 3;
-            this.nameUserTextBox.Leave += new System.EventHandler(this.nameUserTextBox_Leave);
-            // 
-            // passwordUserLabel
-            // 
-            this.passwordUserLabel.AutoSize = true;
-            this.passwordUserLabel.Location = new System.Drawing.Point(94, 171);
-            this.passwordUserLabel.Name = "passwordUserLabel";
-            this.passwordUserLabel.Size = new System.Drawing.Size(117, 13);
-            this.passwordUserLabel.TabIndex = 4;
-            this.passwordUserLabel.Text = "Contraseña De Usuario";
-            // 
-            // passwordUserTextBox
-            // 
-            this.passwordUserTextBox.Location = new System.Drawing.Point(84, 187);
-            this.passwordUserTextBox.MaxLength = 10;
-            this.passwordUserTextBox.Name = "passwordUserTextBox";
-            this.passwordUserTextBox.PasswordChar = '*';
-            this.passwordUserTextBox.Size = new System.Drawing.Size(138, 20);
-            this.passwordUserTextBox.TabIndex = 5;
-            this.passwordUserTextBox.Leave += new System.EventHandler(this.passwordUserTextBox_Leave);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(113, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelInferior
             // 
@@ -114,7 +74,7 @@
             this.panelInferior.Location = new System.Drawing.Point(0, 335);
             this.panelInferior.Name = "panelInferior";
             this.panelInferior.Size = new System.Drawing.Size(295, 77);
-            this.panelInferior.TabIndex = 2;
+            this.panelInferior.TabIndex = 3;
             // 
             // cancelButton
             // 
@@ -138,24 +98,41 @@
             this.confirmationButton.UseVisualStyleBackColor = true;
             this.confirmationButton.Click += new System.EventHandler(this.confirmationButton_Click);
             // 
-            // confirmationPasswordLabel
+            // nameUserLabel
             // 
-            this.confirmationPasswordLabel.AutoSize = true;
-            this.confirmationPasswordLabel.Location = new System.Drawing.Point(103, 243);
-            this.confirmationPasswordLabel.Name = "confirmationPasswordLabel";
-            this.confirmationPasswordLabel.Size = new System.Drawing.Size(108, 13);
-            this.confirmationPasswordLabel.TabIndex = 6;
-            this.confirmationPasswordLabel.Text = "Confirmar Contraseña";
+            this.nameUserLabel.AutoSize = true;
+            this.nameUserLabel.Location = new System.Drawing.Point(128, 124);
+            this.nameUserLabel.Name = "nameUserLabel";
+            this.nameUserLabel.Size = new System.Drawing.Size(43, 13);
+            this.nameUserLabel.TabIndex = 4;
+            this.nameUserLabel.Text = "Usuario";
+            this.nameUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // confirmationPasswordTextBox
+            // passwordUserLabel
             // 
-            this.confirmationPasswordTextBox.Location = new System.Drawing.Point(84, 259);
-            this.confirmationPasswordTextBox.MaxLength = 10;
-            this.confirmationPasswordTextBox.Name = "confirmationPasswordTextBox";
-            this.confirmationPasswordTextBox.PasswordChar = '*';
-            this.confirmationPasswordTextBox.Size = new System.Drawing.Size(138, 20);
-            this.confirmationPasswordTextBox.TabIndex = 7;
-            this.confirmationPasswordTextBox.Leave += new System.EventHandler(this.confirmationPasswordTextBox_Leave);
+            this.passwordUserLabel.AutoSize = true;
+            this.passwordUserLabel.Location = new System.Drawing.Point(117, 209);
+            this.passwordUserLabel.Name = "passwordUserLabel";
+            this.passwordUserLabel.Size = new System.Drawing.Size(61, 13);
+            this.passwordUserLabel.TabIndex = 5;
+            this.passwordUserLabel.Text = "Contraseña";
+            // 
+            // nameUserTextBox
+            // 
+            this.nameUserTextBox.Location = new System.Drawing.Point(88, 140);
+            this.nameUserTextBox.Name = "nameUserTextBox";
+            this.nameUserTextBox.Size = new System.Drawing.Size(131, 20);
+            this.nameUserTextBox.TabIndex = 6;
+            this.nameUserTextBox.Leave += new System.EventHandler(this.nameUserTextBox_Leave);
+            // 
+            // passwordUserTextBox
+            // 
+            this.passwordUserTextBox.Location = new System.Drawing.Point(88, 225);
+            this.passwordUserTextBox.Name = "passwordUserTextBox";
+            this.passwordUserTextBox.PasswordChar = '*';
+            this.passwordUserTextBox.Size = new System.Drawing.Size(131, 20);
+            this.passwordUserTextBox.TabIndex = 7;
+            this.passwordUserTextBox.Leave += new System.EventHandler(this.passwordUserTextBox_Leave);
             // 
             // verificationErrorProvider
             // 
@@ -166,12 +143,12 @@
             // 
             this.errorLabel.AutoSize = true;
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(92, 295);
+            this.errorLabel.Location = new System.Drawing.Point(110, 288);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 8;
             // 
-            // NoteBookRegisterForm
+            // NoteBookSignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,23 +156,19 @@
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
             this.Controls.Add(this.errorLabel);
-            this.Controls.Add(this.confirmationPasswordTextBox);
-            this.Controls.Add(this.confirmationPasswordLabel);
-            this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.passwordUserTextBox);
-            this.Controls.Add(this.passwordUserLabel);
             this.Controls.Add(this.nameUserTextBox);
+            this.Controls.Add(this.passwordUserLabel);
             this.Controls.Add(this.nameUserLabel);
+            this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.panelSuperior);
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "NoteBookRegisterForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteBook-Registro";
-            ((System.ComponentModel.ISupportInitialize)(this.iconRegisterPictureBox)).EndInit();
+            this.Name = "NoteBookSignInForm";
+            this.Text = "NoteBook - SignIn";
             this.panelSuperior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInferior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.verificationErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -205,17 +178,15 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox iconRegisterPictureBox;
         private System.Windows.Forms.Panel panelSuperior;
-        private System.Windows.Forms.Label nameUserLabel;
-        private System.Windows.Forms.TextBox nameUserTextBox;
-        private System.Windows.Forms.Label passwordUserLabel;
-        private System.Windows.Forms.TextBox passwordUserTextBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button confirmationButton;
-        private System.Windows.Forms.Label confirmationPasswordLabel;
-        private System.Windows.Forms.TextBox confirmationPasswordTextBox;
+        private System.Windows.Forms.Label nameUserLabel;
+        private System.Windows.Forms.Label passwordUserLabel;
+        private System.Windows.Forms.TextBox nameUserTextBox;
+        private System.Windows.Forms.TextBox passwordUserTextBox;
         private System.Windows.Forms.ErrorProvider verificationErrorProvider;
         private System.Windows.Forms.Label errorLabel;
     }

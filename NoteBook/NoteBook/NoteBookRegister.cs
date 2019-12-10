@@ -11,19 +11,18 @@ using UNA.NoteBook;
 
 namespace NoteBook
 {
-    public partial class NoteBookRegister : Form
+    public partial class NoteBookRegisterForm : Form
     {
         private List<String> users;
-        private List<User> registeredUser;
         bool userPassword = false;
         bool userName = false;
 
-        public NoteBookRegister()
+        public NoteBookRegisterForm()
         {
             InitializeComponent();
             users = new List<string>();
         }
-        public NoteBookRegister(List<User> users)
+        public NoteBookRegisterForm(List<User> users)
         {
             InitializeComponent();
             this.users = new List<string>();
@@ -58,7 +57,13 @@ namespace NoteBook
         }
         private void confirmationPasswordTextBox_Leave(object sender, EventArgs e)
         {
-            if (passwordUserTextBox.Text != confirmationPasswordTextBox.Text)
+            if(confirmationPasswordTextBox.TextLength == 0)
+            {
+                verificationErrorProvider.SetError(confirmationPasswordTextBox, "Campo Requerido");
+                errorLabel.Text = verificationErrorProvider.GetError(confirmationPasswordTextBox);
+                userPassword = false;
+            }
+            else if (passwordUserTextBox.Text != confirmationPasswordTextBox.Text)
             {
                 verificationErrorProvider.SetError(confirmationPasswordTextBox, "Contraseñas Distintas");
                 errorLabel.Text = verificationErrorProvider.GetError(confirmationPasswordTextBox);
@@ -92,7 +97,6 @@ namespace NoteBook
         }
         private void confirmationButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(userPassword + "-" + userName);
             if (nameUserTextBox.TextLength == 0 && passwordUserTextBox.TextLength == 0)
             {
                 verificationErrorProvider.SetError(passwordUserTextBox, "Datos Requeridos");
@@ -122,6 +126,7 @@ namespace NoteBook
             user.PasswordUser = passwordUserTextBox.Text;
             NewUser = user;
             DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         public User NewUser

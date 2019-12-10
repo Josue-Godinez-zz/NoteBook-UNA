@@ -7,4 +7,6 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBoo
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.exe
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookForm.resources
-C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookRegister.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookSignInForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NotebookProfileForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookRegisterForm.resources
