@@ -30,7 +30,7 @@ namespace NoteBook
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if(!editProfile)
+            if(editProfile != true)
             {
                 editProfile = true;
                 nameUserTextBox.Enabled = true;
@@ -38,7 +38,9 @@ namespace NoteBook
             }
             else
             {
-
+                editProfile = false;
+                nameUserTextBox.Enabled = false;
+                passwordUserTextBox.Enabled = false;
             }
         }
 

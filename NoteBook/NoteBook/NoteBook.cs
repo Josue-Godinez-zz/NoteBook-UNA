@@ -14,17 +14,11 @@ namespace NoteBook
     public partial class NoteBookForm : Form
     {
         List<User> users= new List<User>();
-        bool login = false;
+        bool isLogin = false;
         User actualSesion = null;
         public NoteBookForm()
         {
             InitializeComponent();
-        }
-        public NoteBookForm(User user)
-        {
-            InitializeComponent();
-            users.Add(user);
-            MessageBox.Show(Convert.ToString(users.Count));
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
@@ -34,21 +28,23 @@ namespace NoteBook
             {
                 users.Add(noteBookRegister.NewUser);
                 MessageBox.Show("Usuario Creado Exitosamente","Felicidades");
-                login = true;
+                isLogin = true;
+                userSingInLabel.Text = "<" + (string)noteBookRegister.NewUser.NameUser + ">";
                 signOutButton.Enabled = true;
             }
         }
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            if(users.Count != 0 && login == false)
+            if(users.Count != 0 && isLogin == false)
             {
                 NoteBookSignInForm noteBookSignInForm = new NoteBookSignInForm(users);
                 if (noteBookSignInForm.ShowDialog() == DialogResult.OK)
                 {
-                    login = true;
+                    isLogin = true;
                     actualSesion = noteBookSignInForm.User;
                     MessageBox.Show("'"+actualSesion.NameUser+"' A Iniciado Sesion" , "Inicio de Sesion");
+                    userSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                     signOutButton.Enabled = true;
                 }
             }
@@ -56,7 +52,7 @@ namespace NoteBook
             {
                 MessageBox.Show("No Hay Usuarios Registrados", "Error");
             }
-            else if(login == true)
+            else if(isLogin == true)
             {
                 NotebookProfileForm notebookProfileForm = new NotebookProfileForm();
                 {
@@ -67,11 +63,30 @@ namespace NoteBook
                 }
             }
         }
-
         private void signOutButton_Click(object sender, EventArgs e)
         {
-            login = false;
-            signOutButton.Enabled = false;
+            isLogin = false;
+            actualSesion = null;
+            userSingInLabel.Text = "<No Autentificado>";
+             signOutButton.Enabled = false;
+        }
+
+        private void createBookButton_Click(object sender, EventArgs e)
+        {
+            //if(libraryTableLayoutPanel.GetControlFromPosition(0,0) != null)
+            //{
+
+            //}
+            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm();
+            if(noteBookNewBookForm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void timeTimer_Tick(object sender, EventArgs e)
+        {
+            timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
         }
     }
 }
