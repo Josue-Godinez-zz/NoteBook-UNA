@@ -8,7 +8,7 @@ namespace UNA.Notebook
 {
     public class Book
     {
-        public String ColorBook
+        public String ImageBook
         {
             get;
             set;

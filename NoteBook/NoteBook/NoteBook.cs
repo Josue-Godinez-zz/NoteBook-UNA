@@ -14,11 +14,13 @@ namespace NoteBook
     public partial class NoteBookForm : Form
     {
         List<User> users= new List<User>();
+        Dictionary<int, string> directionImages = new Dictionary<int, string>();  
         bool isLogin = false;
         User actualSesion = null;
         public NoteBookForm()
         {
             InitializeComponent();
+            preloadImages();
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace NoteBook
             //{
 
             //}
-            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm();
+            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages);
             if(noteBookNewBookForm.ShowDialog() == DialogResult.OK)
             {
 
@@ -87,6 +89,16 @@ namespace NoteBook
         private void timeTimer_Tick(object sender, EventArgs e)
         {
             timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
+        }
+
+        private void preloadImages()
+        {
+            directionImages.Add(0, @"Resource\Deportes.png");
+            directionImages.Add(1, @"Resource\Peliculas.png");
+            directionImages.Add(2, @"Resource\Juegos.png");
+            directionImages.Add(3, @"Resource\Musica.png");
+            directionImages.Add(4, @"Resource\Libros.png");
+            directionImages.Add(5, @"Resource\Artes.png");
         }
     }
 }

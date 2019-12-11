@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookNewBookForm));
             this.panelSuperior = new System.Windows.Forms.Panel();
             this.avatarPictureBox = new System.Windows.Forms.PictureBox();
@@ -39,10 +40,15 @@
             this.nameBookTextBox = new System.Windows.Forms.TextBox();
             this.categoriesComboBox = new System.Windows.Forms.ComboBox();
             this.iconPictureBox = new System.Windows.Forms.PictureBox();
+            this.nameCategoriaTextBox = new System.Windows.Forms.TextBox();
+            this.newImageCategorieButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.avisoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
             this.panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisoErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSuperior
@@ -94,6 +100,7 @@
             this.confirmationButton.Size = new System.Drawing.Size(50, 50);
             this.confirmationButton.TabIndex = 0;
             this.confirmationButton.UseVisualStyleBackColor = true;
+            this.confirmationButton.Click += new System.EventHandler(this.confirmationButton_Click);
             // 
             // nameBookLabel
             // 
@@ -120,6 +127,7 @@
             this.nameBookTextBox.Name = "nameBookTextBox";
             this.nameBookTextBox.Size = new System.Drawing.Size(126, 20);
             this.nameBookTextBox.TabIndex = 8;
+            this.nameBookTextBox.Leave += new System.EventHandler(this.nameBookTextBox_Leave);
             // 
             // categoriesComboBox
             // 
@@ -137,7 +145,8 @@
             "Juegos",
             "Musica",
             "Libros",
-            "Artes"});
+            "Artes",
+            "<Nuevo>"});
             this.categoriesComboBox.Location = new System.Drawing.Point(132, 159);
             this.categoriesComboBox.MaxDropDownItems = 4;
             this.categoriesComboBox.Name = "categoriesComboBox";
@@ -147,11 +156,49 @@
             // 
             // iconPictureBox
             // 
+            this.iconPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.iconPictureBox.Location = new System.Drawing.Point(169, 196);
             this.iconPictureBox.Name = "iconPictureBox";
             this.iconPictureBox.Size = new System.Drawing.Size(45, 45);
+            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconPictureBox.TabIndex = 10;
             this.iconPictureBox.TabStop = false;
+            // 
+            // nameCategoriaTextBox
+            // 
+            this.nameCategoriaTextBox.Location = new System.Drawing.Point(16, 208);
+            this.nameCategoriaTextBox.MaxLength = 10;
+            this.nameCategoriaTextBox.Name = "nameCategoriaTextBox";
+            this.nameCategoriaTextBox.Size = new System.Drawing.Size(113, 20);
+            this.nameCategoriaTextBox.TabIndex = 11;
+            this.nameCategoriaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nameCategoriaTextBox.Visible = false;
+            this.nameCategoriaTextBox.Leave += new System.EventHandler(this.nameCategoriaTextBox_Leave);
+            // 
+            // newImageCategorieButton
+            // 
+            this.newImageCategorieButton.Location = new System.Drawing.Point(31, 234);
+            this.newImageCategorieButton.Name = "newImageCategorieButton";
+            this.newImageCategorieButton.Size = new System.Drawing.Size(89, 23);
+            this.newImageCategorieButton.TabIndex = 12;
+            this.newImageCategorieButton.Text = "Nueva Avatar";
+            this.newImageCategorieButton.UseVisualStyleBackColor = true;
+            this.newImageCategorieButton.Visible = false;
+            this.newImageCategorieButton.Click += new System.EventHandler(this.newImageCategorieButton_Click);
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(110, 287);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorLabel.TabIndex = 13;
+            // 
+            // avisoErrorProvider
+            // 
+            this.avisoErrorProvider.BlinkRate = 0;
+            this.avisoErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.avisoErrorProvider.ContainerControl = this;
             // 
             // NoteBookNewBookForm
             // 
@@ -159,6 +206,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.newImageCategorieButton);
+            this.Controls.Add(this.nameCategoriaTextBox);
             this.Controls.Add(this.iconPictureBox);
             this.Controls.Add(this.categoriesComboBox);
             this.Controls.Add(this.nameBookTextBox);
@@ -175,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
             this.panelInferior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avisoErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +243,9 @@
         private System.Windows.Forms.TextBox nameBookTextBox;
         private System.Windows.Forms.ComboBox categoriesComboBox;
         private System.Windows.Forms.PictureBox iconPictureBox;
+        private System.Windows.Forms.TextBox nameCategoriaTextBox;
+        private System.Windows.Forms.Button newImageCategorieButton;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.ErrorProvider avisoErrorProvider;
     }
 }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
             this.vistaSuperiorPanel = new System.Windows.Forms.Panel();
+            this.userSingInLabel = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.logInButton = new System.Windows.Forms.Button();
             this.signUpButton = new System.Windows.Forms.Button();
             this.vistaLateralPanel = new System.Windows.Forms.Panel();
@@ -39,11 +41,9 @@
             this.sortCategoriesButton = new System.Windows.Forms.Button();
             this.createBookButton = new System.Windows.Forms.Button();
             this.libraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.informationToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.timeLabel = new System.Windows.Forms.Label();
             this.timeTimer = new System.Windows.Forms.Timer(this.components);
-            this.userSingInLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.vistaSuperiorPanel.SuspendLayout();
             this.vistaLateralPanel.SuspendLayout();
             this.libraryTableLayoutPanel.SuspendLayout();
@@ -62,6 +62,23 @@
             this.vistaSuperiorPanel.Name = "vistaSuperiorPanel";
             this.vistaSuperiorPanel.Size = new System.Drawing.Size(816, 110);
             this.vistaSuperiorPanel.TabIndex = 0;
+            // 
+            // userSingInLabel
+            // 
+            this.userSingInLabel.AutoSize = true;
+            this.userSingInLabel.Location = new System.Drawing.Point(13, 21);
+            this.userSingInLabel.Name = "userSingInLabel";
+            this.userSingInLabel.Size = new System.Drawing.Size(98, 13);
+            this.userSingInLabel.TabIndex = 3;
+            this.userSingInLabel.Text = "<No Autentificado>";
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(13, 4);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.TabIndex = 2;
             // 
             // logInButton
             // 
@@ -168,6 +185,17 @@
             this.libraryTableLayoutPanel.Size = new System.Drawing.Size(619, 367);
             this.libraryTableLayoutPanel.TabIndex = 2;
             // 
+            // informationToolTip
+            // 
+            this.informationToolTip.IsBalloon = true;
+            this.informationToolTip.OwnerDraw = true;
+            this.informationToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // timeTimer
+            // 
+            this.timeTimer.Enabled = true;
+            this.timeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -179,34 +207,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // informationToolTip
-            // 
-            this.informationToolTip.IsBalloon = true;
-            this.informationToolTip.OwnerDraw = true;
-            this.informationToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(13, 4);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(0, 13);
-            this.timeLabel.TabIndex = 2;
-            // 
-            // timeTimer
-            // 
-            this.timeTimer.Enabled = true;
-            this.timeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
-            // 
-            // userSingInLabel
-            // 
-            this.userSingInLabel.AutoSize = true;
-            this.userSingInLabel.Location = new System.Drawing.Point(13, 21);
-            this.userSingInLabel.Name = "userSingInLabel";
-            this.userSingInLabel.Size = new System.Drawing.Size(98, 13);
-            this.userSingInLabel.TabIndex = 3;
-            this.userSingInLabel.Text = "<No Autentificado>";
             // 
             // NoteBookForm
             // 
@@ -243,11 +243,11 @@
         private System.Windows.Forms.Button createBookButton;
         private System.Windows.Forms.TableLayoutPanel libraryTableLayoutPanel;
         private System.Windows.Forms.Button signOutButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip informationToolTip;
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Timer timeTimer;
         private System.Windows.Forms.Label userSingInLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
