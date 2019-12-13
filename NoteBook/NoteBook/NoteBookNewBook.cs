@@ -64,7 +64,15 @@ namespace NoteBook
             }
             Book newBook = new Book();
             newBook.NameBook = nameBookTextBox.Text;
-            newBook.CategorieBook = (string)categoriesComboBox.SelectedItem;
+            if(categoriesComboBox.SelectedIndex == categoriesComboBox.Items.Count - 1)
+            {
+                newBook.CategorieBook = nameCategoriaTextBox.Text;
+            }
+            else
+            {
+                newBook.CategorieBook = (string)categoriesComboBox.SelectedItem;
+            }
+            
             if(categoriesComboBox.SelectedIndex < 6)
             {
                 newBook.ImageBook = DirectionImages[categoriesComboBox.SelectedIndex];
@@ -73,22 +81,13 @@ namespace NoteBook
             {
                 newBook.ImageBook = iconPictureBox.ImageLocation;
             }
+            NewBook = newBook;
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void nameBookTextBox_Leave(object sender, EventArgs e)
         {
-            //if(nameBookTextBox.TextLength==0)
-            //{
-
-            //}
-            //else if()
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
         }
         private void cancelButton_Click(object sender, EventArgs e)
         {

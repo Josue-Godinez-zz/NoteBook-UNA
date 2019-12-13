@@ -60,7 +60,6 @@ namespace NoteBook
                 {
                     if(notebookProfileForm.ShowDialog() == DialogResult.OK)
                     {
-
                     }
                 }
             }
@@ -82,7 +81,18 @@ namespace NoteBook
             NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages);
             if(noteBookNewBookForm.ShowDialog() == DialogResult.OK)
             {
-
+                PictureBox pictureBox = new PictureBox();
+                Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
+                pictureBox.ImageLocation = noteBookNewBookForm.NewBook.ImageBook;
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Width = 45;
+                pictureBox.Height = 45;
+                pictureBox.Anchor = AnchorStyles.None;
+                ToolTip toolTip = new ToolTip();
+                toolTip.ToolTipTitle = noteBookNewBookForm.NewBook.NameBook;
+                toolTip.SetToolTip(pictureBox, "Categoria: " + noteBookNewBookForm.NewBook.CategorieBook);
+                toolTip.IsBalloon = true;
+                libraryTableLayoutPanel.Controls.Add(pictureBox);
             }
         }
 
