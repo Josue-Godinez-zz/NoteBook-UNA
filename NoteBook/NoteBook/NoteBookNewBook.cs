@@ -14,13 +14,15 @@ namespace NoteBook
 {
     public partial class NoteBookNewBookForm : Form
     {
+        List<Book> books;
         public NoteBookNewBookForm()
         {
             InitializeComponent();
         }
-        public NoteBookNewBookForm(Dictionary<int, string> direcctionImages)
+        public NoteBookNewBookForm(Dictionary<int, string> direcctionImages, List<Book> books)
         {
             InitializeComponent();
+            this.books = books;
             DirectionImages = direcctionImages;
         }
         private void categoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,12 +90,37 @@ namespace NoteBook
 
         private void nameBookTextBox_Leave(object sender, EventArgs e)
         {
+            if(nameBookTextBox.TextLength != 0 && validationUniqueNameUser(nameBookTextBox.Text))
+            {
+                avisoErrorProvider.SetError(nameBookTextBox, "");
+            }
+            else if(nameBookTextBox.TextLength == 0)
+            {
+                avisoErrorProvider.SetError(nameBookTextBox, "Dato Requerido");
+            }
+            else if(!validationUniqueNameUser(nameBookTextBox.Text))
+            {
+                avisoErrorProvider.SetError(nameBookTextBox, "Hay Un Libro ");
+            }
         }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        private void nameCategoriaTextBox_Leave(object sender, EventArgs e)
+        {
+            if (categoriesComboBox.Items.Contains(nameCategoriaTextBox.Text))
+            {
+                avisoErrorProvider.SetError(nameCategoriaTextBox, "Categoria Ya Existe");
+                errorLabel.Text = avisoErrorProvider.GetError(nameCategoriaTextBox);
+            }
+            else
+            {
+                avisoErrorProvider.SetError(nameCategoriaTextBox, "");
+                errorLabel.Text = avisoErrorProvider.GetError(nameCategoriaTextBox);
+            }
+        }
         public Dictionary<int, string> DirectionImages
         {
             get;
@@ -105,18 +132,10 @@ namespace NoteBook
             set;
         }
 
-        private void nameCategoriaTextBox_Leave(object sender, EventArgs e)
+        public bool validationUniqueNameUser(string name)
         {
-            if(categoriesComboBox.Items.Contains(nameCategoriaTextBox.Text))
-            {
-                avisoErrorProvider.SetError(nameCategoriaTextBox,"Categoria Ya Existe");
-                errorLabel.Text = avisoErrorProvider.GetError(nameCategoriaTextBox);
-            }
-            else
-            {
-                avisoErrorProvider.SetError(nameCategoriaTextBox, "");
-                errorLabel.Text = avisoErrorProvider.GetError(nameCategoriaTextBox);
-            }
+            
+            return true;
         }
     }
 }

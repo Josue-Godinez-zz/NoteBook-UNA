@@ -43,11 +43,11 @@
             this.libraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.informationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timeTimer = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MenuContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.elimiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vistaSuperiorPanel.SuspendLayout();
             this.vistaLateralPanel.SuspendLayout();
-            this.libraryTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.MenuContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // vistaSuperiorPanel
@@ -60,7 +60,7 @@
             this.vistaSuperiorPanel.Location = new System.Drawing.Point(0, 1);
             this.vistaSuperiorPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.vistaSuperiorPanel.Name = "vistaSuperiorPanel";
-            this.vistaSuperiorPanel.Size = new System.Drawing.Size(816, 110);
+            this.vistaSuperiorPanel.Size = new System.Drawing.Size(828, 110);
             this.vistaSuperiorPanel.TabIndex = 0;
             // 
             // userSingInLabel
@@ -115,7 +115,7 @@
             this.vistaLateralPanel.Location = new System.Drawing.Point(0, 110);
             this.vistaLateralPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.vistaLateralPanel.Name = "vistaLateralPanel";
-            this.vistaLateralPanel.Size = new System.Drawing.Size(169, 395);
+            this.vistaLateralPanel.Size = new System.Drawing.Size(179, 405);
             this.vistaLateralPanel.TabIndex = 1;
             // 
             // signOutButton
@@ -157,7 +157,7 @@
             this.createBookButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.createBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("createBookButton.BackgroundImage")));
             this.createBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.createBookButton.Location = new System.Drawing.Point(58, 26);
+            this.createBookButton.Location = new System.Drawing.Point(63, 31);
             this.createBookButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.createBookButton.Name = "createBookButton";
             this.createBookButton.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
@@ -168,21 +168,25 @@
             // 
             // libraryTableLayoutPanel
             // 
+            this.libraryTableLayoutPanel.AutoScroll = true;
             this.libraryTableLayoutPanel.BackColor = System.Drawing.Color.DarkGray;
             this.libraryTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.libraryTableLayoutPanel.CausesValidation = false;
             this.libraryTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.libraryTableLayoutPanel.ColumnCount = 2;
-            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.libraryTableLayoutPanel.Controls.Add(this.pictureBox1, 0, 0);
+            this.libraryTableLayoutPanel.ColumnCount = 5;
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.libraryTableLayoutPanel.Location = new System.Drawing.Point(186, 125);
             this.libraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.libraryTableLayoutPanel.Name = "libraryTableLayoutPanel";
-            this.libraryTableLayoutPanel.RowCount = 2;
-            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.libraryTableLayoutPanel.Size = new System.Drawing.Size(619, 367);
+            this.libraryTableLayoutPanel.RowCount = 3;
+            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.libraryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.libraryTableLayoutPanel.Size = new System.Drawing.Size(620, 365);
             this.libraryTableLayoutPanel.TabIndex = 2;
             // 
             // informationToolTip
@@ -196,24 +200,27 @@
             this.timeTimer.Enabled = true;
             this.timeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
             // 
-            // pictureBox1
+            // MenuContextMenuStrip
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(132, 69);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.MenuContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.elimiarToolStripMenuItem});
+            this.MenuContextMenuStrip.Name = "MenuContextMenuStrip";
+            this.MenuContextMenuStrip.ShowCheckMargin = true;
+            this.MenuContextMenuStrip.Size = new System.Drawing.Size(140, 26);
+            // 
+            // elimiarToolStripMenuItem
+            // 
+            this.elimiarToolStripMenuItem.Name = "elimiarToolStripMenuItem";
+            this.elimiarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.elimiarToolStripMenuItem.Text = "&Eliminar";
+            this.elimiarToolStripMenuItem.Click += new System.EventHandler(this.elimiarToolStripMenuItem_Click);
             // 
             // NoteBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(817, 505);
+            this.ClientSize = new System.Drawing.Size(827, 515);
             this.Controls.Add(this.libraryTableLayoutPanel);
             this.Controls.Add(this.vistaLateralPanel);
             this.Controls.Add(this.vistaSuperiorPanel);
@@ -226,8 +233,7 @@
             this.vistaSuperiorPanel.ResumeLayout(false);
             this.vistaSuperiorPanel.PerformLayout();
             this.vistaLateralPanel.ResumeLayout(false);
-            this.libraryTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MenuContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -247,7 +253,8 @@
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Timer timeTimer;
         private System.Windows.Forms.Label userSingInLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ContextMenuStrip MenuContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem elimiarToolStripMenuItem;
     }
 }
 

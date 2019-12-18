@@ -84,6 +84,7 @@
             // 
             this.cancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelButton.BackgroundImage")));
             this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(169, 14);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(50, 50);
@@ -203,8 +204,10 @@
             // 
             // NoteBookNewBookForm
             // 
+            this.AcceptButton = this.confirmationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
             this.Controls.Add(this.errorLabel);
