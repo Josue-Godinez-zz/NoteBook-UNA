@@ -1,22 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="UNA.NoteBook.User">
-    <Position X="2.5" Y="1" Width="1.5" />
+    <Position X="1.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UNA\NoteBook\User.cs</FileName>
       <NewMemberFileName>UNA\Notebook\User.cs</NewMemberFileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Book" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="UNA.Notebook.Book">
-    <Position X="5.25" Y="1" Width="1.5" />
+    <Position X="3.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>UNA\NoteBook\Book.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="User" />
-    </ShowAsAssociation>
+  </Class>
+  <Class Name="UNA.NoteBook.Note">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAFAAgAAAAAAAAIAAAAAAAAAAgAACCAA=</HashCode>
+      <FileName>UNA\NoteBook\Note.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

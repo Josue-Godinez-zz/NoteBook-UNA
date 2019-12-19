@@ -26,10 +26,12 @@ namespace UNA.Notebook
             set;
         }
 
-        public User User
+        public List<UNA.NoteBook.Note> Note
         {
-            get;
-            set;
+            get => default;
+            set
+            {
+            }
         }
     }
 }

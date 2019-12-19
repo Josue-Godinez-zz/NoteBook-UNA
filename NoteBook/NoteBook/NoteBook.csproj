@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UNA\NoteBook\Note.cs" />
     <Compile Include="NoteBookNewBook.cs">
       <SubType>Form</SubType>
     </Compile>
