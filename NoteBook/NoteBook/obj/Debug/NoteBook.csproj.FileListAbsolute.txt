@@ -24,3 +24,4 @@ C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.exe
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.EditNoteForm.resources

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using UNA.NoteBook;
 
 namespace UNA.Notebook
 {
-    public class Book
+    public class Book:PictureBox
+
     {
         public String ImageBook
         {

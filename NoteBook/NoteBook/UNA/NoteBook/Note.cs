@@ -9,10 +9,9 @@ namespace UNA.NoteBook
     {
         public string Title
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+            
         }
 
         public bool Privacity
@@ -65,10 +64,9 @@ namespace UNA.NoteBook
 
         public DateTime ModificationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+            
         }
     }
 }
