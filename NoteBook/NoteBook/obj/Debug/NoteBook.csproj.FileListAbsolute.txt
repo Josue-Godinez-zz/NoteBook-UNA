@@ -11,3 +11,4 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBoo
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NotebookProfileForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookRegisterForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookNewBookForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.ModifyBook.resources
