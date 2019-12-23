@@ -52,6 +52,13 @@
     <Compile Include="ModifyBook.Designer.cs">
       <DependentUpon>ModifyBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UNA\NoteBook\Note.cs" />
     <Compile Include="NoteBookNewBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +95,8 @@
     <Compile Include="UNA\NoteBook\User.cs" />
     <EmbeddedResource Include="ModifyBook.resx">
       <DependentUpon>ModifyBook.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NoteBookNewBook.resx">
       <DependentUpon>NoteBookNewBook.cs</DependentUpon>
