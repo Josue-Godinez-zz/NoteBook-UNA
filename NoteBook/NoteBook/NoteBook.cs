@@ -110,26 +110,6 @@ namespace NoteBook
                 toolTip.IsBalloon = true;
                 libraryTableLayoutPanel.Controls.Add(pictureBox);
                 books.Add(noteBookNewBookForm.NewBook);
-                pictureBox.MouseDoubleClick += PictureBox_MouseDoubleClick; ;
-            }
-        }
-
-        private void PictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-             //   Console.WriteLine(Convert.ToString(libraryTableLayoutPanel.Controls.GetChildIndex((PictureBox)sender)));
-               // libraryTableLayoutPanel.Controls.GetChildIndex((PictureBox)sender);
-
-                ModifyBook modifyBook = new ModifyBook(books[(libraryTableLayoutPanel.Controls.GetChildIndex((PictureBox)sender))]);
-                if(modifyBook.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-            else if(e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                Console.WriteLine("Abre el libro y muestra notas"); 
             }
         }
 
@@ -150,6 +130,8 @@ namespace NoteBook
 
         private void elimiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(MenuContextMenuStrip);
+            Console.WriteLine(books.Count);
         }
     }
 }

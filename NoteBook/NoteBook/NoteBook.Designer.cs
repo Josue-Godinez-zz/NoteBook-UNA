@@ -45,7 +45,6 @@
             this.timeTimer = new System.Windows.Forms.Timer(this.components);
             this.MenuContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.elimiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vistaSuperiorPanel.SuspendLayout();
             this.vistaLateralPanel.SuspendLayout();
             this.MenuContextMenuStrip.SuspendLayout();
@@ -179,7 +178,7 @@
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.libraryTableLayoutPanel.Location = new System.Drawing.Point(186, 125);
             this.libraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.libraryTableLayoutPanel.Name = "libraryTableLayoutPanel";
@@ -204,24 +203,17 @@
             // MenuContextMenuStrip
             // 
             this.MenuContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.elimiarToolStripMenuItem,
-            this.modificarToolStripMenuItem});
+            this.elimiarToolStripMenuItem});
             this.MenuContextMenuStrip.Name = "MenuContextMenuStrip";
             this.MenuContextMenuStrip.ShowCheckMargin = true;
-            this.MenuContextMenuStrip.Size = new System.Drawing.Size(203, 70);
+            this.MenuContextMenuStrip.Size = new System.Drawing.Size(140, 26);
             // 
             // elimiarToolStripMenuItem
             // 
             this.elimiarToolStripMenuItem.Name = "elimiarToolStripMenuItem";
-            this.elimiarToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.elimiarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.elimiarToolStripMenuItem.Text = "&Eliminar";
             this.elimiarToolStripMenuItem.Click += new System.EventHandler(this.elimiarToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.modificarToolStripMenuItem.Text = "&Modificar";
             // 
             // NoteBookForm
             // 
@@ -263,7 +255,6 @@
         private System.Windows.Forms.Label userSingInLabel;
         private System.Windows.Forms.ContextMenuStrip MenuContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem elimiarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
     }
 }
 
