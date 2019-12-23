@@ -13,6 +13,7 @@ C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.exe
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
+<<<<<<< HEAD
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.EditNoteForm.resources
 
 =======
@@ -30,3 +31,5 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBoo
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookRegisterForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookNewBookForm.resources
 >>>>>>> parent of c7ffe57... Acceso a Libro Para Modificacion
+=======
+>>>>>>> parent of 14f8a97... Iniciar funcionalidad de creacion de notas

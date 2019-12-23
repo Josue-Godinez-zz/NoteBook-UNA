@@ -90,20 +90,13 @@ namespace NoteBook
                     libraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
                     libraryTableLayoutPanel.RowCount++;
                 }
-                Book pictureBox = noteBookNewBookForm.NewBook;
+                PictureBox pictureBox = new PictureBox();
                 Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                 pictureBox.ImageLocation = noteBookNewBookForm.NewBook.ImageBook;
                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox.Width = 45;
                 pictureBox.Height = 45;
                 pictureBox.Anchor = AnchorStyles.None;
-                pictureBox.DoubleClick += (s, args)=>{
-                    EditNoteForm editNote = new EditNoteForm(((Book)s).CategorieBook);
-                    if(editNote.ShowDialog() == DialogResult.OK)
-                    {
-                        Console.WriteLine(editNote.NewNote.Title);
-                    }
-                };
                 ToolTip toolTip = new ToolTip();
                 toolTip.ToolTipTitle = noteBookNewBookForm.NewBook.NameBook;
                 toolTip.SetToolTip(pictureBox, "Categoria: " + noteBookNewBookForm.NewBook.CategorieBook);

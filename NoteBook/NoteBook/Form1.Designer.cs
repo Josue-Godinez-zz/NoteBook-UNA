@@ -131,7 +131,6 @@
             this.GuardarButton.Size = new System.Drawing.Size(40, 40);
             this.GuardarButton.TabIndex = 0;
             this.GuardarButton.UseVisualStyleBackColor = true;
-            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // CancelarButton
             // 
