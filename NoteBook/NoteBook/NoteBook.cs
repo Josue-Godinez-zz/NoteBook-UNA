@@ -81,6 +81,15 @@ namespace NoteBook
             NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages);
             if(noteBookNewBookForm.ShowDialog() == DialogResult.OK)
             {
+<<<<<<< HEAD
+=======
+                Console.WriteLine(Convert.ToString(libraryTableLayoutPanel.RowCount));
+                if (libraryTableLayoutPanel.Controls.Count == (libraryTableLayoutPanel.RowCount * libraryTableLayoutPanel.ColumnCount))
+                {
+                    libraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
+                    libraryTableLayoutPanel.RowCount++;
+                }
+>>>>>>> parent of 14f8a97... Iniciar funcionalidad de creacion de notas
                 PictureBox pictureBox = new PictureBox();
                 Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                 pictureBox.ImageLocation = noteBookNewBookForm.NewBook.ImageBook;

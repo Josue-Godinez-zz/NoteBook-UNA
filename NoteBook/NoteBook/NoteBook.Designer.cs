@@ -172,10 +172,19 @@
             this.libraryTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.libraryTableLayoutPanel.CausesValidation = false;
             this.libraryTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+<<<<<<< HEAD
             this.libraryTableLayoutPanel.ColumnCount = 2;
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.libraryTableLayoutPanel.Controls.Add(this.pictureBox1, 0, 0);
+=======
+            this.libraryTableLayoutPanel.ColumnCount = 5;
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+>>>>>>> parent of 14f8a97... Iniciar funcionalidad de creacion de notas
             this.libraryTableLayoutPanel.Location = new System.Drawing.Point(186, 125);
             this.libraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.libraryTableLayoutPanel.Name = "libraryTableLayoutPanel";
