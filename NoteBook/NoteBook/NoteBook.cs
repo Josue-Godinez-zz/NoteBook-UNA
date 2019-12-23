@@ -8,26 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using UNA.NoteBook;
 using System.Windows.Forms;
-using UNA.Notebook;
 
 namespace NoteBook
 {
     public partial class NoteBookForm : Form
     {
         List<User> users= new List<User>();
-        Dictionary<int, string> directionImages = new Dictionary<int, string>();
-        List<Book> books = new List<Book>();
+        Dictionary<int, string> directionImages = new Dictionary<int, string>();  
         bool isLogin = false;
         User actualSesion = null;
         public NoteBookForm()
         {
             InitializeComponent();
             preloadImages();
-            libraryTableLayoutPanel.MaximumSize = new Size(libraryTableLayoutPanel.Width, libraryTableLayoutPanel.Height);
-            libraryTableLayoutPanel.AutoScroll = true;
-
-
-
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
@@ -76,20 +69,18 @@ namespace NoteBook
             isLogin = false;
             actualSesion = null;
             userSingInLabel.Text = "<No Autentificado>";
-            signOutButton.Enabled = false;
+             signOutButton.Enabled = false;
         }
 
         private void createBookButton_Click(object sender, EventArgs e)
         {
-            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books);
+            //if(libraryTableLayoutPanel.GetControlFromPosition(0,0) != null)
+            //{
+
+            //}
+            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages);
             if(noteBookNewBookForm.ShowDialog() == DialogResult.OK)
             {
-                Console.WriteLine(Convert.ToString(libraryTableLayoutPanel.RowCount));
-                if (libraryTableLayoutPanel.Controls.Count == (libraryTableLayoutPanel.RowCount * libraryTableLayoutPanel.ColumnCount))
-                {
-                    libraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
-                    libraryTableLayoutPanel.RowCount++;
-                }
                 PictureBox pictureBox = new PictureBox();
                 Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                 pictureBox.ImageLocation = noteBookNewBookForm.NewBook.ImageBook;
@@ -102,7 +93,6 @@ namespace NoteBook
                 toolTip.SetToolTip(pictureBox, "Categoria: " + noteBookNewBookForm.NewBook.CategorieBook);
                 toolTip.IsBalloon = true;
                 libraryTableLayoutPanel.Controls.Add(pictureBox);
-                books.Add(noteBookNewBookForm.NewBook);
             }
         }
 
@@ -119,12 +109,6 @@ namespace NoteBook
             directionImages.Add(3, @"Resource\Musica.png");
             directionImages.Add(4, @"Resource\Libros.png");
             directionImages.Add(5, @"Resource\Artes.png");
-        }
-
-        private void elimiarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(MenuContextMenuStrip);
-            Console.WriteLine(books.Count);
         }
     }
 }
