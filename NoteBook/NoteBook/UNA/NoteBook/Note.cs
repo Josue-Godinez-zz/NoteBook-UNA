@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -9,66 +10,58 @@ namespace UNA.NoteBook
     {
         public string Title
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
         public bool Privacity
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
         public string Category
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
-        public string Color
+        public Color ColorNota
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
         public string Font
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
         public string ColorLetter
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
         public DateTime CreationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
 
         public DateTime ModificationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+
         }
     }
 }

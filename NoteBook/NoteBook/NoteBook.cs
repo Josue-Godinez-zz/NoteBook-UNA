@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UNA.NoteBook;
 using System.Windows.Forms;
+using UNA.Notebook;
 
 namespace NoteBook
 {
@@ -81,22 +82,29 @@ namespace NoteBook
             NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages);
             if(noteBookNewBookForm.ShowDialog() == DialogResult.OK)
             {
-<<<<<<< HEAD
-=======
+
+
                 Console.WriteLine(Convert.ToString(libraryTableLayoutPanel.RowCount));
                 if (libraryTableLayoutPanel.Controls.Count == (libraryTableLayoutPanel.RowCount * libraryTableLayoutPanel.ColumnCount))
                 {
                     libraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
                     libraryTableLayoutPanel.RowCount++;
                 }
->>>>>>> parent of 14f8a97... Iniciar funcionalidad de creacion de notas
-                PictureBox pictureBox = new PictureBox();
+
+                Book pictureBox = noteBookNewBookForm.NewBook;
                 Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                 pictureBox.ImageLocation = noteBookNewBookForm.NewBook.ImageBook;
                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox.Width = 45;
                 pictureBox.Height = 45;
                 pictureBox.Anchor = AnchorStyles.None;
+                pictureBox.DoubleClick += (s, args) => {
+                    VisualizarNotasForm visualizarNote = new VisualizarNotasForm(((Book)s));
+                    if (visualizarNote.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                };
                 ToolTip toolTip = new ToolTip();
                 toolTip.ToolTipTitle = noteBookNewBookForm.NewBook.NameBook;
                 toolTip.SetToolTip(pictureBox, "Categoria: " + noteBookNewBookForm.NewBook.CategorieBook);
