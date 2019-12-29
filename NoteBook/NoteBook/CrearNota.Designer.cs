@@ -43,6 +43,10 @@
             this.ContenidoTextBox = new System.Windows.Forms.TextBox();
             this.ColorButton = new System.Windows.Forms.Button();
             this.ColorNota = new System.Windows.Forms.ColorDialog();
+            this.ColorLetraabel = new System.Windows.Forms.Label();
+            this.ColorLetraButton = new System.Windows.Forms.Button();
+            this.Fuente = new System.Windows.Forms.FontDialog();
+            this.FuenteButton = new System.Windows.Forms.Button();
             this.InferiorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,10 +139,9 @@
             this.ColorLabel.AutoSize = true;
             this.ColorLabel.Location = new System.Drawing.Point(64, 144);
             this.ColorLabel.Name = "ColorLabel";
-            this.ColorLabel.Size = new System.Drawing.Size(34, 13);
+            this.ColorLabel.Size = new System.Drawing.Size(67, 13);
             this.ColorLabel.TabIndex = 7;
-            this.ColorLabel.Text = "Color:";
-            this.ColorLabel.Click += new System.EventHandler(this.ColorLabel_Click);
+            this.ColorLabel.Text = "Color Fondo:";
             // 
             // ContenidoLabel
             // 
@@ -164,14 +167,46 @@
             this.ColorButton.Size = new System.Drawing.Size(23, 23);
             this.ColorButton.TabIndex = 12;
             this.ColorButton.UseVisualStyleBackColor = true;
-            this.ColorButton.Click += new System.EventHandler(this.button1_Click);
+            this.ColorButton.Click += new System.EventHandler(this.ColorButton_Click);
+            // 
+            // ColorLetraabel
+            // 
+            this.ColorLetraabel.AutoSize = true;
+            this.ColorLetraabel.Location = new System.Drawing.Point(167, 144);
+            this.ColorLetraabel.Name = "ColorLetraabel";
+            this.ColorLetraabel.Size = new System.Drawing.Size(61, 13);
+            this.ColorLetraabel.TabIndex = 13;
+            this.ColorLetraabel.Text = "Color Letra:";
+            // 
+            // ColorLetraButton
+            // 
+            this.ColorLetraButton.Location = new System.Drawing.Point(234, 139);
+            this.ColorLetraButton.Name = "ColorLetraButton";
+            this.ColorLetraButton.Size = new System.Drawing.Size(23, 23);
+            this.ColorLetraButton.TabIndex = 14;
+            this.ColorLetraButton.UseVisualStyleBackColor = true;
+            this.ColorLetraButton.Click += new System.EventHandler(this.ColorLetraButton_Click);
+            // 
+            // FuenteButton
+            // 
+            this.FuenteButton.Location = new System.Drawing.Point(334, 138);
+            this.FuenteButton.Name = "FuenteButton";
+            this.FuenteButton.Size = new System.Drawing.Size(75, 23);
+            this.FuenteButton.TabIndex = 15;
+            this.FuenteButton.Text = "AaBb";
+            this.FuenteButton.UseVisualStyleBackColor = true;
+            this.FuenteButton.Click += new System.EventHandler(this.FuenteButton_Click);
             // 
             // EditNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(419, 410);
+            this.Controls.Add(this.FuenteButton);
+            this.Controls.Add(this.ColorLetraButton);
+            this.Controls.Add(this.ColorLetraabel);
             this.Controls.Add(this.ColorButton);
             this.Controls.Add(this.ContenidoTextBox);
             this.Controls.Add(this.ContenidoLabel);
@@ -187,7 +222,6 @@
             this.MinimizeBox = false;
             this.Name = "EditNoteForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.EditNoteForm_Load);
             this.InferiorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -210,5 +244,9 @@
         private System.Windows.Forms.TextBox ContenidoTextBox;
         private System.Windows.Forms.Button ColorButton;
         private System.Windows.Forms.ColorDialog ColorNota;
+        private System.Windows.Forms.Label ColorLetraabel;
+        private System.Windows.Forms.Button ColorLetraButton;
+        private System.Windows.Forms.FontDialog Fuente;
+        private System.Windows.Forms.Button FuenteButton;
     }
 }

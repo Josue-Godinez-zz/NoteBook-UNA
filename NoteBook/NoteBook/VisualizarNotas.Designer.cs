@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizarNotasForm));
             this.VisualizarDataGridView = new System.Windows.Forms.DataGridView();
             this.AgregarButton = new System.Windows.Forms.Button();
             this.EditarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
-            this.TituloColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoriaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaCreacionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaModificacionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrivacidadColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AbrirButton = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
+            this.BuscarTextBox = new System.Windows.Forms.TextBox();
+            this.LimpiarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VisualizarDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,22 +44,17 @@
             // 
             this.VisualizarDataGridView.AllowUserToAddRows = false;
             this.VisualizarDataGridView.AllowUserToDeleteRows = false;
+            this.VisualizarDataGridView.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.VisualizarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VisualizarDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TituloColumn,
-            this.CategoriaColumn,
-            this.FechaCreacionColumn,
-            this.FechaModificacionColumn,
-            this.PrivacidadColumn});
-            this.VisualizarDataGridView.Location = new System.Drawing.Point(1, 1);
+            this.VisualizarDataGridView.Location = new System.Drawing.Point(1, 65);
             this.VisualizarDataGridView.Name = "VisualizarDataGridView";
-            this.VisualizarDataGridView.Size = new System.Drawing.Size(534, 235);
+            this.VisualizarDataGridView.ReadOnly = true;
+            this.VisualizarDataGridView.Size = new System.Drawing.Size(533, 236);
             this.VisualizarDataGridView.TabIndex = 0;
-            this.VisualizarDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // AgregarButton
             // 
-            this.AgregarButton.Location = new System.Drawing.Point(1, 270);
+            this.AgregarButton.Location = new System.Drawing.Point(1, 344);
             this.AgregarButton.Name = "AgregarButton";
             this.AgregarButton.Size = new System.Drawing.Size(75, 23);
             this.AgregarButton.TabIndex = 1;
@@ -69,16 +64,17 @@
             // 
             // EditarButton
             // 
-            this.EditarButton.Location = new System.Drawing.Point(110, 270);
+            this.EditarButton.Location = new System.Drawing.Point(111, 344);
             this.EditarButton.Name = "EditarButton";
             this.EditarButton.Size = new System.Drawing.Size(75, 23);
             this.EditarButton.TabIndex = 2;
             this.EditarButton.Text = "Editar Nota";
             this.EditarButton.UseVisualStyleBackColor = true;
+            this.EditarButton.Click += new System.EventHandler(this.EditarButton_Click);
             // 
             // CancelarButton
             // 
-            this.CancelarButton.Location = new System.Drawing.Point(435, 270);
+            this.CancelarButton.Location = new System.Drawing.Point(438, 344);
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(75, 23);
             this.CancelarButton.TabIndex = 3;
@@ -86,38 +82,55 @@
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
-            // TituloColumn
+            // AbrirButton
             // 
-            this.TituloColumn.HeaderText = "Titulo";
-            this.TituloColumn.Name = "TituloColumn";
-            this.TituloColumn.Width = 90;
+            this.AbrirButton.Location = new System.Drawing.Point(218, 344);
+            this.AbrirButton.Name = "AbrirButton";
+            this.AbrirButton.Size = new System.Drawing.Size(75, 23);
+            this.AbrirButton.TabIndex = 5;
+            this.AbrirButton.Text = "Abrir Nota";
+            this.AbrirButton.UseVisualStyleBackColor = true;
+            this.AbrirButton.Click += new System.EventHandler(this.AbrirButton_Click);
             // 
-            // CategoriaColumn
+            // BuscarButton
             // 
-            this.CategoriaColumn.HeaderText = "Categoria";
-            this.CategoriaColumn.Name = "CategoriaColumn";
+            this.BuscarButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarButton.Image")));
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuscarButton.Location = new System.Drawing.Point(186, 10);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(84, 28);
+            this.BuscarButton.TabIndex = 6;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
-            // FechaCreacionColumn
+            // BuscarTextBox
             // 
-            this.FechaCreacionColumn.HeaderText = "Fecha de Creación";
-            this.FechaCreacionColumn.Name = "FechaCreacionColumn";
+            this.BuscarTextBox.Location = new System.Drawing.Point(22, 15);
+            this.BuscarTextBox.Name = "BuscarTextBox";
+            this.BuscarTextBox.Size = new System.Drawing.Size(158, 20);
+            this.BuscarTextBox.TabIndex = 7;
             // 
-            // FechaModificacionColumn
+            // LimpiarButton
             // 
-            this.FechaModificacionColumn.HeaderText = "Fecha de Modificación";
-            this.FechaModificacionColumn.Name = "FechaModificacionColumn";
-            // 
-            // PrivacidadColumn
-            // 
-            this.PrivacidadColumn.HeaderText = "Privacidad";
-            this.PrivacidadColumn.Name = "PrivacidadColumn";
-            this.PrivacidadColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.LimpiarButton.Location = new System.Drawing.Point(431, 13);
+            this.LimpiarButton.Name = "LimpiarButton";
+            this.LimpiarButton.Size = new System.Drawing.Size(91, 23);
+            this.LimpiarButton.TabIndex = 8;
+            this.LimpiarButton.Text = "Limpiar Filtros";
+            this.LimpiarButton.UseVisualStyleBackColor = true;
+            this.LimpiarButton.Click += new System.EventHandler(this.LimpiarButton_Click);
             // 
             // VisualizarNotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 305);
+            this.ClientSize = new System.Drawing.Size(534, 379);
+            this.Controls.Add(this.LimpiarButton);
+            this.Controls.Add(this.BuscarTextBox);
+            this.Controls.Add(this.BuscarButton);
+            this.Controls.Add(this.AbrirButton);
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.EditarButton);
             this.Controls.Add(this.AgregarButton);
@@ -128,6 +141,7 @@
             this.Text = "Notas";
             ((System.ComponentModel.ISupportInitialize)(this.VisualizarDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -137,10 +151,9 @@
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.Button EditarButton;
         private System.Windows.Forms.Button CancelarButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TituloColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacionColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaModificacionColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn PrivacidadColumn;
+        private System.Windows.Forms.Button AbrirButton;
+        private System.Windows.Forms.Button BuscarButton;
+        private System.Windows.Forms.TextBox BuscarTextBox;
+        private System.Windows.Forms.Button LimpiarButton;
     }
 }

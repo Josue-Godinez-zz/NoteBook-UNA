@@ -10,6 +10,11 @@ namespace UNA.Notebook
     public class Book : PictureBox
 
     {
+        public Book()
+        {
+            Note = new List<Note>();
+        }
+
         public String ImageBook
         {
             get;
@@ -30,10 +35,9 @@ namespace UNA.Notebook
 
         public List<UNA.NoteBook.Note> Note
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+            
         }
     }
 }

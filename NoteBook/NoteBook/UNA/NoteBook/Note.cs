@@ -8,6 +8,43 @@ namespace UNA.NoteBook
 {
     public class Note
     {
+        public void SetColorNota(Color color)
+        {
+            ColorNota = color;
+        }
+        public Color GetColorNota()
+        {
+            return ColorNota;
+        }
+
+
+        public void SetColorLetra(Color color)
+        {
+            ColorLetter = color;
+        }
+        public Color GetColorLetra()
+        {
+            return ColorLetter;
+        }
+
+
+        public void SetFuente(Font fuente)
+        {
+            FontLetter = fuente;
+        }
+        public Font GetFuente()
+        {
+            return FontLetter;
+        }
+
+        public void SetContenido(string contenido)
+        {
+            ContenidoNota = contenido;
+        }
+        public string GetContenido()
+        {
+            return ContenidoNota;
+        }
         public string Title
         {
             get;
@@ -29,21 +66,21 @@ namespace UNA.NoteBook
 
         }
 
-        public Color ColorNota
+        private Color ColorNota
         {
             get;
             set;
 
         }
 
-        public string Font
+        private Font FontLetter
         {
             get;
             set;
 
         }
 
-        public string ColorLetter
+        private Color ColorLetter
         {
             get;
             set;
@@ -62,6 +99,13 @@ namespace UNA.NoteBook
             get;
             set;
 
+        }
+
+        private string ContenidoNota
+        {
+            get;
+            set;
+            
         }
     }
 }
