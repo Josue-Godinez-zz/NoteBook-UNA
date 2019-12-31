@@ -43,8 +43,11 @@
             this.libraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.informationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timeTimer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.vistaSuperiorPanel.SuspendLayout();
             this.vistaLateralPanel.SuspendLayout();
+            this.libraryTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // vistaSuperiorPanel
@@ -169,14 +172,19 @@
             this.libraryTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.libraryTableLayoutPanel.CausesValidation = false;
             this.libraryTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+
+            this.libraryTableLayoutPanel.ColumnCount = 2;
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.libraryTableLayoutPanel.Controls.Add(this.pictureBox1, 0, 0);
+
             this.libraryTableLayoutPanel.ColumnCount = 5;
-            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.libraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+
             this.libraryTableLayoutPanel.Location = new System.Drawing.Point(186, 125);
             this.libraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.libraryTableLayoutPanel.Name = "libraryTableLayoutPanel";
@@ -197,6 +205,18 @@
             this.timeTimer.Enabled = true;
             this.timeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(132, 69);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // NoteBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +235,8 @@
             this.vistaSuperiorPanel.ResumeLayout(false);
             this.vistaSuperiorPanel.PerformLayout();
             this.vistaLateralPanel.ResumeLayout(false);
+            this.libraryTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,6 +256,7 @@
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Timer timeTimer;
         private System.Windows.Forms.Label userSingInLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

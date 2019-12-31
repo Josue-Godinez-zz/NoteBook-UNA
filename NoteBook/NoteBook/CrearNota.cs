@@ -14,9 +14,8 @@ namespace NoteBook
     public partial class EditNoteForm : Form
     {
         List<string> Categorias;
-        private bool nuevo = true;
+        List<string> Colores;
         private Note nota = new Note();
-        private Note notaOriginal;
         public EditNoteForm()
         {
             InitializeComponent();
@@ -65,7 +64,7 @@ namespace NoteBook
                 CategoriaComboBox.Items.Add("Novela");
             }
 
-            if (CategoriaLibro.Equals("Artes"))
+            if (CategoriaLibro.Equals("Arte"))
             {
                 CategoriaComboBox.Items.Add("Baile");
                 CategoriaComboBox.Items.Add("Canto");
@@ -93,28 +92,15 @@ namespace NoteBook
             get;
             set;
         }
-        public bool Nuevo { get => nuevo; set => nuevo = value; }
-        public Note NotaOriginal { get => notaOriginal; set => notaOriginal = value; }
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             nota = new Note();
             nota.Title = TitleTextBox.Text;
             nota.Category = CategoriaComboBox.Text;
-            nota.SetColorNota(ColorButton.BackColor);
-            nota.SetColorLetra(ColorLetraButton.BackColor);
-            nota.SetFuente(Fuente.Font);
-            nota.SetContenido(ContenidoTextBox.Text);
+            nota.ColorNota = ColorButton.BackColor;
             nota.Privacity = PrivacidadCheckBox.Checked;
-            if (Nuevo)
-            {
-                nota.CreationDate = DateTime.Now;
-            }
-            else
-            {
-                nota.CreationDate = NotaOriginal.CreationDate;
-            }
-            
+            nota.CreationDate = DateTime.Now;
             nota.ModificationDate = DateTime.Now;
 
             NewNote = nota;
@@ -128,54 +114,22 @@ namespace NoteBook
             this.Close();
         }
 
-
-
-        private void ColorButton_Click(object sender, EventArgs e)
+        private void EditNoteForm_Load(object sender, EventArgs e)
         {
-            if (ColorNota.ShowDialog() == DialogResult.OK)
+
+        }
+
+        private void ColorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(ColorNota.ShowDialog() == DialogResult.OK)
             {
                 ColorButton.BackColor = ColorNota.Color;
-                ContenidoTextBox.BackColor = ColorNota.Color;
             }
-        }
-
-        public void Llenar()
-        {
-            TitleTextBox.Text = NotaOriginal.Title;
-            CategoriaComboBox.SelectedItem = NotaOriginal.Category;
-            ColorButton.BackColor = NotaOriginal.GetColorNota();
-            ContenidoTextBox.BackColor = NotaOriginal.GetColorNota();
-            ColorLetraButton.BackColor = NotaOriginal.GetColorLetra();
-            ContenidoTextBox.ForeColor = NotaOriginal.GetColorLetra();
-            ContenidoTextBox.Font = NotaOriginal.GetFuente();
-            ContenidoTextBox.Text = NotaOriginal.GetContenido();
-            PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
-
-        }
-
-        private void ColorLetraButton_Click(object sender, EventArgs e)
-        {
-            if (ColorNota.ShowDialog() == DialogResult.OK)
-            {
-                ColorLetraButton.BackColor = ColorNota.Color;
-                ContenidoTextBox.ForeColor = ColorNota.Color;
-                
-            }
-        }
-
-        
-        private void FuenteButton_Click(object sender, EventArgs e)
-        {
-
-            Fuente.ShowEffects = false;
-            if (Fuente.ShowDialog() == DialogResult.OK)
-            {
-
-                ContenidoTextBox.Font = Fuente.Font;
-
-
-            }
-
         }
     }
 }
