@@ -19,6 +19,7 @@ namespace NoteBook
         public VisualizarNotasForm()
         {
             InitializeComponent();
+           
 
         }
         public void Refrescar(List<Note> lista)
@@ -30,25 +31,41 @@ namespace NoteBook
             Titulo.DataPropertyName = "Title";
             Titulo.HeaderText = "Título";
             VisualizarDataGridView.Columns.Add(Titulo);
+          
+
+
+
             DataGridViewTextBoxColumn Categoria = new DataGridViewTextBoxColumn();
             Categoria.DataPropertyName = "Category";
             Categoria.HeaderText = "Categoría";
             VisualizarDataGridView.Columns.Add(Categoria);
+
             DataGridViewTextBoxColumn Creacion = new DataGridViewTextBoxColumn();
             Creacion.DataPropertyName = "CreationDate";
             Creacion.HeaderText = "Fecha de Creación";
             VisualizarDataGridView.Columns.Add(Creacion);
+
             DataGridViewTextBoxColumn Modificacion = new DataGridViewTextBoxColumn();
             Modificacion.DataPropertyName = "ModificationDate";
             Modificacion.HeaderText = "Fecha de Modificación";
             VisualizarDataGridView.Columns.Add(Modificacion);
+
             DataGridViewCheckBoxColumn Privacidad = new DataGridViewCheckBoxColumn();
             Privacidad.DataPropertyName = "Privacity";
             Privacidad.HeaderText = "Privacidad";
             VisualizarDataGridView.Columns.Add(Privacidad);
+
             if (Libro.Note.Count > 0)
             {
+               
                 VisualizarDataGridView.DataSource = lista;
+            }
+
+            for (int i = 0; i < VisualizarDataGridView.Columns.Count; i++)
+            {
+                VisualizarDataGridView.Columns[i].SortMode = DataGridViewColumnSortMode.Programmatic;
+                VisualizarDataGridView.Columns[i].Resizable = DataGridViewTriState.False;
+                
             }
         }
 
@@ -76,6 +93,7 @@ namespace NoteBook
 
         private void CancelarButton_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 
