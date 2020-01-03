@@ -19,6 +19,7 @@ namespace NoteBook
         public VisualizarNotasForm()
         {
             InitializeComponent();
+
            
 
         }
@@ -67,13 +68,17 @@ namespace NoteBook
                 VisualizarDataGridView.Columns[i].Resizable = DataGridViewTriState.False;
                 
             }
+
         }
 
         public VisualizarNotasForm(Book libro):this()
         {
             this.Libro = libro;
-            Refrescar(Libro.Note);
-            //VisualizarDataGridView.DataSource = Libro.Note;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void AgregarButton_Click(object sender, EventArgs e)
@@ -82,12 +87,7 @@ namespace NoteBook
             if (editNote.ShowDialog() == DialogResult.OK)
             {
                 Note nota = editNote.NewNote;
-                Libro.Note.Add(nota);
-                Refrescar(Libro.Note);
-                //VisualizarDataGridView.DataSource = Libro.Note;
-                Console.WriteLine(Libro.Note.Count);
-
-
+                VisualizarDataGridView.Rows.Add(nota.Title, nota.Category, nota.CreationDate, nota.ModificationDate, nota.Privacity);
             }
         }
 
@@ -95,74 +95,6 @@ namespace NoteBook
         {
             
             this.Close();
-        }
-
-        private void EditarButton_Click(object sender, EventArgs e)
-        {
-            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook, "Editar Nota");
-            if (VisualizarDataGridView.SelectedRows.Count >= 1)
-            {
-                editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                editNote.Llenar();
-                editNote.Nuevo = false;
-                if (editNote.ShowDialog() == DialogResult.OK)
-                {
-
- 
-                    Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                    VisualizarDataGridView.ClearSelection();
-                    Libro.Note.Remove(eliminar);
-                    eliminar = editNote.NewNote;
-                    Libro.Note.Add(eliminar);
-                    Refrescar(Libro.Note);
-                    //VisualizarDataGridView.DataSource = Libro.Note;
-                    
-
-                }
-            }
-
-            
-        }
-
-        private void AbrirButton_Click(object sender, EventArgs e)
-        {
-             VisualizarContenidoForm contenido = new VisualizarContenidoForm();
-            if (VisualizarDataGridView.SelectedRows.Count >= 1)
-            {
-                contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                contenido.Llenar();
-                if (contenido.ShowDialog() == DialogResult.OK)
-                {
-
-
-                    Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                    VisualizarDataGridView.ClearSelection();
-                    Libro.Note.Remove(eliminar);
-                    eliminar = contenido.NotaOriginal;
-                    Libro.Note.Add(eliminar);
-                    Refrescar(Libro.Note);
-                    
-
-
-                }
-            }
-
-
-        }
-
-        private void BuscarButton_Click(object sender, EventArgs e)
-        {
-            Predicate<Note> buscar = x => x.Title.Contains(BuscarTextBox.Text);
-
-            Refrescar(Libro.Note.FindAll(buscar));
-
-
-        }
-
-        private void LimpiarButton_Click(object sender, EventArgs e)
-        {
-            Refrescar(Libro.Note);
-            BuscarTextBox.Clear();
         }
     }
 }
