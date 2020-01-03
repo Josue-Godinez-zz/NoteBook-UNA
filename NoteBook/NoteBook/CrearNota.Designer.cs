@@ -38,7 +38,6 @@
             this.ContenidoTextBox = new System.Windows.Forms.TextBox();
             this.ColorButton = new System.Windows.Forms.Button();
             this.ColorNota = new System.Windows.Forms.ColorDialog();
-
             this.ColorLetraabel = new System.Windows.Forms.Label();
             this.ColorLetraButton = new System.Windows.Forms.Button();
             this.Fuente = new System.Windows.Forms.FontDialog();
@@ -46,9 +45,6 @@
             this.FuenteLabel = new System.Windows.Forms.Label();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
-
-            this.InferiorPanel.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -107,14 +103,9 @@
             this.ColorLabel.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColorLabel.Location = new System.Drawing.Point(6, 104);
             this.ColorLabel.Name = "ColorLabel";
-
             this.ColorLabel.Size = new System.Drawing.Size(86, 15);
-
-            this.ColorLabel.Size = new System.Drawing.Size(34, 13);
-
             this.ColorLabel.TabIndex = 7;
-            this.ColorLabel.Text = "Color:";
-            this.ColorLabel.Click += new System.EventHandler(this.ColorLabel_Click);
+            this.ColorLabel.Text = "Color Fondo:";
             // 
             // ContenidoTextBox
             // 
@@ -131,7 +122,6 @@
             this.ColorButton.Size = new System.Drawing.Size(23, 23);
             this.ColorButton.TabIndex = 12;
             this.ColorButton.UseVisualStyleBackColor = true;
-
             this.ColorButton.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // ColorLetraabel
@@ -164,9 +154,6 @@
             this.FuenteButton.Text = "AaBb";
             this.FuenteButton.UseVisualStyleBackColor = false;
             this.FuenteButton.Click += new System.EventHandler(this.FuenteButton_Click);
-
-            this.ColorButton.Click += new System.EventHandler(this.button1_Click);
-
             // 
             // FuenteLabel
             // 
@@ -213,8 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.BackColor = System.Drawing.Color.Aquamarine;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(393, 379);
             this.Controls.Add(this.CancelarButton);
@@ -223,10 +209,6 @@
             this.Controls.Add(this.FuenteButton);
             this.Controls.Add(this.ColorLetraButton);
             this.Controls.Add(this.ColorLetraabel);
-
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(419, 410);
-
             this.Controls.Add(this.ColorButton);
             this.Controls.Add(this.ContenidoTextBox);
             this.Controls.Add(this.ColorLabel);
@@ -239,11 +221,6 @@
             this.MinimizeBox = false;
             this.Name = "EditNoteForm";
             this.Text = "Form1";
-
-
-            this.Load += new System.EventHandler(this.EditNoteForm_Load);
-            this.InferiorPanel.ResumeLayout(false);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +237,6 @@
         private System.Windows.Forms.TextBox ContenidoTextBox;
         private System.Windows.Forms.Button ColorButton;
         private System.Windows.Forms.ColorDialog ColorNota;
-
         private System.Windows.Forms.Label ColorLetraabel;
         private System.Windows.Forms.Button ColorLetraButton;
         private System.Windows.Forms.FontDialog Fuente;
@@ -268,6 +244,5 @@
         private System.Windows.Forms.Label FuenteLabel;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button CancelarButton;
-
     }
 }

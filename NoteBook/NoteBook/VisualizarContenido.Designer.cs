@@ -163,7 +163,6 @@
             this.Controls.Add(this.FondoButton);
             this.Controls.Add(this.FondoLabel);
             this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VisualizarContenidoForm";

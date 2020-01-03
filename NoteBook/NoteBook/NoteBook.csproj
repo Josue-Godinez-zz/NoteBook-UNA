@@ -52,6 +52,12 @@
     <Compile Include="CrearNota.Designer.cs">
       <DependentUpon>CrearNota.cs</DependentUpon>
     </Compile>
+    <Compile Include="VisualizarContenido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizarContenido.Designer.cs">
+      <DependentUpon>VisualizarContenido.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisualizarNotas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VisualizarContenido.resx">
+      <DependentUpon>VisualizarContenido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VisualizarNotas.resx">
       <DependentUpon>VisualizarNotas.cs</DependentUpon>
     </EmbeddedResource>

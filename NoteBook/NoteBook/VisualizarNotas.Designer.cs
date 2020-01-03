@@ -1,5 +1,4 @@
-﻿
-3namespace NoteBook
+﻿namespace NoteBook
 {
     partial class VisualizarNotasForm
     {
@@ -29,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizarNotasForm));
             this.VisualizarDataGridView = new System.Windows.Forms.DataGridView();
             this.AgregarButton = new System.Windows.Forms.Button();
             this.EditarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
-
             this.AbrirButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.BuscarTextBox = new System.Windows.Forms.TextBox();
@@ -43,13 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-
-            this.TituloColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoriaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaCreacionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaModificacionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrivacidadColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-
             ((System.ComponentModel.ISupportInitialize)(this.VisualizarDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,37 +51,37 @@
             // 
             this.VisualizarDataGridView.AllowUserToAddRows = false;
             this.VisualizarDataGridView.AllowUserToDeleteRows = false;
+            this.VisualizarDataGridView.BackgroundColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VisualizarDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.VisualizarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VisualizarDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.VisualizarDataGridView.Location = new System.Drawing.Point(138, 78);
             this.VisualizarDataGridView.Name = "VisualizarDataGridView";
             this.VisualizarDataGridView.ReadOnly = true;
             this.VisualizarDataGridView.Size = new System.Drawing.Size(533, 287);
-
-            this.VisualizarDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TituloColumn,
-            this.CategoriaColumn,
-            this.FechaCreacionColumn,
-            this.FechaModificacionColumn,
-            this.PrivacidadColumn});
-            this.VisualizarDataGridView.Location = new System.Drawing.Point(1, 1);
-            this.VisualizarDataGridView.Name = "VisualizarDataGridView";
-            this.VisualizarDataGridView.Size = new System.Drawing.Size(534, 235);
-
             this.VisualizarDataGridView.TabIndex = 0;
-            this.VisualizarDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // AgregarButton
             // 
-
             this.AgregarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AgregarButton.BackgroundImage")));
             this.AgregarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AgregarButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.AgregarButton.FlatAppearance.BorderSize = 2;
             this.AgregarButton.Location = new System.Drawing.Point(22, 78);
-
-            this.AgregarButton.Location = new System.Drawing.Point(1, 270);
-
             this.AgregarButton.Name = "AgregarButton";
             this.AgregarButton.Size = new System.Drawing.Size(51, 43);
             this.AgregarButton.TabIndex = 1;
@@ -96,38 +90,30 @@
             // 
             // EditarButton
             // 
-
             this.EditarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditarButton.BackgroundImage")));
             this.EditarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditarButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.EditarButton.FlatAppearance.BorderSize = 2;
             this.EditarButton.Location = new System.Drawing.Point(22, 143);
-
-            this.EditarButton.Location = new System.Drawing.Point(110, 270);
-
             this.EditarButton.Name = "EditarButton";
             this.EditarButton.Size = new System.Drawing.Size(51, 44);
             this.EditarButton.TabIndex = 2;
             this.EditarButton.UseVisualStyleBackColor = true;
+            this.EditarButton.Click += new System.EventHandler(this.EditarButton_Click);
             // 
             // CancelarButton
             // 
-
             this.CancelarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CancelarButton.BackgroundImage")));
             this.CancelarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelarButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.CancelarButton.FlatAppearance.BorderSize = 2;
             this.CancelarButton.Location = new System.Drawing.Point(22, 305);
-
-            this.CancelarButton.Location = new System.Drawing.Point(435, 270);
-
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(51, 44);
             this.CancelarButton.TabIndex = 3;
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
-
             // AbrirButton
             // 
             this.AbrirButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AbrirButton.BackgroundImage")));
@@ -178,34 +164,6 @@
             this.LimpiarButton.Text = "Limpiar Filtros";
             this.LimpiarButton.UseVisualStyleBackColor = false;
             this.LimpiarButton.Click += new System.EventHandler(this.LimpiarButton_Click);
-
-            // TituloColumn
-            // 
-            this.TituloColumn.HeaderText = "Titulo";
-            this.TituloColumn.Name = "TituloColumn";
-            this.TituloColumn.Width = 90;
-            // 
-            // CategoriaColumn
-            // 
-            this.CategoriaColumn.HeaderText = "Categoria";
-            this.CategoriaColumn.Name = "CategoriaColumn";
-            // 
-            // FechaCreacionColumn
-            // 
-            this.FechaCreacionColumn.HeaderText = "Fecha de Creación";
-            this.FechaCreacionColumn.Name = "FechaCreacionColumn";
-            // 
-            // FechaModificacionColumn
-            // 
-            this.FechaModificacionColumn.HeaderText = "Fecha de Modificación";
-            this.FechaModificacionColumn.Name = "FechaModificacionColumn";
-            // 
-            // PrivacidadColumn
-            // 
-            this.PrivacidadColumn.HeaderText = "Privacidad";
-            this.PrivacidadColumn.Name = "PrivacidadColumn";
-            this.PrivacidadColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-
             // 
             // label1
             // 
@@ -261,7 +219,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(683, 379);
             this.Controls.Add(this.label5);
@@ -273,9 +230,6 @@
             this.Controls.Add(this.BuscarTextBox);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.AbrirButton);
-
-            this.ClientSize = new System.Drawing.Size(534, 305);
-
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.EditarButton);
             this.Controls.Add(this.AgregarButton);
@@ -287,6 +241,7 @@
             this.Text = "Notas";
             ((System.ComponentModel.ISupportInitialize)(this.VisualizarDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -296,7 +251,6 @@
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.Button EditarButton;
         private System.Windows.Forms.Button CancelarButton;
-
         private System.Windows.Forms.Button AbrirButton;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.TextBox BuscarTextBox;
@@ -306,12 +260,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn TituloColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacionColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaModificacionColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn PrivacidadColumn;
-
     }
 }
