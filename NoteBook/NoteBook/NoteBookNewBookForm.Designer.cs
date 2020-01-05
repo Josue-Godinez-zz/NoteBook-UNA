@@ -84,6 +84,7 @@
             // 
             this.NullButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NullButton.BackgroundImage")));
             this.NullButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NullButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.NullButton.Location = new System.Drawing.Point(169, 14);
             this.NullButton.Name = "NullButton";
             this.NullButton.Size = new System.Drawing.Size(50, 50);
@@ -203,8 +204,10 @@
             // 
             // NoteBookNewBookForm
             // 
+            this.AcceptButton = this.ConfirmationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
             this.Controls.Add(this.ErrorLabel);

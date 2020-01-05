@@ -186,8 +186,10 @@
             // 
             // NoteBookModifyBookForm
             // 
+            this.AcceptButton = this.ConfirmationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.Controls.Add(this.NameNewCategorieTextBox);
             this.Controls.Add(this.NewAvatarCategorieButton);

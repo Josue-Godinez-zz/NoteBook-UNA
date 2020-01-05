@@ -168,6 +168,11 @@ namespace NoteBook
             else if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 Console.WriteLine("Abre el libro y muestra notas");
+                VisualizarNotasForm visualizarNote = new VisualizarNotasForm((books[(LibraryTableLayoutPanel.Controls.GetChildIndex((Panel)sender))]));
+                if (visualizarNote.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
         }
 

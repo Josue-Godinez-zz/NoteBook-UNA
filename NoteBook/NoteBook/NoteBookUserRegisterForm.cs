@@ -14,8 +14,6 @@ namespace NoteBook
     public partial class NoteBookUserRegisterForm : Form
     {
         private List<String> users;
-        bool userPassword = true;
-        bool userName = true;
 
         public NoteBookUserRegisterForm()
         {
@@ -50,7 +48,7 @@ namespace NoteBook
             }
             else if (NameUserTextBox.TextLength == 0)
             {
-                VerificationErrorProvider.SetError(NameUserTextBox, "Datos Requerido");
+                VerificationErrorProvider.SetError(NameUserTextBox, "Campo Requerido");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(NameUserTextBox);
                 condition = false;
             }
@@ -65,9 +63,36 @@ namespace NoteBook
 
         private void ConfirmationPasswordTextBox_Leave(object sender, EventArgs e)
         {
-            BookPasswordValidation();
+            BookConfirmationPasswordValidation();
+        }
+        private bool BookConfirmationPasswordValidation()
+        {
+            bool condition = false;
+            if (ConfirmationPasswordTextBox.TextLength == 0)
+            {
+                VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "Campo Requerido");
+                ErrorLabel.Text = VerificationErrorProvider.GetError(PasswordUserTextBox);
+                condition = false;
+            }
+            else if (PasswordUserTextBox.Text != ConfirmationPasswordTextBox.Text)
+            {
+                VerificationErrorProvider.SetError(ConfirmationPasswordTextBox,"Contraseñas Distintas");
+                ErrorLabel.Text = VerificationErrorProvider.GetError(ConfirmationPasswordTextBox);
+                condition = false;
+            }
+            else
+            {
+                VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "");
+                ErrorLabel.Text = VerificationErrorProvider.GetError(PasswordUserTextBox);
+                condition = true;
+            }
+            return condition;
         }
 
+        private void PasswordUserTextBox_Leave(object sender, EventArgs e)
+        {
+            BookPasswordValidation();
+        }
         private bool BookPasswordValidation()
         {
             bool condition = false; ;
@@ -75,45 +100,28 @@ namespace NoteBook
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "Campo Requerido");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(ConfirmationPasswordTextBox);
-                userPassword = false;
+                condition = false;
             }
             else
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "");
                 ErrorLabel.Text = "";
-                userPassword = true;
+                condition = true;
             }
             return condition;
         }
 
-        private void PasswordUserTextBox_Leave(object sender, EventArgs e)
-        {
-            if (PasswordUserTextBox.TextLength == 0)
-            {
-                VerificationErrorProvider.SetError(PasswordUserTextBox, "Datos Requerido");
-                ErrorLabel.Text = VerificationErrorProvider.GetError(PasswordUserTextBox);
-                userPassword = false;
-            }
-            else if (PasswordUserLabel.Text != ConfirmationPasswordTextBox.Text)
-            {
-                userPassword = false;
-            }
-            else
-            {
-                VerificationErrorProvider.SetError(PasswordUserTextBox, "");
-                ErrorLabel.Text = VerificationErrorProvider.GetError(PasswordUserTextBox);
-                userPassword = true;
-            }
-        }
+
+
         private void ConfirmationButton_Click(object sender, EventArgs e)
         {
             if (NameUserTextBox.TextLength == 0 && PasswordUserTextBox.TextLength == 0)
             {
-                VerificationErrorProvider.SetError(PasswordUserTextBox, "Datos Requeridos");
-                VerificationErrorProvider.SetError(NameUserTextBox, "Datos Requeridos");
+                VerificationErrorProvider.SetError(PasswordUserTextBox, "Campos Requeridos");
+                VerificationErrorProvider.SetError(NameUserTextBox, "Campos Requeridos");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(NameUserTextBox);
             }
-            else if (userName && userPassword)
+            else if (BookConfirmationPasswordValidation() && BookNameVerication() && BookPasswordValidation())
             {
                 DialogResult respuesta = MessageBox.Show("Desea Crear Usuario Nuevo?", "Nuevo usuario", MessageBoxButtons.YesNo);
                 switch (respuesta)
