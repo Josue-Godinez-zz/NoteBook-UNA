@@ -200,8 +200,9 @@
             this.Controls.Add(this.NameBookTextBox);
             this.Controls.Add(this.PanelSuperior);
             this.Controls.Add(this.PanelInferior);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoteBookModifyBookForm";
-            this.Text = "NoteBookModifyBookForm";
+            this.Text = "Modificar Libro";
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
             this.PanelSuperior.ResumeLayout(false);

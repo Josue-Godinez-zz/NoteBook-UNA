@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UNA\NoteBook\ActivityRegister.cs" />
     <Compile Include="CrearNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NoteBookProfileForm.resx">
       <DependentUpon>NoteBookProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteBooksActivityRegisterForm.resx">
+      <DependentUpon>NoteBooksActivityRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NoteBookSignInForm.resx">
       <DependentUpon>NoteBookSignInForm.cs</DependentUpon>

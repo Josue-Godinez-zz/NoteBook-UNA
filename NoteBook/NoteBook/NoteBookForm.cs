@@ -71,6 +71,7 @@ namespace NoteBook
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             isLogin = false;
+            ActivityRegister.Instance.SaveData(actualSesion.NameUser,"NoteBook", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"),"Cerro Sesion","");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
             SignOutButton.Enabled = false;
@@ -92,7 +93,7 @@ namespace NoteBook
         }
         private void timeTimer_Tick(object sender, EventArgs e)
         {
-            TimeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
+            TimeLabel.Text = DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt");
         }
 
         private void PreLoadImages()
@@ -114,7 +115,7 @@ namespace NoteBook
             panelBookCover.MouseLeave += PanelBookCover_MouseLeave;
             panelBookCover.MouseClick += PanelBookCover_MouseClick;
             ToolTip toolTipInformation = new ToolTip();
-            toolTipInformation.SetToolTip(panelBookCover, "<Click Derecho> Acceder A Este Libro\n<Click Izquierdo> Modificar Este Libro");
+            toolTipInformation.SetToolTip(panelBookCover, "<Click Izquiedo> Acceder A Este Libro\n<Click Derecho> Modificar Este Libro");
             toolTipInformation.IsBalloon = true;
             toolTipInformation.InitialDelay = 300;
             toolTipInformation.AutoPopDelay = 7000;

@@ -166,7 +166,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoteBookSignInForm";
-            this.Text = "NoteBook - SignIn";
+            this.Text = "Inicio Sesion";
             this.panelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInferior.ResumeLayout(false);

@@ -193,7 +193,7 @@
             this.MinimizeBox = false;
             this.Name = "NoteBookUserRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteBook-Registro";
+            this.Text = "Nuevo Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.IconRegisterPictureBox)).EndInit();
             this.PanelSuperior.ResumeLayout(false);
             this.PanelInferior.ResumeLayout(false);

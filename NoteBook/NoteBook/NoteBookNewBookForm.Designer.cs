@@ -209,7 +209,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
-            this.ControlBox = false;
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.NewImageCategorieButton);
             this.Controls.Add(this.NameCategoriaTextBox);
@@ -224,7 +223,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoteBookNewBookForm";
-            this.Text = "NoteBookNewBook";
+            this.Text = "Libro Nuevo";
             this.PanelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             this.PanelInferior.ResumeLayout(false);

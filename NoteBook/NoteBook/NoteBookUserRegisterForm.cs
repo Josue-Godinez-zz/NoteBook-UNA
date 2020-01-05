@@ -145,6 +145,7 @@ namespace NoteBook
             user.PasswordUser = PasswordUserTextBox.Text;
             NewUser = user;
             DialogResult = DialogResult.OK;
+            ActivityRegister.Instance.SaveData(user.NameUser,"Nuevo Usuario", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Creacion De Nuevo Usuario", "");
             this.Close();
         }
 
