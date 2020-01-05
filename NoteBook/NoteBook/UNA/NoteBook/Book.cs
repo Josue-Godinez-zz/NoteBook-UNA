@@ -38,5 +38,13 @@ namespace UNA.Notebook
             get;
             set;
         }
+
+        public User User
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

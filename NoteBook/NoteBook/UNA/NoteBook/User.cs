@@ -18,13 +18,5 @@ namespace UNA.NoteBook
             get;
             set;
         }
-
-        public Notebook.Book Book
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

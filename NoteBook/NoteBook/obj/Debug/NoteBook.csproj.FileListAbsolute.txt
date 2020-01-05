@@ -1,7 +1,6 @@
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\NoteBook.exe.config
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\NoteBook.exe
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\NoteBook.pdb
-C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csprojAssemblyReference.cache
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.Properties.Resources.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.exe
@@ -9,7 +8,6 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBoo
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookSignInForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NotebookProfileForm.resources
-C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookRegisterForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookNewBookForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\NoteBook.exe.config
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\NoteBook.exe
@@ -27,3 +25,9 @@ C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.EditNoteForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.VisualizarNotasForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.VisualizarContenidoForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.EditNoteForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.VisualizarContenidoForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.VisualizarNotasForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csprojAssemblyReference.cache
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookModifyBookForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookUserRegisterForm.resources

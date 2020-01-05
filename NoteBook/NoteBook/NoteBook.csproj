@@ -52,6 +52,18 @@
     <Compile Include="CrearNota.Designer.cs">
       <DependentUpon>CrearNota.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoteBookModifyBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteBookModifyBookForm.Designer.cs">
+      <DependentUpon>NoteBookModifyBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoteBooksActivityRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteBooksActivityRegisterForm.Designer.cs">
+      <DependentUpon>NoteBooksActivityRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisualizarContenido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,38 +77,38 @@
       <DependentUpon>VisualizarNotas.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\NoteBook\Note.cs" />
-    <Compile Include="NoteBookNewBook.cs">
+    <Compile Include="NoteBookNewBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteBookNewBook.Designer.cs">
-      <DependentUpon>NoteBookNewBook.cs</DependentUpon>
+    <Compile Include="NoteBookNewBookForm.Designer.cs">
+      <DependentUpon>NoteBookNewBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NotebookProfile.cs">
+    <Compile Include="NoteBookProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NotebookProfile.Designer.cs">
-      <DependentUpon>NotebookProfile.cs</DependentUpon>
+    <Compile Include="NoteBookProfileForm.Designer.cs">
+      <DependentUpon>NoteBookProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NoteBookSignIn.cs">
+    <Compile Include="NoteBookSignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteBookSignIn.Designer.cs">
-      <DependentUpon>NoteBookSignIn.cs</DependentUpon>
+    <Compile Include="NoteBookSignInForm.Designer.cs">
+      <DependentUpon>NoteBookSignInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\NoteBook\Book.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NoteBook.cs">
+    <Compile Include="NoteBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteBook.Designer.cs">
-      <DependentUpon>NoteBook.cs</DependentUpon>
+    <Compile Include="NoteBookForm.Designer.cs">
+      <DependentUpon>NoteBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NoteBookRegister.cs">
+    <Compile Include="NoteBookUserRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteBookRegister.Designer.cs">
-      <DependentUpon>NoteBookRegister.cs</DependentUpon>
+    <Compile Include="NoteBookUserRegisterForm.Designer.cs">
+      <DependentUpon>NoteBookUserRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\NoteBook\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,20 +116,23 @@
     <EmbeddedResource Include="CrearNota.resx">
       <DependentUpon>CrearNota.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteBookNewBook.resx">
-      <DependentUpon>NoteBookNewBook.cs</DependentUpon>
+    <EmbeddedResource Include="NoteBookModifyBookForm.resx">
+      <DependentUpon>NoteBookModifyBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NotebookProfile.resx">
-      <DependentUpon>NotebookProfile.cs</DependentUpon>
+    <EmbeddedResource Include="NoteBookNewBookForm.resx">
+      <DependentUpon>NoteBookNewBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteBookSignIn.resx">
-      <DependentUpon>NoteBookSignIn.cs</DependentUpon>
+    <EmbeddedResource Include="NoteBookProfileForm.resx">
+      <DependentUpon>NoteBookProfileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteBook.resx">
-      <DependentUpon>NoteBook.cs</DependentUpon>
+    <EmbeddedResource Include="NoteBookSignInForm.resx">
+      <DependentUpon>NoteBookSignInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteBookRegister.resx">
-      <DependentUpon>NoteBookRegister.cs</DependentUpon>
+    <EmbeddedResource Include="NoteBookForm.resx">
+      <DependentUpon>NoteBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteBookUserRegisterForm.resx">
+      <DependentUpon>NoteBookUserRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

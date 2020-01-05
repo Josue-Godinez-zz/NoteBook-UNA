@@ -3,27 +3,30 @@
   <Class Name="UNA.NoteBook.User">
     <Position X="1.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UNA\NoteBook\User.cs</FileName>
       <NewMemberFileName>UNA\Notebook\User.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UNA.NoteBook.Note">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAEAEAVBAgAAAAACAAIAISCBAAAIEAAAACAA=</HashCode>
+      <FileName>UNA\NoteBook\Note.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Book" />
     </ShowAsAssociation>
   </Class>
   <Class Name="UNA.Notebook.Book">
-    <Position X="3.5" Y="1" Width="1.5" />
+    <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAABAAAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>UNA\NoteBook\Book.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="UNA.NoteBook.Note">
-    <Position X="6.5" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAFAAgAAAAAAAAIAAAAAAAAAAgAACCAA=</HashCode>
-      <FileName>UNA\NoteBook\Note.cs</FileName>
-    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
