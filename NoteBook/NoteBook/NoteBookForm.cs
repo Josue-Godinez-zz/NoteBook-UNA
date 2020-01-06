@@ -79,21 +79,28 @@ namespace NoteBook
 
         private void CreateBookButton_Click(object sender, EventArgs e)
         {
-            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books, actualSesion);
-            if (noteBookNewBookForm.ShowDialog() == DialogResult.OK)
+            if (isLogin != false)
             {
-                if (LibraryTableLayoutPanel.Controls.Count == (LibraryTableLayoutPanel.RowCount * LibraryTableLayoutPanel.ColumnCount))
+                NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books, actualSesion);
+                if (noteBookNewBookForm.ShowDialog() == DialogResult.OK)
                 {
-                    LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
-                    LibraryTableLayoutPanel.RowCount++;
+                    if (LibraryTableLayoutPanel.Controls.Count == (LibraryTableLayoutPanel.RowCount * LibraryTableLayoutPanel.ColumnCount))
+                    {
+                        LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
+                        LibraryTableLayoutPanel.RowCount++;
+                    }
+                    CreacionLibro(noteBookNewBookForm.NewBook);
+                    directionImages = noteBookNewBookForm.DirectionImages;
                 }
-                CreacionLibro(noteBookNewBookForm.NewBook);
-                directionImages = noteBookNewBookForm.DirectionImages;
+            }
+            else
+            {
+                MessageBox.Show("Debes estar logueado antes de poder crear un libro","Error", MessageBoxButtons.OK);
             }
         }
         private void timeTimer_Tick(object sender, EventArgs e)
         {
-            TimeLabel.Text = DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt");
+            TimeLabel.Text = DateTime.Now.ToString("h:mm:ss  tt");
         }
 
         private void PreLoadImages()
