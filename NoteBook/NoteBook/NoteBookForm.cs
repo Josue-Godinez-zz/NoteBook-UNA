@@ -38,6 +38,8 @@ namespace NoteBook
                 isLogin = true;
                 UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
                 SignOutButton.Enabled = true;
+                SignUpButton.Enabled = false;
+                ActivityRegister.Instance.User = actualSesion;
             }
         }
         private void LogInButton_Click(object sender, EventArgs e)
@@ -49,9 +51,12 @@ namespace NoteBook
                 {
                     isLogin = true;
                     actualSesion = noteBookSignInForm.User;
-                    MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesion", "Inicio de Sesion");
+                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Incio Sesión","");
+                    MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                     UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                     SignOutButton.Enabled = true;
+                    SignUpButton.Enabled = false;
+                    ActivityRegister.Instance.User = actualSesion;
                 }
             }
             else if (users.Count == 0)
@@ -71,10 +76,12 @@ namespace NoteBook
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             isLogin = false;
-            ActivityRegister.Instance.SaveData(actualSesion.NameUser,"NoteBook", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"),"Cerro Sesion","");
+            ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Cerro Sesión", "");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
+            SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
+            ActivityRegister.Instance.User = actualSesion;
         }
 
         private void CreateBookButton_Click(object sender, EventArgs e)
@@ -95,7 +102,7 @@ namespace NoteBook
             }
             else
             {
-                MessageBox.Show("Debes estar logueado antes de poder crear un libro","Error", MessageBoxButtons.OK);
+                MessageBox.Show("Debes de iniciar sesión primero antes de poder crear un libro","Error", MessageBoxButtons.OK);
             }
         }
         private void timeTimer_Tick(object sender, EventArgs e)
@@ -145,7 +152,6 @@ namespace NoteBook
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.Size = new Size(45, 45);
             pictureBox.Anchor = AnchorStyles.None;
-            pictureBox.MouseDoubleClick += PictureBox_MouseDoubleClick;
             pictureBox.Location = new Point(23, 10);
             if (!books.Contains(book))
             {
@@ -196,26 +202,6 @@ namespace NoteBook
             panelBookCover.BackColor = Color.FromArgb(255, 192, 128);
         }
 
-        private void PictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(books[(LibraryTableLayoutPanel.Controls.GetChildIndex((PictureBox)sender))], directionImages, books);
-                if (modifyBook.ShowDialog() == DialogResult.OK)
-                {
-                    PictureBox pictureBox = (PictureBox)sender;
-                    pictureBox.ImageLocation = modifyBook.Book.ImageBook;
-                    //ToolTip toolTip = new ToolTip();
-                    //toolTip.ToolTipTitle = modifyBook.Book.NameBook;
-                    //toolTip.SetToolTip(pictureBox, "Categoria: " + modifyBook.Book.CategorieBook);
-                    //toolTip.IsBalloon = true;
-                }
-            }
-            else if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                Console.WriteLine("Abre el libro y muestra notas");
-            }
-        }
         private void LogActivitiesButton_Click(object sender, EventArgs e)
         {
             NoteBooksActivityRegisterForm noteBooksActivityRegisterForm = new NoteBooksActivityRegisterForm();

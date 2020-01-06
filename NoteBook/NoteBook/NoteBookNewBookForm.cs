@@ -201,6 +201,7 @@ namespace NoteBook
             {
                 newBook.User = User;
             }
+            ActivityRegister.Instance.SaveData(User.NameUser, "Libro Nuevo", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Creacion De Libro " + "\""+newBook.NameBook+"\"", "");
             return newBook;
         }
         public Dictionary<string, string> DirectionImages

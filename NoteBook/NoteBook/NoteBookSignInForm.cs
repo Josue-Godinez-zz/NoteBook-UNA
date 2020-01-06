@@ -14,8 +14,6 @@ namespace NoteBook
     public partial class NoteBookSignInForm : Form
     {
         List<User> users;
-        bool userName = false;
-        bool userPassword = false;
         int user;
         public NoteBookSignInForm()
         {
@@ -29,43 +27,56 @@ namespace NoteBook
 
         private void nameUserTextBox_Leave(object sender, EventArgs e)
         {
-            if(nameUserTextBox.TextLength == 0)
+            BookNameUserValidation();
+        }
+
+        private bool BookNameUserValidation()
+        {
+            bool condition = false;
+            if (nameUserTextBox.TextLength == 0)
             {
-                verificationErrorProvider.SetError(nameUserTextBox,"Campo Requerido");
+                verificationErrorProvider.SetError(nameUserTextBox, "Campo Requerido");
                 errorLabel.Text = verificationErrorProvider.GetError(nameUserTextBox);
-                userName = false;
+                condition = false;
             }
             else
             {
-                for(int x = 0; x < users.Count; x++)
+                for (int x = 0; x < users.Count; x++)
                 {
-                    if(nameUserTextBox.Text != users[x].NameUser)
+                    if (nameUserTextBox.Text != users[x].NameUser)
                     {
                         verificationErrorProvider.SetError(nameUserTextBox, "Usuario No Existe");
                         errorLabel.Text = verificationErrorProvider.GetError(nameUserTextBox);
-                        userName = false;
+                        condition = false;
                     }
                     else
                     {
                         verificationErrorProvider.SetError(nameUserTextBox, "");
                         errorLabel.Text = verificationErrorProvider.GetError(nameUserTextBox);
-                        userName = true;
+                        condition = true;
                         user = x;
+                        break;
                     }
                 }
             }
+            return condition;
         }
 
         private void passwordUserTextBox_Leave(object sender, EventArgs e)
         {
-            Console.WriteLine(userPassword + "-" + userName);
-            if(userName)
+            BookPasswordUserValidation();
+        }
+
+        private bool BookPasswordUserValidation()
+        {
+            bool condition = false;
+            if (BookNameUserValidation())
             {
                 if (passwordUserTextBox.TextLength == 0)
                 {
                     verificationErrorProvider.SetError(passwordUserTextBox, "Campo Requerido");
                     errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
-                    userPassword = false;
+                    condition = false;
                 }
                 else
                 {
@@ -73,13 +84,13 @@ namespace NoteBook
                     {
                         verificationErrorProvider.SetError(passwordUserTextBox, "Contraseña Incorrecta");
                         errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
-                        userPassword = false;
+                        condition = false;
                     }
                     else
                     {
                         verificationErrorProvider.SetError(passwordUserTextBox, "");
                         errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
-                        userPassword = true;
+                        condition = true;
                     }
                 }
             }
@@ -87,13 +98,14 @@ namespace NoteBook
             {
                 verificationErrorProvider.SetError(passwordUserTextBox, "");
                 errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
-                userPassword = true;
+                condition = true;
             }
+            return condition;
         }
 
         private void confirmationButton_Click(object sender, EventArgs e)
         {
-            if(userName && userPassword)
+            if(BookNameUserValidation() && BookPasswordUserValidation())
             {
                 if(users[user].NameUser == nameUserTextBox.Text && users[user].PasswordUser == passwordUserTextBox.Text)
                 {

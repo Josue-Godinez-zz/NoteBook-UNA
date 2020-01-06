@@ -174,7 +174,7 @@
             this.Controls.Add(this.NameUserLabel);
             this.Controls.Add(this.PanelInferior);
             this.Controls.Add(this.PanelSuperior);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

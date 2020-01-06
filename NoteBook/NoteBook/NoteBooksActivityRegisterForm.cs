@@ -34,9 +34,31 @@ namespace NoteBook
 
         private void PrinterButton_Click(object sender, EventArgs e)
         {
+            if(ActivityRegister.Instance.User == null)
+            {
+                MessageBox.Show("Debes tener iniciada la sesión para poder crear PDF de Registro","Error", MessageBoxButtons.OK);
+            }
+            else
+            {
+                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Registro Actividades", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Creo PDF de Registro", "");
+                PDFCrator();
+                DialogResult respuesta = (MessageBox.Show("El PDF fue creado exitosamente.\n\n" + "Ubicación de Archivo " + Application.StartupPath + "\\Registro.pdf" + "\n\nDesea abrirlo?", "Archivo PDF", MessageBoxButtons.YesNo));
+                switch (respuesta)
+                {
+                    case DialogResult.Yes:
+                        Process.Start(Application.StartupPath + "\\Registro.pdf");
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            
+        }
+
+        private void PDFCrator()
+        {
             Document archive = new Document(PageSize.LETTER);
             FileStream fileStream = new FileStream("Registro.pdf", FileMode.Create);
-            Console.WriteLine(fileStream);
             PdfWriter writer = PdfWriter.GetInstance(archive, fileStream);
             archive.AddTitle("Registro De Actividades");
             archive.Open();
@@ -57,7 +79,6 @@ namespace NoteBook
                 archive.Add(events);
             }
             archive.Close();
-            Process.Start(Application.StartupPath + "\\Registro.pdf");
         }
 
         private void NullButton_Click(object sender, EventArgs e)
