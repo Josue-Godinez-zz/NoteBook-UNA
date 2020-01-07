@@ -40,7 +40,7 @@ namespace NoteBook
             }
             else
             {
-                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Registro Actividades", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Creo PDF de Registro", "");
+                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Registro Actividades", "Creo PDF de Registro", "");
                 PDFCrator();
                 DialogResult respuesta = (MessageBox.Show("El PDF fue creado exitosamente.\n\n" + "Ubicación de Archivo " + Application.StartupPath + "\\Registro.pdf" + "\n\nDesea abrirlo?", "Archivo PDF", MessageBoxButtons.YesNo));
                 switch (respuesta)

@@ -51,7 +51,7 @@ namespace NoteBook
                 {
                     isLogin = true;
                     actualSesion = noteBookSignInForm.User;
-                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Incio Sesión","");
+                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
                     MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                     UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                     SignOutButton.Enabled = true;
@@ -76,7 +76,7 @@ namespace NoteBook
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             isLogin = false;
-            ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt"), "Cerro Sesión", "");
+            ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
             SignUpButton.Enabled = true;

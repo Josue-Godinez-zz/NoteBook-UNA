@@ -50,9 +50,9 @@ namespace NoteBook
             set;
         }
 
-        public void SaveData(string user, string place, string time, string accion, string information)
+        public void SaveData(string user, string place, string accion, string information)
         {
-            Event @event = new Event(user, place, time, accion, information);
+            Event @event = new Event(user, place, accion, information);
             Activities.Add(@event);
         }
 
@@ -65,11 +65,11 @@ namespace NoteBook
             public Event()
             {
             }
-            public Event(string user, string place, string time, string accion, string information)
+            public Event(string user, string place, string accion, string information)
             {
                 UserActivityRegister = user;
                 ObjectActivityRegister = place;
-                TimeDateActivityRegister = time;
+                TimeDateActivityRegister = DateTime.Now.ToString("ddd dd MMMM yyyy h:mm:ss  tt");
                 AccionActivityRegister = accion;
                 AditionalInformationActivityRegister = information;
             }

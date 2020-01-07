@@ -64,6 +64,7 @@
             // NameNewCategorieTextBox
             // 
             this.NameNewCategorieTextBox.Location = new System.Drawing.Point(15, 225);
+            this.NameNewCategorieTextBox.MaxLength = 10;
             this.NameNewCategorieTextBox.Name = "NameNewCategorieTextBox";
             this.NameNewCategorieTextBox.Size = new System.Drawing.Size(104, 20);
             this.NameNewCategorieTextBox.TabIndex = 22;
@@ -121,10 +122,12 @@
             this.CategorieComboBox.Name = "CategorieComboBox";
             this.CategorieComboBox.Size = new System.Drawing.Size(135, 21);
             this.CategorieComboBox.TabIndex = 17;
+            this.CategorieComboBox.SelectedIndexChanged += new System.EventHandler(this.CategorieComboBox_SelectedIndexChanged);
             // 
             // NameBookTextBox
             // 
             this.NameBookTextBox.Location = new System.Drawing.Point(113, 131);
+            this.NameBookTextBox.MaxLength = 13;
             this.NameBookTextBox.Name = "NameBookTextBox";
             this.NameBookTextBox.Size = new System.Drawing.Size(135, 20);
             this.NameBookTextBox.TabIndex = 16;
@@ -168,6 +171,7 @@
             this.ConfirmationButton.Size = new System.Drawing.Size(50, 50);
             this.ConfirmationButton.TabIndex = 0;
             this.ConfirmationButton.UseVisualStyleBackColor = true;
+            this.ConfirmationButton.Click += new System.EventHandler(this.ConfirmationButton_Click);
             // 
             // PanelInferior
             // 
