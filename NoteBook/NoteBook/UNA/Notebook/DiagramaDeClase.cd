@@ -21,7 +21,7 @@
   <Class Name="UNA.Notebook.Book">
     <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAABAAAAAkAABAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>UNA\NoteBook\Book.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -41,12 +41,11 @@
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAFAAAAAAAAAAAEAAAAAAAQAAAAAAAAQAAAAIEAAAA=</HashCode>
+      <HashCode>AAAFAAAAEAAAAAAAAAAAAAAQAAAAAAAAQAAAAIAAAAA=</HashCode>
       <FileName>UNA\NoteBook\ActivityRegister.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="User" />
-      <Property Name="Note" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

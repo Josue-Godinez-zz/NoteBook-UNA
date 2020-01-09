@@ -44,6 +44,7 @@
             this.NewImageCategorieButton = new System.Windows.Forms.Button();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.AvisoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.AccessCheckBox = new System.Windows.Forms.CheckBox();
             this.PanelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             this.PanelInferior.SuspendLayout();
@@ -202,6 +203,16 @@
             this.AvisoErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.AvisoErrorProvider.ContainerControl = this;
             // 
+            // AccessCheckBox
+            // 
+            this.AccessCheckBox.AutoSize = true;
+            this.AccessCheckBox.Location = new System.Drawing.Point(102, 285);
+            this.AccessCheckBox.Name = "AccessCheckBox";
+            this.AccessCheckBox.Size = new System.Drawing.Size(88, 17);
+            this.AccessCheckBox.TabIndex = 24;
+            this.AccessCheckBox.Text = "Acceso Libre";
+            this.AccessCheckBox.UseVisualStyleBackColor = true;
+            // 
             // NoteBookNewBookForm
             // 
             this.AcceptButton = this.ConfirmationButton;
@@ -209,6 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
+            this.Controls.Add(this.AccessCheckBox);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.NewImageCategorieButton);
             this.Controls.Add(this.NameCategoriaTextBox);
@@ -250,5 +262,6 @@
         private System.Windows.Forms.Button NewImageCategorieButton;
         private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.ErrorProvider AvisoErrorProvider;
+        private System.Windows.Forms.CheckBox AccessCheckBox;
     }
 }

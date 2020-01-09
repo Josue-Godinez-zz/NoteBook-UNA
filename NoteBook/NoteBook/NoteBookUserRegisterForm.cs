@@ -13,7 +13,7 @@ namespace NoteBook
 {
     public partial class NoteBookUserRegisterForm : Form
     {
-        private List<String> users;
+        readonly private List<String> users;
 
         public NoteBookUserRegisterForm()
         {
@@ -39,26 +39,26 @@ namespace NoteBook
 
         private bool BookNameVerication()
         {
-            bool condition = false;
+            bool _1 = false;
             if (users.Contains(NameUserTextBox.Text))
             {
                 VerificationErrorProvider.SetError(NameUserTextBox, "El Usuario Ya Existe");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(NameUserTextBox);
-                condition = false;
+                _1 = false;
             }
             else if (NameUserTextBox.TextLength == 0)
             {
                 VerificationErrorProvider.SetError(NameUserTextBox, "Campo Requerido");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(NameUserTextBox);
-                condition = false;
+                _1 = false;
             }
             else
             {
                 VerificationErrorProvider.SetError(NameUserTextBox, "");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(ConfirmationPasswordTextBox);
-                condition = true;
+                _1 = true;
             }
-            return condition;
+            return _1;
         }
 
         private void ConfirmationPasswordTextBox_Leave(object sender, EventArgs e)
@@ -67,26 +67,26 @@ namespace NoteBook
         }
         private bool BookConfirmationPasswordValidation()
         {
-            bool condition = false;
+            bool _1 = false;
             if (ConfirmationPasswordTextBox.TextLength == 0)
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "Campo Requerido");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(PasswordUserTextBox);
-                condition = false;
+                _1 = false;
             }
             else if (PasswordUserTextBox.Text != ConfirmationPasswordTextBox.Text)
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox,"Contraseñas Distintas");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(ConfirmationPasswordTextBox);
-                condition = false;
+                _1 = false;
             }
             else
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(PasswordUserTextBox);
-                condition = true;
+                _1 = true;
             }
-            return condition;
+            return _1;
         }
 
         private void PasswordUserTextBox_Leave(object sender, EventArgs e)
@@ -95,20 +95,20 @@ namespace NoteBook
         }
         private bool BookPasswordValidation()
         {
-            bool condition = false; ;
+            bool _1 = false; ;
             if (ConfirmationPasswordTextBox.TextLength == 0)
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "Campo Requerido");
                 ErrorLabel.Text = VerificationErrorProvider.GetError(ConfirmationPasswordTextBox);
-                condition = false;
+                _1 = false;
             }
             else
             {
                 VerificationErrorProvider.SetError(ConfirmationPasswordTextBox, "");
                 ErrorLabel.Text = "";
-                condition = true;
+                _1 = true;
             }
-            return condition;
+            return _1;
         }
 
 
@@ -127,18 +127,18 @@ namespace NoteBook
                 switch (respuesta)
                 {
                     case DialogResult.Yes:
-                        newUser();
+                        CreateUser();
                         break;
                     case DialogResult.No:
                         break;
                 }
             }
         }
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        public void newUser()
+        public void CreateUser()
         {
             User user = new User();
             user.NameUser = NameUserTextBox.Text;

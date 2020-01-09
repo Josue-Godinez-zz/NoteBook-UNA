@@ -44,12 +44,6 @@ namespace NoteBook
             set;
         }
 
-        public Note Note
-        {
-            get;
-            set;
-        }
-
         public void SaveData(string user, string place, string accion, string information)
         {
             Event @event = new Event(user, place, accion, information);

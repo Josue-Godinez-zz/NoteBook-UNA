@@ -126,7 +126,7 @@
             this.NullButton.Size = new System.Drawing.Size(50, 50);
             this.NullButton.TabIndex = 1;
             this.NullButton.UseVisualStyleBackColor = true;
-            this.NullButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.NullButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ConfirmationButton
             // 

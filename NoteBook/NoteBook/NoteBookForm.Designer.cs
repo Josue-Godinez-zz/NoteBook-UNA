@@ -269,7 +269,7 @@
             // TimeTimer
             // 
             this.TimeTimer.Enabled = true;
-            this.TimeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
+            this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
             // 
             // NoteBookForm
             // 

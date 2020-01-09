@@ -34,32 +34,38 @@ namespace NoteBook
 
         private void PrinterButton_Click(object sender, EventArgs e)
         {
-            if(ActivityRegister.Instance.User == null)
+            try
             {
-                MessageBox.Show("Debes tener iniciada la sesión para poder crear PDF de Registro","Error", MessageBoxButtons.OK);
-            }
-            else
-            {
-                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Registro Actividades", "Creo PDF de Registro", "");
-                PDFCrator();
-                DialogResult respuesta = (MessageBox.Show("El PDF fue creado exitosamente.\n\n" + "Ubicación de Archivo " + Application.StartupPath + "\\Registro.pdf" + "\n\nDesea abrirlo?", "Archivo PDF", MessageBoxButtons.YesNo));
-                switch (respuesta)
+                if (ActivityRegister.Instance.User == null)
                 {
-                    case DialogResult.Yes:
-                        Process.Start(Application.StartupPath + "\\Registro.pdf");
-                        break;
-                    case DialogResult.No:
-                        break;
+                    MessageBox.Show("Debes tener iniciada la sesión para poder crear PDF de Registro", "Error", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Registro Actividades", "Creo PDF de Registro", "");
+                    PDFCrator();
+                    DialogResult respuesta = (MessageBox.Show("El PDF fue creado exitosamente.\n\n" + "Ubicación de Archivo " + Application.StartupPath + "\\Registro.pdf" + "\n\nDesea abrirlo?", "Archivo PDF", MessageBoxButtons.YesNo));
+                    switch (respuesta)
+                    {
+                        case DialogResult.Yes:
+                            Process.Start(Application.StartupPath + "\\Registro.pdf");
+                            break;
+                        case DialogResult.No:
+                            break;
+                    }
                 }
             }
-            
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Asegurate de no tener ningun documento PDF\ncreado por el Registro de Actividades abierto", "Error");
+            }
         }
 
         private void PDFCrator()
         {
             Document archive = new Document(PageSize.LETTER);
             FileStream fileStream = new FileStream("Registro.pdf", FileMode.Create);
-            PdfWriter writer = PdfWriter.GetInstance(archive, fileStream);
+            PdfWriter _1 = PdfWriter.GetInstance(archive, fileStream);
             archive.AddTitle("Registro De Actividades");
             archive.Open();
             Paragraph title = new Paragraph();

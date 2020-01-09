@@ -14,8 +14,8 @@ namespace NoteBook
 {
     public partial class NoteBookModifyBookForm : Form
     {
-        List<Book> books;
-        Dictionary<string, string> directionImages;
+        readonly List<Book> books;
+        readonly Dictionary<string, string> directionImages;
 
         public NoteBookModifyBookForm()
         {
@@ -38,6 +38,7 @@ namespace NoteBook
                 }
             }
             CategorieComboBox.SelectedItem = book.CategorieBook;
+            AccessCheckBox.Checked = book.AccessBook;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -54,12 +55,12 @@ namespace NoteBook
                 switch (respuesta)
                 {
                     case DialogResult.Yes:
-                        ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \""+Book.NameBook+ "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \""+ Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
+                        ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Book.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
                         Book.NameBook = NameBookTextBox.Text;
                         Book.CategorieBook = (string)CategorieComboBox.SelectedItem;
                         Book.ImageBook = directionImages[(string)CategorieComboBox.SelectedItem];
+                        Book.AccessBook = AccessCheckBox.Checked;
                         DialogResult = DialogResult.OK;
-                        
                         this.Close();
                         break;
                     case DialogResult.No:

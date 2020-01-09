@@ -41,10 +41,14 @@ namespace UNA.Notebook
 
         public User User
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+        }
+        
+        public bool AccessBook
+        {
+            get;
+            set;
         }
     }
 }
