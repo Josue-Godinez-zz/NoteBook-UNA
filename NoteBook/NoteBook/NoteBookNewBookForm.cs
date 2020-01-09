@@ -15,7 +15,7 @@ namespace NoteBook
 {
     public partial class NoteBookNewBookForm : Form
     {
-        List<Book> books;
+        readonly List<Book> books;
         public NoteBookNewBookForm()
         {
             InitializeComponent();
@@ -197,10 +197,9 @@ namespace NoteBook
             {
                 newBook.ImageBook = IconPictureBox.ImageLocation;
             }
-            if (User != null)
-            {
-                newBook.User = User;
-            }
+            newBook.AccessBook = AccessCheckBox.Checked;
+            newBook.User = User;
+            ActivityRegister.Instance.SaveData(User.NameUser, "Libro Nuevo", "Creacion De Libro " + "\""+newBook.NameBook+"\"", "");
             return newBook;
         }
         public Dictionary<string, string> DirectionImages

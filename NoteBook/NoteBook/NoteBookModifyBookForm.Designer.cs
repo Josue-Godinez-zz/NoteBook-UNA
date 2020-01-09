@@ -44,6 +44,7 @@
             this.ConfirmationButton = new System.Windows.Forms.Button();
             this.PanelInferior = new System.Windows.Forms.Panel();
             this.AvisoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.AccessCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).BeginInit();
             this.PanelSuperior.SuspendLayout();
@@ -64,6 +65,7 @@
             // NameNewCategorieTextBox
             // 
             this.NameNewCategorieTextBox.Location = new System.Drawing.Point(15, 225);
+            this.NameNewCategorieTextBox.MaxLength = 10;
             this.NameNewCategorieTextBox.Name = "NameNewCategorieTextBox";
             this.NameNewCategorieTextBox.Size = new System.Drawing.Size(104, 20);
             this.NameNewCategorieTextBox.TabIndex = 22;
@@ -121,10 +123,12 @@
             this.CategorieComboBox.Name = "CategorieComboBox";
             this.CategorieComboBox.Size = new System.Drawing.Size(135, 21);
             this.CategorieComboBox.TabIndex = 17;
+            this.CategorieComboBox.SelectedIndexChanged += new System.EventHandler(this.CategorieComboBox_SelectedIndexChanged);
             // 
             // NameBookTextBox
             // 
             this.NameBookTextBox.Location = new System.Drawing.Point(113, 131);
+            this.NameBookTextBox.MaxLength = 13;
             this.NameBookTextBox.Name = "NameBookTextBox";
             this.NameBookTextBox.Size = new System.Drawing.Size(135, 20);
             this.NameBookTextBox.TabIndex = 16;
@@ -168,6 +172,7 @@
             this.ConfirmationButton.Size = new System.Drawing.Size(50, 50);
             this.ConfirmationButton.TabIndex = 0;
             this.ConfirmationButton.UseVisualStyleBackColor = true;
+            this.ConfirmationButton.Click += new System.EventHandler(this.ConfirmationButton_Click);
             // 
             // PanelInferior
             // 
@@ -184,6 +189,16 @@
             // 
             this.AvisoErrorProvider.ContainerControl = this;
             // 
+            // AccessCheckBox
+            // 
+            this.AccessCheckBox.AutoSize = true;
+            this.AccessCheckBox.Location = new System.Drawing.Point(113, 299);
+            this.AccessCheckBox.Name = "AccessCheckBox";
+            this.AccessCheckBox.Size = new System.Drawing.Size(88, 17);
+            this.AccessCheckBox.TabIndex = 23;
+            this.AccessCheckBox.Text = "Acceso Libre";
+            this.AccessCheckBox.UseVisualStyleBackColor = true;
+            // 
             // NoteBookModifyBookForm
             // 
             this.AcceptButton = this.ConfirmationButton;
@@ -191,6 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
+            this.Controls.Add(this.AccessCheckBox);
             this.Controls.Add(this.NameNewCategorieTextBox);
             this.Controls.Add(this.NewAvatarCategorieButton);
             this.Controls.Add(this.IconPictureBox);
@@ -200,8 +216,9 @@
             this.Controls.Add(this.NameBookTextBox);
             this.Controls.Add(this.PanelSuperior);
             this.Controls.Add(this.PanelInferior);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoteBookModifyBookForm";
-            this.Text = "NoteBookModifyBookForm";
+            this.Text = "Modificar Libro";
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
             this.PanelSuperior.ResumeLayout(false);
@@ -228,5 +245,6 @@
         private System.Windows.Forms.Button ConfirmationButton;
         private System.Windows.Forms.Panel PanelInferior;
         private System.Windows.Forms.ErrorProvider AvisoErrorProvider;
+        private System.Windows.Forms.CheckBox AccessCheckBox;
     }
 }

@@ -14,9 +14,9 @@ namespace NoteBook
 {
     public partial class NoteBookForm : Form
     {
-        List<User> users = new List<User>();
+        readonly List<User> users = new List<User>();
         Dictionary<string, string> directionImages = new Dictionary<string, string>();
-        List<Book> books = new List<Book>();
+        readonly List<Book> books = new List<Book>();
         bool isLogin = false;
         User actualSesion = null;
         int opcionDeOrdenamiento = 0;
@@ -38,6 +38,8 @@ namespace NoteBook
                 isLogin = true;
                 UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
                 SignOutButton.Enabled = true;
+                SignUpButton.Enabled = false;
+                ActivityRegister.Instance.User = actualSesion;
             }
         }
         private void LogInButton_Click(object sender, EventArgs e)
@@ -49,9 +51,12 @@ namespace NoteBook
                 {
                     isLogin = true;
                     actualSesion = noteBookSignInForm.User;
-                    MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesion", "Inicio de Sesion");
+                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
+                    MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                     UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                     SignOutButton.Enabled = true;
+                    SignUpButton.Enabled = false;
+                    ActivityRegister.Instance.User = actualSesion;
                 }
             }
             else if (users.Count == 0)
@@ -71,28 +76,38 @@ namespace NoteBook
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             isLogin = false;
+            ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
+            SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
+            ActivityRegister.Instance.User = actualSesion;
         }
 
         private void CreateBookButton_Click(object sender, EventArgs e)
         {
-            NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books, actualSesion);
-            if (noteBookNewBookForm.ShowDialog() == DialogResult.OK)
+            if (isLogin != false)
             {
-                if (LibraryTableLayoutPanel.Controls.Count == (LibraryTableLayoutPanel.RowCount * LibraryTableLayoutPanel.ColumnCount))
+                NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books, actualSesion);
+                if (noteBookNewBookForm.ShowDialog() == DialogResult.OK)
                 {
-                    LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
-                    LibraryTableLayoutPanel.RowCount++;
+                    if (LibraryTableLayoutPanel.Controls.Count == (LibraryTableLayoutPanel.RowCount * LibraryTableLayoutPanel.ColumnCount))
+                    {
+                        LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
+                        LibraryTableLayoutPanel.RowCount++;
+                    }
+                    CreacionLibro(noteBookNewBookForm.NewBook);
+                    directionImages = noteBookNewBookForm.DirectionImages;
                 }
-                CreacionLibro(noteBookNewBookForm.NewBook);
-                directionImages = noteBookNewBookForm.DirectionImages;
+            }
+            else
+            {
+                MessageBox.Show("Debes de iniciar sesión primero antes de poder crear un libro","Error", MessageBoxButtons.OK);
             }
         }
-        private void timeTimer_Tick(object sender, EventArgs e)
+        private void TimeTimer_Tick(object sender, EventArgs e)
         {
-            TimeLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
+            TimeLabel.Text = DateTime.Now.ToString("h:mm:ss  tt");
         }
 
         private void PreLoadImages()
@@ -114,7 +129,7 @@ namespace NoteBook
             panelBookCover.MouseLeave += PanelBookCover_MouseLeave;
             panelBookCover.MouseClick += PanelBookCover_MouseClick;
             ToolTip toolTipInformation = new ToolTip();
-            toolTipInformation.SetToolTip(panelBookCover, "<Click Derecho> Acceder A Este Libro\n<Click Izquierdo> Modificar Este Libro");
+            toolTipInformation.SetToolTip(panelBookCover, "<Click Izquiedo> Acceder A Este Libro\n<Click Derecho> Modificar Este Libro");
             toolTipInformation.IsBalloon = true;
             toolTipInformation.InitialDelay = 300;
             toolTipInformation.AutoPopDelay = 7000;
@@ -137,7 +152,6 @@ namespace NoteBook
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.Size = new Size(45, 45);
             pictureBox.Anchor = AnchorStyles.None;
-            pictureBox.MouseDoubleClick += PictureBox_MouseDoubleClick;
             pictureBox.Location = new Point(23, 10);
             if (!books.Contains(book))
             {
@@ -151,28 +165,50 @@ namespace NoteBook
 
         private void PanelBookCover_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (isLogin)
             {
-                NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(books[(LibraryTableLayoutPanel.Controls.GetChildIndex((Panel)sender))], directionImages, books);
-                if (modifyBook.ShowDialog() == DialogResult.OK)
+                Book book = books[(LibraryTableLayoutPanel.Controls.GetChildIndex((Panel)sender))];
+                if (e.Button == System.Windows.Forms.MouseButtons.Right)
                 {
-                    Panel panelCoverBook = (Panel)sender;
-                    PictureBox pictureBox = (PictureBox)panelCoverBook.Controls[0];
-                    Label labelNameBook = (Label)panelCoverBook.Controls[1];
-                    Label labelBookCategorie = (Label)panelCoverBook.Controls[2];
-                    pictureBox.ImageLocation = modifyBook.Book.ImageBook;
-                    labelNameBook.Text = modifyBook.Book.NameBook;
-                    labelBookCategorie.Text = modifyBook.Book.CategorieBook;
+                    if (book.User.Equals(actualSesion))
+                    {
+                        NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(book, directionImages, books);
+                        if (modifyBook.ShowDialog() == DialogResult.OK)
+                        {
+                            Panel panelCoverBook = (Panel)sender;
+                            PictureBox pictureBox = (PictureBox)panelCoverBook.Controls[0];
+                            Label labelNameBook = (Label)panelCoverBook.Controls[1];
+                            Label labelBookCategorie = (Label)panelCoverBook.Controls[2];
+                            pictureBox.ImageLocation = modifyBook.Book.ImageBook;
+                            labelNameBook.Text = modifyBook.Book.NameBook;
+                            labelBookCategorie.Text = modifyBook.Book.CategorieBook;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo el propietario del libro puede realizar modificaciones","Error");
+                    }
+                    
+                }
+                else if (e.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    if(book.AccessBook || (!book.AccessBook && book.User.Equals(actualSesion)))
+                    {
+                        VisualizarNotasForm visualizarNote = new VisualizarNotasForm(book);
+                        if (visualizarNote.ShowDialog() == DialogResult.OK)
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo el propietario del libro puede acceder a él", "Error");
+                    }
                 }
             }
-            else if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            else
             {
-                Console.WriteLine("Abre el libro y muestra notas");
-                VisualizarNotasForm visualizarNote = new VisualizarNotasForm((books[(LibraryTableLayoutPanel.Controls.GetChildIndex((Panel)sender))]));
-                if (visualizarNote.ShowDialog() == DialogResult.OK)
-                {
-
-                }
+                MessageBox.Show("Debe de tener sesion iniciada para\npoder interactuar con este libro","Error");
             }
         }
 
@@ -188,26 +224,6 @@ namespace NoteBook
             panelBookCover.BackColor = Color.FromArgb(255, 192, 128);
         }
 
-        private void PictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(books[(LibraryTableLayoutPanel.Controls.GetChildIndex((PictureBox)sender))], directionImages, books);
-                if (modifyBook.ShowDialog() == DialogResult.OK)
-                {
-                    PictureBox pictureBox = (PictureBox)sender;
-                    pictureBox.ImageLocation = modifyBook.Book.ImageBook;
-                    //ToolTip toolTip = new ToolTip();
-                    //toolTip.ToolTipTitle = modifyBook.Book.NameBook;
-                    //toolTip.SetToolTip(pictureBox, "Categoria: " + modifyBook.Book.CategorieBook);
-                    //toolTip.IsBalloon = true;
-                }
-            }
-            else if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                Console.WriteLine("Abre el libro y muestra notas");
-            }
-        }
         private void LogActivitiesButton_Click(object sender, EventArgs e)
         {
             NoteBooksActivityRegisterForm noteBooksActivityRegisterForm = new NoteBooksActivityRegisterForm();
@@ -250,20 +266,6 @@ namespace NoteBook
                 }
                 opcionDeOrdenamiento = 0;
             }
-
-        }
-
-        private void BookModification(Book book)
-        {
-            for (int x = 0; x < books.Count; x++)
-            {
-                if (books[x].Equals(book))
-                {
-                    Console.WriteLine(book.NameBook);
-                    Console.WriteLine(books[x].NameBook);
-                }
-            }
-
         }
     }
 }

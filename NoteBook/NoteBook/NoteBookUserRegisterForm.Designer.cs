@@ -120,12 +120,13 @@
             // 
             this.NullButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NullButton.BackgroundImage")));
             this.NullButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NullButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.NullButton.Location = new System.Drawing.Point(169, 14);
             this.NullButton.Name = "NullButton";
             this.NullButton.Size = new System.Drawing.Size(50, 50);
             this.NullButton.TabIndex = 1;
             this.NullButton.UseVisualStyleBackColor = true;
-            this.NullButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.NullButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ConfirmationButton
             // 
@@ -173,9 +174,11 @@
             // 
             // NoteBookUserRegisterForm
             // 
+            this.AcceptButton = this.ConfirmationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
             this.Controls.Add(this.ErrorLabel);
@@ -187,13 +190,14 @@
             this.Controls.Add(this.NameUserTextBox);
             this.Controls.Add(this.NameUserLabel);
             this.Controls.Add(this.PanelSuperior);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoteBookUserRegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoteBook-Registro";
+            this.Text = "Nuevo Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.IconRegisterPictureBox)).EndInit();
             this.PanelSuperior.ResumeLayout(false);
             this.PanelInferior.ResumeLayout(false);

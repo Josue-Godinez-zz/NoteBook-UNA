@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UNA\NoteBook\ActivityRegister.cs" />
     <Compile Include="CrearNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +130,9 @@
     <EmbeddedResource Include="NoteBookProfileForm.resx">
       <DependentUpon>NoteBookProfileForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NoteBooksActivityRegisterForm.resx">
+      <DependentUpon>NoteBooksActivityRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NoteBookSignInForm.resx">
       <DependentUpon>NoteBookSignInForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +157,7 @@
     <EmbeddedResource Include="VisualizarNotas.resx">
       <DependentUpon>VisualizarNotas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -162,11 +162,12 @@
             this.Controls.Add(this.nameUserLabel);
             this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.panelSuperior);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoteBookSignInForm";
-            this.Text = "NoteBook - SignIn";
+            this.Text = "Inicio Sesion";
             this.panelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInferior.ResumeLayout(false);

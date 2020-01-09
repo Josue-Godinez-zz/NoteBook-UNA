@@ -14,8 +14,8 @@ namespace NoteBook
 {
     public partial class NoteBookModifyBookForm : Form
     {
-        List<Book> books;
-        Dictionary<string, string> directionImages;
+        readonly List<Book> books;
+        readonly Dictionary<string, string> directionImages;
 
         public NoteBookModifyBookForm()
         {
@@ -38,12 +38,35 @@ namespace NoteBook
                 }
             }
             CategorieComboBox.SelectedItem = book.CategorieBook;
+            AccessCheckBox.Checked = book.AccessBook;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.None;
             this.Close();
+        }
+
+        private void ConfirmationButton_Click(object sender, EventArgs e)
+        {
+            if (BookNameValidation())
+            {
+                DialogResult respuesta = MessageBox.Show("Desea guardar cambios de este libro?", "Ejecutar Cambios", MessageBoxButtons.YesNo);
+                switch (respuesta)
+                {
+                    case DialogResult.Yes:
+                        ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Book.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
+                        Book.NameBook = NameBookTextBox.Text;
+                        Book.CategorieBook = (string)CategorieComboBox.SelectedItem;
+                        Book.ImageBook = directionImages[(string)CategorieComboBox.SelectedItem];
+                        Book.AccessBook = AccessCheckBox.Checked;
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
         }
         private bool BookNameValidation()
         {
@@ -84,6 +107,30 @@ namespace NoteBook
         {
             get;
             set;
+        }
+
+        private void CategorieComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CategorieComboBox.SelectedIndex != CategorieComboBox.Items.Count - 1)
+            {
+                NewAvatarCategorieButton.Visible = false;
+                NameNewCategorieTextBox.Visible = false;
+                if (CategorieComboBox.SelectedIndex < 6)
+                {
+                    string direccionImagen = Path.Combine(Application.StartupPath, directionImages[(string)CategorieComboBox.SelectedItem]);
+                    IconPictureBox.Image = new System.Drawing.Bitmap(direccionImagen);
+                }
+                else
+                {
+                    NewAvatarCategorieButton.Visible = true;
+                    IconPictureBox.ImageLocation = directionImages[(string)CategorieComboBox.SelectedItem];
+                }
+            }
+            else
+            {
+                NewAvatarCategorieButton.Visible = true;
+                NameNewCategorieTextBox.Visible = true;
+            }
         }
     }
 }

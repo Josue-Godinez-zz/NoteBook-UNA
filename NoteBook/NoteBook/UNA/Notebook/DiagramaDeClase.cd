@@ -21,8 +21,28 @@
   <Class Name="UNA.Notebook.Book">
     <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAABAAAAAkAABAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>UNA\NoteBook\Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NoteBook.ActivityRegister">
+    <Position X="0.5" Y="3.75" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="NoteBook.ActivityRegister.Event">
+        <TypeIdentifier>
+          <NewMemberFileName>UNA\NoteBook\ActivityRegister.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAEAAAAAAAAAAAAAAQAAAAAAAAQAAAAIAAAAA=</HashCode>
+      <FileName>UNA\NoteBook\ActivityRegister.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="User" />

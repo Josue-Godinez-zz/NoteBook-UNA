@@ -249,7 +249,7 @@
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.LibraryTableLayoutPanel.Location = new System.Drawing.Point(195, 119);
             this.LibraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LibraryTableLayoutPanel.Name = "LibraryTableLayoutPanel";
@@ -269,7 +269,7 @@
             // TimeTimer
             // 
             this.TimeTimer.Enabled = true;
-            this.TimeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
+            this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
             // 
             // NoteBookForm
             // 
@@ -280,7 +280,7 @@
             this.Controls.Add(this.LibraryTableLayoutPanel);
             this.Controls.Add(this.VistaLateralPanel);
             this.Controls.Add(this.VistaSuperiorPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
