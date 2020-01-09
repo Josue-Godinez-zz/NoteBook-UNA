@@ -14,7 +14,7 @@ namespace NoteBook
     public partial class EditNoteForm : Form
     {
         List<string> Categorias;
-        private bool nuevo = true;
+        public bool nuevo = true;
         private Note nota = new Note();
         private Note notaOriginal;
         public EditNoteForm()
@@ -116,6 +116,14 @@ namespace NoteBook
 
                 NewNote = nota;
                 this.DialogResult = DialogResult.OK;
+                if(Nuevo)
+                {
+                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
+                }
+                else
+                {
+                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Editar Nota", "Modificación de nota ", "");
+                }
                 this.Close();
 
             }

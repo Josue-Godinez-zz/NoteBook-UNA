@@ -108,7 +108,7 @@ namespace UNA.NoteBook
             
         }
 
-        public Notebook.Book Book
+        private Notebook.Book Book
         {
             get => default;
             set

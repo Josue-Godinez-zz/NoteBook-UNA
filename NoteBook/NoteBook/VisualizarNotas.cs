@@ -24,32 +24,57 @@ namespace NoteBook
         public void Refrescar(List<Note> lista)
         {
             VisualizarDataGridView.DataSource = new List<Note>();
-           
+
+            VisualizarDataGridView.EnableHeadersVisualStyles = false;
+
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Red;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
+
+
             VisualizarDataGridView.Columns.Clear();
             DataGridViewTextBoxColumn Titulo = new DataGridViewTextBoxColumn();
+            Titulo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Titulo.DataPropertyName = "Title";
             Titulo.HeaderText = "Título";
             VisualizarDataGridView.Columns.Add(Titulo);
           
             DataGridViewTextBoxColumn Categoria = new DataGridViewTextBoxColumn();
+            Categoria.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Categoria.DataPropertyName = "Category";
             Categoria.HeaderText = "Categoría";
             VisualizarDataGridView.Columns.Add(Categoria);
 
             DataGridViewTextBoxColumn Creacion = new DataGridViewTextBoxColumn();
+            Creacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Creacion.DataPropertyName = "CreationDate";
             Creacion.HeaderText = "Fecha de Creación";
             VisualizarDataGridView.Columns.Add(Creacion);
 
             DataGridViewTextBoxColumn Modificacion = new DataGridViewTextBoxColumn();
+            Modificacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Modificacion.DataPropertyName = "ModificationDate";
             Modificacion.HeaderText = "Fecha de Modificación";
             VisualizarDataGridView.Columns.Add(Modificacion);
 
             DataGridViewCheckBoxColumn Privacidad = new DataGridViewCheckBoxColumn();
+            Privacidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Privacidad.DataPropertyName = "Privacity";
             Privacidad.HeaderText = "Privacidad";
             VisualizarDataGridView.Columns.Add(Privacidad);
+
+            VisualizarDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            VisualizarDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            VisualizarDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
+
+            VisualizarDataGridView.DefaultCellStyle.ForeColor = Color.Green;
+            VisualizarDataGridView.DefaultCellStyle.SelectionBackColor = Color.Yellow;
+            VisualizarDataGridView.DefaultCellStyle.BackColor = Color.Red;
+            VisualizarDataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
+
 
             if (Libro.Note.Count > 0)
             {
