@@ -79,53 +79,57 @@ namespace NoteBook
             this.Text = Titulo;
         }
 
-
-
-
-
-
-
-
-
-
         public Note NewNote
         {
             get;
             set;
         }
+
         public bool Nuevo { get => nuevo; set => nuevo = value; }
+
         public Note NotaOriginal { get => notaOriginal; set => notaOriginal = value; }
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            nota = new Note();
-            nota.Title = TitleTextBox.Text;
-            nota.Category = CategoriaComboBox.Text;
-            nota.SetColorNota(ColorButton.BackColor);
-            nota.SetColorLetra(ColorLetraButton.BackColor);
-            nota.SetFuente(Fuente.Font);
-            nota.SetContenido(ContenidoTextBox.Text);
-            nota.Privacity = PrivacidadCheckBox.Checked;
-            if (Nuevo)
+            if (ValidacionTitulo(TitleTextBox.Text) && ValidacionCategoria())
             {
-                nota.CreationDate = DateTime.Now;
-            }
-            else
-            {
-                nota.CreationDate = NotaOriginal.CreationDate;
+
+                nota = new Note();
+                nota.Title = TitleTextBox.Text;
+                nota.Category = CategoriaComboBox.Text;
+                nota.SetColorNota(ColorButton.BackColor);
+                nota.SetColorLetra(ColorLetraButton.BackColor);
+                nota.SetFuente(FuenteButton.Font);
+                nota.SetFuente(Fuente.Font);
+                nota.SetContenido(ContenidoTextBox.Text);
+                nota.Privacity = PrivacidadCheckBox.Checked;
+                if (Nuevo)
+                {
+                    nota.CreationDate = DateTime.Now;
+                }
+                else
+                {
+                    nota.CreationDate = NotaOriginal.CreationDate;
+                }
+
+                nota.ModificationDate = DateTime.Now;
+
+                NewNote = nota;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+
             }
             
-            nota.ModificationDate = DateTime.Now;
-
-            NewNote = nota;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
 
         }
 
         private void CancelarButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (CerrarSinGuardar())
+            {
+                this.Close();
+            }
+            
         }
 
 
@@ -147,6 +151,7 @@ namespace NoteBook
             ContenidoTextBox.BackColor = NotaOriginal.GetColorNota();
             ColorLetraButton.BackColor = NotaOriginal.GetColorLetra();
             ContenidoTextBox.ForeColor = NotaOriginal.GetColorLetra();
+            FuenteButton.Font = NotaOriginal.GetFuente();
             ContenidoTextBox.Font = NotaOriginal.GetFuente();
             ContenidoTextBox.Text = NotaOriginal.GetContenido();
             PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
@@ -170,12 +175,47 @@ namespace NoteBook
             Fuente.ShowEffects = false;
             if (Fuente.ShowDialog() == DialogResult.OK)
             {
-
+                FuenteButton.Font = Fuente.Font;
                 ContenidoTextBox.Font = Fuente.Font;
 
 
             }
 
         }
+
+        private bool ValidacionTitulo(string name)
+        {
+            if (name.Length == 0)
+            {
+                AvisoErrorProvider.SetError(TitleTextBox, "Ningun Nombre Digitado");
+                return false;
+            }
+            else
+            {
+                AvisoErrorProvider.SetError(TitleTextBox, "");
+                return true;
+            }
+        }
+
+        private bool ValidacionCategoria()
+        {
+            if (CategoriaComboBox.SelectedIndex == -1)
+            {
+                AvisoErrorProvider.SetError(CategoriaComboBox, "Debe Elegir Una Categoria");
+                return false;
+            }
+            else
+            {
+                AvisoErrorProvider.SetError(CategoriaComboBox, "");
+                return true;
+            }
+        }
+
+        private bool CerrarSinGuardar()
+        {
+            return MessageBox.Show("No se ha guardado la información, realmente desea cerrar esta ventana",
+                                        "¿Desea Continuar?", MessageBoxButtons.YesNo) == DialogResult.Yes;
+        }
+
     }
 }

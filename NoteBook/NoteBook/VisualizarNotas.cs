@@ -18,10 +18,9 @@ namespace NoteBook
 
         public VisualizarNotasForm()
         {
-            InitializeComponent();
-           
-
+            InitializeComponent();          
         }
+
         public void Refrescar(List<Note> lista)
         {
             VisualizarDataGridView.DataSource = new List<Note>();
@@ -32,9 +31,6 @@ namespace NoteBook
             Titulo.HeaderText = "Título";
             VisualizarDataGridView.Columns.Add(Titulo);
           
-
-
-
             DataGridViewTextBoxColumn Categoria = new DataGridViewTextBoxColumn();
             Categoria.DataPropertyName = "Category";
             Categoria.HeaderText = "Categoría";
@@ -57,7 +53,6 @@ namespace NoteBook
 
             if (Libro.Note.Count > 0)
             {
-               
                 VisualizarDataGridView.DataSource = lista;
             }
 
@@ -73,7 +68,6 @@ namespace NoteBook
         {
             this.Libro = libro;
             Refrescar(Libro.Note);
-            //VisualizarDataGridView.DataSource = Libro.Note;
         }
 
         private void AgregarButton_Click(object sender, EventArgs e)
@@ -84,7 +78,6 @@ namespace NoteBook
                 Note nota = editNote.NewNote;
                 Libro.Note.Add(nota);
                 Refrescar(Libro.Note);
-                //VisualizarDataGridView.DataSource = Libro.Note;
                 Console.WriteLine(Libro.Note.Count);
 
 
@@ -105,19 +98,15 @@ namespace NoteBook
                 editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                 editNote.Llenar();
                 editNote.Nuevo = false;
+
                 if (editNote.ShowDialog() == DialogResult.OK)
                 {
-
- 
                     Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                     VisualizarDataGridView.ClearSelection();
                     Libro.Note.Remove(eliminar);
                     eliminar = editNote.NewNote;
                     Libro.Note.Add(eliminar);
                     Refrescar(Libro.Note);
-                    //VisualizarDataGridView.DataSource = Libro.Note;
-                    
-
                 }
             }
 
@@ -153,8 +142,9 @@ namespace NoteBook
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Predicate<Note> buscar = x => x.Title.Contains(BuscarTextBox.Text);
-
+            Predicate<Note> revisar= x => x.Category.Contains(BuscarTextBox.Text);
             Refrescar(Libro.Note.FindAll(buscar));
+            Refrescar(Libro.Note.FindAll(revisar));
 
 
         }

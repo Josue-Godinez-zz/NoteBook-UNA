@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditNoteForm));
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TitleTextBox = new System.Windows.Forms.TextBox();
@@ -45,6 +46,8 @@
             this.FuenteLabel = new System.Windows.Forms.Label();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
+            this.AvisoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.AvisoErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -117,6 +120,7 @@
             // 
             // ColorButton
             // 
+            this.ColorButton.FlatAppearance.BorderSize = 3;
             this.ColorButton.Location = new System.Drawing.Point(98, 99);
             this.ColorButton.Name = "ColorButton";
             this.ColorButton.Size = new System.Drawing.Size(23, 23);
@@ -137,6 +141,7 @@
             // 
             // ColorLetraButton
             // 
+            this.ColorLetraButton.FlatAppearance.BorderSize = 3;
             this.ColorLetraButton.Location = new System.Drawing.Point(98, 159);
             this.ColorLetraButton.Name = "ColorLetraButton";
             this.ColorLetraButton.Size = new System.Drawing.Size(23, 23);
@@ -196,13 +201,21 @@
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
+            // AvisoErrorProvider
+            // 
+            this.AvisoErrorProvider.BlinkRate = 0;
+            this.AvisoErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.AvisoErrorProvider.ContainerControl = this;
+            // 
             // EditNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(393, 379);
+            this.ControlBox = false;
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.FuenteLabel);
             this.Controls.Add(this.GuardarButton);
@@ -221,6 +234,7 @@
             this.MinimizeBox = false;
             this.Name = "EditNoteForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.AvisoErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +258,6 @@
         private System.Windows.Forms.Label FuenteLabel;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button CancelarButton;
+        private System.Windows.Forms.ErrorProvider AvisoErrorProvider;
     }
 }

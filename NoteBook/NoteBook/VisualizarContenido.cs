@@ -46,7 +46,7 @@ namespace NoteBook
             Fuente.ShowEffects = false;
             if (Fuente.ShowDialog() == DialogResult.OK)
             {
-
+                FuenteButton.Font = Fuente.Font;
                 ContenidoTextBox.Font = Fuente.Font;
 
 
@@ -57,6 +57,7 @@ namespace NoteBook
         {
             notaOriginal.SetColorNota(FondoButton.BackColor);
             notaOriginal.SetColorLetra(LetraButton.BackColor);
+            notaOriginal.SetFuente(FuenteButton.Font);
             notaOriginal.SetFuente(Fuente.Font);
             notaOriginal.SetContenido(ContenidoTextBox.Text);
             notaOriginal.ModificationDate = DateTime.Now;
@@ -76,6 +77,7 @@ namespace NoteBook
             ContenidoTextBox.BackColor = NotaOriginal.GetColorNota();
             LetraButton.BackColor = NotaOriginal.GetColorLetra();
             ContenidoTextBox.ForeColor = NotaOriginal.GetColorLetra();
+            FuenteButton.Font = notaOriginal.GetFuente();
             ContenidoTextBox.Font = NotaOriginal.GetFuente();
             ContenidoTextBox.Text = NotaOriginal.GetContenido();
         }

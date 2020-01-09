@@ -17,7 +17,6 @@ C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NotebookProfileForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookSignInForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookForm.resources
-C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookRegisterForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.Properties.Resources.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.exe
@@ -31,3 +30,5 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBoo
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csprojAssemblyReference.cache
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookModifyBookForm.resources
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookUserRegisterForm.resources
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookModifyBookForm.resources
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookUserRegisterForm.resources
