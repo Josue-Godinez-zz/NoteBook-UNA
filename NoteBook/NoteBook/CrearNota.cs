@@ -102,7 +102,7 @@ namespace NoteBook
                 nota.Category = CategoriaComboBox.Text;
                 nota.SetContenido(ContenidoTextBox.Text);
                 nota.Privacity = PrivacidadCheckBox.Checked;
-                nota.User = ActivityRegister.Instance.User;
+                nota.User = ActivityRegister.Instance.User.NameUser;
                 if (Nuevo)
                 {
                     nota.CreationDate = DateTime.Now;
@@ -146,7 +146,10 @@ namespace NoteBook
             TitleTextBox.Text = NotaOriginal.Title;
             CategoriaComboBox.SelectedItem = NotaOriginal.Category;
             PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
-           
+            ActivityRegister.Instance.User.NameUser = NotaOriginal.User;
+
+
+
         }
 
 

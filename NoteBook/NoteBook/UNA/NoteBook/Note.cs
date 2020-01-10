@@ -46,7 +46,7 @@ namespace UNA.NoteBook
             return ContenidoNota;
         }
 
-       public User User
+       public string User
         {
             get;
             set;

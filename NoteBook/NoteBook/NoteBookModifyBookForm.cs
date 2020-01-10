@@ -81,7 +81,7 @@ namespace NoteBook
             {
                 for (int x = 0; x < books.Count; x++)
                 {
-                    if (books[x].NameBook == NameBookTextBox.Text && books[x].CategorieBook == (string)CategorieComboBox.SelectedItem)
+                    if (books[x].NameBook == NameBookTextBox.Text && books[x].CategorieBook == (string)CategorieComboBox.SelectedItem && AccessCheckBox.Checked == books[x].AccessBook)
                     {
                         DialogResult respuesta = MessageBox.Show("No Se Realizaron Cambios\nDeseas Salir?", "Aviso", MessageBoxButtons.YesNo);
                         switch (respuesta)
