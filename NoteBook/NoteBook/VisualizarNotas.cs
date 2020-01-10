@@ -27,8 +27,8 @@ namespace NoteBook
 
             VisualizarDataGridView.EnableHeadersVisualStyles = false;
 
-            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Red;
-            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Lavender;
+            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Lavender;
             VisualizarDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             VisualizarDataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
 
@@ -67,12 +67,11 @@ namespace NoteBook
             VisualizarDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             VisualizarDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             VisualizarDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
-            VisualizarDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
+            
 
             VisualizarDataGridView.DefaultCellStyle.ForeColor = Color.Green;
-            VisualizarDataGridView.DefaultCellStyle.SelectionBackColor = Color.Yellow;
-            VisualizarDataGridView.DefaultCellStyle.BackColor = Color.Red;
+            VisualizarDataGridView.DefaultCellStyle.SelectionBackColor = Color.Aqua;
+            VisualizarDataGridView.DefaultCellStyle.BackColor = Color.AliceBlue;
             VisualizarDataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
 
 
@@ -117,7 +116,7 @@ namespace NoteBook
 
         private void EditarButton_Click(object sender, EventArgs e)
         {
-            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook, "Editar Nota");
+            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook, "Propiedades");
             if (VisualizarDataGridView.SelectedRows.Count >= 1)
             {
                 editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
@@ -166,10 +165,9 @@ namespace NoteBook
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Predicate<Note> buscar = x => x.Title.Contains(BuscarTextBox.Text);
-            Predicate<Note> revisar= x => x.Category.Contains(BuscarTextBox.Text);
+            Predicate<Note> buscar = x => ((x.Title.Contains(BuscarTextBox.Text)) || (x.Category.Contains(BuscarTextBox.Text)));
             Refrescar(Libro.Note.FindAll(buscar));
-            Refrescar(Libro.Note.FindAll(revisar));
+            
 
 
         }

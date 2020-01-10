@@ -91,16 +91,12 @@ namespace NoteBook
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (ValidacionTitulo(TitleTextBox.Text) && ValidacionCategoria())
+            if (ValidacionTitulo(TitleTextBox.Text) || ValidacionCategoria() || ValidacionContenido(ContenidoTextBox.Text))
             {
 
                 nota = new Note();
                 nota.Title = TitleTextBox.Text;
                 nota.Category = CategoriaComboBox.Text;
-                nota.SetColorNota(ColorButton.BackColor);
-                nota.SetColorLetra(ColorLetraButton.BackColor);
-                nota.SetFuente(FuenteButton.Font);
-                nota.SetFuente(Fuente.Font);
                 nota.SetContenido(ContenidoTextBox.Text);
                 nota.Privacity = PrivacidadCheckBox.Checked;
                 if (Nuevo)
@@ -116,7 +112,8 @@ namespace NoteBook
 
                 NewNote = nota;
                 this.DialogResult = DialogResult.OK;
-                if(Nuevo)
+                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "´Visualizar Notas", "Búsqueda de Notas ", "");
+                if (Nuevo)
                 {
                     ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
                 }
@@ -140,62 +137,26 @@ namespace NoteBook
             
         }
 
-
-
-        private void ColorButton_Click(object sender, EventArgs e)
-        {
-            if (ColorNota.ShowDialog() == DialogResult.OK)
-            {
-                ColorButton.BackColor = ColorNota.Color;
-                ContenidoTextBox.BackColor = ColorNota.Color;
-            }
-        }
-
         public void Llenar()
         {
             TitleTextBox.Text = NotaOriginal.Title;
             CategoriaComboBox.SelectedItem = NotaOriginal.Category;
-            ColorButton.BackColor = NotaOriginal.GetColorNota();
-            ContenidoTextBox.BackColor = NotaOriginal.GetColorNota();
-            ColorLetraButton.BackColor = NotaOriginal.GetColorLetra();
-            ContenidoTextBox.ForeColor = NotaOriginal.GetColorLetra();
-            FuenteButton.Font = NotaOriginal.GetFuente();
-            ContenidoTextBox.Font = NotaOriginal.GetFuente();
-            ContenidoTextBox.Text = NotaOriginal.GetContenido();
             PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
 
         }
 
-        private void ColorLetraButton_Click(object sender, EventArgs e)
-        {
-            if (ColorNota.ShowDialog() == DialogResult.OK)
-            {
-                ColorLetraButton.BackColor = ColorNota.Color;
-                ContenidoTextBox.ForeColor = ColorNota.Color;
-                
-            }
-        }
 
         
-        private void FuenteButton_Click(object sender, EventArgs e)
-        {
-
-            Fuente.ShowEffects = false;
-            if (Fuente.ShowDialog() == DialogResult.OK)
-            {
-                FuenteButton.Font = Fuente.Font;
-                ContenidoTextBox.Font = Fuente.Font;
-
-
-            }
-
-        }
-
         private bool ValidacionTitulo(string name)
         {
             if (name.Length == 0)
             {
-                AvisoErrorProvider.SetError(TitleTextBox, "Ningun Nombre Digitado");
+                AvisoErrorProvider.SetError(TitleTextBox, "Ningun Título Digitado");
+                return false;
+            }
+            else if(name.Length >= 13)
+            {
+                AvisoErrorProvider.SetError(TitleTextBox, "El título no debe tener una extensión mayor a 13 caracteres");
                 return false;
             }
             else
@@ -204,6 +165,21 @@ namespace NoteBook
                 return true;
             }
         }
+
+        private bool ValidacionContenido(string contenido)
+        {
+            if (contenido.Length == 0)
+            {
+                AvisoErrorProvider.SetError(ContenidoTextBox, "No hay texto escrito en la nota");
+                return false;
+            }
+            else
+            {
+                AvisoErrorProvider.SetError(ContenidoTextBox, "");
+                return true;
+            }
+        }
+
 
         private bool ValidacionCategoria()
         {
