@@ -11,7 +11,7 @@
   <Class Name="UNA.NoteBook.Note">
     <Position X="6.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAEAEAVBAgAAAAACAAIAISCBAAAIEAAAACAA=</HashCode>
+      <HashCode>QAABAAAAAEAEAVBAgAAAAACAAIAISCBAAAIEAAAACAA=</HashCode>
       <FileName>UNA\NoteBook\Note.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

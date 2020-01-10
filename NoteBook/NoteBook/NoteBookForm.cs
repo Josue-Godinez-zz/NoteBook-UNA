@@ -17,11 +17,10 @@ namespace NoteBook
     {
         readonly List<User> users = new List<User>();
         Dictionary<string, string> directionImages = new Dictionary<string, string>();
-        readonly List<Book> books = new List<Book>();
+        List<Book> books = new List<Book>();
         bool isLogin = false;
         User actualSesion = null;
         int opcionDeOrdenamiento = 0;
-
         public NoteBookForm()
         {
             InitializeComponent();
@@ -40,7 +39,7 @@ namespace NoteBook
                 UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
-                VisualizarContenidoForm.Instance.User = actualSesion;
+                ActivityRegister.Instance.User = actualSesion;
             }
         }
         private void LogInButton_Click(object sender, EventArgs e)
@@ -52,12 +51,12 @@ namespace NoteBook
                 {
                     isLogin = true;
                     actualSesion = noteBookSignInForm.User;
-                    VisualizarContenidoForm.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
+                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
                     MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                     UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                     SignOutButton.Enabled = true;
                     SignUpButton.Enabled = false;
-                    VisualizarContenidoForm.Instance.User = actualSesion;
+                    ActivityRegister.Instance.User = actualSesion;
                 }
             }
             else if (users.Count == 0)
@@ -77,12 +76,12 @@ namespace NoteBook
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             isLogin = false;
-            VisualizarContenidoForm.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
+            ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
             SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
-            VisualizarContenidoForm.Instance.User = actualSesion;
+            ActivityRegister.Instance.User = actualSesion;
         }
 
         private void CreateBookButton_Click(object sender, EventArgs e)
@@ -241,6 +240,7 @@ namespace NoteBook
                 {
                     CreacionLibro(books);
                 }
+                books = query.ToList();
             }
             else if (opcionDeOrdenamiento == 2)
             {
@@ -249,6 +249,7 @@ namespace NoteBook
                 {
                     CreacionLibro(books);
                 }
+                books = query.ToList();
             }
             else if (opcionDeOrdenamiento == 3)
             {
@@ -257,6 +258,7 @@ namespace NoteBook
                 {
                     CreacionLibro(books);
                 }
+                books = query.ToList();
             }
             else if (opcionDeOrdenamiento == 4)
             {
@@ -265,6 +267,7 @@ namespace NoteBook
                 {
                     CreacionLibro(books);
                 }
+                books = query.ToList();
                 opcionDeOrdenamiento = 0;
             }
         }

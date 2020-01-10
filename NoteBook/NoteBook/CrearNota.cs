@@ -93,7 +93,7 @@ namespace NoteBook
        
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-             User user = ActivityRegister.Instance.User;
+            
             if (ValidacionTitulo(TitleTextBox.Text) || ValidacionCategoria() || ValidacionContenido(ContenidoTextBox.Text))
             {
                 
@@ -102,7 +102,7 @@ namespace NoteBook
                 nota.Category = CategoriaComboBox.Text;
                 nota.SetContenido(ContenidoTextBox.Text);
                 nota.Privacity = PrivacidadCheckBox.Checked;
-                nota.User= 
+                nota.User = ActivityRegister.Instance.User;
                 if (Nuevo)
                 {
                     nota.CreationDate = DateTime.Now;
@@ -116,14 +116,14 @@ namespace NoteBook
 
                 NewNote = nota;
                 this.DialogResult = DialogResult.OK;
-                VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "´Visualizar Notas", "Búsqueda de Notas ", "");
+                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "´Visualizar Notas", "Búsqueda de Notas ", "");
                 if (Nuevo)
                 {
-                    VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
+                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
                 }
                 else
                 {
-                    VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "Editar Nota", "Modificación de nota ", "");
+                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Editar Nota", "Modificación de nota ", "");
                 }
                 this.Close();
 
