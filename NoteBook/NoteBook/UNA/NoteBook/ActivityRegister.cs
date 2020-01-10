@@ -7,22 +7,22 @@ using UNA.NoteBook;
 namespace NoteBook
 {
 
-    public class ActivityRegister
+    public class VisualizarContenidoForm
     {
-        private static ActivityRegister _instance = null;
+        private static VisualizarContenidoForm _instance = null;
 
-        private ActivityRegister()
+        private VisualizarContenidoForm()
         {
 
         }
 
-        public static ActivityRegister Instance
+        public static VisualizarContenidoForm Instance
         {
             get
             {
                 if(_instance == null)
                 {
-                    _instance = new ActivityRegister();
+                    _instance = new VisualizarContenidoForm();
                 }
                 if (Activities == null)
                 {

@@ -10,6 +10,7 @@ using UNA.NoteBook;
 using System.Windows.Forms;
 using UNA.Notebook;
 
+
 namespace NoteBook
 {
     public partial class NoteBookForm : Form
@@ -39,7 +40,7 @@ namespace NoteBook
                 UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
-                ActivityRegister.Instance.User = actualSesion;
+                VisualizarContenidoForm.Instance.User = actualSesion;
             }
         }
         private void LogInButton_Click(object sender, EventArgs e)
@@ -51,12 +52,12 @@ namespace NoteBook
                 {
                     isLogin = true;
                     actualSesion = noteBookSignInForm.User;
-                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
+                    VisualizarContenidoForm.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
                     MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                     UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                     SignOutButton.Enabled = true;
                     SignUpButton.Enabled = false;
-                    ActivityRegister.Instance.User = actualSesion;
+                    VisualizarContenidoForm.Instance.User = actualSesion;
                 }
             }
             else if (users.Count == 0)
@@ -76,12 +77,12 @@ namespace NoteBook
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             isLogin = false;
-            ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
+            VisualizarContenidoForm.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
             SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
-            ActivityRegister.Instance.User = actualSesion;
+            VisualizarContenidoForm.Instance.User = actualSesion;
         }
 
         private void CreateBookButton_Click(object sender, EventArgs e)

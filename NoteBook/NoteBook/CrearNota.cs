@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UNA.NoteBook;
+using static NoteBook.NoteBookUserRegisterForm;
 
 namespace NoteBook
 {
@@ -89,16 +90,19 @@ namespace NoteBook
 
         public Note NotaOriginal { get => notaOriginal; set => notaOriginal = value; }
 
+       
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+             User user = ActivityRegister.Instance.User;
             if (ValidacionTitulo(TitleTextBox.Text) || ValidacionCategoria() || ValidacionContenido(ContenidoTextBox.Text))
             {
-
+                
                 nota = new Note();
                 nota.Title = TitleTextBox.Text;
                 nota.Category = CategoriaComboBox.Text;
                 nota.SetContenido(ContenidoTextBox.Text);
                 nota.Privacity = PrivacidadCheckBox.Checked;
+                nota.User= 
                 if (Nuevo)
                 {
                     nota.CreationDate = DateTime.Now;
@@ -112,14 +116,14 @@ namespace NoteBook
 
                 NewNote = nota;
                 this.DialogResult = DialogResult.OK;
-                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "´Visualizar Notas", "Búsqueda de Notas ", "");
+                VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "´Visualizar Notas", "Búsqueda de Notas ", "");
                 if (Nuevo)
                 {
-                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
+                    VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
                 }
                 else
                 {
-                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Editar Nota", "Modificación de nota ", "");
+                    VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "Editar Nota", "Modificación de nota ", "");
                 }
                 this.Close();
 
@@ -142,7 +146,7 @@ namespace NoteBook
             TitleTextBox.Text = NotaOriginal.Title;
             CategoriaComboBox.SelectedItem = NotaOriginal.Category;
             PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
-
+           
         }
 
 

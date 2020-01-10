@@ -22,6 +22,8 @@ namespace NoteBook
             InitializeComponent();
         }
 
+
+
         private void FondoButton_Click(object sender, EventArgs e)
         {
             if (ColorNota.ShowDialog() == DialogResult.OK)

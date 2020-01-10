@@ -55,7 +55,7 @@ namespace NoteBook
                 switch (respuesta)
                 {
                     case DialogResult.Yes:
-                        ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Book.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
+                        VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Book.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
                         Book.NameBook = NameBookTextBox.Text;
                         Book.CategorieBook = (string)CategorieComboBox.SelectedItem;
                         Book.ImageBook = directionImages[(string)CategorieComboBox.SelectedItem];

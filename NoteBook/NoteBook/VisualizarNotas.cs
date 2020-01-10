@@ -15,6 +15,10 @@ namespace NoteBook
     public partial class VisualizarNotasForm : Form
     {
         private Book Libro;
+        //readonly List<Note> notes = new List<Note>();
+        bool isLogin = false;
+        User actualSesion = null;
+        
 
         public VisualizarNotasForm()
         {
@@ -63,6 +67,12 @@ namespace NoteBook
             Privacidad.DataPropertyName = "Privacity";
             Privacidad.HeaderText = "Privacidad";
             VisualizarDataGridView.Columns.Add(Privacidad);
+
+            DataGridViewTextBoxColumn Usuario= new DataGridViewTextBoxColumn();
+            Privacidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Privacidad.DataPropertyName = "User";
+            Privacidad.HeaderText = "Usuario";
+            VisualizarDataGridView.Columns.Add(Usuario);
 
             VisualizarDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             VisualizarDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -139,8 +149,50 @@ namespace NoteBook
 
         private void AbrirButton_Click(object sender, EventArgs e)
         {
-             VisualizarContenidoForm contenido = new VisualizarContenidoForm();
-            if (VisualizarDataGridView.SelectedRows.Count >= 1)
+            VisualizarContenidoForm contenido = new VisualizarContenidoForm();
+            if (isLogin)
+            {
+                
+                if (VisualizarDataGridView.SelectedRows.Count >= 1)
+                {
+                    contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                    contenido.Llenar();
+                    if (contenido.NotaOriginal.Privacity || (contenido.NotaOriginal.Privacity && contenido.NotaOriginal.User.Equals(actualSesion)))
+                    {
+                        contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                        contenido.Llenar();
+                        if (contenido.ShowDialog() == DialogResult.OK)
+                        {
+
+
+                            Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                            VisualizarDataGridView.ClearSelection();
+                            Libro.Note.Remove(eliminar);
+                            eliminar = contenido.NotaOriginal;
+                            Libro.Note.Add(eliminar);
+                            Refrescar(Libro.Note);
+
+
+
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo el propietario del libro puede acceder a él", "Error");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Solo el propietario del libro puede acceder a él", "Error");
+            }
+
+
+
+
+
+            /*if (VisualizarDataGridView.SelectedRows.Count >= 1)
             {
                 contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                 contenido.Llenar();
@@ -154,11 +206,11 @@ namespace NoteBook
                     eliminar = contenido.NotaOriginal;
                     Libro.Note.Add(eliminar);
                     Refrescar(Libro.Note);
-                    
+
 
 
                 }
-            }
+            }*/
 
 
         }
