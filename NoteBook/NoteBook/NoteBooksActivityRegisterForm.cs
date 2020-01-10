@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NoteBook.ActivityRegister;
 using static NoteBook.VisualizarContenidoForm;
 
 namespace NoteBook
@@ -25,7 +26,7 @@ namespace NoteBook
 
         public void Data()
         {
-            List<Event> events = VisualizarContenidoForm.Instance.GetData();
+            List<Event> events = ActivityRegister.Instance.GetData();
             for (int x = 0; x < events.Count; x++)
             {
                 ActivitiesDataGridView.Rows.Add(events[x].TimeDateActivityRegister, events[x].UserActivityRegister, events[x].AccionActivityRegister, events[x].ObjectActivityRegister, events[x].AditionalInformationActivityRegister);
@@ -36,13 +37,13 @@ namespace NoteBook
         {
             try
             {
-                if (VisualizarContenidoForm.Instance.User == null)
+                if (ActivityRegister.Instance.User == null)
                 {
                     MessageBox.Show("Debes tener iniciada la sesión para poder crear PDF de Registro", "Error", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    VisualizarContenidoForm.Instance.SaveData(VisualizarContenidoForm.Instance.User.NameUser, "Registro Actividades", "Creo PDF de Registro", "");
+                    ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Registro Actividades", "Creo PDF de Registro", "");
                     PDFCrator();
                     DialogResult respuesta = (MessageBox.Show("El PDF fue creado exitosamente.\n\n" + "Ubicación de Archivo " + Application.StartupPath + "\\Registro.pdf" + "\n\nDesea abrirlo?", "Archivo PDF", MessageBoxButtons.YesNo));
                     switch (respuesta)
@@ -73,15 +74,15 @@ namespace NoteBook
             title.Add("Registro De Actividades");
             archive.Add(title);
             Paragraph events;
-            for (int x = 0; x < VisualizarContenidoForm.Instance.GetData().Count; x++)
+            for (int x = 0; x < ActivityRegister.Instance.GetData().Count; x++)
             {
                 events = new Paragraph();
                 events.Font = FontFactory.GetFont(FontFactory.TIMES, 8f, BaseColor.BLACK);
-                events.Add(VisualizarContenidoForm.Instance.GetData()[x].TimeDateActivityRegister + "   -   " +
-                    VisualizarContenidoForm.Instance.GetData()[x].UserActivityRegister + "   -   " +
-                    VisualizarContenidoForm.Instance.GetData()[x].AccionActivityRegister + "   -   " +
-                    VisualizarContenidoForm.Instance.GetData()[x].ObjectActivityRegister + "   -   " +
-                    VisualizarContenidoForm.Instance.GetData()[x].AditionalInformationActivityRegister);
+                events.Add(ActivityRegister.Instance.GetData()[x].TimeDateActivityRegister + "   -   " +
+                    ActivityRegister.Instance.GetData()[x].UserActivityRegister + "   -   " +
+                    ActivityRegister.Instance.GetData()[x].AccionActivityRegister + "   -   " +
+                    ActivityRegister.Instance.GetData()[x].ObjectActivityRegister + "   -   " +
+                    ActivityRegister.Instance.GetData()[x].AditionalInformationActivityRegister);
                 archive.Add(events);
             }
             archive.Close();

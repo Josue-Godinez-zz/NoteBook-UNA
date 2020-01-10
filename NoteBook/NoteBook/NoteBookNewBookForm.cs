@@ -199,7 +199,7 @@ namespace NoteBook
             }
             newBook.AccessBook = AccessCheckBox.Checked;
             newBook.User = User;
-            VisualizarContenidoForm.Instance.SaveData(User.NameUser, "Libro Nuevo", "Creacion De Libro " + "\""+newBook.NameBook+"\"", "");
+            ActivityRegister.Instance.SaveData(User.NameUser, "Libro Nuevo", "Creacion De Libro " + "\""+newBook.NameBook+"\"", "");
             return newBook;
         }
         public Dictionary<string, string> DirectionImages
