@@ -15,8 +15,6 @@ namespace NoteBook
     public partial class VisualizarNotasForm : Form
     {
         private Book Libro;
-        //readonly List<Note> notes = new List<Note>();
-        bool isLogin = false;
         User actualSesion = null;
         
 
@@ -194,8 +192,6 @@ namespace NoteBook
             Predicate<Note> buscar = x => ((x.Title.Contains(BuscarTextBox.Text)) || (x.Category.Contains(BuscarTextBox.Text)));
             Refrescar(Libro.Note.FindAll(buscar));
             
-
-
         }
 
         private void LimpiarButton_Click(object sender, EventArgs e)

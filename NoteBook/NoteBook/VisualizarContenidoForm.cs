@@ -17,6 +17,7 @@ namespace NoteBook
 
         public Note NotaOriginal { get => notaOriginal; set => notaOriginal = value; }
 
+
         public VisualizarContenidoForm()
         {
             InitializeComponent();

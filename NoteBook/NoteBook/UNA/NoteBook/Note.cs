@@ -114,12 +114,5 @@ namespace UNA.NoteBook
             
         }
 
-        private Notebook.Book Book
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

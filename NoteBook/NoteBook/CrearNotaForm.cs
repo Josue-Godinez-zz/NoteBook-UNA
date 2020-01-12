@@ -18,6 +18,7 @@ namespace NoteBook
         public bool nuevo = true;
         private Note nota = new Note();
         private Note notaOriginal;
+
         public EditNoteForm()
         {
             InitializeComponent();
@@ -94,7 +95,7 @@ namespace NoteBook
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             
-            if (ValidacionTitulo(TitleTextBox.Text) || ValidacionCategoria() || ValidacionContenido(ContenidoTextBox.Text))
+            if (ValidacionTitulo(TitleTextBox.Text) && ValidacionCategoria() && ValidacionContenido(ContenidoTextBox.Text))
             {
                 
                 nota = new Note();
@@ -147,8 +148,6 @@ namespace NoteBook
             CategoriaComboBox.SelectedItem = NotaOriginal.Category;
             PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
             ActivityRegister.Instance.User.NameUser = NotaOriginal.User;
-
-
 
         }
 

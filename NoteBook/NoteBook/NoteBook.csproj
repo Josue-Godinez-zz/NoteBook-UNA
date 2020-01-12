@@ -51,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UNA\NoteBook\ActivityRegister.cs" />
-    <Compile Include="CrearNota.cs">
+    <Compile Include="CrearNotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearNota.Designer.cs">
-      <DependentUpon>CrearNota.cs</DependentUpon>
+    <Compile Include="CrearNotaForm.Designer.cs">
+      <DependentUpon>CrearNotaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NoteBookModifyBookForm.cs">
       <SubType>Form</SubType>
@@ -69,17 +69,17 @@
     <Compile Include="NoteBooksActivityRegisterForm.Designer.cs">
       <DependentUpon>NoteBooksActivityRegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualizarContenido.cs">
+    <Compile Include="VisualizarContenidoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarContenido.Designer.cs">
-      <DependentUpon>VisualizarContenido.cs</DependentUpon>
+    <Compile Include="VisualizarContenidoForm.Designer.cs">
+      <DependentUpon>VisualizarContenidoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualizarNotas.cs">
+    <Compile Include="VisualizarNotasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarNotas.Designer.cs">
-      <DependentUpon>VisualizarNotas.cs</DependentUpon>
+    <Compile Include="VisualizarNotasForm.Designer.cs">
+      <DependentUpon>VisualizarNotasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\NoteBook\Note.cs" />
     <Compile Include="NoteBookNewBookForm.cs">
@@ -118,8 +118,8 @@
     <Compile Include="UNA\NoteBook\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UNA\NoteBook\User.cs" />
-    <EmbeddedResource Include="CrearNota.resx">
-      <DependentUpon>CrearNota.cs</DependentUpon>
+    <EmbeddedResource Include="CrearNotaForm.resx">
+      <DependentUpon>CrearNotaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NoteBookModifyBookForm.resx">
       <DependentUpon>NoteBookModifyBookForm.cs</DependentUpon>
@@ -151,11 +151,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VisualizarContenido.resx">
-      <DependentUpon>VisualizarContenido.cs</DependentUpon>
+    <EmbeddedResource Include="VisualizarContenidoForm.resx">
+      <DependentUpon>VisualizarContenidoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisualizarNotas.resx">
-      <DependentUpon>VisualizarNotas.cs</DependentUpon>
+    <EmbeddedResource Include="VisualizarNotasForm.resx">
+      <DependentUpon>VisualizarNotasForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
