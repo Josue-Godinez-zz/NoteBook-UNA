@@ -7,7 +7,7 @@ using UNA.NoteBook;
 
 namespace UNA.Notebook
 {
-    public class Book : PictureBox
+    public class Book
 
     {
         public Book()

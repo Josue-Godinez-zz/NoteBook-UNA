@@ -110,9 +110,6 @@ namespace NoteBook
             }
             return _1;
         }
-
-
-
         private void ConfirmationButton_Click(object sender, EventArgs e)
         {
             if (NameUserTextBox.TextLength == 0 && PasswordUserTextBox.TextLength == 0)

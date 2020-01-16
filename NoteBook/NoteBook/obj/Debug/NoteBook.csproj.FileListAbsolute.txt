@@ -57,3 +57,8 @@ C:\Users\josue\Desktop\Github\NoteBook-UNA\NoteBook-UNA\NoteBook\NoteBook\bin\De
 C:\Users\josue\Desktop\Github\NoteBook-UNA\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\itextsharp.dll
 C:\Users\josue\Desktop\Github\NoteBook-UNA\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\itextsharp.xml
 C:\Users\josue\Desktop\Github\NoteBook-UNA\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.CopyComplete
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\itextsharp.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\itextsharp.xml
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBooksActivityRegisterForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookWelcomeForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.CopyComplete

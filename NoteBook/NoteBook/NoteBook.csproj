@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NoteBookWelcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteBookWelcomeForm.Designer.cs">
+      <DependentUpon>NoteBookWelcomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\NoteBook\ActivityRegister.cs" />
     <Compile Include="CrearNotaForm.cs">
       <SubType>Form</SubType>
@@ -100,9 +106,7 @@
     <Compile Include="NoteBookSignInForm.Designer.cs">
       <DependentUpon>NoteBookSignInForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\NoteBook\Book.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UNA\NoteBook\Book.cs" />
     <Compile Include="NoteBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NoteBookUserRegisterForm.resx">
       <DependentUpon>NoteBookUserRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteBookWelcomeForm.resx">
+      <DependentUpon>NoteBookWelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

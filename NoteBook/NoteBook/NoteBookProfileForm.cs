@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UNA.NoteBook;
 
 namespace NoteBook
 {
@@ -21,6 +22,17 @@ namespace NoteBook
             helpDeleteToolTip.ToolTipTitle = "Eliminar";
             helpEditToolTip.SetToolTip(EditButton, "Editar Datos De Usuario");
             helpEditToolTip.ToolTipTitle = "Editar";
+        }
+        public NoteBookProfileForm(User user)
+        {
+            InitializeComponent();
+            helpDeleteToolTip.SetToolTip(DeleteButton, "Eliminar Actual Usuario");
+            helpDeleteToolTip.ToolTipTitle = "Eliminar";
+            helpEditToolTip.SetToolTip(EditButton, "Editar Datos De Usuario");
+            helpEditToolTip.ToolTipTitle = "Editar";
+            User = user;
+            NameUserTextBox.Text = user.NameUser;
+            PasswordUserTextBox.Text = user.PasswordUser;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -56,6 +68,26 @@ namespace NoteBook
                 PasswordUserTextBox.PasswordChar = '*';
                 seePassword = !seePassword;
             }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("Estas seguro de eliminar usuario", "Advertencia", MessageBoxButtons.YesNo);
+            switch(respuesta)
+            {
+                case DialogResult.Yes:
+                    this.Close();
+                    DialogResult = respuesta;
+                    ActivityRegister.Instance.SaveData(User.NameUser,"Perfil De Usuario","Eliminacion De Usuario","");
+                break;
+                case DialogResult.No:
+                break;
+            }
+        }
+        public User User
+        {
+            get;
+            set;
         }
     }
 }

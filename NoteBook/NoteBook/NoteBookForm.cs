@@ -25,39 +25,27 @@ namespace NoteBook
         {
             InitializeComponent();
             PreLoadImages();
+            NoteBookWelcomeForm noteBookWelcomeForm = new NoteBookWelcomeForm(users);
+            if(noteBookWelcomeForm.ShowDialog() == DialogResult.Yes)
+            {
+                RegisterNewUser();
+            }
+            else
+            {
+                SignInUser();
+            }
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
-            NoteBookUserRegisterForm noteBookRegister = new NoteBookUserRegisterForm(users);
-            if (noteBookRegister.ShowDialog() == DialogResult.OK)
-            {
-                users.Add(noteBookRegister.NewUser);
-                MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
-                actualSesion = noteBookRegister.NewUser;
-                isLogin = true;
-                UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
-                SignOutButton.Enabled = true;
-                SignUpButton.Enabled = false;
-                ActivityRegister.Instance.User = actualSesion;
-            }
+            RegisterNewUser();
         }
+
         private void LogInButton_Click(object sender, EventArgs e)
         {
             if (users.Count != 0 && isLogin == false)
             {
-                NoteBookSignInForm noteBookSignInForm = new NoteBookSignInForm(users);
-                if (noteBookSignInForm.ShowDialog() == DialogResult.OK)
-                {
-                    isLogin = true;
-                    actualSesion = noteBookSignInForm.User;
-                    ActivityRegister.Instance.SaveData(actualSesion.NameUser,"Inicio Sesión", "Incio Sesión","");
-                    MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
-                    UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
-                    SignOutButton.Enabled = true;
-                    SignUpButton.Enabled = false;
-                    ActivityRegister.Instance.User = actualSesion;
-                }
+                SignInUser();
             }
             else if (users.Count == 0)
             {
@@ -65,10 +53,20 @@ namespace NoteBook
             }
             else if (isLogin == true)
             {
-                NoteBookProfileForm notebookProfileForm = new NoteBookProfileForm();
+                NoteBookProfileForm notebookProfileForm = new NoteBookProfileForm(actualSesion);
                 {
-                    if (notebookProfileForm.ShowDialog() == DialogResult.OK)
+                    DialogResult result = notebookProfileForm.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
+                    }
+                    else if(result == DialogResult.Yes)
+                    {
+                        DeleteBooks(actualSesion);
+                        users.Remove(actualSesion);
+                        SignOutButton.Enabled = false;
+                        SignUpButton.Enabled = true;
+                        actualSesion = null;
+                        UserSingInLabel.Text = "<No Autentificado>";
                     }
                 }
             }
@@ -271,5 +269,54 @@ namespace NoteBook
                 opcionDeOrdenamiento = 0;
             }
         }
+
+
+        private void RegisterNewUser()
+        {
+            NoteBookUserRegisterForm noteBookRegister = new NoteBookUserRegisterForm(users);
+            if (noteBookRegister.ShowDialog() == DialogResult.OK)
+            {
+                users.Add(noteBookRegister.NewUser);
+                MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
+                actualSesion = noteBookRegister.NewUser;
+                isLogin = true;
+                UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
+                SignOutButton.Enabled = true;
+                SignUpButton.Enabled = false;
+                ActivityRegister.Instance.User = actualSesion;
+            }
+        }
+        private void SignInUser()
+        {
+            NoteBookSignInForm noteBookSignInForm = new NoteBookSignInForm(users);
+            if (noteBookSignInForm.ShowDialog() == DialogResult.OK)
+            {
+                isLogin = true;
+                actualSesion = noteBookSignInForm.User;
+                ActivityRegister.Instance.SaveData(actualSesion.NameUser, "Inicio Sesión", "Incio Sesión", "");
+                MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
+                UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
+                SignOutButton.Enabled = true;
+                SignUpButton.Enabled = false;
+                ActivityRegister.Instance.User = actualSesion;
+            }
+        }
+
+        private void DeleteBooks(User user)
+        {
+            for(int x = 0; x < books.Count; x++)
+            {
+                if(books[x].User.Equals(user))
+                {
+                    books.RemoveAt(x);
+                }
+            }
+            LibraryTableLayoutPanel.Controls.Clear();
+            for (int x = 0; x < books.Count; x++)
+            {
+                CreacionLibro(books[x]);
+            }
+        }
     }
+
 }

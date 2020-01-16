@@ -86,6 +86,7 @@
             this.DeleteButton.Size = new System.Drawing.Size(50, 50);
             this.DeleteButton.TabIndex = 6;
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // NullButton
             // 
@@ -125,7 +126,7 @@
             // NameUserLabel
             // 
             this.NameUserLabel.AutoSize = true;
-            this.NameUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.NameUserLabel.ForeColor = System.Drawing.Color.Black;
             this.NameUserLabel.Location = new System.Drawing.Point(12, 142);
             this.NameUserLabel.Name = "NameUserLabel";
             this.NameUserLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -136,7 +137,7 @@
             // PasswordUserLabel
             // 
             this.PasswordUserLabel.AutoSize = true;
-            this.PasswordUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.PasswordUserLabel.ForeColor = System.Drawing.Color.Black;
             this.PasswordUserLabel.Location = new System.Drawing.Point(12, 213);
             this.PasswordUserLabel.Name = "PasswordUserLabel";
             this.PasswordUserLabel.Size = new System.Drawing.Size(61, 13);
