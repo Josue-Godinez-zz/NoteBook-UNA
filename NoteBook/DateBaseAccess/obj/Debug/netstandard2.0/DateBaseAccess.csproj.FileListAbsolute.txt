@@ -1,0 +1,5 @@
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DateBaseAccess\bin\Debug\netstandard2.0\DateBaseAccess.deps.json
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DateBaseAccess\bin\Debug\netstandard2.0\DateBaseAccess.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DateBaseAccess\obj\Debug\netstandard2.0\DateBaseAccess.csprojAssemblyReference.cache
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DateBaseAccess\obj\Debug\netstandard2.0\DateBaseAccess.AssemblyInfoInputs.cache
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DateBaseAccess\obj\Debug\netstandard2.0\DateBaseAccess.AssemblyInfo.cs
