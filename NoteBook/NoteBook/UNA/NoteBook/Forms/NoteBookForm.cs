@@ -9,20 +9,25 @@ using System.Threading.Tasks;
 using UNA.NoteBook;
 using System.Windows.Forms;
 using UNA.Notebook;
-
+using DataBaseAccess;
+using MongoDB.Driver.Core.Configuration;
 
 namespace NoteBook
 {
     public partial class NoteBookForm : Form
     {
-        readonly List<User> users = new List<User>();
+        List<User> users = new List<User>();
         Dictionary<string, string> directionImages = new Dictionary<string, string>();
         List<Book> books = new List<Book>();
         bool isLogin = false;
         User actualSesion = null;
         int opcionDeOrdenamiento = 0;
+
+        MySqlAccess mySqlAccess = new MySqlAccess();
         public NoteBookForm()
         {
+            mySqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DateBaseNoteBook"].ConnectionString;
+            CargarUsuarios();
             InitializeComponent();
             PreLoadImages();
             NoteBookWelcomeForm noteBookWelcomeForm = new NoteBookWelcomeForm(users);
@@ -270,20 +275,30 @@ namespace NoteBook
             }
         }
 
-
         private void RegisterNewUser()
         {
             NoteBookUserRegisterForm noteBookRegister = new NoteBookUserRegisterForm(users);
             if (noteBookRegister.ShowDialog() == DialogResult.OK)
             {
-                users.Add(noteBookRegister.NewUser);
-                MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
-                actualSesion = noteBookRegister.NewUser;
-                isLogin = true;
-                UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
-                SignOutButton.Enabled = true;
-                SignUpButton.Enabled = false;
-                ActivityRegister.Instance.User = actualSesion;
+                try
+                {
+                    users.Add(noteBookRegister.NewUser);
+                    mySqlAccess.OpenConnection();
+                    mySqlAccess.EjectSQL("Insert into usuarios values ('"+noteBookRegister.NewUser.NameUser+"','"+noteBookRegister.NewUser.PasswordUser+"','"+noteBookRegister.NewUser.Name +"','"+noteBookRegister.NewUser.LastName+"'); ");
+                    mySqlAccess.CommitTransaction();
+                    mySqlAccess.CloseConnection();
+                    MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
+                    actualSesion = noteBookRegister.NewUser;
+                    isLogin = true;
+                    UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
+                    SignOutButton.Enabled = true;
+                    SignUpButton.Enabled = false;
+                    ActivityRegister.Instance.User = actualSesion;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         private void SignInUser()
@@ -317,6 +332,32 @@ namespace NoteBook
                 CreacionLibro(books[x]);
             }
         }
-    }
 
+        private void CargarUsuarios()
+        {
+           try
+            {
+                mySqlAccess.OpenConnection();
+                DataTable result = new DataTable();
+                result = mySqlAccess.QuerySQL("SELECT * FROM usuarios");
+                List<User> usuarios = new List<User>();
+                for (int x = 0; x < result.Rows.Count; x++)
+                {
+                    Console.WriteLine(result.Rows[x]["Nombre_Usuario"].ToString());
+                    User user = new User();
+                    user.NameUser = result.Rows[x]["Nombre_Usuario"].ToString();
+                    user.PasswordUser = result.Rows[x]["Contraseña"].ToString();
+                    user.Name = result.Rows[x]["Nombre"].ToString();
+                    user.LastName = result.Rows[x]["Apellido"].ToString();
+                    usuarios.Add(user);
+                }
+                mySqlAccess.CloseConnection();
+                users = usuarios;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
 }

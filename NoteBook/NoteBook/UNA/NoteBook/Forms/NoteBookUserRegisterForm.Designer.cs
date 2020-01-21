@@ -43,6 +43,10 @@
             this.ConfirmationPasswordTextBox = new System.Windows.Forms.TextBox();
             this.VerificationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IconRegisterPictureBox)).BeginInit();
             this.PanelSuperior.SuspendLayout();
             this.PanelInferior.SuspendLayout();
@@ -71,7 +75,7 @@
             // NameUserLabel
             // 
             this.NameUserLabel.AutoSize = true;
-            this.NameUserLabel.Location = new System.Drawing.Point(105, 105);
+            this.NameUserLabel.Location = new System.Drawing.Point(94, 152);
             this.NameUserLabel.Name = "NameUserLabel";
             this.NameUserLabel.Size = new System.Drawing.Size(106, 13);
             this.NameUserLabel.TabIndex = 2;
@@ -80,7 +84,7 @@
             // 
             // NameUserTextBox
             // 
-            this.NameUserTextBox.Location = new System.Drawing.Point(84, 121);
+            this.NameUserTextBox.Location = new System.Drawing.Point(81, 168);
             this.NameUserTextBox.MaxLength = 15;
             this.NameUserTextBox.Name = "NameUserTextBox";
             this.NameUserTextBox.Size = new System.Drawing.Size(138, 20);
@@ -90,7 +94,7 @@
             // PasswordUserLabel
             // 
             this.PasswordUserLabel.AutoSize = true;
-            this.PasswordUserLabel.Location = new System.Drawing.Point(94, 171);
+            this.PasswordUserLabel.Location = new System.Drawing.Point(92, 201);
             this.PasswordUserLabel.Name = "PasswordUserLabel";
             this.PasswordUserLabel.Size = new System.Drawing.Size(117, 13);
             this.PasswordUserLabel.TabIndex = 4;
@@ -98,7 +102,7 @@
             // 
             // PasswordUserTextBox
             // 
-            this.PasswordUserTextBox.Location = new System.Drawing.Point(84, 187);
+            this.PasswordUserTextBox.Location = new System.Drawing.Point(81, 228);
             this.PasswordUserTextBox.MaxLength = 10;
             this.PasswordUserTextBox.Name = "PasswordUserTextBox";
             this.PasswordUserTextBox.PasswordChar = '*';
@@ -142,7 +146,7 @@
             // ConfirmationPasswordLabel
             // 
             this.ConfirmationPasswordLabel.AutoSize = true;
-            this.ConfirmationPasswordLabel.Location = new System.Drawing.Point(103, 243);
+            this.ConfirmationPasswordLabel.Location = new System.Drawing.Point(92, 262);
             this.ConfirmationPasswordLabel.Name = "ConfirmationPasswordLabel";
             this.ConfirmationPasswordLabel.Size = new System.Drawing.Size(108, 13);
             this.ConfirmationPasswordLabel.TabIndex = 6;
@@ -150,7 +154,7 @@
             // 
             // ConfirmationPasswordTextBox
             // 
-            this.ConfirmationPasswordTextBox.Location = new System.Drawing.Point(84, 259);
+            this.ConfirmationPasswordTextBox.Location = new System.Drawing.Point(81, 278);
             this.ConfirmationPasswordTextBox.MaxLength = 10;
             this.ConfirmationPasswordTextBox.Name = "ConfirmationPasswordTextBox";
             this.ConfirmationPasswordTextBox.PasswordChar = '*';
@@ -167,10 +171,42 @@
             // 
             this.ErrorLabel.AutoSize = true;
             this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLabel.Location = new System.Drawing.Point(92, 295);
+            this.ErrorLabel.Location = new System.Drawing.Point(110, 310);
             this.ErrorLabel.Name = "ErrorLabel";
             this.ErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.ErrorLabel.TabIndex = 8;
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(12, 109);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(105, 20);
+            this.NameTextBox.TabIndex = 9;
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(38, 93);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(44, 13);
+            this.NameLabel.TabIndex = 10;
+            this.NameLabel.Text = "Nombre";
+            // 
+            // LastNameLabel
+            // 
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Location = new System.Drawing.Point(205, 93);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(44, 13);
+            this.LastNameLabel.TabIndex = 11;
+            this.LastNameLabel.Text = "Apellido";
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.Location = new System.Drawing.Point(169, 109);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(105, 20);
+            this.LastNameTextBox.TabIndex = 12;
             // 
             // NoteBookUserRegisterForm
             // 
@@ -181,6 +217,10 @@
             this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.LastNameTextBox);
+            this.Controls.Add(this.LastNameLabel);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.ConfirmationPasswordTextBox);
             this.Controls.Add(this.ConfirmationPasswordLabel);
@@ -222,5 +262,9 @@
         private System.Windows.Forms.TextBox ConfirmationPasswordTextBox;
         private System.Windows.Forms.ErrorProvider VerificationErrorProvider;
         private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.TextBox LastNameTextBox;
+        private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }

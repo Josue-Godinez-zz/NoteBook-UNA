@@ -140,6 +140,8 @@ namespace NoteBook
             User user = new User();
             user.NameUser = NameUserTextBox.Text;
             user.PasswordUser = PasswordUserTextBox.Text;
+            user.Name = NameTextBox.Text;
+            user.LastName = LastNameTextBox.Text;
             NewUser = user;
             DialogResult = DialogResult.OK;
             ActivityRegister.Instance.SaveData(user.NameUser,"Nuevo Usuario", "Creacion De Nuevo Usuario", "");

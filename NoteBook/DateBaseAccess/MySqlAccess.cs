@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DateBaseAccess 
 {
-    class MySqlAccess : DataBaseAccess
+    public class MySqlAccess : DataBaseAccess
     {
         public override void BeginTransaction()
         {
