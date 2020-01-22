@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="UNA\NoteBook\Seguridad\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UNA\NoteBook\Seguridad\MySqlService.cs" />
     <Compile Include="UNA\NoteBook\Seguridad\User.cs" />
     <EmbeddedResource Include="UNA\NoteBook\Forms\CrearNotaForm.resx">
       <DependentUpon>CrearNotaForm.cs</DependentUpon>

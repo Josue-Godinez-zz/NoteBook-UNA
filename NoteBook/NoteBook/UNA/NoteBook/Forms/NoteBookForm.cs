@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using UNA.Notebook;
 using DataBaseAccess;
 using MongoDB.Driver.Core.Configuration;
+using NoteBook.UNA.NoteBook.Seguridad;
 
 namespace NoteBook
 {
@@ -26,19 +27,18 @@ namespace NoteBook
         MySqlAccess mySqlAccess = new MySqlAccess();
         public NoteBookForm()
         {
-            mySqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DateBaseNoteBook"].ConnectionString;
-            CargarUsuarios();
+            users = MySqlService.Intance.CargarUsuarios();
             InitializeComponent();
             PreLoadImages();
             NoteBookWelcomeForm noteBookWelcomeForm = new NoteBookWelcomeForm(users);
-            if(noteBookWelcomeForm.ShowDialog() == DialogResult.Yes)
-            {
-                RegisterNewUser();
-            }
-            else
-            {
-                SignInUser();
-            }
+            //if (noteBookWelcomeForm.ShowDialog() == DialogResult.Yes)
+            //{
+            //    RegisterNewUser();
+            //}
+            //else
+            //{
+            //    SignInUser();
+            //}
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
@@ -66,7 +66,6 @@ namespace NoteBook
                     }
                     else if(result == DialogResult.Yes)
                     {
-                        DeleteBooks(actualSesion);
                         users.Remove(actualSesion);
                         SignOutButton.Enabled = false;
                         SignUpButton.Enabled = true;
@@ -99,7 +98,9 @@ namespace NoteBook
                         LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
                         LibraryTableLayoutPanel.RowCount++;
                     }
+                    Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                     CreacionLibro(noteBookNewBookForm.NewBook);
+                    MySqlService.Intance.CrearLibro(noteBookNewBookForm.NewBook);
                     directionImages = noteBookNewBookForm.DirectionImages;
                 }
             }
@@ -115,12 +116,12 @@ namespace NoteBook
 
         private void PreLoadImages()
         {
-            directionImages.Add("Deportes", @"Resource\Deportes.png");
-            directionImages.Add("Peliculas", @"Resource\Peliculas.png");
-            directionImages.Add("Juegos", @"Resource\Juegos.png");
-            directionImages.Add("Musica", @"Resource\Musica.png");
-            directionImages.Add("Libros", @"Resource\Libros.png");
-            directionImages.Add("Artes", @"Resource\Artes.png");
+            directionImages.Add("Deportes", @"Resource\\Deportes.png");
+            directionImages.Add("Peliculas", @"Resource\\Peliculas.png");
+            directionImages.Add("Juegos", @"Resource\\Juegos.png");
+            directionImages.Add("Musica", @"Resource\\Musica.png");
+            directionImages.Add("Libros", @"Resource\\Libros.png");
+            directionImages.Add("Artes", @"Resource\\Artes.png");
         }
         private void CreacionLibro(Book book)
         {
@@ -283,10 +284,7 @@ namespace NoteBook
                 try
                 {
                     users.Add(noteBookRegister.NewUser);
-                    mySqlAccess.OpenConnection();
-                    mySqlAccess.EjectSQL("Insert into usuarios values ('"+noteBookRegister.NewUser.NameUser+"','"+noteBookRegister.NewUser.PasswordUser+"','"+noteBookRegister.NewUser.Name +"','"+noteBookRegister.NewUser.LastName+"'); ");
-                    mySqlAccess.CommitTransaction();
-                    mySqlAccess.CloseConnection();
+                    MySqlService.Intance.CrearUsuario(noteBookRegister.NewUser);
                     MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
                     actualSesion = noteBookRegister.NewUser;
                     isLogin = true;
@@ -314,49 +312,6 @@ namespace NoteBook
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
                 ActivityRegister.Instance.User = actualSesion;
-            }
-        }
-
-        private void DeleteBooks(User user)
-        {
-            for(int x = 0; x < books.Count; x++)
-            {
-                if(books[x].User.Equals(user))
-                {
-                    books.RemoveAt(x);
-                }
-            }
-            LibraryTableLayoutPanel.Controls.Clear();
-            for (int x = 0; x < books.Count; x++)
-            {
-                CreacionLibro(books[x]);
-            }
-        }
-
-        private void CargarUsuarios()
-        {
-           try
-            {
-                mySqlAccess.OpenConnection();
-                DataTable result = new DataTable();
-                result = mySqlAccess.QuerySQL("SELECT * FROM usuarios");
-                List<User> usuarios = new List<User>();
-                for (int x = 0; x < result.Rows.Count; x++)
-                {
-                    Console.WriteLine(result.Rows[x]["Nombre_Usuario"].ToString());
-                    User user = new User();
-                    user.NameUser = result.Rows[x]["Nombre_Usuario"].ToString();
-                    user.PasswordUser = result.Rows[x]["Contraseña"].ToString();
-                    user.Name = result.Rows[x]["Nombre"].ToString();
-                    user.LastName = result.Rows[x]["Apellido"].ToString();
-                    usuarios.Add(user);
-                }
-                mySqlAccess.CloseConnection();
-                users = usuarios;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
     }

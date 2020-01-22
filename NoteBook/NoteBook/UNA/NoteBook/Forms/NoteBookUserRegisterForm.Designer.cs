@@ -94,7 +94,7 @@
             // PasswordUserLabel
             // 
             this.PasswordUserLabel.AutoSize = true;
-            this.PasswordUserLabel.Location = new System.Drawing.Point(92, 201);
+            this.PasswordUserLabel.Location = new System.Drawing.Point(92, 203);
             this.PasswordUserLabel.Name = "PasswordUserLabel";
             this.PasswordUserLabel.Size = new System.Drawing.Size(117, 13);
             this.PasswordUserLabel.TabIndex = 4;
@@ -102,7 +102,7 @@
             // 
             // PasswordUserTextBox
             // 
-            this.PasswordUserTextBox.Location = new System.Drawing.Point(81, 228);
+            this.PasswordUserTextBox.Location = new System.Drawing.Point(81, 219);
             this.PasswordUserTextBox.MaxLength = 10;
             this.PasswordUserTextBox.Name = "PasswordUserTextBox";
             this.PasswordUserTextBox.PasswordChar = '*';
@@ -146,7 +146,7 @@
             // ConfirmationPasswordLabel
             // 
             this.ConfirmationPasswordLabel.AutoSize = true;
-            this.ConfirmationPasswordLabel.Location = new System.Drawing.Point(92, 262);
+            this.ConfirmationPasswordLabel.Location = new System.Drawing.Point(92, 252);
             this.ConfirmationPasswordLabel.Name = "ConfirmationPasswordLabel";
             this.ConfirmationPasswordLabel.Size = new System.Drawing.Size(108, 13);
             this.ConfirmationPasswordLabel.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             // ConfirmationPasswordTextBox
             // 
-            this.ConfirmationPasswordTextBox.Location = new System.Drawing.Point(81, 278);
+            this.ConfirmationPasswordTextBox.Location = new System.Drawing.Point(81, 268);
             this.ConfirmationPasswordTextBox.MaxLength = 10;
             this.ConfirmationPasswordTextBox.Name = "ConfirmationPasswordTextBox";
             this.ConfirmationPasswordTextBox.PasswordChar = '*';
@@ -178,7 +178,7 @@
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(12, 109);
+            this.NameTextBox.Location = new System.Drawing.Point(21, 109);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(105, 20);
             this.NameTextBox.TabIndex = 9;
@@ -186,7 +186,7 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(38, 93);
+            this.NameLabel.Location = new System.Drawing.Point(48, 93);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(44, 13);
             this.NameLabel.TabIndex = 10;
