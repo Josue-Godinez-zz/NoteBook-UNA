@@ -195,9 +195,9 @@ namespace NoteBook
         private bool CategoriesValidation()
         {
             bool result = true;
-            if (SubCategorieCheckBox.Checked && SubCategorieCheckBox.Checked)
+            if (SubCategorieCheckBox.Checked && SubCategorie2CheckBox.Checked)
             {
-                if (SubCategorieComboBox.SelectedValue == SubCategorie2ComboBox.SelectedValue)
+                if (SubCategorieComboBox.SelectedItem == SubCategorie2ComboBox.SelectedItem)
                 {
                     AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categorias Iguales");
                     result = false;
@@ -208,9 +208,9 @@ namespace NoteBook
                     result = true;
                 }
             }
-            else if (SubCategorieCheckBox.Checked || SubCategorieCheckBox.Checked)
+            else if (SubCategorie2CheckBox.Checked)
             {
-                if(CategoriesComboBox.SelectedValue == SubCategorie2ComboBox.SelectedValue)
+                if (CategoriesComboBox.SelectedItem == SubCategorie2ComboBox.SelectedItem)
                 {
                     AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categorias Iguales");
                     result = false;
@@ -220,9 +220,12 @@ namespace NoteBook
                     AvisoErrorProvider.SetError(SubCategorie2ComboBox, "");
                     result = true;
                 }
-                if (CategoriesComboBox.SelectedValue == SubCategorieComboBox.SelectedValue)
+            }
+            else if(SubCategorieCheckBox.Checked)
+            {
+                if(CategoriesComboBox.SelectedItem == SubCategorieComboBox.SelectedItem)
                 {
-                    AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categorias Iguales");
+                    AvisoErrorProvider.SetError(SubCategorieComboBox, "Categorias Iguales");
                     result = false;
                 }
                 else

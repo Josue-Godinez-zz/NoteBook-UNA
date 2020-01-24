@@ -122,7 +122,7 @@
             this.nameUserTextBox.Location = new System.Drawing.Point(88, 140);
             this.nameUserTextBox.Name = "nameUserTextBox";
             this.nameUserTextBox.Size = new System.Drawing.Size(131, 20);
-            this.nameUserTextBox.TabIndex = 6;
+            this.nameUserTextBox.TabIndex = 0;
             this.nameUserTextBox.Leave += new System.EventHandler(this.nameUserTextBox_Leave);
             // 
             // passwordUserTextBox
@@ -131,7 +131,7 @@
             this.passwordUserTextBox.Name = "passwordUserTextBox";
             this.passwordUserTextBox.PasswordChar = '*';
             this.passwordUserTextBox.Size = new System.Drawing.Size(131, 20);
-            this.passwordUserTextBox.TabIndex = 7;
+            this.passwordUserTextBox.TabIndex = 1;
             this.passwordUserTextBox.Leave += new System.EventHandler(this.passwordUserTextBox_Leave);
             // 
             // verificationErrorProvider

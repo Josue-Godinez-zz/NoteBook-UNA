@@ -68,7 +68,7 @@
             this.NameNewCategorieTextBox.MaxLength = 10;
             this.NameNewCategorieTextBox.Name = "NameNewCategorieTextBox";
             this.NameNewCategorieTextBox.Size = new System.Drawing.Size(104, 20);
-            this.NameNewCategorieTextBox.TabIndex = 22;
+            this.NameNewCategorieTextBox.TabIndex = 2;
             this.NameNewCategorieTextBox.Visible = false;
             // 
             // NewAvatarCategorieButton
@@ -76,7 +76,7 @@
             this.NewAvatarCategorieButton.Location = new System.Drawing.Point(15, 259);
             this.NewAvatarCategorieButton.Name = "NewAvatarCategorieButton";
             this.NewAvatarCategorieButton.Size = new System.Drawing.Size(86, 23);
-            this.NewAvatarCategorieButton.TabIndex = 21;
+            this.NewAvatarCategorieButton.TabIndex = 3;
             this.NewAvatarCategorieButton.Text = "Nuevo Avatar";
             this.NewAvatarCategorieButton.UseVisualStyleBackColor = true;
             this.NewAvatarCategorieButton.Visible = false;
@@ -122,7 +122,7 @@
             this.CategorieComboBox.Location = new System.Drawing.Point(113, 178);
             this.CategorieComboBox.Name = "CategorieComboBox";
             this.CategorieComboBox.Size = new System.Drawing.Size(135, 21);
-            this.CategorieComboBox.TabIndex = 17;
+            this.CategorieComboBox.TabIndex = 1;
             this.CategorieComboBox.SelectedIndexChanged += new System.EventHandler(this.CategorieComboBox_SelectedIndexChanged);
             // 
             // NameBookTextBox
@@ -131,7 +131,7 @@
             this.NameBookTextBox.MaxLength = 13;
             this.NameBookTextBox.Name = "NameBookTextBox";
             this.NameBookTextBox.Size = new System.Drawing.Size(135, 20);
-            this.NameBookTextBox.TabIndex = 16;
+            this.NameBookTextBox.TabIndex = 0;
             // 
             // PanelSuperior
             // 
@@ -149,7 +149,7 @@
             this.DeleteButton.Location = new System.Drawing.Point(128, 15);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(50, 50);
-            this.DeleteButton.TabIndex = 12;
+            this.DeleteButton.TabIndex = 1;
             this.DeleteButton.UseVisualStyleBackColor = true;
             // 
             // NullButton
@@ -160,7 +160,7 @@
             this.NullButton.Location = new System.Drawing.Point(218, 14);
             this.NullButton.Name = "NullButton";
             this.NullButton.Size = new System.Drawing.Size(50, 50);
-            this.NullButton.TabIndex = 1;
+            this.NullButton.TabIndex = 2;
             this.NullButton.UseVisualStyleBackColor = true;
             // 
             // ConfirmationButton
@@ -195,7 +195,7 @@
             this.AccessCheckBox.Location = new System.Drawing.Point(113, 299);
             this.AccessCheckBox.Name = "AccessCheckBox";
             this.AccessCheckBox.Size = new System.Drawing.Size(88, 17);
-            this.AccessCheckBox.TabIndex = 23;
+            this.AccessCheckBox.TabIndex = 4;
             this.AccessCheckBox.Text = "Acceso Libre";
             this.AccessCheckBox.UseVisualStyleBackColor = true;
             // 

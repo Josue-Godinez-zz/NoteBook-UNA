@@ -52,7 +52,7 @@
             this.ContenidoTextBox.Multiline = true;
             this.ContenidoTextBox.Name = "ContenidoTextBox";
             this.ContenidoTextBox.Size = new System.Drawing.Size(339, 225);
-            this.ContenidoTextBox.TabIndex = 6;
+            this.ContenidoTextBox.TabIndex = 3;
             // 
             // GuardarButton
             // 
@@ -65,7 +65,7 @@
             this.GuardarButton.Location = new System.Drawing.Point(12, 329);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 23);
-            this.GuardarButton.TabIndex = 7;
+            this.GuardarButton.TabIndex = 4;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.GuardarButton.UseVisualStyleBackColor = false;
@@ -81,7 +81,7 @@
             this.CancelarButton.Location = new System.Drawing.Point(303, 330);
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(78, 23);
-            this.CancelarButton.TabIndex = 8;
+            this.CancelarButton.TabIndex = 5;
             this.CancelarButton.Text = "Cancelar";
             this.CancelarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CancelarButton.UseVisualStyleBackColor = false;
@@ -107,7 +107,7 @@
             this.FuenteButton.Location = new System.Drawing.Point(325, 20);
             this.FuenteButton.Name = "FuenteButton";
             this.FuenteButton.Size = new System.Drawing.Size(50, 26);
-            this.FuenteButton.TabIndex = 5;
+            this.FuenteButton.TabIndex = 2;
             this.FuenteButton.Text = "AaBb";
             this.FuenteButton.UseVisualStyleBackColor = true;
             this.FuenteButton.Click += new System.EventHandler(this.FuenteButton_Click);
@@ -119,7 +119,7 @@
             this.LetraButton.Location = new System.Drawing.Point(225, 23);
             this.LetraButton.Name = "LetraButton";
             this.LetraButton.Size = new System.Drawing.Size(23, 23);
-            this.LetraButton.TabIndex = 3;
+            this.LetraButton.TabIndex = 1;
             this.LetraButton.UseVisualStyleBackColor = true;
             this.LetraButton.Click += new System.EventHandler(this.LetraButton_Click);
             // 
@@ -140,7 +140,7 @@
             this.FondoButton.Location = new System.Drawing.Point(101, 23);
             this.FondoButton.Name = "FondoButton";
             this.FondoButton.Size = new System.Drawing.Size(23, 23);
-            this.FondoButton.TabIndex = 1;
+            this.FondoButton.TabIndex = 0;
             this.FondoButton.UseVisualStyleBackColor = true;
             this.FondoButton.Click += new System.EventHandler(this.FondoButton_Click);
             // 

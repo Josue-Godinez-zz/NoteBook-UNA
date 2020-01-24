@@ -132,7 +132,7 @@
             this.NameBookTextBox.MaxLength = 13;
             this.NameBookTextBox.Name = "NameBookTextBox";
             this.NameBookTextBox.Size = new System.Drawing.Size(126, 20);
-            this.NameBookTextBox.TabIndex = 8;
+            this.NameBookTextBox.TabIndex = 0;
             this.NameBookTextBox.Leave += new System.EventHandler(this.NameBookTextBox_Leave);
             // 
             // CategoriesComboBox
@@ -157,7 +157,7 @@
             this.CategoriesComboBox.MaxDropDownItems = 4;
             this.CategoriesComboBox.Name = "CategoriesComboBox";
             this.CategoriesComboBox.Size = new System.Drawing.Size(126, 21);
-            this.CategoriesComboBox.TabIndex = 9;
+            this.CategoriesComboBox.TabIndex = 1;
             this.CategoriesComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoriesComboBox_SelectedIndexChanged);
             // 
             // IconPictureBox
@@ -176,7 +176,7 @@
             this.NameCategoriaTextBox.MaxLength = 10;
             this.NameCategoriaTextBox.Name = "NameCategoriaTextBox";
             this.NameCategoriaTextBox.Size = new System.Drawing.Size(113, 20);
-            this.NameCategoriaTextBox.TabIndex = 11;
+            this.NameCategoriaTextBox.TabIndex = 2;
             this.NameCategoriaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NameCategoriaTextBox.Visible = false;
             this.NameCategoriaTextBox.Leave += new System.EventHandler(this.NameCategoriaTextBox_Leave);
@@ -186,7 +186,7 @@
             this.NewImageCategorieButton.Location = new System.Drawing.Point(31, 207);
             this.NewImageCategorieButton.Name = "NewImageCategorieButton";
             this.NewImageCategorieButton.Size = new System.Drawing.Size(89, 23);
-            this.NewImageCategorieButton.TabIndex = 12;
+            this.NewImageCategorieButton.TabIndex = 3;
             this.NewImageCategorieButton.Text = "Nueva Avatar";
             this.NewImageCategorieButton.UseVisualStyleBackColor = true;
             this.NewImageCategorieButton.Visible = false;
@@ -213,7 +213,7 @@
             this.AccessCheckBox.Location = new System.Drawing.Point(101, 301);
             this.AccessCheckBox.Name = "AccessCheckBox";
             this.AccessCheckBox.Size = new System.Drawing.Size(88, 17);
-            this.AccessCheckBox.TabIndex = 24;
+            this.AccessCheckBox.TabIndex = 8;
             this.AccessCheckBox.Text = "Acceso Libre";
             this.AccessCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -225,7 +225,7 @@
             this.SubCategorieComboBox.Location = new System.Drawing.Point(15, 265);
             this.SubCategorieComboBox.Name = "SubCategorieComboBox";
             this.SubCategorieComboBox.Size = new System.Drawing.Size(114, 21);
-            this.SubCategorieComboBox.TabIndex = 25;
+            this.SubCategorieComboBox.TabIndex = 5;
             // 
             // SubCategorie2ComboBox
             // 
@@ -235,7 +235,7 @@
             this.SubCategorie2ComboBox.Location = new System.Drawing.Point(151, 265);
             this.SubCategorie2ComboBox.Name = "SubCategorie2ComboBox";
             this.SubCategorie2ComboBox.Size = new System.Drawing.Size(121, 21);
-            this.SubCategorie2ComboBox.TabIndex = 26;
+            this.SubCategorie2ComboBox.TabIndex = 7;
             // 
             // SubCategorie2CheckBox
             // 
@@ -243,7 +243,7 @@
             this.SubCategorie2CheckBox.Location = new System.Drawing.Point(204, 245);
             this.SubCategorie2CheckBox.Name = "SubCategorie2CheckBox";
             this.SubCategorie2CheckBox.Size = new System.Drawing.Size(15, 14);
-            this.SubCategorie2CheckBox.TabIndex = 28;
+            this.SubCategorie2CheckBox.TabIndex = 6;
             this.SubCategorie2CheckBox.UseVisualStyleBackColor = true;
             this.SubCategorie2CheckBox.CheckedChanged += new System.EventHandler(this.SubCategorie2CheckBox_CheckedChanged);
             // 
@@ -253,7 +253,7 @@
             this.SubCategorieCheckBox.Location = new System.Drawing.Point(60, 245);
             this.SubCategorieCheckBox.Name = "SubCategorieCheckBox";
             this.SubCategorieCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.SubCategorieCheckBox.TabIndex = 29;
+            this.SubCategorieCheckBox.TabIndex = 4;
             this.SubCategorieCheckBox.UseVisualStyleBackColor = true;
             this.SubCategorieCheckBox.CheckedChanged += new System.EventHandler(this.SubCategorieCheckBox_CheckedChanged);
             // 

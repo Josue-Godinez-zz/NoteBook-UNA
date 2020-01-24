@@ -99,7 +99,7 @@
             this.AgregarButton.Location = new System.Drawing.Point(22, 78);
             this.AgregarButton.Name = "AgregarButton";
             this.AgregarButton.Size = new System.Drawing.Size(51, 43);
-            this.AgregarButton.TabIndex = 1;
+            this.AgregarButton.TabIndex = 3;
             this.AgregarButton.UseVisualStyleBackColor = true;
             this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
@@ -112,7 +112,7 @@
             this.EditarButton.Location = new System.Drawing.Point(22, 143);
             this.EditarButton.Name = "EditarButton";
             this.EditarButton.Size = new System.Drawing.Size(51, 44);
-            this.EditarButton.TabIndex = 2;
+            this.EditarButton.TabIndex = 4;
             this.EditarButton.UseVisualStyleBackColor = true;
             this.EditarButton.Click += new System.EventHandler(this.EditarButton_Click);
             // 
@@ -125,7 +125,7 @@
             this.SalirButton.Location = new System.Drawing.Point(22, 305);
             this.SalirButton.Name = "SalirButton";
             this.SalirButton.Size = new System.Drawing.Size(51, 44);
-            this.SalirButton.TabIndex = 3;
+            this.SalirButton.TabIndex = 6;
             this.SalirButton.UseVisualStyleBackColor = true;
             this.SalirButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
@@ -153,7 +153,7 @@
             this.BuscarButton.Location = new System.Drawing.Point(176, 8);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(69, 28);
-            this.BuscarButton.TabIndex = 6;
+            this.BuscarButton.TabIndex = 1;
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BuscarButton.UseVisualStyleBackColor = false;
@@ -164,7 +164,7 @@
             this.BuscarTextBox.Location = new System.Drawing.Point(12, 14);
             this.BuscarTextBox.Name = "BuscarTextBox";
             this.BuscarTextBox.Size = new System.Drawing.Size(158, 20);
-            this.BuscarTextBox.TabIndex = 7;
+            this.BuscarTextBox.TabIndex = 0;
             // 
             // LimpiarButton
             // 
@@ -175,7 +175,7 @@
             this.LimpiarButton.Location = new System.Drawing.Point(575, 6);
             this.LimpiarButton.Name = "LimpiarButton";
             this.LimpiarButton.Size = new System.Drawing.Size(96, 28);
-            this.LimpiarButton.TabIndex = 8;
+            this.LimpiarButton.TabIndex = 2;
             this.LimpiarButton.Text = "Limpiar Filtros";
             this.LimpiarButton.UseVisualStyleBackColor = false;
             this.LimpiarButton.Click += new System.EventHandler(this.LimpiarButton_Click);

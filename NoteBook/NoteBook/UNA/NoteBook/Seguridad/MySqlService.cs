@@ -85,11 +85,18 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 DataTable result = mySqlAccess.QuerySQL("SELECT * FROM libros where Usuarios_Nombre_Usuario = '" + user.NameUser + "';");
                 for (int x = 0; x < result.Rows.Count; x++)
                 {
+                    int id_book = Convert.ToInt32(result.Rows[x]["ID_Libro"]);
                     Book book = new Book();
                     book.NameBook = result.Rows[x]["Nombre"].ToString();
+                    book.ImageBook = result.Rows[x]["Imagen"].ToString();
                     book.AccessBook = Convert.ToBoolean(result.Rows[x]["Privacidad"]);
                     book.User = user;
-                    
+                    DataTable categories = mySqlAccess.QuerySQL("Select Categorias_Nombre from libros_categorias Where Libros_ID Libro = " + id_book + "");
+                    Console.WriteLine(Convert.ToInt32(categories.Rows.Count));
+                    for (int y = 0; y < categories.Rows.Count; y++)
+                    {
+                        book.CategorieBook.Add(Convert.ToString(categories.Rows[x]["Categorias_Nombre"]));
+                    }
                     books.Add(book);
                 }
                 mySqlAccess.CloseConnection();

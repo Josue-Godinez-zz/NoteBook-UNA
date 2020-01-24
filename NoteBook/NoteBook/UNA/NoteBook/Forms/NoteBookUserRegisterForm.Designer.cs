@@ -88,7 +88,7 @@
             this.NameUserTextBox.MaxLength = 15;
             this.NameUserTextBox.Name = "NameUserTextBox";
             this.NameUserTextBox.Size = new System.Drawing.Size(138, 20);
-            this.NameUserTextBox.TabIndex = 3;
+            this.NameUserTextBox.TabIndex = 2;
             this.NameUserTextBox.Leave += new System.EventHandler(this.NameUserTextBox_Leave);
             // 
             // PasswordUserLabel
@@ -107,7 +107,7 @@
             this.PasswordUserTextBox.Name = "PasswordUserTextBox";
             this.PasswordUserTextBox.PasswordChar = '*';
             this.PasswordUserTextBox.Size = new System.Drawing.Size(138, 20);
-            this.PasswordUserTextBox.TabIndex = 5;
+            this.PasswordUserTextBox.TabIndex = 3;
             this.PasswordUserTextBox.Leave += new System.EventHandler(this.PasswordUserTextBox_Leave);
             // 
             // PanelInferior
@@ -159,7 +159,7 @@
             this.ConfirmationPasswordTextBox.Name = "ConfirmationPasswordTextBox";
             this.ConfirmationPasswordTextBox.PasswordChar = '*';
             this.ConfirmationPasswordTextBox.Size = new System.Drawing.Size(138, 20);
-            this.ConfirmationPasswordTextBox.TabIndex = 7;
+            this.ConfirmationPasswordTextBox.TabIndex = 4;
             this.ConfirmationPasswordTextBox.Leave += new System.EventHandler(this.ConfirmationPasswordTextBox_Leave);
             // 
             // VerificationErrorProvider
@@ -181,7 +181,7 @@
             this.NameTextBox.Location = new System.Drawing.Point(21, 109);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(105, 20);
-            this.NameTextBox.TabIndex = 9;
+            this.NameTextBox.TabIndex = 0;
             // 
             // NameLabel
             // 
@@ -206,7 +206,7 @@
             this.LastNameTextBox.Location = new System.Drawing.Point(169, 109);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(105, 20);
-            this.LastNameTextBox.TabIndex = 12;
+            this.LastNameTextBox.TabIndex = 1;
             // 
             // NoteBookUserRegisterForm
             // 

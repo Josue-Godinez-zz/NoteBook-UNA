@@ -60,7 +60,7 @@
             this.TitleTextBox.Location = new System.Drawing.Point(39, 27);
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(142, 20);
-            this.TitleTextBox.TabIndex = 1;
+            this.TitleTextBox.TabIndex = 0;
             // 
             // CategoriaLlabel
             // 
@@ -79,7 +79,7 @@
             this.CategoriaComboBox.Location = new System.Drawing.Point(209, 27);
             this.CategoriaComboBox.Name = "CategoriaComboBox";
             this.CategoriaComboBox.Size = new System.Drawing.Size(142, 21);
-            this.CategoriaComboBox.TabIndex = 5;
+            this.CategoriaComboBox.TabIndex = 1;
             // 
             // PrivacidadCheckBox
             // 
@@ -89,7 +89,7 @@
             this.PrivacidadCheckBox.Location = new System.Drawing.Point(39, 306);
             this.PrivacidadCheckBox.Name = "PrivacidadCheckBox";
             this.PrivacidadCheckBox.Size = new System.Drawing.Size(98, 19);
-            this.PrivacidadCheckBox.TabIndex = 6;
+            this.PrivacidadCheckBox.TabIndex = 3;
             this.PrivacidadCheckBox.Text = "Privacidad";
             this.PrivacidadCheckBox.UseVisualStyleBackColor = false;
             // 
@@ -99,7 +99,7 @@
             this.ContenidoTextBox.Multiline = true;
             this.ContenidoTextBox.Name = "ContenidoTextBox";
             this.ContenidoTextBox.Size = new System.Drawing.Size(312, 237);
-            this.ContenidoTextBox.TabIndex = 11;
+            this.ContenidoTextBox.TabIndex = 2;
             // 
             // GuardarButton
             // 
@@ -110,7 +110,7 @@
             this.GuardarButton.Location = new System.Drawing.Point(15, 345);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 23);
-            this.GuardarButton.TabIndex = 0;
+            this.GuardarButton.TabIndex = 4;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.GuardarButton.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.CancelarButton.Location = new System.Drawing.Point(303, 345);
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(78, 23);
-            this.CancelarButton.TabIndex = 1;
+            this.CancelarButton.TabIndex = 5;
             this.CancelarButton.Text = "Cancelar";
             this.CancelarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CancelarButton.UseVisualStyleBackColor = true;

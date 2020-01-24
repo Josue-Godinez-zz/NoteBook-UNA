@@ -174,7 +174,7 @@
             this.PrinterButton.Location = new System.Drawing.Point(382, 15);
             this.PrinterButton.Name = "PrinterButton";
             this.PrinterButton.Size = new System.Drawing.Size(50, 50);
-            this.PrinterButton.TabIndex = 12;
+            this.PrinterButton.TabIndex = 1;
             this.PrinterButton.UseVisualStyleBackColor = true;
             this.PrinterButton.Click += new System.EventHandler(this.PrinterButton_Click);
             // 
@@ -186,7 +186,7 @@
             this.NullButton.Location = new System.Drawing.Point(661, 15);
             this.NullButton.Name = "NullButton";
             this.NullButton.Size = new System.Drawing.Size(50, 50);
-            this.NullButton.TabIndex = 1;
+            this.NullButton.TabIndex = 2;
             this.NullButton.UseVisualStyleBackColor = true;
             this.NullButton.Click += new System.EventHandler(this.NullButton_Click);
             // 

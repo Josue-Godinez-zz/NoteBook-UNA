@@ -84,7 +84,7 @@
             this.DeleteButton.Location = new System.Drawing.Point(123, 15);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(50, 50);
-            this.DeleteButton.TabIndex = 6;
+            this.DeleteButton.TabIndex = 1;
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
@@ -95,7 +95,7 @@
             this.NullButton.Location = new System.Drawing.Point(219, 15);
             this.NullButton.Name = "NullButton";
             this.NullButton.Size = new System.Drawing.Size(50, 50);
-            this.NullButton.TabIndex = 1;
+            this.NullButton.TabIndex = 2;
             this.NullButton.UseVisualStyleBackColor = true;
             this.NullButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -106,7 +106,7 @@
             this.EditButton.Location = new System.Drawing.Point(28, 14);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(50, 50);
-            this.EditButton.TabIndex = 5;
+            this.EditButton.TabIndex = 0;
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
@@ -150,7 +150,7 @@
             this.NameUserTextBox.Location = new System.Drawing.Point(99, 139);
             this.NameUserTextBox.Name = "NameUserTextBox";
             this.NameUserTextBox.Size = new System.Drawing.Size(115, 20);
-            this.NameUserTextBox.TabIndex = 7;
+            this.NameUserTextBox.TabIndex = 0;
             // 
             // PasswordUserTextBox
             // 
@@ -159,7 +159,7 @@
             this.PasswordUserTextBox.Name = "PasswordUserTextBox";
             this.PasswordUserTextBox.PasswordChar = '*';
             this.PasswordUserTextBox.Size = new System.Drawing.Size(115, 20);
-            this.PasswordUserTextBox.TabIndex = 8;
+            this.PasswordUserTextBox.TabIndex = 1;
             this.PasswordUserTextBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PasswordUserTextBox_MouseDoubleClick);
             // 
             // NoteBookProfileForm

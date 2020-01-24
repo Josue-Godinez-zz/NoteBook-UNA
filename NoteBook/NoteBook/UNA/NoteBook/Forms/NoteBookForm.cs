@@ -147,7 +147,7 @@ namespace NoteBook
             labelNameBook.Size = new Size(74, 13);
             Label labelBookCategorie = new Label();
             labelBookCategorie.ForeColor = Color.Black;
-            labelBookCategorie.Text = book.CategorieBook[0];
+            //labelBookCategorie.Text = book.CategorieBook[0];
             labelBookCategorie.Location = new Point(10, 77);
             labelBookCategorie.TextAlign = ContentAlignment.MiddleCenter;
             labelBookCategorie.Size = new Size(74, 13);
@@ -313,6 +313,7 @@ namespace NoteBook
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
                 books = MySqlService.Instance.CargarLibros(actualSesion);
+                Console.WriteLine(Convert.ToString(books.Count));
                 for (int x = 0; x < books.Count; x++)
                 {
                     CreacionLibro(books[x]);
