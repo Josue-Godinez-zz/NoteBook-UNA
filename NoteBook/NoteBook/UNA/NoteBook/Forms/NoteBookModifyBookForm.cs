@@ -57,7 +57,7 @@ namespace NoteBook
                     case DialogResult.Yes:
                         ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Book.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
                         Book.NameBook = NameBookTextBox.Text;
-                        Book.CategorieBook = (string)CategorieComboBox.SelectedItem;
+                        Book.CategorieBook[0] = (string)CategorieComboBox.SelectedItem;
                         Book.ImageBook = directionImages[(string)CategorieComboBox.SelectedItem];
                         Book.AccessBook = AccessCheckBox.Checked;
                         DialogResult = DialogResult.OK;
@@ -81,7 +81,7 @@ namespace NoteBook
             {
                 for (int x = 0; x < books.Count; x++)
                 {
-                    if (books[x].NameBook == NameBookTextBox.Text && books[x].CategorieBook == (string)CategorieComboBox.SelectedItem && AccessCheckBox.Checked == books[x].AccessBook)
+                    if (books[x].NameBook == NameBookTextBox.Text && books[x].CategorieBook[0] == (string)CategorieComboBox.SelectedItem && AccessCheckBox.Checked == books[x].AccessBook)
                     {
                         DialogResult respuesta = MessageBox.Show("No Se Realizaron Cambios\nDeseas Salir?", "Aviso", MessageBoxButtons.YesNo);
                         switch (respuesta)

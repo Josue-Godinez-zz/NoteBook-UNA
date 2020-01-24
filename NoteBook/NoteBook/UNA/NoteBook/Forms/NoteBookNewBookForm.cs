@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteBook.UNA.NoteBook.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,12 +26,26 @@ namespace NoteBook
             InitializeComponent();
             this.books = books;
             User = actualUser;
-            DirectionImages = direcctionImages;
+            DirectionImages = MySqlService.Instance.ObtenerCategorias();
             foreach (var element in DirectionImages)
             {
                 if (!CategoriesComboBox.Items.Contains(element.Key))
                 {
                     CategoriesComboBox.Items.Insert(CategoriesComboBox.Items.Count - 1, element.Key);
+                }
+            }
+            foreach (var element in DirectionImages)
+            {
+                if (!SubCategorieComboBox.Items.Contains(element.Key))
+                {
+                    SubCategorieComboBox.Items.Insert(SubCategorieComboBox.Items.Count, element.Key);
+                }
+            }
+            foreach (var element in DirectionImages)
+            {
+                if (!SubCategorie2ComboBox.Items.Contains(element.Key))
+                {
+                    SubCategorie2ComboBox.Items.Insert(SubCategorie2ComboBox.Items.Count, element.Key);
                 }
             }
         }
@@ -105,7 +120,7 @@ namespace NoteBook
             {
                 for (int x = 0; x < books.Count; x++)
                 {
-                    if (books[x].CategorieBook == auxCategorie && books[x].NameBook == NameBookTextBox.Text)
+                    if (books[x].CategorieBook[0] == auxCategorie && books[x].NameBook == NameBookTextBox.Text)
                     {
                         AvisoErrorProvider.SetError(NameBookTextBox, "Este Nombre Ya Esta Utilizado En Esta Categoria");
                         condition = false;
@@ -131,7 +146,7 @@ namespace NoteBook
             {
                 for (int x = 0; x < books.Count; x++)
                 {
-                    if (NameCategoriaTextBox.Text == books[x].CategorieBook)
+                    if (NameCategoriaTextBox.Text == books[x].CategorieBook[0])
                     {
                         AvisoErrorProvider.SetError(NameCategoriaTextBox, "Esta Categoria Ya Existe");
                         condition = false;
@@ -151,7 +166,7 @@ namespace NoteBook
         }
         private void ConfirmationButton_Click(object sender, EventArgs e)
         {
-            if (BookNameValidation(NameBookTextBox.Text) && BookCategorieValidation())
+            if (BookNameValidation(NameBookTextBox.Text) && BookCategorieValidation() && CategoriesValidation())
             {
                 if (BookUniqueNamePerCategorie())
                 {
@@ -161,6 +176,7 @@ namespace NoteBook
                         {
                             DirectionImages.Add(NameCategoriaTextBox.Text, IconPictureBox.ImageLocation);
                             CategoriesComboBox.Items.Insert(CategoriesComboBox.Items.Count - 1, NameCategoriaTextBox.Text);
+                            MySqlService.Instance.CrearCategorias(NameCategoriaTextBox.Text, IconPictureBox.ImageLocation);
                             NewBook = BookCreation();
                             DialogResult = DialogResult.OK;
                             this.Close();
@@ -176,19 +192,60 @@ namespace NoteBook
 
             }
         }
+        private bool CategoriesValidation()
+        {
+            bool result = true;
+            if (SubCategorieCheckBox.Checked && SubCategorieCheckBox.Checked)
+            {
+                if (SubCategorieComboBox.SelectedValue == SubCategorie2ComboBox.SelectedValue)
+                {
+                    AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categorias Iguales");
+                    result = false;
+                }
+                else
+                {
+                    AvisoErrorProvider.SetError(SubCategorie2ComboBox, "");
+                    result = true;
+                }
+            }
+            else if (SubCategorieCheckBox.Checked || SubCategorieCheckBox.Checked)
+            {
+                if(CategoriesComboBox.SelectedValue == SubCategorie2ComboBox.SelectedValue)
+                {
+                    AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categorias Iguales");
+                    result = false;
+                }
+                else
+                {
+                    AvisoErrorProvider.SetError(SubCategorie2ComboBox, "");
+                    result = true;
+                }
+                if (CategoriesComboBox.SelectedValue == SubCategorieComboBox.SelectedValue)
+                {
+                    AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categorias Iguales");
+                    result = false;
+                }
+                else
+                {
+                    AvisoErrorProvider.SetError(SubCategorieComboBox, "");
+                    result = true;
+                }
+            }
+            return result;
+        }
+
         private Book BookCreation()
         {
             Book newBook = new Book();
             newBook.NameBook = NameBookTextBox.Text;
             if (CategoriesComboBox.SelectedIndex == CategoriesComboBox.Items.Count - 1)
             {
-                newBook.CategorieBook = NameCategoriaTextBox.Text;
+                newBook.CategorieBook.Add(NameCategoriaTextBox.Text);
             }
             else
             {
-                newBook.CategorieBook = (string)CategoriesComboBox.SelectedItem;
+                newBook.CategorieBook.Add((string)CategoriesComboBox.SelectedItem);
             }
-
             if (CategoriesComboBox.SelectedIndex < 6)
             {
                 newBook.ImageBook = DirectionImages[(string)CategoriesComboBox.SelectedItem];
@@ -196,6 +253,14 @@ namespace NoteBook
             else
             {
                 newBook.ImageBook = IconPictureBox.ImageLocation;
+            }
+            if(SubCategorieCheckBox.Checked)
+            {
+                newBook.CategorieBook.Add(SubCategorieComboBox.Text);
+            }
+            if(SubCategorie2CheckBox.Checked)
+            {
+                newBook.CategorieBook.Add(SubCategorie2ComboBox.Text);
             }
             newBook.AccessBook = AccessCheckBox.Checked;
             newBook.User = User;
@@ -221,6 +286,30 @@ namespace NoteBook
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SubCategorieCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(SubCategorieCheckBox.Checked)
+            {
+                SubCategorieComboBox.Enabled = true;
+            }
+            else
+            {
+                SubCategorieComboBox.Enabled = false;
+            }
+        }
+
+        private void SubCategorie2CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SubCategorie2CheckBox.Checked)
+            {
+                SubCategorie2ComboBox.Enabled = true;
+            }
+            else
+            {
+                SubCategorie2ComboBox.Enabled = false;
+            }
         }
     }
 }

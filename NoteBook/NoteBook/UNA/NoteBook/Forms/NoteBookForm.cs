@@ -27,7 +27,7 @@ namespace NoteBook
         MySqlAccess mySqlAccess = new MySqlAccess();
         public NoteBookForm()
         {
-            users = MySqlService.Intance.CargarUsuarios();
+            users = MySqlService.Instance.CargarUsuarios();
             InitializeComponent();
             PreLoadImages();
             NoteBookWelcomeForm noteBookWelcomeForm = new NoteBookWelcomeForm(users);
@@ -100,7 +100,8 @@ namespace NoteBook
                     }
                     Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                     CreacionLibro(noteBookNewBookForm.NewBook);
-                    MySqlService.Intance.CrearLibro(noteBookNewBookForm.NewBook);
+                    MySqlService.Instance.CrearLibro(noteBookNewBookForm.NewBook);
+                    MySqlService.Instance.AsociarLibroCategoria(noteBookNewBookForm.NewBook.CategorieBook);
                     directionImages = noteBookNewBookForm.DirectionImages;
                 }
             }
@@ -116,12 +117,12 @@ namespace NoteBook
 
         private void PreLoadImages()
         {
-            directionImages.Add("Deportes", @"Resource\\Deportes.png");
-            directionImages.Add("Peliculas", @"Resource\\Peliculas.png");
-            directionImages.Add("Juegos", @"Resource\\Juegos.png");
-            directionImages.Add("Musica", @"Resource\\Musica.png");
-            directionImages.Add("Libros", @"Resource\\Libros.png");
-            directionImages.Add("Artes", @"Resource\\Artes.png");
+            directionImages.Add("Deportes", "Resource/Deportes.png");
+            directionImages.Add("Peliculas", "Resource/Peliculas.png");
+            directionImages.Add("Juegos", "Resource/Juegos.png");
+            directionImages.Add("Musica", "Resource/Musica.png");
+            directionImages.Add("Libros", "Resource/Libros.png");
+            directionImages.Add("Artes", "Resource/Artes.png");
         }
         private void CreacionLibro(Book book)
         {
@@ -146,7 +147,7 @@ namespace NoteBook
             labelNameBook.Size = new Size(74, 13);
             Label labelBookCategorie = new Label();
             labelBookCategorie.ForeColor = Color.Black;
-            labelBookCategorie.Text = book.CategorieBook;
+            labelBookCategorie.Text = book.CategorieBook[0];
             labelBookCategorie.Location = new Point(10, 77);
             labelBookCategorie.TextAlign = ContentAlignment.MiddleCenter;
             labelBookCategorie.Size = new Size(74, 13);
@@ -185,7 +186,7 @@ namespace NoteBook
                             Label labelBookCategorie = (Label)panelCoverBook.Controls[2];
                             pictureBox.ImageLocation = modifyBook.Book.ImageBook;
                             labelNameBook.Text = modifyBook.Book.NameBook;
-                            labelBookCategorie.Text = modifyBook.Book.CategorieBook;
+                            labelBookCategorie.Text = modifyBook.Book.CategorieBook[0];
                         }
                     }
                     else
@@ -284,7 +285,7 @@ namespace NoteBook
                 try
                 {
                     users.Add(noteBookRegister.NewUser);
-                    MySqlService.Intance.CrearUsuario(noteBookRegister.NewUser);
+                    MySqlService.Instance.CrearUsuario(noteBookRegister.NewUser);
                     MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
                     actualSesion = noteBookRegister.NewUser;
                     isLogin = true;
@@ -311,6 +312,11 @@ namespace NoteBook
                 UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
+                books = MySqlService.Instance.CargarLibros(actualSesion);
+                for (int x = 0; x < books.Count; x++)
+                {
+                    CreacionLibro(books[x]);
+                }
                 ActivityRegister.Instance.User = actualSesion;
             }
         }

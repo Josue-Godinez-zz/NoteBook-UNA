@@ -104,7 +104,7 @@ namespace NoteBook
 
         private void AgregarButton_Click(object sender, EventArgs e)
         {
-            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook,"Nueva Nota");
+            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0],"Nueva Nota");
             if (editNote.ShowDialog() == DialogResult.OK)
             {
                 Note nota = editNote.NewNote;
@@ -121,7 +121,7 @@ namespace NoteBook
 
         private void EditarButton_Click(object sender, EventArgs e)
         {
-            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook, "Propiedades");
+            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0], "Propiedades");
 
             if (VisualizarDataGridView.SelectedRows.Count >= 1)
             {

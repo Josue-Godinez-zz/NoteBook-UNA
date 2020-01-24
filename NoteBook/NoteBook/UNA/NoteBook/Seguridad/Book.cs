@@ -13,6 +13,7 @@ namespace UNA.Notebook
         public Book()
         {
             Note = new List<Note>();
+            CategorieBook = new List<string>();
         }
 
         public String ImageBook
@@ -27,7 +28,7 @@ namespace UNA.Notebook
             set;
         }
 
-        public string CategorieBook
+        public List<String> CategorieBook // Cambiar a lista de categoria
         {
             get;
             set;
