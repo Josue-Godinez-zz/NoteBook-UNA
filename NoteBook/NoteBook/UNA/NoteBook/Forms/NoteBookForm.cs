@@ -54,7 +54,7 @@ namespace NoteBook
             }
             else if (users.Count == 0)
             {
-                MessageBox.Show("No Hay Usuarios Registrados", "Error");
+                MessageBox.Show("No Hay Usuarios Registrados", "Advertencia");
             }
             else if (isLogin == true)
             {
@@ -147,7 +147,7 @@ namespace NoteBook
             labelNameBook.Size = new Size(74, 13);
             Label labelBookCategorie = new Label();
             labelBookCategorie.ForeColor = Color.Black;
-            //labelBookCategorie.Text = book.CategorieBook[0];
+            labelBookCategorie.Text = book.CategorieBook[0];
             labelBookCategorie.Location = new Point(10, 77);
             labelBookCategorie.TextAlign = ContentAlignment.MiddleCenter;
             labelBookCategorie.Size = new Size(74, 13);
@@ -191,7 +191,7 @@ namespace NoteBook
                     }
                     else
                     {
-                        MessageBox.Show("Solo el propietario del libro puede realizar modificaciones","Error");
+                        MessageBox.Show("Solo el propietario del libro puede realizar modificaciones", "Advertencia");
                     }
                     
                 }
@@ -207,13 +207,13 @@ namespace NoteBook
                     }
                     else
                     {
-                        MessageBox.Show("Solo el propietario del libro puede acceder a él", "Error");
+                        MessageBox.Show("Solo el propietario del libro puede acceder a él", "Advertencia");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Debe de tener sesion iniciada para\npoder interactuar con este libro","Error");
+                MessageBox.Show("Debe de tener sesion iniciada para\npoder interactuar con este libro", "Advertencia");
             }
         }
 

@@ -91,7 +91,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                     book.ImageBook = result.Rows[x]["Imagen"].ToString();
                     book.AccessBook = Convert.ToBoolean(result.Rows[x]["Privacidad"]);
                     book.User = user;
-                    DataTable categories = mySqlAccess.QuerySQL("Select Categorias_Nombre from libros_categorias Where Libros_ID Libro = " + id_book + "");
+                    DataTable categories = mySqlAccess.QuerySQL("Select Categorias_Nombre from libros_categorias Where Libros_ID_Libro = " + id_book + "");
                     Console.WriteLine(Convert.ToInt32(categories.Rows.Count));
                     for (int y = 0; y < categories.Rows.Count; y++)
                     {
@@ -144,7 +144,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             int id_libro = Convert.ToInt32(result.Rows[0]["ID_libro"]);
             for(int x = 0; x<categorias.Count; x++)
             {
-                mySqlAccess.EjectSQL("Insert Into libros_categorias(`categorias_Nombre`, `libros_ID Libro`) values('"+categorias[x]+"', '"+ id_libro+"');");
+                mySqlAccess.EjectSQL("Insert Into libros_categorias(`categorias_Nombre`, `libros_ID_Libro`) values('"+categorias[x]+"', '"+ id_libro+"');");
             }
             mySqlAccess.CloseConnection();
             Console.WriteLine(result.Rows[0]["ID_libro"]);
@@ -162,6 +162,11 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             result = result.Replace('\\', '/');
             Console.WriteLine(result);
             return result;
+        }
+
+        public void ActualizarLibro()
+        {
+
         }
     }
 }
