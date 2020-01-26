@@ -123,7 +123,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
 
             }
         }
-
         public Dictionary<string, string> ObtenerCategorias()
         {
             mySqlAccess.OpenConnection();
@@ -163,10 +162,24 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             Console.WriteLine(result);
             return result;
         }
-
-        public void ActualizarLibro()
+        public int BuscarLibro(Book book)
         {
-
+            mySqlAccess.OpenConnection();
+            DataTable result = mySqlAccess.QuerySQL("Select ID_Libro from libros where Usuarios_Nombre_Usuario = '" + book.User.NameUser + "' and Nombre='" + book.NameBook + "'");
+            int id_libro = Convert.ToInt32(result.Rows[0]["ID_libro"]);
+            mySqlAccess.CloseConnection();
+            return id_libro;
+        }
+        public void ActualizarLibro(int id_libro, Book book)
+        {
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("Update libros set Nombre='"+book.NameBook+ "', Privacidad='"+book.AccessBook+ "', Imagen='+"+book.ImageBook+"' where ID_Libro =" + id_libro+";");
+            mySqlAccess.EjectSQL("Ddelete * from libros_categorias where Libros_ID_Libro = "+id_libro+";");
+            for(int x = 0; x< book.CategorieBook.Count; x++)
+            {
+                mySqlAccess.EjectSQL("Insert Into libros_categorias(`categorias_Nombre`, libros_ID_Libro`) values('"+book.CategorieBook[x]+"',"+id_libro+")");
+            }
+            mySqlAccess.CloseConnection();
         }
     }
 }
