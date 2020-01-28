@@ -202,12 +202,14 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             }
             mySqlAccess.CloseConnection();
         }
-
-        public string BuscarCategoria(string img)
+        public void BorrarLibro(int id_libro)
         {
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("");
-            return "";
+            mySqlAccess.EjectSQL("Delete from libros_categorias where Libros_ID_Libro = " + id_libro + ";");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.EjectSQL("Delete From `libros` Where (`ID_Libro` =  "+id_libro+");");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
         }
     }
 }

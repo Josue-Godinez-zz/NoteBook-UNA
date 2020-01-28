@@ -181,14 +181,24 @@ namespace NoteBook
                         NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(book, books);
                         if (modifyBook.ShowDialog() == DialogResult.OK)
                         {
-                            Panel panelCoverBook = (Panel)sender;
-                            PictureBox pictureBox = (PictureBox)panelCoverBook.Controls[0];
-                            Label labelNameBook = (Label)panelCoverBook.Controls[1];
-                            Label labelBookCategorie = (Label)panelCoverBook.Controls[2];
-                            pictureBox.ImageLocation = modifyBook.Libro.ImageBook;
-                            labelNameBook.Text = modifyBook.Libro.NameBook;
-                            labelBookCategorie.Text = modifyBook.Libro.CategorieBook[0];
-                            MySqlService.Instance.ActualizarLibro(id_libro,book);
+                            if(!modifyBook.PermitirBorrado)
+                            {
+                                Panel panelCoverBook = (Panel)sender;
+                                PictureBox pictureBox = (PictureBox)panelCoverBook.Controls[0];
+                                Label labelNameBook = (Label)panelCoverBook.Controls[1];
+                                Label labelBookCategorie = (Label)panelCoverBook.Controls[2];
+                                pictureBox.ImageLocation = modifyBook.Libro.ImageBook;
+                                labelNameBook.Text = modifyBook.Libro.NameBook;
+                                labelBookCategorie.Text = modifyBook.Libro.CategorieBook[0];
+                                MySqlService.Instance.ActualizarLibro(id_libro, book);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Se Borro");
+                                MySqlService.Instance.BorrarLibro(id_libro);
+                                LibraryTableLayoutPanel.Controls.Remove((Panel)sender);
+                                books.Remove(book);
+                            }
                         }
                     }
                     else

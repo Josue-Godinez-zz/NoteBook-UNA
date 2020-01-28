@@ -38,8 +38,18 @@ namespace NoteBook
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.None;
-            this.Close();
+            DialogResult respuesta = MessageBox.Show("Estas seguro que deseas eliminar este libro?", "Advertencia", MessageBoxButtons.YesNo);
+            switch(respuesta)
+            {
+                case DialogResult.Yes:
+                    DialogResult = DialogResult.OK;
+                    PermitirBorrado = true;
+                    this.Close();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+           
         }
 
         private void ConfirmationButton_Click(object sender, EventArgs e)
@@ -52,6 +62,7 @@ namespace NoteBook
                     case DialogResult.Yes:
                         
                         DialogResult = DialogResult.OK;
+                        PermitirBorrado = false;
                         ModificarLibro();
                         this.Close();
                         break;
@@ -277,6 +288,11 @@ namespace NoteBook
             {
                 IconPictureBox.ImageLocation = getImage.FileName;
             }
+        }
+        public bool PermitirBorrado
+        {
+            get;
+            set;
         }
     }
 }
