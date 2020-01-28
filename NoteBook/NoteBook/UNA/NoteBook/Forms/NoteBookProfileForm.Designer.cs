@@ -38,10 +38,11 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.helpDeleteToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.helpEditToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.NameUserLabel = new System.Windows.Forms.Label();
             this.PasswordUserLabel = new System.Windows.Forms.Label();
-            this.NameUserTextBox = new System.Windows.Forms.TextBox();
             this.PasswordUserTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.NameUserLabel = new System.Windows.Forms.Label();
+            this.DatoLabel = new System.Windows.Forms.Label();
             this.PanelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             this.PanelInferior.SuspendLayout();
@@ -59,7 +60,7 @@
             // AvatarPictureBox
             // 
             this.AvatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AvatarPictureBox.Image")));
-            this.AvatarPictureBox.Location = new System.Drawing.Point(113, 12);
+            this.AvatarPictureBox.Location = new System.Drawing.Point(108, 12);
             this.AvatarPictureBox.Name = "AvatarPictureBox";
             this.AvatarPictureBox.Size = new System.Drawing.Size(65, 65);
             this.AvatarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,44 +124,57 @@
             this.helpEditToolTip.IsBalloon = true;
             this.helpEditToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // NameUserLabel
-            // 
-            this.NameUserLabel.AutoSize = true;
-            this.NameUserLabel.ForeColor = System.Drawing.Color.Black;
-            this.NameUserLabel.Location = new System.Drawing.Point(12, 142);
-            this.NameUserLabel.Name = "NameUserLabel";
-            this.NameUserLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.NameUserLabel.Size = new System.Drawing.Size(43, 13);
-            this.NameUserLabel.TabIndex = 5;
-            this.NameUserLabel.Text = "Usuario";
-            // 
             // PasswordUserLabel
             // 
             this.PasswordUserLabel.AutoSize = true;
             this.PasswordUserLabel.ForeColor = System.Drawing.Color.Black;
-            this.PasswordUserLabel.Location = new System.Drawing.Point(12, 213);
+            this.PasswordUserLabel.Location = new System.Drawing.Point(17, 271);
             this.PasswordUserLabel.Name = "PasswordUserLabel";
             this.PasswordUserLabel.Size = new System.Drawing.Size(61, 13);
             this.PasswordUserLabel.TabIndex = 6;
             this.PasswordUserLabel.Text = "Contraseña";
             // 
-            // NameUserTextBox
-            // 
-            this.NameUserTextBox.Enabled = false;
-            this.NameUserTextBox.Location = new System.Drawing.Point(99, 139);
-            this.NameUserTextBox.Name = "NameUserTextBox";
-            this.NameUserTextBox.Size = new System.Drawing.Size(115, 20);
-            this.NameUserTextBox.TabIndex = 0;
-            // 
             // PasswordUserTextBox
             // 
             this.PasswordUserTextBox.Enabled = false;
-            this.PasswordUserTextBox.Location = new System.Drawing.Point(99, 206);
+            this.PasswordUserTextBox.Location = new System.Drawing.Point(123, 268);
             this.PasswordUserTextBox.Name = "PasswordUserTextBox";
             this.PasswordUserTextBox.PasswordChar = '*';
             this.PasswordUserTextBox.Size = new System.Drawing.Size(115, 20);
             this.PasswordUserTextBox.TabIndex = 1;
             this.PasswordUserTextBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PasswordUserTextBox_MouseDoubleClick);
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.Location = new System.Drawing.Point(16, 166);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(226, 20);
+            this.NameLabel.TabIndex = 7;
+            this.NameLabel.Text = "Josue David Godinez Fonseca";
+            // 
+            // NameUserLabel
+            // 
+            this.NameUserLabel.AutoSize = true;
+            this.NameUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameUserLabel.ForeColor = System.Drawing.Color.DarkBlue;
+            this.NameUserLabel.Location = new System.Drawing.Point(16, 117);
+            this.NameUserLabel.Name = "NameUserLabel";
+            this.NameUserLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.NameUserLabel.Size = new System.Drawing.Size(112, 24);
+            this.NameUserLabel.TabIndex = 5;
+            this.NameUserLabel.Text = "ShuAkihiro";
+            // 
+            // DatoLabel
+            // 
+            this.DatoLabel.AutoSize = true;
+            this.DatoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DatoLabel.Location = new System.Drawing.Point(17, 212);
+            this.DatoLabel.Name = "DatoLabel";
+            this.DatoLabel.Size = new System.Drawing.Size(144, 15);
+            this.DatoLabel.TabIndex = 8;
+            this.DatoLabel.Text = "Posee 12 Libros En Total";
             // 
             // NoteBookProfileForm
             // 
@@ -169,8 +183,9 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(294, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.DatoLabel);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.PasswordUserTextBox);
-            this.Controls.Add(this.NameUserTextBox);
             this.Controls.Add(this.PasswordUserLabel);
             this.Controls.Add(this.NameUserLabel);
             this.Controls.Add(this.PanelInferior);
@@ -181,7 +196,7 @@
             this.MinimizeBox = false;
             this.Name = "NoteBookProfileForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Notebook - Profile";
+            this.Text = "Notebook - Perfil";
             this.PanelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             this.PanelInferior.ResumeLayout(false);
@@ -200,9 +215,10 @@
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.ToolTip helpDeleteToolTip;
         private System.Windows.Forms.ToolTip helpEditToolTip;
-        private System.Windows.Forms.Label NameUserLabel;
         private System.Windows.Forms.Label PasswordUserLabel;
-        private System.Windows.Forms.TextBox NameUserTextBox;
         private System.Windows.Forms.TextBox PasswordUserTextBox;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label NameUserLabel;
+        private System.Windows.Forms.Label DatoLabel;
     }
 }

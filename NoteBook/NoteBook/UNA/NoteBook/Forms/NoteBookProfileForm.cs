@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteBook.UNA.NoteBook.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,20 +19,18 @@ namespace NoteBook
         public NoteBookProfileForm()
         {
             InitializeComponent();
-            helpDeleteToolTip.SetToolTip(DeleteButton, "Eliminar Actual Usuario");
-            helpDeleteToolTip.ToolTipTitle = "Eliminar";
-            helpEditToolTip.SetToolTip(EditButton, "Editar Datos De Usuario");
-            helpEditToolTip.ToolTipTitle = "Editar";
         }
-        public NoteBookProfileForm(User user)
+        public NoteBookProfileForm(User user, int cantidad_libros)
         {
             InitializeComponent();
             helpDeleteToolTip.SetToolTip(DeleteButton, "Eliminar Actual Usuario");
             helpDeleteToolTip.ToolTipTitle = "Eliminar";
             helpEditToolTip.SetToolTip(EditButton, "Editar Datos De Usuario");
             helpEditToolTip.ToolTipTitle = "Editar";
+            NameLabel.Text = user.Name+" "+user.LastName;
+            NameUserLabel.Text = user.NameUser;
+            DatoLabel.Text = "Posees "+cantidad_libros+ " libros en total";
             User = user;
-            NameUserTextBox.Text = user.NameUser;
             PasswordUserTextBox.Text = user.PasswordUser;
         }
 
@@ -45,13 +44,24 @@ namespace NoteBook
             if (editProfile != true)
             {
                 editProfile = true;
-                NameUserTextBox.Enabled = true;
                 PasswordUserTextBox.Enabled = true;
             }
             else
             {
+                if(User.PasswordUser != PasswordUserTextBox.Text)
+                {
+                    DialogResult result = MessageBox.Show("Deseas Cambiar Contraseña?","Cambio De Contraseña",MessageBoxButtons.YesNo);
+                    switch(result)
+                    {
+                        case DialogResult.Yes: User.PasswordUser = PasswordUserTextBox.Text;
+                            MySqlService.Instance.ModificarContraseña(User);
+                            ActivityRegister.Instance.SaveData(User.NameUser,"Perfil Usuario", "Cambio de Contraseña","");
+                            break;
+                        case DialogResult.No: PasswordUserTextBox.Text = User.PasswordUser;
+                            break;
+                    }
+                }
                 editProfile = false;
-                NameUserTextBox.Enabled = false;
                 PasswordUserTextBox.Enabled = false;
             }
         }

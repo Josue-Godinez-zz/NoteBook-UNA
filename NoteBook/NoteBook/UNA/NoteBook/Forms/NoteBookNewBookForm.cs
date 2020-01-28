@@ -112,7 +112,7 @@ namespace NoteBook
                 return true;
             }
         }
-        private bool BookUniqueNamePerCategorie()
+        private bool BookUniqueName()
         {
             bool condition = true;
             string auxCategorie = (string)CategoriesComboBox.SelectedItem;
@@ -168,7 +168,7 @@ namespace NoteBook
         {
             if (BookNameValidation(NameBookTextBox.Text) && BookCategorieValidation() && CategoriesValidation())
             {
-                if (BookUniqueNamePerCategorie())
+                if (BookUniqueName())
                 {
                     if (CategoriesComboBox.SelectedIndex == CategoriesComboBox.Items.Count - 1)
                     {
@@ -285,12 +285,10 @@ namespace NoteBook
             get;
             set;
         }
-
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void SubCategorieCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if(SubCategorieCheckBox.Checked)
@@ -302,7 +300,6 @@ namespace NoteBook
                 SubCategorieComboBox.Enabled = false;
             }
         }
-
         private void SubCategorie2CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (SubCategorie2CheckBox.Checked)

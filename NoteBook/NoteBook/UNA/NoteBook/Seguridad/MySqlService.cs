@@ -76,13 +76,21 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CloseConnection();
         }
 
+        public void ModificarContraseña(User user)
+        {
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("Update usuarios set Contraseña = '"+user.PasswordUser+"' where Nombre_usuario='"+user.NameUser+"'");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
+        }
+
         public List<Book> CargarLibros(User user)
         {
             try
             {
                 mySqlAccess.OpenConnection();
                 List<Book> books = new List<Book>();
-                DataTable result = mySqlAccess.QuerySQL("SELECT * FROM libros where Usuarios_Nombre_Usuario = '" + user.NameUser + "';");
+                DataTable result = mySqlAccess.QuerySQL("SELECT * FROM libros where Usuarios_Nombre_Usuario = '" + user.NameUser + "' or Privacidad = 1;");
                 for (int x = 0; x < result.Rows.Count; x++)
                 {
                     int id_book = Convert.ToInt32(result.Rows[x]["ID_Libro"]);
@@ -90,12 +98,21 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                     book.NameBook = result.Rows[x]["Nombre"].ToString();
                     book.ImageBook = result.Rows[x]["Imagen"].ToString();
                     book.AccessBook = Convert.ToBoolean(result.Rows[x]["Privacidad"]);
-                    book.User = user;
                     DataTable categories = mySqlAccess.QuerySQL("Select Categorias_Nombre from libros_categorias Where Libros_ID_Libro = " + id_book + "");
-                    Console.WriteLine(Convert.ToInt32(categories.Rows.Count));
                     for (int y = 0; y < categories.Rows.Count; y++)
                     {
-                        book.CategorieBook.Add(Convert.ToString(categories.Rows[x]["Categorias_Nombre"]));
+                        book.CategorieBook.Add(Convert.ToString(categories.Rows[y]["Categorias_Nombre"]));
+                    }
+                    string usuario = Convert.ToString(result.Rows[x]["Usuarios_Nombre_Usuario"]);
+                    if (usuario != user.NameUser)
+                    {
+                        User usuarioDistinto = new User();
+                        usuarioDistinto.NameUser = usuario;
+                        book.User = usuarioDistinto;
+                    }
+                    else
+                    {
+                        book.User = user;
                     }
                     books.Add(book);
                 }
@@ -172,14 +189,25 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         }
         public void ActualizarLibro(int id_libro, Book book)
         {
+            Console.WriteLine(id_libro);
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("Update libros set Nombre='"+book.NameBook+ "', Privacidad='"+book.AccessBook+ "', Imagen='+"+book.ImageBook+"' where ID_Libro =" + id_libro+";");
-            mySqlAccess.EjectSQL("Ddelete * from libros_categorias where Libros_ID_Libro = "+id_libro+";");
+            mySqlAccess.EjectSQL("Update libros set Nombre='"+book.NameBook+ "', Privacidad=" + book.AccessBook+ ", Imagen='"+book.ImageBook+"' where ID_Libro =" + id_libro+";");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.EjectSQL("Delete from libros_categorias where Libros_ID_Libro = "+id_libro+";");
+            mySqlAccess.CommitTransaction();
             for(int x = 0; x< book.CategorieBook.Count; x++)
             {
-                mySqlAccess.EjectSQL("Insert Into libros_categorias(`categorias_Nombre`, libros_ID_Libro`) values('"+book.CategorieBook[x]+"',"+id_libro+")");
+                mySqlAccess.EjectSQL("Insert Into libros_categorias(`categorias_Nombre`, `libros_ID_Libro`) values('" + book.CategorieBook[x]+"',"+id_libro+")");
+                mySqlAccess.CommitTransaction();
             }
             mySqlAccess.CloseConnection();
+        }
+
+        public string BuscarCategoria(string img)
+        {
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("");
+            return "";
         }
     }
 }

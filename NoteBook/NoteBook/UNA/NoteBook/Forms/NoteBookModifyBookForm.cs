@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteBook.UNA.NoteBook.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,23 +22,17 @@ namespace NoteBook
         {
             InitializeComponent();
         }
-        public NoteBookModifyBookForm(Book book, Dictionary<string, string> directionImages, List<Book> books)
+        public NoteBookModifyBookForm(Book book, List<Book> books)
         {
             InitializeComponent();
-            this.Book = book;
+            Libro = book;
             this.books = books;
-            this.directionImages = directionImages;
+            directionImages = MySqlService.Instance.ObtenerCategorias();
             NameBookTextBox.Text = book.NameBook;
             IconPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             IconPictureBox.ImageLocation = book.ImageBook;
-            foreach (var element in directionImages)
-            {
-                if (!CategorieComboBox.Items.Contains(element.Key))
-                {
-                    CategorieComboBox.Items.Insert(CategorieComboBox.Items.Count - 1, element.Key);
-                }
-            }
-            CategorieComboBox.SelectedItem = book.CategorieBook;
+            CargarCategorias();
+            SetearCategorias();
             AccessCheckBox.Checked = book.AccessBook;
         }
 
@@ -49,18 +44,15 @@ namespace NoteBook
 
         private void ConfirmationButton_Click(object sender, EventArgs e)
         {
-            if (BookNameValidation())
+            if (BookValidation())
             {
                 DialogResult respuesta = MessageBox.Show("Desea guardar cambios de este libro?", "Ejecutar Cambios", MessageBoxButtons.YesNo);
                 switch (respuesta)
                 {
                     case DialogResult.Yes:
-                        ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Book.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Book.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
-                        Book.NameBook = NameBookTextBox.Text;
-                        Book.CategorieBook[0] = (string)CategorieComboBox.SelectedItem;
-                        Book.ImageBook = directionImages[(string)CategorieComboBox.SelectedItem];
-                        Book.AccessBook = AccessCheckBox.Checked;
+                        
                         DialogResult = DialogResult.OK;
+                        ModificarLibro();
                         this.Close();
                         break;
                     case DialogResult.No:
@@ -68,47 +60,132 @@ namespace NoteBook
                 }
             }
         }
+        private bool BookValidation()
+        {
+            bool condition = false;
+            if(BookNameValidation()&&BookCategorieValidation())
+            {
+                condition = true;
+            }
+            return condition;
+        }
         private bool BookNameValidation()
         {
             bool condition = true;
-            if (NameBookTextBox.TextLength == 0)
+            if(NameBookTextBox.TextLength == 0)
             {
                 AvisoErrorProvider.SetError(NameBookTextBox, "Este Campo No Puede Quedar Vacio");
                 condition = false;
-                NameBookTextBox.Text = Book.NameBook;
+                NameBookTextBox.Text = Libro.NameBook;
             }
             else
             {
-                for (int x = 0; x < books.Count; x++)
+                if (NameBookTextBox.Text != Libro.NameBook)
                 {
-                    if (books[x].NameBook == NameBookTextBox.Text && books[x].CategorieBook[0] == (string)CategorieComboBox.SelectedItem && AccessCheckBox.Checked == books[x].AccessBook)
+                    for (int x = 0; x < books.Count; x++)
                     {
-                        DialogResult respuesta = MessageBox.Show("No Se Realizaron Cambios\nDeseas Salir?", "Aviso", MessageBoxButtons.YesNo);
-                        switch (respuesta)
+                        if (NameBookTextBox.Text == books[x].NameBook)
                         {
-                            case DialogResult.Yes:
-                                this.Close();
-                                break;
-                            case DialogResult.No:
-                                condition = false;
-                                break;
+                            AvisoErrorProvider.SetError(NameBookTextBox, "Nombre Ya Utilizado");
+                            condition = false;
+                            break;
                         }
-                    }
-                    else
-                    {
-                        AvisoErrorProvider.SetError(NameBookTextBox, "");
+                        else
+                        {
+                            AvisoErrorProvider.SetError(NameBookTextBox, "");
+                        }
                     }
                 }
             }
             return condition;
         }
-
-        public Book Book
+        private bool BookCategorieValidation()
+        {
+            bool condition = true;
+            if(CategorieComboBox.SelectedIndex == CategorieComboBox.Items.Count-1)
+            {
+                if(directionImages.ContainsKey(NameNewCategorieTextBox.Text))
+                {
+                    condition = false;
+                    AvisoErrorProvider.SetError(NameNewCategorieTextBox,"Categoria Ya Existe");
+                }
+                else
+                {
+                    AvisoErrorProvider.SetError(NameNewCategorieTextBox, "");
+                }
+            }
+            else
+            {
+                if(SubCategorieCheckBox.Checked)
+                {
+                    if(CategorieComboBox.SelectedItem == SubCategorieComboBox.SelectedItem)
+                    {
+                        condition = false;
+                        AvisoErrorProvider.SetError(SubCategorieComboBox, "Categoria Repetida");
+                    }
+                    else
+                    {
+                        AvisoErrorProvider.SetError(SubCategorieComboBox, "");
+                    }
+                }
+                if (SubCategorie2CheckBox.Checked)
+                {
+                    if (CategorieComboBox.SelectedItem == SubCategorie2ComboBox.SelectedItem)
+                    {
+                        condition = false;
+                        AvisoErrorProvider.SetError(SubCategorie2ComboBox, "Categoria Repetida");
+                    }
+                    else
+                    {
+                        AvisoErrorProvider.SetError(SubCategorie2ComboBox, "");
+                    }
+                }
+                if(SubCategorieCheckBox.Checked && SubCategorie2CheckBox.Checked)
+                {
+                    if(SubCategorieComboBox.SelectedItem == SubCategorie2ComboBox.SelectedItem)
+                    {
+                        condition = false;
+                        AvisoErrorProvider.SetError(SubCategorie2ComboBox,"Categoria Repetida");
+                    }
+                    else
+                    {
+                        AvisoErrorProvider.SetError(SubCategorie2ComboBox, "");
+                    }
+                }
+            }
+            return condition;
+        }
+        private void ModificarLibro()
+        {
+            ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Modificar Libro", "Cambio de datos", "Nombre: \"" + Libro.NameBook + "\" ~> \"" + NameBookTextBox.Text + "\" Categoría: \"" + Libro.CategorieBook + "\" ~> \"" + (string)CategorieComboBox.SelectedItem + "\"");
+            Libro.NameBook = NameBookTextBox.Text;
+            Libro.AccessBook = AccessCheckBox.Checked;
+            Libro.CategorieBook.Clear();
+            if(CategorieComboBox.SelectedIndex == CategorieComboBox.Items.Count-1)
+            {
+                MySqlService.Instance.CrearCategorias(NameNewCategorieTextBox.Text,IconPictureBox.ImageLocation);
+                Libro.ImageBook = IconPictureBox.ImageLocation;
+                Libro.CategorieBook.Add(NameNewCategorieTextBox.Text);
+            }
+            else
+            {
+                Libro.CategorieBook.Add((string)CategorieComboBox.SelectedItem);
+                Libro.ImageBook = directionImages[(string)CategorieComboBox.SelectedItem];
+            }
+            if(SubCategorieCheckBox.Checked)
+            {
+                Libro.CategorieBook.Add((string)SubCategorieComboBox.SelectedItem);
+            }
+            if(SubCategorie2CheckBox.Checked)
+            {
+                Libro.CategorieBook.Add((string)SubCategorie2ComboBox.SelectedItem);
+            }
+        }
+        public Book Libro
         {
             get;
             set;
         }
-
         private void CategorieComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CategorieComboBox.SelectedIndex != CategorieComboBox.Items.Count - 1)
@@ -122,7 +199,6 @@ namespace NoteBook
                 }
                 else
                 {
-                    NewAvatarCategorieButton.Visible = true;
                     IconPictureBox.ImageLocation = directionImages[(string)CategorieComboBox.SelectedItem];
                 }
             }
@@ -130,6 +206,66 @@ namespace NoteBook
             {
                 NewAvatarCategorieButton.Visible = true;
                 NameNewCategorieTextBox.Visible = true;
+            }
+        }
+        private void CargarCategorias()
+        {
+            foreach (var element in directionImages)
+            {
+                if (!CategorieComboBox.Items.Contains(element.Key))
+                {
+                    CategorieComboBox.Items.Insert(CategorieComboBox.Items.Count - 1, element.Key);
+                }
+                if (!SubCategorieComboBox.Items.Contains(element.Key))
+                {
+                    SubCategorieComboBox.Items.Add(element.Key);
+                }
+                if (!SubCategorie2ComboBox.Items.Contains(element.Key))
+                {
+                    SubCategorie2ComboBox.Items.Add(element.Key);
+                }
+            }
+        }
+        private void SetearCategorias()
+        {
+            CategorieComboBox.SelectedItem = Libro.CategorieBook[0];
+            if(Libro.CategorieBook.Count>1)
+            {
+                SubCategorieCheckBox.Checked = true;
+                SubCategorieComboBox.Enabled = true;
+                SubCategorieComboBox.SelectedItem = Libro.CategorieBook[1];
+            }
+            if (Libro.CategorieBook.Count > 2)
+            {
+                SubCategorie2CheckBox.Checked = true;
+                SubCategorie2ComboBox.Enabled = true;
+                SubCategorie2ComboBox.SelectedItem = Libro.CategorieBook[2];
+            }
+        }
+        private void SubCategorieCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(SubCategorieCheckBox.Checked)
+            {
+                SubCategorieComboBox.Enabled = true;
+            }
+            else
+            {
+                AvisoErrorProvider.SetError(SubCategorieComboBox,"");
+                SubCategorieComboBox.SelectedItem = null;
+                SubCategorieComboBox.Enabled = false;
+            }
+        }
+        private void SubCategorie2CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(SubCategorie2CheckBox.Checked)
+            {
+                SubCategorie2ComboBox.Enabled = true;
+            }
+            else
+            {
+                AvisoErrorProvider.SetError(SubCategorie2ComboBox, "");
+                SubCategorie2ComboBox.SelectedItem = null;
+                SubCategorie2ComboBox.Enabled = false;
             }
         }
     }

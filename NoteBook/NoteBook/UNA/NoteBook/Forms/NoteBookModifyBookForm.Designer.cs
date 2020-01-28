@@ -45,6 +45,10 @@
             this.PanelInferior = new System.Windows.Forms.Panel();
             this.AvisoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.AccessCheckBox = new System.Windows.Forms.CheckBox();
+            this.SubCategorieCheckBox = new System.Windows.Forms.CheckBox();
+            this.SubCategorie2CheckBox = new System.Windows.Forms.CheckBox();
+            this.SubCategorieComboBox = new System.Windows.Forms.ComboBox();
+            this.SubCategorie2ComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).BeginInit();
             this.PanelSuperior.SuspendLayout();
@@ -64,16 +68,16 @@
             // 
             // NameNewCategorieTextBox
             // 
-            this.NameNewCategorieTextBox.Location = new System.Drawing.Point(15, 225);
+            this.NameNewCategorieTextBox.Location = new System.Drawing.Point(21, 201);
             this.NameNewCategorieTextBox.MaxLength = 10;
             this.NameNewCategorieTextBox.Name = "NameNewCategorieTextBox";
-            this.NameNewCategorieTextBox.Size = new System.Drawing.Size(104, 20);
+            this.NameNewCategorieTextBox.Size = new System.Drawing.Size(109, 20);
             this.NameNewCategorieTextBox.TabIndex = 2;
             this.NameNewCategorieTextBox.Visible = false;
             // 
             // NewAvatarCategorieButton
             // 
-            this.NewAvatarCategorieButton.Location = new System.Drawing.Point(15, 259);
+            this.NewAvatarCategorieButton.Location = new System.Drawing.Point(31, 227);
             this.NewAvatarCategorieButton.Name = "NewAvatarCategorieButton";
             this.NewAvatarCategorieButton.Size = new System.Drawing.Size(86, 23);
             this.NewAvatarCategorieButton.TabIndex = 3;
@@ -84,7 +88,7 @@
             // IconPictureBox
             // 
             this.IconPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.IconPictureBox.Location = new System.Drawing.Point(185, 225);
+            this.IconPictureBox.Location = new System.Drawing.Point(196, 186);
             this.IconPictureBox.Name = "IconPictureBox";
             this.IconPictureBox.Size = new System.Drawing.Size(45, 45);
             this.IconPictureBox.TabIndex = 20;
@@ -93,7 +97,7 @@
             // NameBookLabel
             // 
             this.NameBookLabel.AutoSize = true;
-            this.NameBookLabel.Location = new System.Drawing.Point(12, 134);
+            this.NameBookLabel.Location = new System.Drawing.Point(12, 114);
             this.NameBookLabel.Name = "NameBookLabel";
             this.NameBookLabel.Size = new System.Drawing.Size(89, 13);
             this.NameBookLabel.TabIndex = 19;
@@ -102,7 +106,7 @@
             // CategorieLabel
             // 
             this.CategorieLabel.AutoSize = true;
-            this.CategorieLabel.Location = new System.Drawing.Point(28, 181);
+            this.CategorieLabel.Location = new System.Drawing.Point(29, 162);
             this.CategorieLabel.Name = "CategorieLabel";
             this.CategorieLabel.Size = new System.Drawing.Size(52, 13);
             this.CategorieLabel.TabIndex = 18;
@@ -119,7 +123,7 @@
             "Libros",
             "Artes",
             "<Nuevo>"});
-            this.CategorieComboBox.Location = new System.Drawing.Point(113, 178);
+            this.CategorieComboBox.Location = new System.Drawing.Point(133, 159);
             this.CategorieComboBox.Name = "CategorieComboBox";
             this.CategorieComboBox.Size = new System.Drawing.Size(135, 21);
             this.CategorieComboBox.TabIndex = 1;
@@ -127,8 +131,8 @@
             // 
             // NameBookTextBox
             // 
-            this.NameBookTextBox.Location = new System.Drawing.Point(113, 131);
-            this.NameBookTextBox.MaxLength = 13;
+            this.NameBookTextBox.Location = new System.Drawing.Point(133, 111);
+            this.NameBookTextBox.MaxLength = 10;
             this.NameBookTextBox.Name = "NameBookTextBox";
             this.NameBookTextBox.Size = new System.Drawing.Size(135, 20);
             this.NameBookTextBox.TabIndex = 0;
@@ -192,12 +196,52 @@
             // AccessCheckBox
             // 
             this.AccessCheckBox.AutoSize = true;
-            this.AccessCheckBox.Location = new System.Drawing.Point(113, 299);
+            this.AccessCheckBox.Location = new System.Drawing.Point(104, 311);
             this.AccessCheckBox.Name = "AccessCheckBox";
             this.AccessCheckBox.Size = new System.Drawing.Size(88, 17);
             this.AccessCheckBox.TabIndex = 4;
             this.AccessCheckBox.Text = "Acceso Libre";
             this.AccessCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SubCategorieCheckBox
+            // 
+            this.SubCategorieCheckBox.AutoSize = true;
+            this.SubCategorieCheckBox.Location = new System.Drawing.Point(66, 256);
+            this.SubCategorieCheckBox.Name = "SubCategorieCheckBox";
+            this.SubCategorieCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.SubCategorieCheckBox.TabIndex = 21;
+            this.SubCategorieCheckBox.UseVisualStyleBackColor = true;
+            this.SubCategorieCheckBox.CheckedChanged += new System.EventHandler(this.SubCategorieCheckBox_CheckedChanged);
+            // 
+            // SubCategorie2CheckBox
+            // 
+            this.SubCategorie2CheckBox.AutoSize = true;
+            this.SubCategorie2CheckBox.Location = new System.Drawing.Point(218, 256);
+            this.SubCategorie2CheckBox.Name = "SubCategorie2CheckBox";
+            this.SubCategorie2CheckBox.Size = new System.Drawing.Size(15, 14);
+            this.SubCategorie2CheckBox.TabIndex = 22;
+            this.SubCategorie2CheckBox.UseVisualStyleBackColor = true;
+            this.SubCategorie2CheckBox.CheckedChanged += new System.EventHandler(this.SubCategorie2CheckBox_CheckedChanged);
+            // 
+            // SubCategorieComboBox
+            // 
+            this.SubCategorieComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SubCategorieComboBox.Enabled = false;
+            this.SubCategorieComboBox.FormattingEnabled = true;
+            this.SubCategorieComboBox.Location = new System.Drawing.Point(21, 276);
+            this.SubCategorieComboBox.Name = "SubCategorieComboBox";
+            this.SubCategorieComboBox.Size = new System.Drawing.Size(102, 21);
+            this.SubCategorieComboBox.TabIndex = 23;
+            // 
+            // SubCategorie2ComboBox
+            // 
+            this.SubCategorie2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SubCategorie2ComboBox.Enabled = false;
+            this.SubCategorie2ComboBox.FormattingEnabled = true;
+            this.SubCategorie2ComboBox.Location = new System.Drawing.Point(166, 276);
+            this.SubCategorie2ComboBox.Name = "SubCategorie2ComboBox";
+            this.SubCategorie2ComboBox.Size = new System.Drawing.Size(102, 21);
+            this.SubCategorie2ComboBox.TabIndex = 24;
             // 
             // NoteBookModifyBookForm
             // 
@@ -206,6 +250,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
+            this.Controls.Add(this.SubCategorie2ComboBox);
+            this.Controls.Add(this.SubCategorieComboBox);
+            this.Controls.Add(this.SubCategorie2CheckBox);
+            this.Controls.Add(this.SubCategorieCheckBox);
             this.Controls.Add(this.AccessCheckBox);
             this.Controls.Add(this.NameNewCategorieTextBox);
             this.Controls.Add(this.NewAvatarCategorieButton);
@@ -246,5 +294,9 @@
         private System.Windows.Forms.Panel PanelInferior;
         private System.Windows.Forms.ErrorProvider AvisoErrorProvider;
         private System.Windows.Forms.CheckBox AccessCheckBox;
+        private System.Windows.Forms.CheckBox SubCategorie2CheckBox;
+        private System.Windows.Forms.CheckBox SubCategorieCheckBox;
+        private System.Windows.Forms.ComboBox SubCategorie2ComboBox;
+        private System.Windows.Forms.ComboBox SubCategorieComboBox;
     }
 }

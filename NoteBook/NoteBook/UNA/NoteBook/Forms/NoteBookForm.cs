@@ -58,7 +58,7 @@ namespace NoteBook
             }
             else if (isLogin == true)
             {
-                NoteBookProfileForm notebookProfileForm = new NoteBookProfileForm(actualSesion);
+                NoteBookProfileForm notebookProfileForm = new NoteBookProfileForm(actualSesion, ContarLibros());
                 {
                     DialogResult result = notebookProfileForm.ShowDialog();
                     if (result == DialogResult.OK)
@@ -84,6 +84,7 @@ namespace NoteBook
             SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
             ActivityRegister.Instance.User = actualSesion;
+            LibraryTableLayoutPanel.Controls.Clear();
         }
 
         private void CreateBookButton_Click(object sender, EventArgs e)
@@ -98,7 +99,6 @@ namespace NoteBook
                         LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
                         LibraryTableLayoutPanel.RowCount++;
                     }
-                    Console.WriteLine(noteBookNewBookForm.NewBook.ImageBook);
                     CreacionLibro(noteBookNewBookForm.NewBook);
                     MySqlService.Instance.CrearLibro(noteBookNewBookForm.NewBook);
                     MySqlService.Instance.AsociarLibroCategoria(noteBookNewBookForm.NewBook.CategorieBook);
@@ -107,7 +107,7 @@ namespace NoteBook
             }
             else
             {
-                MessageBox.Show("Debes de iniciar sesión primero antes de poder crear un libro","Error", MessageBoxButtons.OK);
+                MessageBox.Show("Debes de iniciar sesión primero antes de poder crear un libro","Advertencia", MessageBoxButtons.OK);
             }
         }
         private void TimeTimer_Tick(object sender, EventArgs e)
@@ -177,16 +177,18 @@ namespace NoteBook
                 {
                     if (book.User.Equals(actualSesion))
                     {
-                        NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(book, directionImages, books);
+                        int id_libro = MySqlService.Instance.BuscarLibro(book);
+                        NoteBookModifyBookForm modifyBook = new NoteBookModifyBookForm(book, books);
                         if (modifyBook.ShowDialog() == DialogResult.OK)
                         {
                             Panel panelCoverBook = (Panel)sender;
                             PictureBox pictureBox = (PictureBox)panelCoverBook.Controls[0];
                             Label labelNameBook = (Label)panelCoverBook.Controls[1];
                             Label labelBookCategorie = (Label)panelCoverBook.Controls[2];
-                            pictureBox.ImageLocation = modifyBook.Book.ImageBook;
-                            labelNameBook.Text = modifyBook.Book.NameBook;
-                            labelBookCategorie.Text = modifyBook.Book.CategorieBook[0];
+                            pictureBox.ImageLocation = modifyBook.Libro.ImageBook;
+                            labelNameBook.Text = modifyBook.Libro.NameBook;
+                            labelBookCategorie.Text = modifyBook.Libro.CategorieBook[0];
+                            MySqlService.Instance.ActualizarLibro(id_libro,book);
                         }
                     }
                     else
@@ -222,13 +224,11 @@ namespace NoteBook
             Panel panelBookCover = (Panel)sender;
             panelBookCover.BackColor = Color.FromArgb(224, 224, 224);
         }
-
         private void PanelBookCover_MouseEnter(object sender, EventArgs e)
         {
             Panel panelBookCover = (Panel)sender;
             panelBookCover.BackColor = Color.FromArgb(255, 192, 128);
         }
-
         private void LogActivitiesButton_Click(object sender, EventArgs e)
         {
             NoteBooksActivityRegisterForm noteBooksActivityRegisterForm = new NoteBooksActivityRegisterForm();
@@ -276,7 +276,6 @@ namespace NoteBook
                 opcionDeOrdenamiento = 0;
             }
         }
-
         private void RegisterNewUser()
         {
             NoteBookUserRegisterForm noteBookRegister = new NoteBookUserRegisterForm(users);
@@ -307,19 +306,30 @@ namespace NoteBook
             {
                 isLogin = true;
                 actualSesion = noteBookSignInForm.User;
-                ActivityRegister.Instance.SaveData(actualSesion.NameUser, "Inicio Sesión", "Incio Sesión", "");
+                ActivityRegister.Instance.SaveData(actualSesion.NameUser, "Inicio Sesión", "Inicio Sesión", "");
                 MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                 UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
+                ActivityRegister.Instance.User = actualSesion;
                 books = MySqlService.Instance.CargarLibros(actualSesion);
-                Console.WriteLine(Convert.ToString(books.Count));
                 for (int x = 0; x < books.Count; x++)
                 {
                     CreacionLibro(books[x]);
                 }
-                ActivityRegister.Instance.User = actualSesion;
             }
+        }
+        private int ContarLibros()
+        {
+            int cantidad = 0;
+            for(int x=0; x<books.Count;x++)
+            {
+                if(books[x].User.NameUser == actualSesion.NameUser)
+                {
+                    cantidad++;
+                }
+            }
+            return cantidad;
         }
     }
 }
