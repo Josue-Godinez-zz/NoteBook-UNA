@@ -84,6 +84,7 @@
             this.NewAvatarCategorieButton.Text = "Nuevo Avatar";
             this.NewAvatarCategorieButton.UseVisualStyleBackColor = true;
             this.NewAvatarCategorieButton.Visible = false;
+            this.NewAvatarCategorieButton.Click += new System.EventHandler(this.NewAvatarCategorieButton_Click);
             // 
             // IconPictureBox
             // 

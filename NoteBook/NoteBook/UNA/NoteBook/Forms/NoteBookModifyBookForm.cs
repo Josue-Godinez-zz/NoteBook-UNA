@@ -268,5 +268,15 @@ namespace NoteBook
                 SubCategorie2ComboBox.Enabled = false;
             }
         }
+        private void NewAvatarCategorieButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog getImage = new OpenFileDialog();
+            getImage.InitialDirectory = "C:\\User\\";
+            getImage.Filter = "Archivos de Imagen (*.jpg)(*.jpeg)|*.jpg;*jpeg|PNG (*.png)|*.png|GIF (*.gif)|*.gif";
+            if (getImage.ShowDialog() == DialogResult.OK)
+            {
+                IconPictureBox.ImageLocation = getImage.FileName;
+            }
+        }
     }
 }
