@@ -41,6 +41,12 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
             this.AvisoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.FondoButton = new System.Windows.Forms.Button();
+            this.FuenteButton = new System.Windows.Forms.Button();
+            this.LetraButton = new System.Windows.Forms.Button();
+            this.FondoLabel = new System.Windows.Forms.Label();
+            this.LetraLabel = new System.Windows.Forms.Label();
+            this.FuenteLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AvisoErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +55,7 @@
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.TitleLabel.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(89, 9);
+            this.TitleLabel.Location = new System.Drawing.Point(126, 24);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(48, 15);
             this.TitleLabel.TabIndex = 0;
@@ -57,7 +63,7 @@
             // 
             // TitleTextBox
             // 
-            this.TitleTextBox.Location = new System.Drawing.Point(39, 27);
+            this.TitleTextBox.Location = new System.Drawing.Point(228, 19);
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(142, 20);
             this.TitleTextBox.TabIndex = 0;
@@ -67,7 +73,7 @@
             this.CategoriaLlabel.AutoSize = true;
             this.CategoriaLlabel.BackColor = System.Drawing.Color.Transparent;
             this.CategoriaLlabel.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CategoriaLlabel.Location = new System.Drawing.Point(242, 9);
+            this.CategoriaLlabel.Location = new System.Drawing.Point(126, 50);
             this.CategoriaLlabel.Name = "CategoriaLlabel";
             this.CategoriaLlabel.Size = new System.Drawing.Size(74, 15);
             this.CategoriaLlabel.TabIndex = 4;
@@ -76,7 +82,7 @@
             // CategoriaComboBox
             // 
             this.CategoriaComboBox.FormattingEnabled = true;
-            this.CategoriaComboBox.Location = new System.Drawing.Point(209, 27);
+            this.CategoriaComboBox.Location = new System.Drawing.Point(228, 44);
             this.CategoriaComboBox.Name = "CategoriaComboBox";
             this.CategoriaComboBox.Size = new System.Drawing.Size(142, 21);
             this.CategoriaComboBox.TabIndex = 1;
@@ -86,7 +92,7 @@
             this.PrivacidadCheckBox.AutoSize = true;
             this.PrivacidadCheckBox.BackColor = System.Drawing.Color.Transparent;
             this.PrivacidadCheckBox.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrivacidadCheckBox.Location = new System.Drawing.Point(39, 306);
+            this.PrivacidadCheckBox.Location = new System.Drawing.Point(6, 250);
             this.PrivacidadCheckBox.Name = "PrivacidadCheckBox";
             this.PrivacidadCheckBox.Size = new System.Drawing.Size(98, 19);
             this.PrivacidadCheckBox.TabIndex = 3;
@@ -95,10 +101,10 @@
             // 
             // ContenidoTextBox
             // 
-            this.ContenidoTextBox.Location = new System.Drawing.Point(39, 63);
+            this.ContenidoTextBox.Location = new System.Drawing.Point(129, 77);
             this.ContenidoTextBox.Multiline = true;
             this.ContenidoTextBox.Name = "ContenidoTextBox";
-            this.ContenidoTextBox.Size = new System.Drawing.Size(312, 237);
+            this.ContenidoTextBox.Size = new System.Drawing.Size(241, 243);
             this.ContenidoTextBox.TabIndex = 2;
             // 
             // GuardarButton
@@ -137,6 +143,67 @@
             this.AvisoErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.AvisoErrorProvider.ContainerControl = this;
             // 
+            // FondoButton
+            // 
+            this.FondoButton.Location = new System.Drawing.Point(100, 80);
+            this.FondoButton.Name = "FondoButton";
+            this.FondoButton.Size = new System.Drawing.Size(23, 23);
+            this.FondoButton.TabIndex = 6;
+            this.FondoButton.UseVisualStyleBackColor = true;
+            this.FondoButton.Click += new System.EventHandler(this.FondoButton_Click);
+            // 
+            // FuenteButton
+            // 
+            this.FuenteButton.Location = new System.Drawing.Point(68, 184);
+            this.FuenteButton.Name = "FuenteButton";
+            this.FuenteButton.Size = new System.Drawing.Size(56, 23);
+            this.FuenteButton.TabIndex = 7;
+            this.FuenteButton.Text = "AaBb";
+            this.FuenteButton.UseVisualStyleBackColor = true;
+            this.FuenteButton.Click += new System.EventHandler(this.FuenteButton_Click);
+            // 
+            // LetraButton
+            // 
+            this.LetraButton.Location = new System.Drawing.Point(100, 134);
+            this.LetraButton.Name = "LetraButton";
+            this.LetraButton.Size = new System.Drawing.Size(23, 23);
+            this.LetraButton.TabIndex = 8;
+            this.LetraButton.UseVisualStyleBackColor = true;
+            this.LetraButton.Click += new System.EventHandler(this.LetraButton_Click);
+            // 
+            // FondoLabel
+            // 
+            this.FondoLabel.AutoSize = true;
+            this.FondoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.FondoLabel.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FondoLabel.Location = new System.Drawing.Point(3, 85);
+            this.FondoLabel.Name = "FondoLabel";
+            this.FondoLabel.Size = new System.Drawing.Size(86, 15);
+            this.FondoLabel.TabIndex = 9;
+            this.FondoLabel.Text = "Color Fondo:";
+            // 
+            // LetraLabel
+            // 
+            this.LetraLabel.AutoSize = true;
+            this.LetraLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LetraLabel.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LetraLabel.Location = new System.Drawing.Point(3, 134);
+            this.LetraLabel.Name = "LetraLabel";
+            this.LetraLabel.Size = new System.Drawing.Size(80, 15);
+            this.LetraLabel.TabIndex = 10;
+            this.LetraLabel.Text = "Color Letra:";
+            // 
+            // FuenteLabel
+            // 
+            this.FuenteLabel.AutoSize = true;
+            this.FuenteLabel.BackColor = System.Drawing.Color.Transparent;
+            this.FuenteLabel.Font = new System.Drawing.Font("Lucida Handwriting", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuenteLabel.Location = new System.Drawing.Point(3, 192);
+            this.FuenteLabel.Name = "FuenteLabel";
+            this.FuenteLabel.Size = new System.Drawing.Size(53, 15);
+            this.FuenteLabel.TabIndex = 11;
+            this.FuenteLabel.Text = "Fuente:";
+            // 
             // EditNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +213,12 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(393, 379);
             this.ControlBox = false;
+            this.Controls.Add(this.FuenteLabel);
+            this.Controls.Add(this.LetraLabel);
+            this.Controls.Add(this.FondoLabel);
+            this.Controls.Add(this.LetraButton);
+            this.Controls.Add(this.FuenteButton);
+            this.Controls.Add(this.FondoButton);
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.ContenidoTextBox);
@@ -177,5 +250,11 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button CancelarButton;
         private System.Windows.Forms.ErrorProvider AvisoErrorProvider;
+        private System.Windows.Forms.Button FondoButton;
+        private System.Windows.Forms.Button FuenteButton;
+        private System.Windows.Forms.Button LetraButton;
+        private System.Windows.Forms.Label FuenteLabel;
+        private System.Windows.Forms.Label LetraLabel;
+        private System.Windows.Forms.Label FondoLabel;
     }
 }

@@ -51,5 +51,12 @@ namespace UNA.Notebook
             get;
             set;
         }
+
+        public int Id
+        {
+            get;
+            set;
+            
+        }
     }
 }

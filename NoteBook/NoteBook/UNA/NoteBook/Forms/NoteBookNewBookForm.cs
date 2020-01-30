@@ -57,8 +57,8 @@ namespace NoteBook
                 NameCategoriaTextBox.Visible = false;
                 if (CategoriesComboBox.SelectedIndex < 6)
                 {
-                    string direccionImagen = Path.Combine(Application.StartupPath, DirectionImages[(string)CategoriesComboBox.SelectedItem]);
-                    IconPictureBox.Image = new System.Drawing.Bitmap(direccionImagen);
+                    //string direccionImagen = Path.Combine(Application.StartupPath, DirectionImages[(string)CategoriesComboBox.SelectedItem]);
+                    //IconPictureBox.Image = new System.Drawing.Bitmap(direccionImagen);
                 }
                 else
                 {

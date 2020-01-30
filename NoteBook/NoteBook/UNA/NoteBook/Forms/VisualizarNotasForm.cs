@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UNA.Notebook;
 using UNA.NoteBook;
+using NoteBook.UNA.NoteBook.Seguridad;
 
 namespace NoteBook
 {
@@ -17,6 +18,7 @@ namespace NoteBook
         private Book Libro;
         User actualSesion = null;
         
+
 
         public VisualizarNotasForm()
         {
@@ -99,6 +101,7 @@ namespace NoteBook
         public VisualizarNotasForm(Book libro):this()
         {
             this.Libro = libro;
+            Libro.Note = MySqlService.Instance.CargarNotas(Libro);
             Refrescar(Libro.Note);
         }
 
@@ -107,8 +110,11 @@ namespace NoteBook
             EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0],"Nueva Nota");
             if (editNote.ShowDialog() == DialogResult.OK)
             {
+
                 Note nota = editNote.NewNote;
-                Libro.Note.Add(nota);
+                MySqlService.Instance.CrearNota(nota);
+                nota.SetId(MySqlService.Instance.AsociarLibroNota(Libro));
+               Libro.Note.Add(nota);
                 Refrescar(Libro.Note);
             }
         }
@@ -140,8 +146,10 @@ namespace NoteBook
                         VisualizarDataGridView.ClearSelection();
                         Libro.Note.Remove(eliminar);
                         eliminar = editNote.NewNote;
+                        MySqlService.Instance.ActualizarNota(eliminar);
                         Libro.Note.Add(eliminar);
                         Refrescar(Libro.Note);
+
                     }
 
                 }
@@ -175,6 +183,7 @@ namespace NoteBook
                             VisualizarDataGridView.ClearSelection();
                             Libro.Note.Remove(eliminar);
                             eliminar = contenido.NotaOriginal;
+                            MySqlService.Instance.ActualizarNota(eliminar);
                             Libro.Note.Add(eliminar);
                             Refrescar(Libro.Note);
                         }
@@ -189,7 +198,7 @@ namespace NoteBook
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Predicate<Note> buscar = x => ((x.Title.Contains(BuscarTextBox.Text)) || (x.Category.Contains(BuscarTextBox.Text)));
+            Predicate<Note> buscar = x => (x.Title.Contains(BuscarTextBox.Text));
             Refrescar(Libro.Note.FindAll(buscar));
             
         }
@@ -198,6 +207,28 @@ namespace NoteBook
         {
             Refrescar(Libro.Note);
             BuscarTextBox.Clear();
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            if (VisualizarDataGridView.SelectedRows.Count >= 1)
+            {
+                Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                if (!eliminar.Privacity || (eliminar.Privacity && eliminar.User.Equals(ActivityRegister.Instance.User.NameUser)))
+                {
+                    VisualizarDataGridView.ClearSelection();
+                    Libro.Note.Remove(eliminar);
+                    MySqlService.Instance.BorrarNota(eliminar.GetId(), Libro.Id);
+                    Refrescar(Libro.Note);
+
+                }
+                else
+                {
+                    MessageBox.Show("Solo el propietario del libro puede acceder a él", "");
+                }
+
+            }
+
         }
     }
 }

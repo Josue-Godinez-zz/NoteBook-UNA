@@ -49,6 +49,7 @@
             this.LibraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.InformationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.TimeTimer = new System.Windows.Forms.Timer(this.components);
+            this.BuscarNotaButton = new System.Windows.Forms.Button();
             this.VistaSuperiorPanel.SuspendLayout();
             this.VistaLateralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +133,7 @@
             // 
             this.VistaLateralPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.VistaLateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.VistaLateralPanel.Controls.Add(this.BuscarNotaButton);
             this.VistaLateralPanel.Controls.Add(this.SignOutLabel);
             this.VistaLateralPanel.Controls.Add(this.RegisterLabel);
             this.VistaLateralPanel.Controls.Add(this.BookOrderLabel);
@@ -149,7 +151,7 @@
             // SignOutLabel
             // 
             this.SignOutLabel.AutoSize = true;
-            this.SignOutLabel.Location = new System.Drawing.Point(72, 311);
+            this.SignOutLabel.Location = new System.Drawing.Point(72, 354);
             this.SignOutLabel.Name = "SignOutLabel";
             this.SignOutLabel.Size = new System.Drawing.Size(70, 13);
             this.SignOutLabel.TabIndex = 7;
@@ -158,7 +160,7 @@
             // RegisterLabel
             // 
             this.RegisterLabel.AutoSize = true;
-            this.RegisterLabel.Location = new System.Drawing.Point(72, 220);
+            this.RegisterLabel.Location = new System.Drawing.Point(72, 263);
             this.RegisterLabel.Name = "RegisterLabel";
             this.RegisterLabel.Size = new System.Drawing.Size(104, 13);
             this.RegisterLabel.TabIndex = 6;
@@ -188,7 +190,7 @@
             this.SignOutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SignOutButton.BackgroundImage")));
             this.SignOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SignOutButton.Enabled = false;
-            this.SignOutButton.Location = new System.Drawing.Point(16, 292);
+            this.SignOutButton.Location = new System.Drawing.Point(16, 335);
             this.SignOutButton.Name = "SignOutButton";
             this.SignOutButton.Size = new System.Drawing.Size(50, 50);
             this.SignOutButton.TabIndex = 3;
@@ -199,7 +201,7 @@
             // 
             this.LogActivitiesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogActivitiesButton.BackgroundImage")));
             this.LogActivitiesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.LogActivitiesButton.Location = new System.Drawing.Point(16, 201);
+            this.LogActivitiesButton.Location = new System.Drawing.Point(16, 244);
             this.LogActivitiesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LogActivitiesButton.Name = "LogActivitiesButton";
             this.LogActivitiesButton.Size = new System.Drawing.Size(50, 50);
@@ -249,7 +251,7 @@
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.LibraryTableLayoutPanel.Location = new System.Drawing.Point(195, 119);
             this.LibraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LibraryTableLayoutPanel.Name = "LibraryTableLayoutPanel";
@@ -270,6 +272,16 @@
             // 
             this.TimeTimer.Enabled = true;
             this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
+            // 
+            // BuscarNotaButton
+            // 
+            this.BuscarNotaButton.Location = new System.Drawing.Point(16, 193);
+            this.BuscarNotaButton.Name = "BuscarNotaButton";
+            this.BuscarNotaButton.Size = new System.Drawing.Size(121, 23);
+            this.BuscarNotaButton.TabIndex = 0;
+            this.BuscarNotaButton.Text = "Buscar Notas";
+            this.BuscarNotaButton.UseVisualStyleBackColor = true;
+            this.BuscarNotaButton.Click += new System.EventHandler(this.BuscarNotaButton_Click);
             // 
             // NoteBookForm
             // 
@@ -316,5 +328,6 @@
         private System.Windows.Forms.Label SignOutLabel;
         private System.Windows.Forms.Label NewUserLabel;
         private System.Windows.Forms.Label UserLabel;
+        private System.Windows.Forms.Button BuscarNotaButton;
     }
 }

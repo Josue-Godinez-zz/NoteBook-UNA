@@ -12,6 +12,7 @@ using UNA.Notebook;
 using DataBaseAccess;
 using MongoDB.Driver.Core.Configuration;
 using NoteBook.UNA.NoteBook.Seguridad;
+using NoteBook.UNA.NoteBook.Forms;
 
 namespace NoteBook
 {
@@ -340,6 +341,12 @@ namespace NoteBook
                 }
             }
             return cantidad;
+        }
+
+        private void BuscarNotaButton_Click(object sender, EventArgs e)
+        {
+            BuscarForm buscar = new BuscarForm();
+            buscar.ShowDialog();
         }
     }
 }
