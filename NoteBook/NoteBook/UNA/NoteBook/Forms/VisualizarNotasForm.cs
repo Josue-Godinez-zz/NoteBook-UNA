@@ -112,15 +112,22 @@ namespace NoteBook
 
         private void AgregarButton_Click(object sender, EventArgs e)
         {
-            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0],"Nueva Nota");
-            if (editNote.ShowDialog() == DialogResult.OK)
+            if(ActivityRegister.Instance.User.Permissions.Contains(2))
             {
+                EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0], "Nueva Nota");
+                if (editNote.ShowDialog() == DialogResult.OK)
+                {
 
-                Note nota = editNote.NewNote;
-                MySqlService.Instance.CrearNota(nota);
-                nota.SetId(MySqlService.Instance.AsociarLibroNota(Libro));
-                Libro.Note.Add(nota);
-                Refrescar(Libro.Note);
+                    Note nota = editNote.NewNote;
+                    MySqlService.Instance.CrearNota(nota);
+                    nota.SetId(MySqlService.Instance.AsociarLibroNota(Libro));
+                    Libro.Note.Add(nota);
+                    Refrescar(Libro.Note);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para crear notas","Advertencia");
             }
         }
 
@@ -132,46 +139,43 @@ namespace NoteBook
 
         private void EditarButton_Click(object sender, EventArgs e)
         {
-            EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0], "Propiedades");
-
-            if (VisualizarDataGridView.SelectedRows.Count >= 1)
+            if(ActivityRegister.Instance.User.Permissions.Contains(4))
             {
-                editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                editNote.Llenar();
-                editNote.Nuevo = false;
-                List<User> usuarios = MySqlService.Instance.CargarUsuarios();
-                Console.WriteLine(user);
-                Console.WriteLine(editNote.NotaOriginal.User);
-                if (!editNote.NotaOriginal.Privacity || (editNote.NotaOriginal.Privacity&& editNote.NotaOriginal.User.Equals(user)))
+                EditNoteForm editNote = new EditNoteForm(Libro.CategorieBook[0], "Propiedades");
+                if (VisualizarDataGridView.SelectedRows.Count >= 1)
                 {
                     editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                     editNote.Llenar();
                     editNote.Nuevo = false;
-                    if (editNote.ShowDialog() == DialogResult.OK)
+                    List<User> usuarios = MySqlService.Instance.CargarUsuarios();
+                    Console.WriteLine(user);
+                    Console.WriteLine(editNote.NotaOriginal.User);
+                    if (!editNote.NotaOriginal.Privacity || (editNote.NotaOriginal.Privacity && editNote.NotaOriginal.User.Equals(user)))
                     {
-                        Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                        VisualizarDataGridView.ClearSelection();
-                        Libro.Note.Remove(eliminar);
-                        eliminar = editNote.NewNote;
-                        MySqlService.Instance.ActualizarNota(eliminar);
-                        Libro.Note.Add(eliminar);
-                        Refrescar(Libro.Note);
-
+                        editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                        editNote.Llenar();
+                        editNote.Nuevo = false;
+                        if (editNote.ShowDialog() == DialogResult.OK)
+                        {
+                            Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                            VisualizarDataGridView.ClearSelection();
+                            Libro.Note.Remove(eliminar);
+                            eliminar = editNote.NewNote;
+                            MySqlService.Instance.ActualizarNota(eliminar);
+                            Libro.Note.Add(eliminar);
+                            Refrescar(Libro.Note);
+                        }
                     }
-
-
+                    else
+                    {
+                        MessageBox.Show("Solo el propietario puede editar esta Nota", "Advertencia");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Solo el propietario puede editar esta Nota", "Advertencia");
-                }
-
-
-
-
             }
-
-            
+            else
+            {
+                MessageBox.Show("No tienes permisos para editar notas");
+            }
         }
 
         private void AbrirButton_Click(object sender, EventArgs e)
@@ -223,23 +227,24 @@ namespace NoteBook
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (Eliminar())
+            if(ActivityRegister.Instance.User.Permissions.Contains(6))
             {
-
-                if (VisualizarDataGridView.SelectedRows.Count >= 1)
+                if (Eliminar())
                 {
-                    Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-
-                    VisualizarDataGridView.ClearSelection();
-                    Libro.Note.Remove(eliminar);
-                    MySqlService.Instance.BorrarNota(eliminar.GetId(), Libro.Id);
-                    Refrescar(Libro.Note);
-
-
+                    if (VisualizarDataGridView.SelectedRows.Count >= 1)
+                    {
+                        Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                        VisualizarDataGridView.ClearSelection();
+                        Libro.Note.Remove(eliminar);
+                        MySqlService.Instance.BorrarNota(eliminar.GetId(), Libro.Id);
+                        Refrescar(Libro.Note);
+                    }
                 }
-
             }
-                       
+            else
+            {
+                MessageBox.Show("No tienes permisos para eliminar notas", "Advertencia");
+            }
         }
 
         private bool Eliminar()
