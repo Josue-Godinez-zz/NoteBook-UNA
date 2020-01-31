@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UNA.Notebook;
 using UNA.NoteBook;
+using static NoteBook.ActivityRegister;
 
 namespace NoteBook.UNA.NoteBook.Seguridad
 {
@@ -335,6 +336,32 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 mySqlAccess.CommitTransaction();
             }
             mySqlAccess.CloseConnection();
+        }
+
+        public void GuardarTransaccion(Event @event)
+        {
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("INSERT INTO `transacciones` (`Accion`, `Informacion_Adicional`, `Objeto`, `Fecha`, `Usuarios_Nombre_Usuario`) VALUES ('"+@event.AccionActivityRegister+"', '"+@event.AditionalInformationActivityRegister +"', '"+@event.ObjectActivityRegister+"', '"+@event.TimeDateActivityRegister+"', '"+@event.UserActivityRegister+"');");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
+        }
+
+        public List<Event> ObtenerTranssacciones()
+        {
+            mySqlAccess.OpenConnection();
+            DataTable result = mySqlAccess.QuerySQL("Select * from transacciones");
+            List<Event> events = new List<Event>();
+            for (int x = 0; x < result.Rows.Count;x++)
+            {
+                Event @event = new Event();
+                @event.AccionActivityRegister = result.Rows[x]["Accion"].ToString();
+                @event.AditionalInformationActivityRegister = result.Rows[x]["Informacion_Adicional"].ToString();
+                @event.UserActivityRegister = result.Rows[x]["Usuarios_Nombre_Usuario"].ToString();
+                @event.TimeDateActivityRegister = result.Rows[x]["Fecha"].ToString();
+                @event.ObjectActivityRegister = result.Rows[x]["Objeto"].ToString();
+                events.Add(@event);
+            }
+            return events;
         }
         public void BorrarLibro(int id_libro)
         {
