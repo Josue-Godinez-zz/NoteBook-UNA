@@ -17,12 +17,17 @@ namespace NoteBook
     {
         private Book Libro;
         User actualSesion = null;
-        
+        List<User> users = new List<User>();
+        string user = null;
 
 
         public VisualizarNotasForm()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            users = MySqlService.Instance.CargarUsuarios();
+            actualSesion = ActivityRegister.Instance.User;
+            user = ActivityRegister.Instance.User.NameUser;
+            Console.WriteLine(ActivityRegister.Instance.User.NameUser);
         }
 
         public void Refrescar(List<Note> lista)
@@ -114,7 +119,7 @@ namespace NoteBook
                 Note nota = editNote.NewNote;
                 MySqlService.Instance.CrearNota(nota);
                 nota.SetId(MySqlService.Instance.AsociarLibroNota(Libro));
-               Libro.Note.Add(nota);
+                Libro.Note.Add(nota);
                 Refrescar(Libro.Note);
             }
         }
@@ -134,8 +139,10 @@ namespace NoteBook
                 editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                 editNote.Llenar();
                 editNote.Nuevo = false;
-
-                if (!editNote.NotaOriginal.Privacity || (editNote.NotaOriginal.Privacity && editNote.NotaOriginal.User.Equals(ActivityRegister.Instance.User.NameUser)))
+                List<User> usuarios = MySqlService.Instance.CargarUsuarios();
+                Console.WriteLine(user);
+                Console.WriteLine(editNote.NotaOriginal.User);
+                if (!editNote.NotaOriginal.Privacity || (editNote.NotaOriginal.Privacity&& editNote.NotaOriginal.User.Equals(user)))
                 {
                     editNote.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                     editNote.Llenar();
@@ -152,13 +159,16 @@ namespace NoteBook
 
                     }
 
+
                 }
                 else
                 {
-                    MessageBox.Show("Solo el propietario del libro puede acceder a él", "Error");
+                    MessageBox.Show("Solo el propietario puede editar esta Nota", "Advertencia");
                 }
 
-                
+
+
+
             }
 
             
@@ -167,18 +177,16 @@ namespace NoteBook
         private void AbrirButton_Click(object sender, EventArgs e)
         {
             VisualizarContenidoForm contenido = new VisualizarContenidoForm();
-                if (VisualizarDataGridView.SelectedRows.Count >= 1)
+            if (VisualizarDataGridView.SelectedRows.Count >= 1)
+             {
+                contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+                contenido.Llenar();
+                if (!contenido.NotaOriginal.Privacity || (contenido.NotaOriginal.Privacity && contenido.NotaOriginal.User.Equals(user)))
                 {
                     contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                     contenido.Llenar();
-                    if (!contenido.NotaOriginal.Privacity || (contenido.NotaOriginal.Privacity && contenido.NotaOriginal.User.Equals(ActivityRegister.Instance.User.NameUser)))
-                    {
-                        contenido.NotaOriginal = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                        contenido.Llenar();
-                        if (contenido.ShowDialog() == DialogResult.OK)
+                    if (contenido.ShowDialog() == DialogResult.OK)
                         {
-
-
                             Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
                             VisualizarDataGridView.ClearSelection();
                             Libro.Note.Remove(eliminar);
@@ -187,13 +195,17 @@ namespace NoteBook
                             Libro.Note.Add(eliminar);
                             Refrescar(Libro.Note);
                         }
-
                     }
                     else
                     {
-                        MessageBox.Show("Solo el propietario del libro puede acceder a él", "Error");
+
+                        MessageBox.Show("Solo el propietario puede abrir esta Nota", "Advertencia");
+
                     }
-                }
+
+
+                    
+             }
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -211,24 +223,35 @@ namespace NoteBook
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (VisualizarDataGridView.SelectedRows.Count >= 1)
+            if (Eliminar())
             {
-                Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
-                if (!eliminar.Privacity || (eliminar.Privacity && eliminar.User.Equals(ActivityRegister.Instance.User.NameUser)))
+
+                if (VisualizarDataGridView.SelectedRows.Count >= 1)
                 {
+                    Note eliminar = (Note)VisualizarDataGridView.SelectedRows[0].DataBoundItem;
+
                     VisualizarDataGridView.ClearSelection();
                     Libro.Note.Remove(eliminar);
                     MySqlService.Instance.BorrarNota(eliminar.GetId(), Libro.Id);
                     Refrescar(Libro.Note);
 
-                }
-                else
-                {
-                    MessageBox.Show("Solo el propietario del libro puede acceder a él", "");
+
                 }
 
             }
+                       
+        }
 
+        private bool Eliminar()
+        {
+            return MessageBox.Show("La nota seleccionada se eliminará permanentemente.",
+                                        "¿Desea Continuar?", MessageBoxButtons.YesNo) == DialogResult.Yes;
+        }
+
+        User UsuarioActual
+        {
+            get;
+            set;
         }
     }
 }

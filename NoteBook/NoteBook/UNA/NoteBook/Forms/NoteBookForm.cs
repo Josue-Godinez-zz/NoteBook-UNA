@@ -322,7 +322,9 @@ namespace NoteBook
                 UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                 SignOutButton.Enabled = true;
                 SignUpButton.Enabled = false;
+                Console.WriteLine(actualSesion.NameUser);
                 ActivityRegister.Instance.User = actualSesion;
+                Console.WriteLine(ActivityRegister.Instance.User.NameUser);
                 books = MySqlService.Instance.CargarLibros(actualSesion);
                 for (int x = 0; x < books.Count; x++)
                 {
@@ -345,8 +347,16 @@ namespace NoteBook
 
         private void BuscarNotaButton_Click(object sender, EventArgs e)
         {
-            BuscarForm buscar = new BuscarForm();
-            buscar.ShowDialog();
+            if (isLogin != false)
+            {
+                BuscarForm buscar = new BuscarForm();
+                buscar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Debes de iniciar sesión primero antes de poder realizar una búsqueda", "Advertencia", MessageBoxButtons.OK);
+            }
+
         }
     }
 }

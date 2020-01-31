@@ -85,7 +85,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 privacidad = "1";
             }
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("INSERT INTO `notebook`.`notas` (`Titulo`, `Categoria`, `Contenido`, `Color Fondo`, `Fuente`, `Fecha Creacion`, `Fecha Modificacion`,`Color Letra`,`Privacidad` ) VALUES ('" + nota.Title + "', '" + nota.Category + "', '" + nota.GetContenido() + "', '" + nota.GetColorNota().Name + "', '" + nota.GetFuente().Name + "','" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + nota.GetColorLetra().Name + "','" + privacidad + "');");
+            mySqlAccess.EjectSQL("INSERT INTO `notebook`.`notas` (`Titulo`, `Categoria`, `Contenido`, `Color Fondo`, `Fuente`, `Fecha Creacion`, `Fecha Modificacion`,`Color Letra`,`Privacidad`,`Usuarios_Nombre_Usuario` ) VALUES ('" + nota.Title + "', '" + nota.Category + "', '" + nota.GetContenido() + "', '" + nota.GetColorNota().Name + "', '" + nota.GetFuente().Name + "','" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + nota.GetColorLetra().Name + "','" + privacidad + "', '" + nota.User + "');");
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
@@ -113,18 +113,18 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 DataTable result = mySqlAccess.QuerySQL("SELECT n.*, l.ID_Libro from notebook.libros l join notebook.libros_notas nl on nl.Libros_ID_Libro = l.ID_Libro join notebook.notas n on n.Id_Nota = nl.Notas_Id_Nota where l.ID_Libro = "+ libro.Id + "");
                 for (int x = 0; x < result.Rows.Count; x++)
                 {
-                    //int id_book = Convert.ToInt32(result.Rows[x]["ID_Libro"]);
+                    
                     Note nota = new Note();
                     nota.Title = result.Rows[x]["Titulo"].ToString();
                     nota.Category = result.Rows[x]["Categoria"].ToString();
                     nota.SetContenido (result.Rows[x]["Contenido"].ToString());
                     nota.SetColorNota (Color.FromName(result.Rows[x]["Color Fondo"].ToString()));
-                    nota.SetFuente(new Font(result.Rows[x]["Fuente"].ToString(), 12));
+                    nota.SetFuente(new Font(result.Rows[x]["Fuente"].ToString(), 10));
                     nota.CreationDate = DateTime.Parse( result.Rows[x]["Fecha Creacion"].ToString());
                     nota.ModificationDate = DateTime.Parse(result.Rows[x]["Fecha Modificacion"].ToString());
                     nota.SetColorLetra(Color.FromName(result.Rows[x]["Color Letra"].ToString()));
                     nota.Privacity = Convert.ToBoolean(result.Rows[x]["Privacidad"]);
-                    nota.User = libro.User.Name;
+                    nota.User = result.Rows[x]["Usuarios_Nombre_Usuario"].ToString();
                     nota.SetId(Convert.ToInt32(result.Rows[x]["Id_Nota"].ToString()));
 
                                      
@@ -180,7 +180,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             }
 
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("UPDATE `notebook`.`notas` SET `Titulo` = '" + nota.Title + "', `Categoria` = '" + nota.Category + "', `Contenido` = '" + nota.GetContenido() + "', `Color Fondo` = '" + nota.GetColorNota().Name + "', `Fuente` = '" + nota.GetFuente().Name + "', `Fecha Creacion` = '" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', `Fecha Modificacion` = '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', `Color Letra` = '" + nota.GetColorLetra().Name + "', `Privacidad` = '" + privacidad + "' WHERE (`Id_Nota` = " + nota.GetId() + ");");
+            mySqlAccess.EjectSQL("UPDATE `notebook`.`notas` SET `Titulo` = '" + nota.Title + "', `Categoria` = '" + nota.Category + "', `Contenido` = '" + nota.GetContenido() + "', `Color Fondo` = '" + nota.GetColorNota().Name + "', `Fuente` = '" + nota.GetFuente().Name + "', `Fecha Creacion` = '" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', `Fecha Modificacion` = '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', `Color Letra` = '" + nota.GetColorLetra().Name + "', `Privacidad` = '"+privacidad+"', `Usuarios_Nombre_Usuario` ='" + nota.User + "'  WHERE (`Id_Nota` = " + nota.GetId() + ");");
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }

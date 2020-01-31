@@ -21,6 +21,7 @@ namespace NoteBook
         public VisualizarContenidoForm()
         {
             InitializeComponent();
+            
         }
 
 

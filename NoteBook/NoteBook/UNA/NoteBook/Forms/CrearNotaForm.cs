@@ -108,6 +108,7 @@ namespace NoteBook
                 nota.SetContenido(ContenidoTextBox.Text);
                 nota.Privacity = PrivacidadCheckBox.Checked;
                 nota.User = ActivityRegister.Instance.User.NameUser;
+                Console.WriteLine(nota.User);
                 if (Nuevo)
                 {
                     nota.CreationDate = DateTime.Now;
@@ -123,6 +124,7 @@ namespace NoteBook
                 NewNote = nota;
                 this.DialogResult = DialogResult.OK;
                 ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "´Visualizar Notas", "Búsqueda de Notas ", "");
+                ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Buscar", "Búsqueda de Notas ", "");
                 if (Nuevo)
                 {
                     ActivityRegister.Instance.SaveData(ActivityRegister.Instance.User.NameUser, "Nueva Nota", "Creacion de nota " + "\"" + nota.Title + "\"", "");
@@ -172,9 +174,9 @@ namespace NoteBook
                 AvisoErrorProvider.SetError(TitleTextBox, "Ningun Título Digitado");
                 return false;
             }
-            else if(name.Length >= 13)
+            else if(name.Length >= 20)
             {
-                AvisoErrorProvider.SetError(TitleTextBox, "El título no debe tener una extensión mayor a 13 caracteres");
+                AvisoErrorProvider.SetError(TitleTextBox, "El título no debe tener una extensión mayor a 20 caracteres");
                 return false;
             }
             else
