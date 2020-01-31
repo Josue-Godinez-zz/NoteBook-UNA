@@ -301,22 +301,16 @@ namespace NoteBook
             DialogResult result = noteBookRegister.ShowDialog();
             if (result == DialogResult.OK)
             {
-                try
-                {
-                    users.Add(noteBookRegister.NewUser);
-                    MySqlService.Instance.CrearUsuario(noteBookRegister.NewUser);
-                    MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
-                    actualSesion = noteBookRegister.NewUser;
-                    isLogin = true;
-                    UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
-                    SignOutButton.Enabled = true;
-                    ActivityRegister.Instance.User = actualSesion;
-                    this.Visible = true;
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                users.Add(noteBookRegister.NewUser);
+                MySqlService.Instance.CrearUsuario(noteBookRegister.NewUser);
+                MessageBox.Show("Usuario Creado Exitosamente", "Felicidades");
+                actualSesion = noteBookRegister.NewUser;
+                isLogin = true;
+                UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
+                SignOutButton.Enabled = true;
+                ActivityRegister.Instance.User = actualSesion;
+                this.Visible = true;
+                Console.WriteLine(actualSesion.NameUser);
             }
             else if(result == DialogResult.No)
             {
@@ -393,9 +387,11 @@ namespace NoteBook
         }
         private void Bienvenida()
         {
+            users.Clear();
             users = MySqlService.Instance.CargarUsuarios();
             NoteBookWelcomeForm noteBookWelcomeForm = new NoteBookWelcomeForm(users);
             DialogResult result = noteBookWelcomeForm.ShowDialog();
+            actualSesion = null;
             if (result == DialogResult.Yes)
             {
                 RegisterNewUser();
@@ -407,6 +403,19 @@ namespace NoteBook
             else if (result == DialogResult.Cancel)
             {
                 this.Close();
+            }
+        }
+
+        private void BuscarNotasButton_Click(object sender, EventArgs e)
+        {
+            if (isLogin != false)
+            {
+                BuscarForm buscar = new BuscarForm();
+                buscar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Debes de iniciar sesión primero antes de poder realizar una búsqueda", "Advertencia", MessageBoxButtons.OK);
             }
         }
     }

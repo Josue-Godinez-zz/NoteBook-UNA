@@ -117,7 +117,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 privacidad = "1";
             }
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("INSERT INTO `notebook`.`notas` (`Titulo`, `Categoria`, `Contenido`, `Color Fondo`, `Fuente`, `Fecha Creacion`, `Fecha Modificacion`,`Color Letra`,`Privacidad`,`Usuarios_Nombre_Usuario` ) VALUES ('" + nota.Title + "', '" + nota.Category + "', '" + nota.GetContenido() + "', '" + nota.GetColorNota().Name + "', '" + nota.GetFuente().Name + "','" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + nota.GetColorLetra().Name + "','" + privacidad + "', '" + nota.User + "');");
+            mySqlAccess.EjectSQL("INSERT INTO `notebook`.`notas` (`Titulo`, `Categoria`, `Contenido`, `Color Fondo`, `Fuente`, `Fecha Creacion`, `Fecha Modificacion`,`Color Letra`,`Privacidad`,`Usuarios_Nombre_Usuario` ) VALUES ('" + nota.Title + "', '" + nota.Category + "', '" + nota.GetContenido() + "', '" + nota.GetColorNota().Name + "', '" + nota.GetFuente().Name + "','" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + nota.GetColorLetra().Name + "','" + privacidad + "', '" + nota.User +"');");
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }

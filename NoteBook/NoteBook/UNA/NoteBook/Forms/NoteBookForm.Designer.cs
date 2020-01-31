@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
             this.VistaSuperiorPanel = new System.Windows.Forms.Panel();
+            this.BuscarNotasButton = new System.Windows.Forms.Button();
             this.BuscarNotasLabel = new System.Windows.Forms.Label();
-            this.BuscarNotaButton = new System.Windows.Forms.Button();
             this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchBookButton = new System.Windows.Forms.Button();
             this.UserLabel = new System.Windows.Forms.Label();
             this.UserSingInLabel = new System.Windows.Forms.Label();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.LogInButton = new System.Windows.Forms.Button();
+            this.BuscarNotaButton = new System.Windows.Forms.Button();
             this.VistaLateralPanel = new System.Windows.Forms.Panel();
             this.SignOutLabel = new System.Windows.Forms.Label();
             this.RegisterLabel = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.LibraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.InformationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.TimeTimer = new System.Windows.Forms.Timer(this.components);
-            this.BuscarNotasButton = new System.Windows.Forms.Button();
             this.VistaSuperiorPanel.SuspendLayout();
             this.VistaLateralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,17 @@
             this.VistaSuperiorPanel.Size = new System.Drawing.Size(828, 110);
             this.VistaSuperiorPanel.TabIndex = 0;
             // 
+            // BuscarNotasButton
+            // 
+            this.BuscarNotasButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotasButton.BackgroundImage")));
+            this.BuscarNotasButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BuscarNotasButton.Location = new System.Drawing.Point(588, 20);
+            this.BuscarNotasButton.Name = "BuscarNotasButton";
+            this.BuscarNotasButton.Size = new System.Drawing.Size(50, 50);
+            this.BuscarNotasButton.TabIndex = 7;
+            this.BuscarNotasButton.UseVisualStyleBackColor = true;
+            this.BuscarNotasButton.Click += new System.EventHandler(this.BuscarNotasButton_Click);
+            // 
             // BuscarNotasLabel
             // 
             this.BuscarNotasLabel.AutoSize = true;
@@ -81,17 +92,6 @@
             this.BuscarNotasLabel.Size = new System.Drawing.Size(71, 13);
             this.BuscarNotasLabel.TabIndex = 6;
             this.BuscarNotasLabel.Text = "Buscar Notas";
-            // 
-            // BuscarNotaButton
-            // 
-            this.BuscarNotaButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotaButton.BackgroundImage")));
-            this.BuscarNotaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BuscarNotaButton.Location = new System.Drawing.Point(588, 21);
-            this.BuscarNotaButton.Name = "BuscarNotaButton";
-            this.BuscarNotaButton.Size = new System.Drawing.Size(50, 50);
-            this.BuscarNotaButton.TabIndex = 0;
-            this.BuscarNotaButton.UseVisualStyleBackColor = true;
-            this.BuscarNotaButton.Click += new System.EventHandler(this.BuscarNotaButton_Click);
             // 
             // SearchLabel
             // 
@@ -150,6 +150,17 @@
             this.LogInButton.TabIndex = 1;
             this.LogInButton.UseVisualStyleBackColor = true;
             this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            // 
+            // BuscarNotaButton
+            // 
+            this.BuscarNotaButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotaButton.BackgroundImage")));
+            this.BuscarNotaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BuscarNotaButton.Location = new System.Drawing.Point(588, 21);
+            this.BuscarNotaButton.Name = "BuscarNotaButton";
+            this.BuscarNotaButton.Size = new System.Drawing.Size(50, 50);
+            this.BuscarNotaButton.TabIndex = 0;
+            this.BuscarNotaButton.UseVisualStyleBackColor = true;
+            this.BuscarNotaButton.Click += new System.EventHandler(this.BuscarNotaButton_Click);
             // 
             // VistaLateralPanel
             // 
@@ -273,7 +284,7 @@
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
             this.LibraryTableLayoutPanel.Location = new System.Drawing.Point(195, 119);
             this.LibraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -295,16 +306,6 @@
             // 
             this.TimeTimer.Enabled = true;
             this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
-            // 
-            // BuscarNotasButton
-            // 
-            this.BuscarNotasButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotasButton.BackgroundImage")));
-            this.BuscarNotasButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BuscarNotasButton.Location = new System.Drawing.Point(588, 20);
-            this.BuscarNotasButton.Name = "BuscarNotasButton";
-            this.BuscarNotasButton.Size = new System.Drawing.Size(50, 50);
-            this.BuscarNotasButton.TabIndex = 7;
-            this.BuscarNotasButton.UseVisualStyleBackColor = true;
             // 
             // NoteBookForm
             // 
