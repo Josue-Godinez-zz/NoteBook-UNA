@@ -83,7 +83,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
-
         public List<Book> CargarLibros(User user)
         {
             try
@@ -125,7 +124,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 return null;
             }
         }
-
         public void CrearCategorias(string categoria, string imagen)
         {
             try

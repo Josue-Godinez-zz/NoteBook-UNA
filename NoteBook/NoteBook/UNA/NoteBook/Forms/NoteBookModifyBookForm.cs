@@ -35,7 +35,6 @@ namespace NoteBook
             SetearCategorias();
             AccessCheckBox.Checked = book.AccessBook;
         }
-
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show("Estas seguro que deseas eliminar este libro?", "Advertencia", MessageBoxButtons.YesNo);
@@ -49,9 +48,7 @@ namespace NoteBook
                 case DialogResult.No:
                     break;
             }
-           
         }
-
         private void ConfirmationButton_Click(object sender, EventArgs e)
         {
             if (BookValidation())

@@ -95,3 +95,4 @@ C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\System.
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\MySql.Data.xml
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\Google.Protobuf.xml
 C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\Renci.SshNet.xml
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.NoteBook.Forms.NoteBookSearchBook.resources
