@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,7 +72,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 {
                     User user = new User();
                     user.NameUser = result.Rows[x]["Nombre_Usuario"].ToString();
-                    user.PasswordUser = result.Rows[x]["Contraseña"].ToString();
+                    user.PasswordUser = DesencriptarString(result.Rows[x]["Contraseña"].ToString(),"");
                     user.Name = result.Rows[x]["Nombre"].ToString();
                     user.LastName = result.Rows[x]["Apellido"].ToString();
                     List<int> permisos = new List<int>();
@@ -93,7 +95,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         public void CrearUsuario(User user)
         {
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("Insert into usuarios values ('"+user.NameUser+"','"+user.PasswordUser+"','"+user.Name+"','"+user.LastName+"');");
+            mySqlAccess.EjectSQL("Insert into usuarios values ('"+user.NameUser+"','"+EncriptarString(user.PasswordUser,"")+"','"+user.Name+"','"+user.LastName+"');");
             AsociarUsuarioPermisos(user);
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
@@ -215,7 +217,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         public void ModificarContraseña(User user)
         {
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("Update usuarios set Contraseña = '"+user.PasswordUser+"' where Nombre_usuario='"+user.NameUser+"'");
+            mySqlAccess.EjectSQL("Update usuarios set Contraseña = '"+EncriptarString(user.PasswordUser, "") +"' where Nombre_usuario='"+user.NameUser+"'");
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
@@ -354,6 +356,44 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 mySqlAccess.EjectSQL("Insert into usuarios_permisos (`Permisos_ID_Permiso`,`Usuarios_Nombre_Usuario`) values("+(x+1)+", '"+user.NameUser+"');");
             }
             mySqlAccess.CloseConnection();
+        }
+        private const string initVector = "EncriptacionBD";
+        private const int keysize = 256;
+
+        public static string EncriptarString(string plainText, string passPhrase)
+        {
+            byte[] initVectorBytes = Encoding.UTF8.GetBytes(initVector);
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null);
+            byte[] keyBytes = password.GetBytes(keysize / 8);
+            RijndaelManaged symmetricKey = new RijndaelManaged();
+            symmetricKey.Mode = CipherMode.CBC;
+            ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes);
+            MemoryStream memoryStream = new MemoryStream();
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
+            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+            cryptoStream.FlushFinalBlock();
+            byte[] cipherTextBytes = memoryStream.ToArray();
+            memoryStream.Close();
+            cryptoStream.Close();
+            return Convert.ToBase64String(cipherTextBytes);
+        }
+        public static string DesencriptarString(string cipherText, string passPhrase)
+        {
+            byte[] initVectorBytes = Encoding.UTF8.GetBytes(initVector);
+            byte[] cipherTextBytes = Convert.FromBase64String(cipherText);
+            PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null);
+            byte[] keyBytes = password.GetBytes(keysize / 8);
+            RijndaelManaged symmetricKey = new RijndaelManaged();
+            symmetricKey.Mode = CipherMode.CBC;
+            ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, initVectorBytes);
+            MemoryStream memoryStream = new MemoryStream(cipherTextBytes);
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            byte[] plainTextBytes = new byte[cipherTextBytes.Length];
+            int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+            memoryStream.Close();
+            cryptoStream.Close();
+            return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
         }
     }
 }
