@@ -38,6 +38,8 @@
             this.Texto2Label = new System.Windows.Forms.Label();
             this.Texto4Label = new System.Windows.Forms.Label();
             this.Texto3Label = new System.Windows.Forms.Label();
+            this.RegisterLabel = new System.Windows.Forms.Label();
+            this.SignInLabel = new System.Windows.Forms.Label();
             this.PanelSuperior.SuspendLayout();
             this.PanelInferior.SuspendLayout();
             this.SuspendLayout();
@@ -45,31 +47,35 @@
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Location = new System.Drawing.Point(171, 21);
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Location = new System.Drawing.Point(161, 18);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(67, 13);
+            this.TitleLabel.Size = new System.Drawing.Size(91, 16);
             this.TitleLabel.TabIndex = 0;
             this.TitleLabel.Text = "NOTEBOOK";
             // 
             // SignUpButton
             // 
-            this.SignUpButton.Location = new System.Drawing.Point(79, 19);
+            this.SignUpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SignUpButton.BackgroundImage")));
+            this.SignUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SignUpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SignUpButton.Location = new System.Drawing.Point(102, 17);
             this.SignUpButton.Name = "SignUpButton";
-            this.SignUpButton.Size = new System.Drawing.Size(80, 23);
+            this.SignUpButton.Size = new System.Drawing.Size(45, 45);
             this.SignUpButton.TabIndex = 0;
-            this.SignUpButton.Text = "Registrarse";
             this.SignUpButton.UseVisualStyleBackColor = true;
             this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
             // SignInButton
             // 
             this.SignInButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.SignInButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SignInButton.BackgroundImage")));
+            this.SignInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SignInButton.ForeColor = System.Drawing.Color.Black;
-            this.SignInButton.Location = new System.Drawing.Point(244, 19);
+            this.SignInButton.Location = new System.Drawing.Point(254, 17);
             this.SignInButton.Name = "SignInButton";
-            this.SignInButton.Size = new System.Drawing.Size(80, 23);
+            this.SignInButton.Size = new System.Drawing.Size(45, 49);
             this.SignInButton.TabIndex = 1;
-            this.SignInButton.Text = "Iniciar Sesión";
             this.SignInButton.UseVisualStyleBackColor = true;
             this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
             // 
@@ -85,11 +91,13 @@
             // PanelInferior
             // 
             this.PanelInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.PanelInferior.Controls.Add(this.SignInLabel);
+            this.PanelInferior.Controls.Add(this.RegisterLabel);
             this.PanelInferior.Controls.Add(this.SignUpButton);
             this.PanelInferior.Controls.Add(this.SignInButton);
-            this.PanelInferior.Location = new System.Drawing.Point(0, 224);
+            this.PanelInferior.Location = new System.Drawing.Point(0, 215);
             this.PanelInferior.Name = "PanelInferior";
-            this.PanelInferior.Size = new System.Drawing.Size(396, 55);
+            this.PanelInferior.Size = new System.Drawing.Size(396, 69);
             this.PanelInferior.TabIndex = 1;
             // 
             // Texto1Label
@@ -128,11 +136,29 @@
             this.Texto3Label.TabIndex = 7;
             this.Texto3Label.Text = "o";
             // 
+            // RegisterLabel
+            // 
+            this.RegisterLabel.AutoSize = true;
+            this.RegisterLabel.Location = new System.Drawing.Point(95, 5);
+            this.RegisterLabel.Name = "RegisterLabel";
+            this.RegisterLabel.Size = new System.Drawing.Size(60, 13);
+            this.RegisterLabel.TabIndex = 2;
+            this.RegisterLabel.Text = "Registrarse";
+            // 
+            // SignInLabel
+            // 
+            this.SignInLabel.AutoSize = true;
+            this.SignInLabel.Location = new System.Drawing.Point(244, 5);
+            this.SignInLabel.Name = "SignInLabel";
+            this.SignInLabel.Size = new System.Drawing.Size(67, 13);
+            this.SignInLabel.TabIndex = 3;
+            this.SignInLabel.Text = "Inicio Sesión";
+            // 
             // NoteBookWelcomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 278);
+            this.ClientSize = new System.Drawing.Size(395, 284);
             this.Controls.Add(this.Texto3Label);
             this.Controls.Add(this.Texto4Label);
             this.Controls.Add(this.Texto2Label);
@@ -148,6 +174,7 @@
             this.PanelSuperior.ResumeLayout(false);
             this.PanelSuperior.PerformLayout();
             this.PanelInferior.ResumeLayout(false);
+            this.PanelInferior.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +191,7 @@
         private System.Windows.Forms.Label Texto2Label;
         private System.Windows.Forms.Label Texto4Label;
         private System.Windows.Forms.Label Texto3Label;
+        private System.Windows.Forms.Label SignInLabel;
+        private System.Windows.Forms.Label RegisterLabel;
     }
 }

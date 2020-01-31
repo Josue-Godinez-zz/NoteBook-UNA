@@ -31,13 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
             this.VistaSuperiorPanel = new System.Windows.Forms.Panel();
+            this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchBookButton = new System.Windows.Forms.Button();
             this.UserLabel = new System.Windows.Forms.Label();
-            this.NewUserLabel = new System.Windows.Forms.Label();
             this.UserSingInLabel = new System.Windows.Forms.Label();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.LogInButton = new System.Windows.Forms.Button();
-            this.SignUpButton = new System.Windows.Forms.Button();
             this.VistaLateralPanel = new System.Windows.Forms.Panel();
             this.BuscarNotaButton = new System.Windows.Forms.Button();
             this.SignOutLabel = new System.Windows.Forms.Label();
@@ -51,7 +50,7 @@
             this.LibraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.InformationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.TimeTimer = new System.Windows.Forms.Timer(this.components);
-            this.SearchLabel = new System.Windows.Forms.Label();
+            this.BuscarNotasLabel = new System.Windows.Forms.Label();
             this.VistaSuperiorPanel.SuspendLayout();
             this.VistaLateralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -59,25 +58,34 @@
             // VistaSuperiorPanel
             // 
             this.VistaSuperiorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VistaSuperiorPanel.Controls.Add(this.BuscarNotasLabel);
+            this.VistaSuperiorPanel.Controls.Add(this.BuscarNotaButton);
             this.VistaSuperiorPanel.Controls.Add(this.SearchLabel);
             this.VistaSuperiorPanel.Controls.Add(this.SearchBookButton);
             this.VistaSuperiorPanel.Controls.Add(this.UserLabel);
-            this.VistaSuperiorPanel.Controls.Add(this.NewUserLabel);
             this.VistaSuperiorPanel.Controls.Add(this.UserSingInLabel);
             this.VistaSuperiorPanel.Controls.Add(this.TimeLabel);
             this.VistaSuperiorPanel.Controls.Add(this.LogInButton);
-            this.VistaSuperiorPanel.Controls.Add(this.SignUpButton);
             this.VistaSuperiorPanel.Location = new System.Drawing.Point(0, 1);
             this.VistaSuperiorPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VistaSuperiorPanel.Name = "VistaSuperiorPanel";
             this.VistaSuperiorPanel.Size = new System.Drawing.Size(828, 110);
             this.VistaSuperiorPanel.TabIndex = 0;
             // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(421, 74);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(98, 13);
+            this.SearchLabel.TabIndex = 3;
+            this.SearchLabel.Text = "Busqueda De Libro";
+            // 
             // SearchBookButton
             // 
             this.SearchBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchBookButton.BackgroundImage")));
             this.SearchBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SearchBookButton.Location = new System.Drawing.Point(643, 21);
+            this.SearchBookButton.Location = new System.Drawing.Point(441, 21);
             this.SearchBookButton.Name = "SearchBookButton";
             this.SearchBookButton.Size = new System.Drawing.Size(50, 50);
             this.SearchBookButton.TabIndex = 3;
@@ -87,21 +95,11 @@
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(487, 74);
+            this.UserLabel.Location = new System.Drawing.Point(285, 74);
             this.UserLabel.Name = "UserLabel";
             this.UserLabel.Size = new System.Drawing.Size(43, 13);
             this.UserLabel.TabIndex = 5;
             this.UserLabel.Text = "Usuario";
-            // 
-            // NewUserLabel
-            // 
-            this.NewUserLabel.AutoSize = true;
-            this.NewUserLabel.ForeColor = System.Drawing.Color.Black;
-            this.NewUserLabel.Location = new System.Drawing.Point(261, 74);
-            this.NewUserLabel.Name = "NewUserLabel";
-            this.NewUserLabel.Size = new System.Drawing.Size(78, 13);
-            this.NewUserLabel.TabIndex = 4;
-            this.NewUserLabel.Text = "Nuevo Usuario";
             // 
             // UserSingInLabel
             // 
@@ -124,7 +122,7 @@
             // 
             this.LogInButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogInButton.BackgroundImage")));
             this.LogInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogInButton.Location = new System.Drawing.Point(484, 20);
+            this.LogInButton.Location = new System.Drawing.Point(282, 20);
             this.LogInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(50, 50);
@@ -132,23 +130,10 @@
             this.LogInButton.UseVisualStyleBackColor = true;
             this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
-            // SignUpButton
-            // 
-            this.SignUpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SignUpButton.BackgroundImage")));
-            this.SignUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SignUpButton.Location = new System.Drawing.Point(275, 20);
-            this.SignUpButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SignUpButton.Name = "SignUpButton";
-            this.SignUpButton.Size = new System.Drawing.Size(50, 50);
-            this.SignUpButton.TabIndex = 0;
-            this.SignUpButton.UseVisualStyleBackColor = true;
-            this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
-            // 
             // VistaLateralPanel
             // 
             this.VistaLateralPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.VistaLateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.VistaLateralPanel.Controls.Add(this.BuscarNotaButton);
             this.VistaLateralPanel.Controls.Add(this.SignOutLabel);
             this.VistaLateralPanel.Controls.Add(this.RegisterLabel);
             this.VistaLateralPanel.Controls.Add(this.BookOrderLabel);
@@ -165,18 +150,19 @@
             // 
             // BuscarNotaButton
             // 
-            this.BuscarNotaButton.Location = new System.Drawing.Point(16, 193);
+            this.BuscarNotaButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotaButton.BackgroundImage")));
+            this.BuscarNotaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BuscarNotaButton.Location = new System.Drawing.Point(588, 21);
             this.BuscarNotaButton.Name = "BuscarNotaButton";
-            this.BuscarNotaButton.Size = new System.Drawing.Size(121, 23);
+            this.BuscarNotaButton.Size = new System.Drawing.Size(50, 50);
             this.BuscarNotaButton.TabIndex = 0;
-            this.BuscarNotaButton.Text = "Buscar Notas";
             this.BuscarNotaButton.UseVisualStyleBackColor = true;
             this.BuscarNotaButton.Click += new System.EventHandler(this.BuscarNotaButton_Click);
             // 
             // SignOutLabel
             // 
             this.SignOutLabel.AutoSize = true;
-            this.SignOutLabel.Location = new System.Drawing.Point(72, 354);
+            this.SignOutLabel.Location = new System.Drawing.Point(72, 344);
             this.SignOutLabel.Name = "SignOutLabel";
             this.SignOutLabel.Size = new System.Drawing.Size(70, 13);
             this.SignOutLabel.TabIndex = 7;
@@ -185,7 +171,7 @@
             // RegisterLabel
             // 
             this.RegisterLabel.AutoSize = true;
-            this.RegisterLabel.Location = new System.Drawing.Point(72, 263);
+            this.RegisterLabel.Location = new System.Drawing.Point(72, 245);
             this.RegisterLabel.Name = "RegisterLabel";
             this.RegisterLabel.Size = new System.Drawing.Size(104, 13);
             this.RegisterLabel.TabIndex = 6;
@@ -194,7 +180,7 @@
             // BookOrderLabel
             // 
             this.BookOrderLabel.AutoSize = true;
-            this.BookOrderLabel.Location = new System.Drawing.Point(72, 135);
+            this.BookOrderLabel.Location = new System.Drawing.Point(72, 145);
             this.BookOrderLabel.Name = "BookOrderLabel";
             this.BookOrderLabel.Size = new System.Drawing.Size(76, 13);
             this.BookOrderLabel.TabIndex = 5;
@@ -215,7 +201,7 @@
             this.SignOutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SignOutButton.BackgroundImage")));
             this.SignOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SignOutButton.Enabled = false;
-            this.SignOutButton.Location = new System.Drawing.Point(16, 335);
+            this.SignOutButton.Location = new System.Drawing.Point(16, 325);
             this.SignOutButton.Name = "SignOutButton";
             this.SignOutButton.Size = new System.Drawing.Size(50, 50);
             this.SignOutButton.TabIndex = 3;
@@ -226,7 +212,7 @@
             // 
             this.LogActivitiesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogActivitiesButton.BackgroundImage")));
             this.LogActivitiesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.LogActivitiesButton.Location = new System.Drawing.Point(16, 244);
+            this.LogActivitiesButton.Location = new System.Drawing.Point(16, 226);
             this.LogActivitiesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LogActivitiesButton.Name = "LogActivitiesButton";
             this.LogActivitiesButton.Size = new System.Drawing.Size(50, 50);
@@ -238,7 +224,7 @@
             // 
             this.OrderBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OrderBookButton.BackgroundImage")));
             this.OrderBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.OrderBookButton.Location = new System.Drawing.Point(16, 117);
+            this.OrderBookButton.Location = new System.Drawing.Point(16, 127);
             this.OrderBookButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OrderBookButton.Name = "OrderBookButton";
             this.OrderBookButton.Size = new System.Drawing.Size(50, 50);
@@ -276,7 +262,7 @@
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
             this.LibraryTableLayoutPanel.Location = new System.Drawing.Point(195, 119);
             this.LibraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LibraryTableLayoutPanel.Name = "LibraryTableLayoutPanel";
@@ -298,14 +284,14 @@
             this.TimeTimer.Enabled = true;
             this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
             // 
-            // SearchLabel
+            // BuscarNotasLabel
             // 
-            this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(623, 74);
-            this.SearchLabel.Name = "SearchLabel";
-            this.SearchLabel.Size = new System.Drawing.Size(98, 13);
-            this.SearchLabel.TabIndex = 3;
-            this.SearchLabel.Text = "Busqueda De Libro";
+            this.BuscarNotasLabel.AutoSize = true;
+            this.BuscarNotasLabel.Location = new System.Drawing.Point(579, 74);
+            this.BuscarNotasLabel.Name = "BuscarNotasLabel";
+            this.BuscarNotasLabel.Size = new System.Drawing.Size(71, 13);
+            this.BuscarNotasLabel.TabIndex = 6;
+            this.BuscarNotasLabel.Text = "Buscar Notas";
             // 
             // NoteBookForm
             // 
@@ -337,7 +323,6 @@
         private System.Windows.Forms.Panel VistaSuperiorPanel;
         private System.Windows.Forms.Panel VistaLateralPanel;
         private System.Windows.Forms.Button LogInButton;
-        private System.Windows.Forms.Button SignUpButton;
         private System.Windows.Forms.Button LogActivitiesButton;
         private System.Windows.Forms.Button OrderBookButton;
         private System.Windows.Forms.Button CreateBookButton;
@@ -351,10 +336,10 @@
         private System.Windows.Forms.Label BookOrderLabel;
         private System.Windows.Forms.Label RegisterLabel;
         private System.Windows.Forms.Label SignOutLabel;
-        private System.Windows.Forms.Label NewUserLabel;
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Button SearchBookButton;
         private System.Windows.Forms.Button BuscarNotaButton;
         private System.Windows.Forms.Label SearchLabel;
+        private System.Windows.Forms.Label BuscarNotasLabel;
     }
 }

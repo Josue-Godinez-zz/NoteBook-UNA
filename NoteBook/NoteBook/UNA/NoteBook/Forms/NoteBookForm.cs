@@ -61,7 +61,6 @@ namespace NoteBook
                     {
                         users.Remove(actualSesion);
                         SignOutButton.Enabled = false;
-                        SignUpButton.Enabled = true;
                         actualSesion = null;
                         UserSingInLabel.Text = "<No Autentificado>";
                     }
@@ -74,7 +73,6 @@ namespace NoteBook
             ActivityRegister.Instance.SaveData(actualSesion.NameUser, "NoteBook", "Cerro Sesión", "");
             actualSesion = null;
             UserSingInLabel.Text = "<No Autentificado>";
-            SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
             ActivityRegister.Instance.User = actualSesion;
             this.Visible = false;
@@ -314,8 +312,8 @@ namespace NoteBook
                     isLogin = true;
                     UserSingInLabel.Text = "<" + noteBookRegister.NewUser.NameUser + ">";
                     SignOutButton.Enabled = true;
-                    SignUpButton.Enabled = false;
                     ActivityRegister.Instance.User = actualSesion;
+                    this.Visible = true;
                 }
                 catch(Exception ex)
                 {
@@ -339,13 +337,13 @@ namespace NoteBook
                 MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                 UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                 SignOutButton.Enabled = true;
-                SignUpButton.Enabled = false;
                 ActivityRegister.Instance.User = actualSesion;
                 books = MySqlService.Instance.CargarLibros(actualSesion);
                 for (int x = 0; x < books.Count; x++)
                 {
                     CreacionLibro(books[x]);
                 }
+                this.Visible = true;
             }
             else if(result == DialogResult.No)
             {
