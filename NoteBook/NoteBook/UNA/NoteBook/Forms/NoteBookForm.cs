@@ -31,7 +31,6 @@ namespace NoteBook
         {
             PreLoadDates();
             MySqlService.Instance.CargarDatos(directionImages, permisos);
-            users = MySqlService.Instance.CargarUsuarios();
             InitializeComponent();
         }
 
@@ -78,24 +77,33 @@ namespace NoteBook
             SignUpButton.Enabled = true;
             SignOutButton.Enabled = false;
             ActivityRegister.Instance.User = actualSesion;
+            this.Visible = false;
             LibraryTableLayoutPanel.Controls.Clear();
+            Bienvenida();
         }
         private void CreateBookButton_Click(object sender, EventArgs e)
         {
             if (isLogin != false)
             {
-                NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books, actualSesion);
-                if (noteBookNewBookForm.ShowDialog() == DialogResult.OK)
+                if(actualSesion.Permissions.Contains(1))
                 {
-                    if (LibraryTableLayoutPanel.Controls.Count == (LibraryTableLayoutPanel.RowCount * LibraryTableLayoutPanel.ColumnCount))
+                    NoteBookNewBookForm noteBookNewBookForm = new NoteBookNewBookForm(directionImages, books, actualSesion);
+                    if (noteBookNewBookForm.ShowDialog() == DialogResult.OK)
                     {
-                        LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
-                        LibraryTableLayoutPanel.RowCount++;
+                        if (LibraryTableLayoutPanel.Controls.Count == (LibraryTableLayoutPanel.RowCount * LibraryTableLayoutPanel.ColumnCount))
+                        {
+                            LibraryTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 123));
+                            LibraryTableLayoutPanel.RowCount++;
+                        }
+                        CreacionLibro(noteBookNewBookForm.NewBook);
+                        MySqlService.Instance.CrearLibro(noteBookNewBookForm.NewBook);
+                        MySqlService.Instance.AsociarLibroCategoria(noteBookNewBookForm.NewBook.CategorieBook);
+                        directionImages = noteBookNewBookForm.DirectionImages;
                     }
-                    CreacionLibro(noteBookNewBookForm.NewBook);
-                    MySqlService.Instance.CrearLibro(noteBookNewBookForm.NewBook);
-                    MySqlService.Instance.AsociarLibroCategoria(noteBookNewBookForm.NewBook.CategorieBook);
-                    directionImages = noteBookNewBookForm.DirectionImages;
+                }
+                else
+                {
+                    MessageBox.Show("No tienes permisos para crear libros nuevos","Advertencia");
                 }
             }
             else
@@ -371,18 +379,26 @@ namespace NoteBook
             BuscarForm buscar = new BuscarForm();
             buscar.ShowDialog();
         }
-
         private void NoteBookForm_Load(object sender, EventArgs e)
         {
+            Bienvenida();
+        }
+        private void Bienvenida()
+        {
+            users = MySqlService.Instance.CargarUsuarios();
             NoteBookWelcomeForm noteBookWelcomeForm = new NoteBookWelcomeForm(users);
             DialogResult result = noteBookWelcomeForm.ShowDialog();
             if (result == DialogResult.Yes)
             {
                 RegisterNewUser();
             }
-            else if(result == DialogResult.No)
+            else if (result == DialogResult.No)
             {
                 SignInUser();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                this.Close();
             }
         }
     }

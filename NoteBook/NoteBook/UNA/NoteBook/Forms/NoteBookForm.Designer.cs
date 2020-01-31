@@ -51,6 +51,7 @@
             this.LibraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.InformationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.TimeTimer = new System.Windows.Forms.Timer(this.components);
+            this.SearchLabel = new System.Windows.Forms.Label();
             this.VistaSuperiorPanel.SuspendLayout();
             this.VistaLateralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // VistaSuperiorPanel
             // 
             this.VistaSuperiorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VistaSuperiorPanel.Controls.Add(this.SearchLabel);
             this.VistaSuperiorPanel.Controls.Add(this.SearchBookButton);
             this.VistaSuperiorPanel.Controls.Add(this.UserLabel);
             this.VistaSuperiorPanel.Controls.Add(this.NewUserLabel);
@@ -274,7 +276,7 @@
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.LibraryTableLayoutPanel.Location = new System.Drawing.Point(195, 119);
             this.LibraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LibraryTableLayoutPanel.Name = "LibraryTableLayoutPanel";
@@ -295,6 +297,15 @@
             // 
             this.TimeTimer.Enabled = true;
             this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(623, 74);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(98, 13);
+            this.SearchLabel.TabIndex = 3;
+            this.SearchLabel.Text = "Busqueda De Libro";
             // 
             // NoteBookForm
             // 
@@ -344,5 +355,6 @@
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Button SearchBookButton;
         private System.Windows.Forms.Button BuscarNotaButton;
+        private System.Windows.Forms.Label SearchLabel;
     }
 }

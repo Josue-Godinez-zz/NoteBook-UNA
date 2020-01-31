@@ -133,7 +133,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 278);
-            this.ControlBox = false;
             this.Controls.Add(this.Texto3Label);
             this.Controls.Add(this.Texto4Label);
             this.Controls.Add(this.Texto2Label);
@@ -145,7 +144,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoteBookWelcomeForm";
-            this.Text = "NoteBookWelcomeForm";
+            this.Text = "Bienvenido a NoteBook";
             this.PanelSuperior.ResumeLayout(false);
             this.PanelSuperior.PerformLayout();
             this.PanelInferior.ResumeLayout(false);

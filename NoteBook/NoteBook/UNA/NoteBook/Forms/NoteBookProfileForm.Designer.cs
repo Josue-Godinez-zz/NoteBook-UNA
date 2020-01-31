@@ -182,7 +182,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(294, 411);
-            this.ControlBox = false;
             this.Controls.Add(this.DatoLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.PasswordUserTextBox);
@@ -196,7 +195,7 @@
             this.MinimizeBox = false;
             this.Name = "NoteBookProfileForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Notebook - Perfil";
+            this.Text = "Perfil";
             this.PanelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             this.PanelInferior.ResumeLayout(false);
