@@ -94,7 +94,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         }
         public void CrearUsuario(User user)
         {
-            Console.WriteLine(EncriptarString(user.PasswordUser, "").Length);
             mySqlAccess.OpenConnection();
             
             mySqlAccess.EjectSQL("Insert into usuarios values ('"+user.NameUser+"','"+EncriptarString(user.PasswordUser,"")+"','"+user.Name+"','"+user.LastName+"');");
@@ -131,7 +130,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.EjectSQL("Insert Into `notebook`.`libros_notas` (`Libros_ID_Libro`, `Notas_Id_Nota`) values('" + libro.Id + "', '" + id_Nota + "');");
            
             mySqlAccess.CloseConnection();
-            Console.WriteLine(result.Rows[0]["Id_Nota"]);
             return id_Nota;
         }
         public List<Note> CargarNotas(Book libro)
@@ -161,7 +159,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                     nota.SetId(Convert.ToInt32(result.Rows[x]["Id_Nota"].ToString()));
 
                                      
-            nota.User = libro.User.Name;
+                    nota.User = libro.User.Name;
                     nota.SetId(Convert.ToInt32(result.Rows[x]["Id_Nota"].ToString()));            
 
                     notas.Add(nota);
@@ -303,20 +301,17 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 mySqlAccess.EjectSQL("Insert Into libros_categorias(`categorias_Nombre`, `libros_ID_Libro`) values('"+categorias[x]+"', '"+ id_libro+"');");
             }
             mySqlAccess.CloseConnection();
-            Console.WriteLine(result.Rows[0]["ID_libro"]);
         }
         private string DireccionImagen(Book book)
         {
             string result = book.ImageBook;
             result = result.Replace('\\', '/');
-            Console.WriteLine(result);
             return result;
         }
         private string DireccionImagen(string imagen)
         {
             string result = imagen;
             result = result.Replace('\\', '/');
-            Console.WriteLine(result);
             return result;
         }
         public int BuscarLibro(Book book)
@@ -329,7 +324,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         }
         public void ActualizarLibro(int id_libro, Book book)
         {
-            Console.WriteLine(id_libro);
             mySqlAccess.OpenConnection();
             mySqlAccess.EjectSQL("Update libros set Nombre='"+book.NameBook+ "', Privacidad=" + book.AccessBook+ ", Imagen='"+book.ImageBook+"' where ID_Libro =" + id_libro+";");
             mySqlAccess.CommitTransaction();

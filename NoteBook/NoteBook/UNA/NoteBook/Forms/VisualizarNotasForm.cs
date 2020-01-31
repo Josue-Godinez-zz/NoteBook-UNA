@@ -27,7 +27,7 @@ namespace NoteBook
             users = MySqlService.Instance.CargarUsuarios();
             actualSesion = ActivityRegister.Instance.User;
             user = ActivityRegister.Instance.User.NameUser;
-            Console.WriteLine(ActivityRegister.Instance.User.NameUser);
+
         }
 
         public void Refrescar(List<Note> lista)

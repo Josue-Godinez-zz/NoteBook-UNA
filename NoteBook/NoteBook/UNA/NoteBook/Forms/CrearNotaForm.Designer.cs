@@ -145,11 +145,12 @@
             // 
             // FondoButton
             // 
+            this.FondoButton.BackColor = System.Drawing.Color.DarkGray;
             this.FondoButton.Location = new System.Drawing.Point(100, 80);
             this.FondoButton.Name = "FondoButton";
             this.FondoButton.Size = new System.Drawing.Size(23, 23);
             this.FondoButton.TabIndex = 6;
-            this.FondoButton.UseVisualStyleBackColor = true;
+            this.FondoButton.UseVisualStyleBackColor = false;
             this.FondoButton.Click += new System.EventHandler(this.FondoButton_Click);
             // 
             // FuenteButton
@@ -164,11 +165,12 @@
             // 
             // LetraButton
             // 
+            this.LetraButton.BackColor = System.Drawing.Color.DarkGray;
             this.LetraButton.Location = new System.Drawing.Point(100, 134);
             this.LetraButton.Name = "LetraButton";
             this.LetraButton.Size = new System.Drawing.Size(23, 23);
             this.LetraButton.TabIndex = 8;
-            this.LetraButton.UseVisualStyleBackColor = true;
+            this.LetraButton.UseVisualStyleBackColor = false;
             this.LetraButton.Click += new System.EventHandler(this.LetraButton_Click);
             // 
             // FondoLabel

@@ -199,7 +199,6 @@ namespace NoteBook
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Se Borro");
                                     MySqlService.Instance.BorrarLibro(id_libro);
                                     LibraryTableLayoutPanel.Controls.Remove((Panel)sender);
                                     books.Remove(book);
@@ -310,7 +309,6 @@ namespace NoteBook
                 SignOutButton.Enabled = true;
                 ActivityRegister.Instance.User = actualSesion;
                 this.Visible = true;
-                Console.WriteLine(actualSesion.NameUser);
             }
             else if(result == DialogResult.No)
             {
@@ -329,11 +327,9 @@ namespace NoteBook
                 MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                 UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                 SignOutButton.Enabled = true;
-                Console.WriteLine(actualSesion.NameUser);
 
 
                 ActivityRegister.Instance.User = actualSesion;
-                Console.WriteLine(ActivityRegister.Instance.User.NameUser);
                 books = MySqlService.Instance.CargarLibros(actualSesion);
                 for (int x = 0; x < books.Count; x++)
                 {
