@@ -216,7 +216,6 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.CancelButton = this.NullButton;
             this.ClientSize = new System.Drawing.Size(294, 411);
-            this.ControlBox = false;
             this.Controls.Add(this.LastNameTextBox);
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.NameLabel);
@@ -231,7 +230,6 @@
             this.Controls.Add(this.NameUserLabel);
             this.Controls.Add(this.PanelSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

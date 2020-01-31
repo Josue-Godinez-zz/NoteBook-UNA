@@ -227,6 +227,7 @@
             this.Controls.Add(this.CategoriaLlabel);
             this.Controls.Add(this.TitleTextBox);
             this.Controls.Add(this.TitleLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditNoteForm";

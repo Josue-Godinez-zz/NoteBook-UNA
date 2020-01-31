@@ -163,7 +163,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(393, 364);
-            this.ControlBox = false;
             this.Controls.Add(this.FuenteButton);
             this.Controls.Add(this.LetraButton);
             this.Controls.Add(this.FuenteLabel);
@@ -173,6 +172,8 @@
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.LetraLabel);
             this.Controls.Add(this.ContenidoTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VisualizarContenidoForm";

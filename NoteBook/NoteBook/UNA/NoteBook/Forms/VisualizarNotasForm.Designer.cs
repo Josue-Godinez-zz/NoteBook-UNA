@@ -266,9 +266,13 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.ClientSize = new System.Drawing.Size(683, 425);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
+
+            this.ClientSize = new System.Drawing.Size(683, 379);
+
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NotasLabel);
             this.Controls.Add(this.AgregarLabel);
@@ -284,6 +288,8 @@
             this.Controls.Add(this.AgregarButton);
             this.Controls.Add(this.VisualizarDataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VisualizarNotasForm";

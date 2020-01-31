@@ -25,7 +25,7 @@ namespace NoteBook
             this.users = users;
         }
 
-        private void nameUserTextBox_Leave(object sender, EventArgs e)
+        private void NameUserTextBox_Leave(object sender, EventArgs e)
         {
             BookNameUserValidation();
         }
@@ -33,26 +33,26 @@ namespace NoteBook
         private bool BookNameUserValidation()
         {
             bool condition = false;
-            if (nameUserTextBox.TextLength == 0)
+            if (NameUserTextBox.TextLength == 0)
             {
-                verificationErrorProvider.SetError(nameUserTextBox, "Campo Requerido");
-                errorLabel.Text = verificationErrorProvider.GetError(nameUserTextBox);
+                verificationErrorProvider.SetError(NameUserTextBox, "Campo Requerido");
+                errorLabel.Text = verificationErrorProvider.GetError(NameUserTextBox);
                 condition = false;
             }
             else
             {
                 for (int x = 0; x < users.Count; x++)
                 {
-                    if (nameUserTextBox.Text != users[x].NameUser)
+                    if (NameUserTextBox.Text != users[x].NameUser)
                     {
-                        verificationErrorProvider.SetError(nameUserTextBox, "Usuario No Existe");
-                        errorLabel.Text = verificationErrorProvider.GetError(nameUserTextBox);
+                        verificationErrorProvider.SetError(NameUserTextBox, "Usuario No Existe");
+                        errorLabel.Text = verificationErrorProvider.GetError(NameUserTextBox);
                         condition = false;
                     }
                     else
                     {
-                        verificationErrorProvider.SetError(nameUserTextBox, "");
-                        errorLabel.Text = verificationErrorProvider.GetError(nameUserTextBox);
+                        verificationErrorProvider.SetError(NameUserTextBox, "");
+                        errorLabel.Text = verificationErrorProvider.GetError(NameUserTextBox);
                         condition = true;
                         user = x;
                         break;
@@ -62,7 +62,7 @@ namespace NoteBook
             return condition;
         }
 
-        private void passwordUserTextBox_Leave(object sender, EventArgs e)
+        private void PasswordUserTextBox_Leave(object sender, EventArgs e)
         {
             BookPasswordUserValidation();
         }
@@ -72,42 +72,42 @@ namespace NoteBook
             bool condition = false;
             if (BookNameUserValidation())
             {
-                if (passwordUserTextBox.TextLength == 0)
+                if (PasswordUserTextBox.TextLength == 0)
                 {
-                    verificationErrorProvider.SetError(passwordUserTextBox, "Campo Requerido");
-                    errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
+                    verificationErrorProvider.SetError(PasswordUserTextBox, "Campo Requerido");
+                    errorLabel.Text = verificationErrorProvider.GetError(PasswordUserTextBox);
                     condition = false;
                 }
                 else
                 {
-                    if (passwordUserTextBox.Text != users[user].PasswordUser)
+                    if (PasswordUserTextBox.Text != users[user].PasswordUser)
                     {
-                        verificationErrorProvider.SetError(passwordUserTextBox, "Contraseña Incorrecta");
-                        errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
+                        verificationErrorProvider.SetError(PasswordUserTextBox, "Contraseña Incorrecta");
+                        errorLabel.Text = verificationErrorProvider.GetError(PasswordUserTextBox);
                         condition = false;
                     }
                     else
                     {
-                        verificationErrorProvider.SetError(passwordUserTextBox, "");
-                        errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
+                        verificationErrorProvider.SetError(PasswordUserTextBox, "");
+                        errorLabel.Text = verificationErrorProvider.GetError(PasswordUserTextBox);
                         condition = true;
                     }
                 }
             }
             else
             {
-                verificationErrorProvider.SetError(passwordUserTextBox, "");
-                errorLabel.Text = verificationErrorProvider.GetError(passwordUserTextBox);
+                verificationErrorProvider.SetError(PasswordUserTextBox, "");
+                errorLabel.Text = verificationErrorProvider.GetError(PasswordUserTextBox);
                 condition = true;
             }
             return condition;
         }
 
-        private void confirmationButton_Click(object sender, EventArgs e)
+        private void ConfirmationButton_Click(object sender, EventArgs e)
         {
             if(BookNameUserValidation() && BookPasswordUserValidation())
             {
-                if(users[user].NameUser == nameUserTextBox.Text && users[user].PasswordUser == passwordUserTextBox.Text)
+                if(users[user].NameUser == NameUserTextBox.Text && users[user].PasswordUser == PasswordUserTextBox.Text)
                 {
                     User = users[user];
                     DialogResult = DialogResult.OK;
@@ -115,9 +115,10 @@ namespace NoteBook
                 }
             }
         }
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            DialogResult = DialogResult.No;
         }
         public User User
         {

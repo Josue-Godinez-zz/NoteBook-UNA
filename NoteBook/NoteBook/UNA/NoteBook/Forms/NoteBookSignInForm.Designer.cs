@@ -30,109 +30,109 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookSignInForm));
-            this.panelSuperior = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PanelSuperior = new System.Windows.Forms.Panel();
+            this.AvatarPictureBox = new System.Windows.Forms.PictureBox();
             this.panelInferior = new System.Windows.Forms.Panel();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.confirmationButton = new System.Windows.Forms.Button();
-            this.nameUserLabel = new System.Windows.Forms.Label();
-            this.passwordUserLabel = new System.Windows.Forms.Label();
-            this.nameUserTextBox = new System.Windows.Forms.TextBox();
-            this.passwordUserTextBox = new System.Windows.Forms.TextBox();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.ConfirmationButton = new System.Windows.Forms.Button();
+            this.NameUserLabel = new System.Windows.Forms.Label();
+            this.PasswordUserLabel = new System.Windows.Forms.Label();
+            this.NameUserTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordUserTextBox = new System.Windows.Forms.TextBox();
             this.verificationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorLabel = new System.Windows.Forms.Label();
-            this.panelSuperior.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PanelSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             this.panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.verificationErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelSuperior
+            // PanelSuperior
             // 
-            this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panelSuperior.Controls.Add(this.pictureBox1);
-            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(295, 90);
-            this.panelSuperior.TabIndex = 2;
+            this.PanelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PanelSuperior.Controls.Add(this.AvatarPictureBox);
+            this.PanelSuperior.Location = new System.Drawing.Point(0, 0);
+            this.PanelSuperior.Name = "PanelSuperior";
+            this.PanelSuperior.Size = new System.Drawing.Size(295, 90);
+            this.PanelSuperior.TabIndex = 2;
             // 
-            // pictureBox1
+            // AvatarPictureBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(113, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.AvatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AvatarPictureBox.Image")));
+            this.AvatarPictureBox.Location = new System.Drawing.Point(113, 12);
+            this.AvatarPictureBox.Name = "AvatarPictureBox";
+            this.AvatarPictureBox.Size = new System.Drawing.Size(65, 65);
+            this.AvatarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AvatarPictureBox.TabIndex = 0;
+            this.AvatarPictureBox.TabStop = false;
             // 
             // panelInferior
             // 
             this.panelInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panelInferior.Controls.Add(this.cancelButton);
-            this.panelInferior.Controls.Add(this.confirmationButton);
+            this.panelInferior.Controls.Add(this.CancelButton);
+            this.panelInferior.Controls.Add(this.ConfirmationButton);
             this.panelInferior.Location = new System.Drawing.Point(0, 335);
             this.panelInferior.Name = "panelInferior";
             this.panelInferior.Size = new System.Drawing.Size(295, 77);
             this.panelInferior.TabIndex = 3;
             // 
-            // cancelButton
+            // CancelButton
             // 
-            this.cancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelButton.BackgroundImage")));
-            this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cancelButton.Location = new System.Drawing.Point(169, 14);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(50, 50);
-            this.cancelButton.TabIndex = 1;
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.CancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CancelButton.BackgroundImage")));
+            this.CancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CancelButton.Location = new System.Drawing.Point(169, 14);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(50, 50);
+            this.CancelButton.TabIndex = 1;
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // confirmationButton
+            // ConfirmationButton
             // 
-            this.confirmationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("confirmationButton.BackgroundImage")));
-            this.confirmationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.confirmationButton.Location = new System.Drawing.Point(60, 14);
-            this.confirmationButton.Name = "confirmationButton";
-            this.confirmationButton.Size = new System.Drawing.Size(50, 50);
-            this.confirmationButton.TabIndex = 0;
-            this.confirmationButton.UseVisualStyleBackColor = true;
-            this.confirmationButton.Click += new System.EventHandler(this.confirmationButton_Click);
+            this.ConfirmationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ConfirmationButton.BackgroundImage")));
+            this.ConfirmationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ConfirmationButton.Location = new System.Drawing.Point(60, 14);
+            this.ConfirmationButton.Name = "ConfirmationButton";
+            this.ConfirmationButton.Size = new System.Drawing.Size(50, 50);
+            this.ConfirmationButton.TabIndex = 0;
+            this.ConfirmationButton.UseVisualStyleBackColor = true;
+            this.ConfirmationButton.Click += new System.EventHandler(this.ConfirmationButton_Click);
             // 
-            // nameUserLabel
+            // NameUserLabel
             // 
-            this.nameUserLabel.AutoSize = true;
-            this.nameUserLabel.Location = new System.Drawing.Point(128, 124);
-            this.nameUserLabel.Name = "nameUserLabel";
-            this.nameUserLabel.Size = new System.Drawing.Size(43, 13);
-            this.nameUserLabel.TabIndex = 4;
-            this.nameUserLabel.Text = "Usuario";
-            this.nameUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NameUserLabel.AutoSize = true;
+            this.NameUserLabel.Location = new System.Drawing.Point(128, 124);
+            this.NameUserLabel.Name = "NameUserLabel";
+            this.NameUserLabel.Size = new System.Drawing.Size(43, 13);
+            this.NameUserLabel.TabIndex = 4;
+            this.NameUserLabel.Text = "Usuario";
+            this.NameUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // passwordUserLabel
+            // PasswordUserLabel
             // 
-            this.passwordUserLabel.AutoSize = true;
-            this.passwordUserLabel.Location = new System.Drawing.Point(117, 209);
-            this.passwordUserLabel.Name = "passwordUserLabel";
-            this.passwordUserLabel.Size = new System.Drawing.Size(61, 13);
-            this.passwordUserLabel.TabIndex = 5;
-            this.passwordUserLabel.Text = "Contraseña";
+            this.PasswordUserLabel.AutoSize = true;
+            this.PasswordUserLabel.Location = new System.Drawing.Point(117, 209);
+            this.PasswordUserLabel.Name = "PasswordUserLabel";
+            this.PasswordUserLabel.Size = new System.Drawing.Size(61, 13);
+            this.PasswordUserLabel.TabIndex = 5;
+            this.PasswordUserLabel.Text = "Contraseña";
             // 
-            // nameUserTextBox
+            // NameUserTextBox
             // 
-            this.nameUserTextBox.Location = new System.Drawing.Point(88, 140);
-            this.nameUserTextBox.Name = "nameUserTextBox";
-            this.nameUserTextBox.Size = new System.Drawing.Size(131, 20);
-            this.nameUserTextBox.TabIndex = 0;
-            this.nameUserTextBox.Leave += new System.EventHandler(this.nameUserTextBox_Leave);
+            this.NameUserTextBox.Location = new System.Drawing.Point(88, 140);
+            this.NameUserTextBox.Name = "NameUserTextBox";
+            this.NameUserTextBox.Size = new System.Drawing.Size(131, 20);
+            this.NameUserTextBox.TabIndex = 0;
+            this.NameUserTextBox.Leave += new System.EventHandler(this.NameUserTextBox_Leave);
             // 
-            // passwordUserTextBox
+            // PasswordUserTextBox
             // 
-            this.passwordUserTextBox.Location = new System.Drawing.Point(88, 225);
-            this.passwordUserTextBox.Name = "passwordUserTextBox";
-            this.passwordUserTextBox.PasswordChar = '*';
-            this.passwordUserTextBox.Size = new System.Drawing.Size(131, 20);
-            this.passwordUserTextBox.TabIndex = 1;
-            this.passwordUserTextBox.Leave += new System.EventHandler(this.passwordUserTextBox_Leave);
+            this.PasswordUserTextBox.Location = new System.Drawing.Point(88, 225);
+            this.PasswordUserTextBox.Name = "PasswordUserTextBox";
+            this.PasswordUserTextBox.PasswordChar = '*';
+            this.PasswordUserTextBox.Size = new System.Drawing.Size(131, 20);
+            this.PasswordUserTextBox.TabIndex = 1;
+            this.PasswordUserTextBox.Leave += new System.EventHandler(this.PasswordUserTextBox_Leave);
             // 
             // verificationErrorProvider
             // 
@@ -150,26 +150,26 @@
             // 
             // NoteBookSignInForm
             // 
+            this.AcceptButton = this.ConfirmationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(294, 411);
-            this.ControlBox = false;
             this.Controls.Add(this.errorLabel);
-            this.Controls.Add(this.passwordUserTextBox);
-            this.Controls.Add(this.nameUserTextBox);
-            this.Controls.Add(this.passwordUserLabel);
-            this.Controls.Add(this.nameUserLabel);
+            this.Controls.Add(this.PasswordUserTextBox);
+            this.Controls.Add(this.NameUserTextBox);
+            this.Controls.Add(this.PasswordUserLabel);
+            this.Controls.Add(this.NameUserLabel);
             this.Controls.Add(this.panelInferior);
-            this.Controls.Add(this.panelSuperior);
+            this.Controls.Add(this.PanelSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NoteBookSignInForm";
             this.Text = "Inicio Sesion";
-            this.panelSuperior.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PanelSuperior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             this.panelInferior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.verificationErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -179,15 +179,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelSuperior;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel PanelSuperior;
+        private System.Windows.Forms.PictureBox AvatarPictureBox;
         private System.Windows.Forms.Panel panelInferior;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button confirmationButton;
-        private System.Windows.Forms.Label nameUserLabel;
-        private System.Windows.Forms.Label passwordUserLabel;
-        private System.Windows.Forms.TextBox nameUserTextBox;
-        private System.Windows.Forms.TextBox passwordUserTextBox;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button ConfirmationButton;
+        private System.Windows.Forms.Label NameUserLabel;
+        private System.Windows.Forms.Label PasswordUserLabel;
+        private System.Windows.Forms.TextBox NameUserTextBox;
+        private System.Windows.Forms.TextBox PasswordUserTextBox;
         private System.Windows.Forms.ErrorProvider verificationErrorProvider;
         private System.Windows.Forms.Label errorLabel;
     }

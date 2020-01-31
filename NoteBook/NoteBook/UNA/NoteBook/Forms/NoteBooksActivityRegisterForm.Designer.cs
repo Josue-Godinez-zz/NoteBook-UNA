@@ -57,7 +57,7 @@
             this.ActivitiesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ActivitiesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ActivitiesDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ActivitiesDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ActivitiesDataGridView.BackgroundColor = System.Drawing.Color.LightYellow;
             this.ActivitiesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.ActivitiesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;

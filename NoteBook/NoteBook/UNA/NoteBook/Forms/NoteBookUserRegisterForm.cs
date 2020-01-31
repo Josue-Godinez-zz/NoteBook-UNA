@@ -14,6 +14,7 @@ namespace NoteBook
     public partial class NoteBookUserRegisterForm : Form
     {
         readonly private List<String> users;
+        readonly private List<int> permisos;
 
         public NoteBookUserRegisterForm()
         {
@@ -24,6 +25,11 @@ namespace NoteBook
         {
             InitializeComponent();
             this.users = new List<string>();
+            permisos = new List<int>();
+            for(int x=0; x<6; x++)
+            {
+                permisos.Add(x + 1);
+            }
             for (int x = 0; x < users.Count; x++)
             {
                 User aux = users[x];
@@ -133,6 +139,7 @@ namespace NoteBook
         }
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.No;
             this.Close();
         }
         public void CreateUser()
@@ -142,6 +149,7 @@ namespace NoteBook
             user.PasswordUser = PasswordUserTextBox.Text;
             user.Name = NameTextBox.Text;
             user.LastName = LastNameTextBox.Text;
+            user.Permissions = permisos;
             NewUser = user;
             DialogResult = DialogResult.OK;
             ActivityRegister.Instance.SaveData(user.NameUser,"Nuevo Usuario", "Creacion De Nuevo Usuario", "");
