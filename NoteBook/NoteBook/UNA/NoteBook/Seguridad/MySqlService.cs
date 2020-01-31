@@ -94,7 +94,9 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         }
         public void CrearUsuario(User user)
         {
+            Console.WriteLine(EncriptarString(user.PasswordUser, "").Length);
             mySqlAccess.OpenConnection();
+            
             mySqlAccess.EjectSQL("Insert into usuarios values ('"+user.NameUser+"','"+EncriptarString(user.PasswordUser,"")+"','"+user.Name+"','"+user.LastName+"');");
             AsociarUsuarioPermisos(user);
             mySqlAccess.CommitTransaction();
@@ -217,7 +219,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         public void ModificarContraseña(User user)
         {
             mySqlAccess.OpenConnection();
-            mySqlAccess.EjectSQL("Update usuarios set Contraseña = '"+EncriptarString(user.PasswordUser, "") +"' where Nombre_usuario='"+user.NameUser+"'");
+            mySqlAccess.EjectSQL("Update usuarios set Contraseña = '"+EncriptarString(user.PasswordUser, "")+"' where Nombre_usuario='"+user.NameUser+"'");
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
@@ -357,7 +359,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             }
             mySqlAccess.CloseConnection();
         }
-        private const string initVector = "EncriptacionBD";
+        private const string initVector = "EstaFacilExamen2";
         private const int keysize = 256;
 
         public static string EncriptarString(string plainText, string passPhrase)
