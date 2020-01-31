@@ -99,6 +99,10 @@ namespace NoteBook
             {
                 
                 nota = new Note();
+                nota.SetColorNota(FondoButton.BackColor);
+                nota.SetColorLetra(LetraButton.BackColor);
+                nota.SetFuente(FuenteButton.Font);
+                nota.SetFuente(Fuente.Font);
                 nota.Title = TitleTextBox.Text;
                 nota.Category = CategoriaComboBox.Text;
                 nota.SetContenido(ContenidoTextBox.Text);
@@ -111,6 +115,7 @@ namespace NoteBook
                 else
                 {
                     nota.CreationDate = NotaOriginal.CreationDate;
+                    nota.SetId(NotaOriginal.GetId());
                 }
 
                 nota.ModificationDate = DateTime.Now;
@@ -144,6 +149,13 @@ namespace NoteBook
 
         public void Llenar()
         {
+            FondoButton.BackColor = NotaOriginal.GetColorNota();
+            ContenidoTextBox.BackColor = NotaOriginal.GetColorNota();
+            LetraButton.BackColor = NotaOriginal.GetColorLetra();
+            ContenidoTextBox.ForeColor = NotaOriginal.GetColorLetra();
+            FuenteButton.Font = notaOriginal.GetFuente();
+            ContenidoTextBox.Font = NotaOriginal.GetFuente();
+            ContenidoTextBox.Text = NotaOriginal.GetContenido();
             TitleTextBox.Text = NotaOriginal.Title;
             CategoriaComboBox.SelectedItem = NotaOriginal.Category;
             PrivacidadCheckBox.Checked = NotaOriginal.Privacity;
@@ -207,5 +219,39 @@ namespace NoteBook
                                         "¿Desea Continuar?", MessageBoxButtons.YesNo) == DialogResult.Yes;
         }
 
+        
+
+        private void FondoButton_Click(object sender, EventArgs e)
+        {
+            if (ColorNota.ShowDialog() == DialogResult.OK)
+            {
+                FondoButton.BackColor = ColorNota.Color;
+                ContenidoTextBox.BackColor = ColorNota.Color;
+            }
+
+        }
+
+        private void LetraButton_Click(object sender, EventArgs e)
+        {
+            if (ColorNota.ShowDialog() == DialogResult.OK)
+            {
+                LetraButton.BackColor = ColorNota.Color;
+                ContenidoTextBox.ForeColor = ColorNota.Color;
+
+            }
+        }
+
+        private void FuenteButton_Click(object sender, EventArgs e)
+        {
+            Fuente.ShowEffects = false;
+            if (Fuente.ShowDialog() == DialogResult.OK)
+            {
+                FuenteButton.Font = Fuente.Font;
+                ContenidoTextBox.Font = Fuente.Font;
+
+
+            }
+
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,124 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CloseConnection();
         }
 
+        public void CrearNota(Note nota)
+        {
+            string privacidad = "0";
+            if (nota.Privacity)
+            {
+                privacidad = "1";
+            }
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("INSERT INTO `notebook`.`notas` (`Titulo`, `Categoria`, `Contenido`, `Color Fondo`, `Fuente`, `Fecha Creacion`, `Fecha Modificacion`,`Color Letra`,`Privacidad` ) VALUES ('" + nota.Title + "', '" + nota.Category + "', '" + nota.GetContenido() + "', '" + nota.GetColorNota().Name + "', '" + nota.GetFuente().Name + "','" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + nota.GetColorLetra().Name + "','" + privacidad + "');");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
+        }
+
+        public int AsociarLibroNota(Book libro)
+        {
+            mySqlAccess.OpenConnection();
+            DataTable result = mySqlAccess.QuerySQL("SELECT * FROM notas ORDER BY Id_Nota desc LIMIT 1;");
+            int id_Nota = Convert.ToInt32(result.Rows[0]["Id_Nota"]);
+            
+          
+            mySqlAccess.EjectSQL("Insert Into `notebook`.`libros_notas` (`Libros_ID_Libro`, `Notas_Id_Nota`) values('" + libro.Id + "', '" + id_Nota + "');");
+           
+            mySqlAccess.CloseConnection();
+            Console.WriteLine(result.Rows[0]["Id_Nota"]);
+            return id_Nota;
+        }
+
+        public List<Note> CargarNotas(Book libro)
+        {
+            try
+            {
+                mySqlAccess.OpenConnection();
+                List<Note> notas = new List<Note>();
+                DataTable result = mySqlAccess.QuerySQL("SELECT n.*, l.ID_Libro from notebook.libros l join notebook.libros_notas nl on nl.Libros_ID_Libro = l.ID_Libro join notebook.notas n on n.Id_Nota = nl.Notas_Id_Nota where l.ID_Libro = "+ libro.Id + "");
+                for (int x = 0; x < result.Rows.Count; x++)
+                {
+                    //int id_book = Convert.ToInt32(result.Rows[x]["ID_Libro"]);
+                    Note nota = new Note();
+                    nota.Title = result.Rows[x]["Titulo"].ToString();
+                    nota.Category = result.Rows[x]["Categoria"].ToString();
+                    nota.SetContenido (result.Rows[x]["Contenido"].ToString());
+                    nota.SetColorNota (Color.FromName(result.Rows[x]["Color Fondo"].ToString()));
+                    nota.SetFuente(new Font(result.Rows[x]["Fuente"].ToString(), 12));
+                    nota.CreationDate = DateTime.Parse( result.Rows[x]["Fecha Creacion"].ToString());
+                    nota.ModificationDate = DateTime.Parse(result.Rows[x]["Fecha Modificacion"].ToString());
+                    nota.SetColorLetra(Color.FromName(result.Rows[x]["Color Letra"].ToString()));
+                    nota.Privacity = Convert.ToBoolean(result.Rows[x]["Privacidad"]);
+                    nota.User = libro.User.Name;
+                    nota.SetId(Convert.ToInt32(result.Rows[x]["Id_Nota"].ToString()));
+
+                                     
+                    notas.Add(nota);
+                }
+                mySqlAccess.CloseConnection();
+                return notas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public List<Note> CargarNotas()
+        {
+            try
+            {
+                List<Note> notas = new List<Note>();
+                List<User> usuarios = CargarUsuarios();
+                foreach (User usuario in usuarios)
+                {
+                    List<Book> libros = CargarLibros(usuario);
+                    foreach (Book libro in libros)
+                    {
+                        List<Note> notasLista = CargarNotas(libro);
+                        foreach (Note nota in notasLista)
+                        {
+                            notas.Add(nota);
+                        }
+                    }
+                         
+                }
+                return notas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Note>();
+            }
+        }
+
+        
+
+        public void ActualizarNota(Note nota)
+        {
+
+            string privacidad = "0";
+            if (nota.Privacity)
+            {
+                privacidad = "1";
+            }
+
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("UPDATE `notebook`.`notas` SET `Titulo` = '" + nota.Title + "', `Categoria` = '" + nota.Category + "', `Contenido` = '" + nota.GetContenido() + "', `Color Fondo` = '" + nota.GetColorNota().Name + "', `Fuente` = '" + nota.GetFuente().Name + "', `Fecha Creacion` = '" + nota.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', `Fecha Modificacion` = '" + nota.ModificationDate.ToString("yyyy-MM-dd HH:mm:ss") + "', `Color Letra` = '" + nota.GetColorLetra().Name + "', `Privacidad` = '" + privacidad + "' WHERE (`Id_Nota` = " + nota.GetId() + ");");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
+        }
+
+        public void BorrarNota(int id_nota, int id_libro)
+        {
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("DELETE FROM `notebook`.`libros_notas` WHERE (`Libros_ID_Libro` = " + id_libro + ") and (`Notas_Id_Nota` = " + id_nota + "); ");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.EjectSQL("DELETE FROM `notebook`.`notas` WHERE (`Id_Nota` = " + id_nota + ");");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
+        }
+
         public void ModificarContraseña(User user)
         {
             mySqlAccess.OpenConnection();
@@ -94,6 +213,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 {
                     int id_book = Convert.ToInt32(result.Rows[x]["ID_Libro"]);
                     Book book = new Book();
+                    book.Id = id_book;
                     book.NameBook = result.Rows[x]["Nombre"].ToString();
                     book.ImageBook = result.Rows[x]["Imagen"].ToString();
                     book.AccessBook = Convert.ToBoolean(result.Rows[x]["Privacidad"]);

@@ -3,23 +3,23 @@
   <Class Name="UNA.NoteBook.User">
     <Position X="1.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>UNA\NoteBook\User.cs</FileName>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\User.cs</FileName>
       <NewMemberFileName>UNA\Notebook\User.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UNA.NoteBook.Note">
     <Position X="6.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAABAAAAAEAEAVAAgAAAAACAAIAISCBAAAIEAAAACAA=</HashCode>
-      <FileName>UNA\NoteBook\Note.cs</FileName>
+      <HashCode>QAADAAAAAEAEIVAAgAAAAACAAIAISCBAAAIEAAIACAA=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\Note.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UNA.Notebook.Book">
     <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAkAABAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>UNA\NoteBook\Book.cs</FileName>
+      <HashCode>AAADAAAAAkAABAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\Book.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="User" />
@@ -39,7 +39,7 @@
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAFAAAAEAAAAAAAAAAAAAAQAAAAAAAAQAAAAIAAAAA=</HashCode>
-      <FileName>UNA\NoteBook\ActivityRegister.cs</FileName>
+      <FileName>UNA\NoteBook\Seguridad\ActivityRegister.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="User" />

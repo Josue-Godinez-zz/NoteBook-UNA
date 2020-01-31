@@ -46,7 +46,17 @@ namespace UNA.NoteBook
             return ContenidoNota;
         }
 
-       public string User
+        public int GetId()
+        {
+            return Id;
+        }
+
+        public void SetId(int id)
+        {
+            Id = id;
+        }
+
+        public string User
         {
             get;
             set;
@@ -114,5 +124,11 @@ namespace UNA.NoteBook
             
         }
 
+        private int Id
+        {
+            get;
+            set;
+           
+        }
     }
 }

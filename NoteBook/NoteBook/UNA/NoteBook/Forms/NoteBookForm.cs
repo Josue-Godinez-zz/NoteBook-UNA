@@ -350,6 +350,10 @@ namespace NoteBook
             {
 
             }
+        private void BuscarNotaButton_Click(object sender, EventArgs e)
+        {
+            BuscarForm buscar = new BuscarForm();
+            buscar.ShowDialog();
         }
     }
 }
