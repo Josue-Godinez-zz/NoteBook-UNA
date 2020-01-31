@@ -133,6 +133,7 @@ namespace NoteBook
         }
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.No;
             this.Close();
         }
         public void CreateUser()

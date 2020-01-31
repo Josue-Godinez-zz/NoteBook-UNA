@@ -7,6 +7,10 @@ namespace UNA.NoteBook
 {
     public class User
     {
+        public User()
+        {
+            Permissions = new List<int>();
+        }
         public string NameUser
         {
             get;
@@ -26,6 +30,11 @@ namespace UNA.NoteBook
         }
 
         public string LastName
+        {
+            get;
+            set;
+        }
+        public List<int> Permissions
         {
             get;
             set;

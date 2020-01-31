@@ -131,3 +131,4 @@ C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\bin\Debug
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\bin\Debug\Renci.SshNet.xml
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.NoteBookWelcomeForm.resources
 C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.NoteBook.Forms.BuscarForm.resources
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.NoteBook.Forms.BuscarForm.resources

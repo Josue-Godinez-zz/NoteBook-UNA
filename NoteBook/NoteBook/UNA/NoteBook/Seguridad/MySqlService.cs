@@ -34,6 +34,30 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             }
         }
 
+        public void CargarDatos(Dictionary<string, string> directionImages, List<string> persimos)
+        {
+            mySqlAccess.OpenConnection();
+            DataTable dataTable = mySqlAccess.QuerySQL("Select * from categorias");
+            if (dataTable.Rows.Count == 0)
+            {
+                foreach (var element in directionImages)
+                {
+                    mySqlAccess.EjectSQL("Insert Into categorias(`Nombre`, `Imagen`) values('" + element.Key + "', '" + element.Value + "');");
+                    mySqlAccess.CommitTransaction();
+
+                }
+            }
+            dataTable = mySqlAccess.QuerySQL("Select * from permisos");
+            if (dataTable.Rows.Count == 0)
+            {
+                for(int x = 0; x < persimos.Count ; x++)
+                {
+                    mySqlAccess.EjectSQL("Insert Into permisos(`Accion`) values('" + persimos[x] + "');");
+                    mySqlAccess.CommitTransaction();
+                }  
+            }
+            mySqlAccess.CloseConnection();
+        }
         public List<User> CargarUsuarios()
         {
             try
@@ -49,6 +73,12 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                     user.PasswordUser = result.Rows[x]["Contraseña"].ToString();
                     user.Name = result.Rows[x]["Nombre"].ToString();
                     user.LastName = result.Rows[x]["Apellido"].ToString();
+                    List<int> permisos = new List<int>();
+                    DataTable userpermissions = mySqlAccess.QuerySQL("Select * from usuarios_permisos Where Usuarios_Nombre_Usuario = '" + user.NameUser + "';");
+                    for (int y = 0; y < userpermissions.Rows.Count; y++)
+                    {
+                        user.Permissions.Add(Convert.ToInt32(userpermissions.Rows[y]["Permisos_ID_Permiso"]));
+                    }
                     usuarios.Add(user);
                 }
                 mySqlAccess.CloseConnection();
@@ -60,15 +90,14 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 return null;
             }
         }
-
         public void CrearUsuario(User user)
         {
             mySqlAccess.OpenConnection();
             mySqlAccess.EjectSQL("Insert into usuarios values ('"+user.NameUser+"','"+user.PasswordUser+"','"+user.Name+"','"+user.LastName+"');");
+            AsociarUsuarioPermisos(user);
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
-
         public void CrearLibro(Book book)
         {
             mySqlAccess.OpenConnection();
@@ -76,7 +105,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
-
         public void CrearNota(Note nota)
         {
             string privacidad = "0";
@@ -89,7 +117,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
-
         public int AsociarLibroNota(Book libro)
         {
             mySqlAccess.OpenConnection();
@@ -103,7 +130,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             Console.WriteLine(result.Rows[0]["Id_Nota"]);
             return id_Nota;
         }
-
         public List<Note> CargarNotas(Book libro)
         {
             try
@@ -113,7 +139,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 DataTable result = mySqlAccess.QuerySQL("SELECT n.*, l.ID_Libro from notebook.libros l join notebook.libros_notas nl on nl.Libros_ID_Libro = l.ID_Libro join notebook.notas n on n.Id_Nota = nl.Notas_Id_Nota where l.ID_Libro = "+ libro.Id + "");
                 for (int x = 0; x < result.Rows.Count; x++)
                 {
-                    //int id_book = Convert.ToInt32(result.Rows[x]["ID_Libro"]);
                     Note nota = new Note();
                     nota.Title = result.Rows[x]["Titulo"].ToString();
                     nota.Category = result.Rows[x]["Categoria"].ToString();
@@ -125,9 +150,7 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                     nota.SetColorLetra(Color.FromName(result.Rows[x]["Color Letra"].ToString()));
                     nota.Privacity = Convert.ToBoolean(result.Rows[x]["Privacidad"]);
                     nota.User = libro.User.Name;
-                    nota.SetId(Convert.ToInt32(result.Rows[x]["Id_Nota"].ToString()));
-
-                                     
+                    nota.SetId(Convert.ToInt32(result.Rows[x]["Id_Nota"].ToString()));            
                     notas.Add(nota);
                 }
                 mySqlAccess.CloseConnection();
@@ -139,7 +162,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 return null;
             }
         }
-
         public List<Note> CargarNotas()
         {
             try
@@ -167,9 +189,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
                 return new List<Note>();
             }
         }
-
-        
-
         public void ActualizarNota(Note nota)
         {
 
@@ -184,7 +203,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
-
         public void BorrarNota(int id_nota, int id_libro)
         {
             mySqlAccess.OpenConnection();
@@ -194,7 +212,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CommitTransaction();
             mySqlAccess.CloseConnection();
         }
-
         public void ModificarContraseña(User user)
         {
             mySqlAccess.OpenConnection();
@@ -270,7 +287,6 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             }
             return categorieImage;
         }
-
         public void AsociarLibroCategoria(List<string> categorias)
         {
             mySqlAccess.OpenConnection();
@@ -327,6 +343,16 @@ namespace NoteBook.UNA.NoteBook.Seguridad
             mySqlAccess.CommitTransaction();
             mySqlAccess.EjectSQL("Delete From `libros` Where (`ID_Libro` =  "+id_libro+");");
             mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
+        }
+        public void AsociarUsuarioPermisos(User user)
+        {
+            mySqlAccess.OpenConnection();
+            DataTable dataTable = mySqlAccess.QuerySQL("Select * from permisos");
+            for(int x=0; x<dataTable.Rows.Count;x++)
+            {
+                mySqlAccess.EjectSQL("Insert into usuarios_permisos (`Permisos_ID_Permiso`,`Usuarios_Nombre_Usuario`) values("+(x+1)+", '"+user.NameUser+"');");
+            }
             mySqlAccess.CloseConnection();
         }
     }

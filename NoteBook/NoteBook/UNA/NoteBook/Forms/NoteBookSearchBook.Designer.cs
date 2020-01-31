@@ -29,20 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookSearchBook));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.AvatarPictureBox = new System.Windows.Forms.PictureBox();
             this.PanelInferior = new System.Windows.Forms.Panel();
             this.ExitButton = new System.Windows.Forms.Button();
             this.OpenBookButton = new System.Windows.Forms.Button();
             this.BooksResultDataGridView = new System.Windows.Forms.DataGridView();
-            this.BookNameColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImageColum = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Categorie1Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categorie2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categorie3Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameBookTextBox = new System.Windows.Forms.TextBox();
             this.Categorie2ComboBox = new System.Windows.Forms.ComboBox();
             this.Categorie1ComboBox = new System.Windows.Forms.ComboBox();
@@ -102,6 +96,7 @@
             this.OpenBookButton.Size = new System.Drawing.Size(50, 50);
             this.OpenBookButton.TabIndex = 0;
             this.OpenBookButton.UseVisualStyleBackColor = true;
+            this.OpenBookButton.Click += new System.EventHandler(this.OpenBookButton_Click);
             // 
             // BooksResultDataGridView
             // 
@@ -110,31 +105,24 @@
             this.BooksResultDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BooksResultDataGridView.BackgroundColor = System.Drawing.Color.LightYellow;
             this.BooksResultDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BooksResultDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BooksResultDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.BooksResultDataGridView.ColumnHeadersHeight = 30;
             this.BooksResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.BooksResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BookNameColum,
-            this.ImageColum,
-            this.Categorie1Column,
-            this.Categorie2Column,
-            this.Categorie3Column,
-            this.UserColum});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BooksResultDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BooksResultDataGridView.DefaultCellStyle = dataGridViewCellStyle12;
             this.BooksResultDataGridView.EnableHeadersVisualStyles = false;
             this.BooksResultDataGridView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BooksResultDataGridView.Location = new System.Drawing.Point(12, 143);
@@ -144,45 +132,6 @@
             this.BooksResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.BooksResultDataGridView.Size = new System.Drawing.Size(620, 236);
             this.BooksResultDataGridView.TabIndex = 2;
-            // 
-            // BookNameColum
-            // 
-            this.BookNameColum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.BookNameColum.HeaderText = "Nombre";
-            this.BookNameColum.Name = "BookNameColum";
-            // 
-            // ImageColum
-            // 
-            this.ImageColum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ImageColum.HeaderText = "Avatar";
-            this.ImageColum.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ImageColum.Name = "ImageColum";
-            // 
-            // Categorie1Column
-            // 
-            this.Categorie1Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categorie1Column.HeaderText = "1° Categoria";
-            this.Categorie1Column.Name = "Categorie1Column";
-            this.Categorie1Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Categorie1Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Categorie2Column
-            // 
-            this.Categorie2Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categorie2Column.HeaderText = "2° Categoria";
-            this.Categorie2Column.Name = "Categorie2Column";
-            // 
-            // Categorie3Column
-            // 
-            this.Categorie3Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categorie3Column.HeaderText = "3° Categoria";
-            this.Categorie3Column.Name = "Categorie3Column";
-            // 
-            // UserColum
-            // 
-            this.UserColum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UserColum.HeaderText = "Usuario";
-            this.UserColum.Name = "UserColum";
             // 
             // NameBookTextBox
             // 
@@ -194,30 +143,30 @@
             // 
             // Categorie2ComboBox
             // 
-            this.Categorie2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Categorie2ComboBox.FormattingEnabled = true;
             this.Categorie2ComboBox.Location = new System.Drawing.Point(324, 103);
             this.Categorie2ComboBox.Name = "Categorie2ComboBox";
             this.Categorie2ComboBox.Size = new System.Drawing.Size(100, 21);
             this.Categorie2ComboBox.TabIndex = 4;
+            this.Categorie2ComboBox.SelectedIndexChanged += new System.EventHandler(this.Categorie2ComboBox_SelectedIndexChanged);
             // 
             // Categorie1ComboBox
             // 
-            this.Categorie1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Categorie1ComboBox.FormattingEnabled = true;
             this.Categorie1ComboBox.Location = new System.Drawing.Point(174, 104);
             this.Categorie1ComboBox.Name = "Categorie1ComboBox";
             this.Categorie1ComboBox.Size = new System.Drawing.Size(100, 21);
             this.Categorie1ComboBox.TabIndex = 5;
+            this.Categorie1ComboBox.SelectedIndexChanged += new System.EventHandler(this.Categorie1ComboBox_SelectedIndexChanged);
             // 
             // Categorie3ComboBox
             // 
-            this.Categorie3ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Categorie3ComboBox.FormattingEnabled = true;
             this.Categorie3ComboBox.Location = new System.Drawing.Point(476, 104);
             this.Categorie3ComboBox.Name = "Categorie3ComboBox";
             this.Categorie3ComboBox.Size = new System.Drawing.Size(100, 21);
             this.Categorie3ComboBox.TabIndex = 6;
+            this.Categorie3ComboBox.SelectedIndexChanged += new System.EventHandler(this.Categorie3ComboBox_SelectedIndexChanged);
             // 
             // NoteBookSearchBook
             // 
@@ -235,6 +184,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoteBookSearchBook";
             this.Text = "NoteBookSearchBook";
+            this.Load += new System.EventHandler(this.NoteBookSearchBook_Load);
             this.PanelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).EndInit();
             this.PanelInferior.ResumeLayout(false);
@@ -256,11 +206,5 @@
         private System.Windows.Forms.ComboBox Categorie2ComboBox;
         private System.Windows.Forms.ComboBox Categorie1ComboBox;
         private System.Windows.Forms.ComboBox Categorie3ComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookNameColum;
-        private System.Windows.Forms.DataGridViewImageColumn ImageColum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorie1Column;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorie2Column;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorie3Column;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserColum;
     }
 }

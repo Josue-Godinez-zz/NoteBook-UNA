@@ -16,6 +16,9 @@ namespace NoteBook.UNA.NoteBook.Forms
     {
         Dictionary<string, string> directionImages;
         List<Book> books;
+        DataTable dataTable = new DataTable();
+        string nameBook = "";
+        string propietario = "";
         public NoteBookSearchBook()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace NoteBook.UNA.NoteBook.Forms
             directionImages = MySqlService.Instance.ObtenerCategorias();
             this.books = books;
             CargarCategorias();
-            CargarLibros();
+            BooksResultDataGridView.CellContentClick += BooksResultDataGridView_CellContentClick;
         }
 
         private void CargarCategorias()
@@ -44,15 +47,15 @@ namespace NoteBook.UNA.NoteBook.Forms
             {
                 if (books[x].CategorieBook.Count == 1)
                 {
-                    BooksResultDataGridView.Rows.Add(books[x].NameBook, Image.FromFile(books[x].ImageBook), books[x].CategorieBook[0], null, null, books[x].User.NameUser);
+                    dataTable.Rows.Add(new object[] { books[x].NameBook, Image.FromFile(books[x].ImageBook), books[x].CategorieBook[0], null, null, books[x].User.NameUser });
                 }
                 else if (books[x].CategorieBook.Count == 2)
                 {
-                    BooksResultDataGridView.Rows.Add(books[x].NameBook, Image.FromFile(books[x].ImageBook), books[x].CategorieBook[0], books[x].CategorieBook[1], null, books[x].User.NameUser);
+                    dataTable.Rows.Add(new object[] { books[x].NameBook, Image.FromFile(books[x].ImageBook), books[x].CategorieBook[0], books[x].CategorieBook[1], null, books[x].User.NameUser });
                 }
                 else
                 {
-                    BooksResultDataGridView.Rows.Add(books[x].NameBook, Image.FromFile(books[x].ImageBook), books[x].CategorieBook[0], books[x].CategorieBook[1], books[x].CategorieBook[2], books[x].User.NameUser);
+                    dataTable.Rows.Add((new object[]{books[x].NameBook, Image.FromFile(books[x].ImageBook), books[x].CategorieBook[0], books[x].CategorieBook[1], books[x].CategorieBook[2], books[x].User.NameUser}));
                 }
             }
         }
@@ -64,7 +67,100 @@ namespace NoteBook.UNA.NoteBook.Forms
 
         private void NameBookTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+            dataTable.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Nombre", NameBookTextBox.Text);
+        }
+
+        private void NoteBookSearchBook_Load(object sender, EventArgs e)
+        {
+            dataTable.Columns.Add("Nombre", typeof(string));
+            dataTable.Columns.Add("Avatar", typeof(Image));
+            dataTable.Columns.Add("1° Categoria", typeof(string));
+            dataTable.Columns.Add("2° Categoria", typeof(string));
+            dataTable.Columns.Add("3° Categoria", typeof(string));
+            dataTable.Columns.Add("Usuario", typeof(string));
+            CargarLibros();
+            BooksResultDataGridView.DataSource = dataTable;
+            for (int x = 0; x < dataTable.Columns.Count; x++)
+            {
+                BooksResultDataGridView.Columns[x].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                BooksResultDataGridView.Columns[x].ReadOnly = true;
+                if (x == 1)
+                {
+                    DataGridViewImageColumn column = (DataGridViewImageColumn)BooksResultDataGridView.Columns[x];
+                    column.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
+            }
+        }
+        private void OpenBookButton_Click(object sender, EventArgs e)
+        {
+            ObtenerDatos();
+            BuscarLibro();
+            ConfirmarBusqueda();
+        }
+
+        private void BooksResultDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ObtenerDatos();
+            BuscarLibro();
+            ConfirmarBusqueda();
+        }
+
+        private void Categorie1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataTable.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "1° Categoria", Categorie1ComboBox.SelectedItem);
+        }
+
+        private void Categorie2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataTable.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'","2° Categoria", Categorie2ComboBox.SelectedItem);
+        }
+
+        private void Categorie3ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataTable.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "3° Categoria", Categorie3ComboBox.SelectedItem);
+        }
+        private void ObtenerDatos()
+        {
+            foreach (DataGridViewCell item in BooksResultDataGridView.CurrentRow.Cells)
+            {
+                if (item.ColumnIndex == 0)
+                {
+                    nameBook = item.Value.ToString();
+                }
+                if (item.ColumnIndex == 5)
+                {
+                    propietario = item.Value.ToString();
+                }
+            }
+        }
+        private void BuscarLibro()
+        {
+            for (int x = 0; x < books.Count; x++)
+            {
+                if (books[x].NameBook.Equals(nameBook) && books[x].User.NameUser.Equals(propietario))
+                {
+                    Libro = books[x];
+                    break;
+                }
+            }
+        }
+
+        private void ConfirmarBusqueda()
+        {
+            DialogResult result = MessageBox.Show("Deseas abrir este libro?","Confirmación", MessageBoxButtons.YesNo);
+            switch(result)
+            {
+                case DialogResult.Yes:
+                    DialogResult = DialogResult.OK;
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+        public Book Libro
+        {
+            get; 
+            set;
         }
     }
 }

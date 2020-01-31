@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="UNA\NoteBook\Forms\NoteBookSearchBook.Designer.cs">
       <DependentUpon>NoteBookSearchBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\NoteBook\Forms\BuscarForm.cs">
       <SubType>Form</SubType>
     </Compile>
