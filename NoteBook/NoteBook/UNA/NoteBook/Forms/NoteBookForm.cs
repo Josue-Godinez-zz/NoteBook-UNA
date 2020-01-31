@@ -19,14 +19,12 @@ namespace NoteBook
     public partial class NoteBookForm : Form
     {
         List<User> users = new List<User>();
-        List<string> permisos = new List<string>();
+        readonly List<string> permisos = new List<string>();
         Dictionary<string, string> directionImages = new Dictionary<string, string>();
         List<Book> books = new List<Book>();
         bool isLogin = false;
         User actualSesion = null;
         int opcionDeOrdenamiento = 0;
-
-        MySqlAccess mySqlAccess = new MySqlAccess();
         public NoteBookForm()
         {
             PreLoadDates();
@@ -337,8 +335,6 @@ namespace NoteBook
                 MessageBox.Show("'" + actualSesion.NameUser + "' A Iniciado Sesión", "Inicio de Sesión");
                 UserSingInLabel.Text = "<" + actualSesion.NameUser + ">";
                 SignOutButton.Enabled = true;
-
-                SignUpButton.Enabled = false;
                 Console.WriteLine(actualSesion.NameUser);
 
 

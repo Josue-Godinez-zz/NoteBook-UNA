@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBookForm));
             this.VistaSuperiorPanel = new System.Windows.Forms.Panel();
+            this.BuscarNotasLabel = new System.Windows.Forms.Label();
+            this.BuscarNotaButton = new System.Windows.Forms.Button();
             this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchBookButton = new System.Windows.Forms.Button();
             this.UserLabel = new System.Windows.Forms.Label();
@@ -38,7 +40,6 @@
             this.TimeLabel = new System.Windows.Forms.Label();
             this.LogInButton = new System.Windows.Forms.Button();
             this.VistaLateralPanel = new System.Windows.Forms.Panel();
-            this.BuscarNotaButton = new System.Windows.Forms.Button();
             this.SignOutLabel = new System.Windows.Forms.Label();
             this.RegisterLabel = new System.Windows.Forms.Label();
             this.BookOrderLabel = new System.Windows.Forms.Label();
@@ -50,11 +51,7 @@
             this.LibraryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.InformationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.TimeTimer = new System.Windows.Forms.Timer(this.components);
-
-            this.BuscarNotaLabel = new System.Windows.Forms.Label();
-
-            this.BuscarNotasLabel = new System.Windows.Forms.Label();
-
+            this.BuscarNotasButton = new System.Windows.Forms.Button();
             this.VistaSuperiorPanel.SuspendLayout();
             this.VistaLateralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +59,8 @@
             // VistaSuperiorPanel
             // 
             this.VistaSuperiorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VistaSuperiorPanel.Controls.Add(this.BuscarNotasButton);
             this.VistaSuperiorPanel.Controls.Add(this.BuscarNotasLabel);
-            this.VistaSuperiorPanel.Controls.Add(this.BuscarNotaButton);
             this.VistaSuperiorPanel.Controls.Add(this.SearchLabel);
             this.VistaSuperiorPanel.Controls.Add(this.SearchBookButton);
             this.VistaSuperiorPanel.Controls.Add(this.UserLabel);
@@ -75,6 +72,26 @@
             this.VistaSuperiorPanel.Name = "VistaSuperiorPanel";
             this.VistaSuperiorPanel.Size = new System.Drawing.Size(828, 110);
             this.VistaSuperiorPanel.TabIndex = 0;
+            // 
+            // BuscarNotasLabel
+            // 
+            this.BuscarNotasLabel.AutoSize = true;
+            this.BuscarNotasLabel.Location = new System.Drawing.Point(579, 74);
+            this.BuscarNotasLabel.Name = "BuscarNotasLabel";
+            this.BuscarNotasLabel.Size = new System.Drawing.Size(71, 13);
+            this.BuscarNotasLabel.TabIndex = 6;
+            this.BuscarNotasLabel.Text = "Buscar Notas";
+            // 
+            // BuscarNotaButton
+            // 
+            this.BuscarNotaButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotaButton.BackgroundImage")));
+            this.BuscarNotaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BuscarNotaButton.Location = new System.Drawing.Point(588, 21);
+            this.BuscarNotaButton.Name = "BuscarNotaButton";
+            this.BuscarNotaButton.Size = new System.Drawing.Size(50, 50);
+            this.BuscarNotaButton.TabIndex = 0;
+            this.BuscarNotaButton.UseVisualStyleBackColor = true;
+            this.BuscarNotaButton.Click += new System.EventHandler(this.BuscarNotaButton_Click);
             // 
             // SearchLabel
             // 
@@ -138,11 +155,7 @@
             // 
             this.VistaLateralPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.VistaLateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-
-            this.VistaLateralPanel.Controls.Add(this.BuscarNotaLabel);
             this.VistaLateralPanel.Controls.Add(this.BuscarNotaButton);
-
-
             this.VistaLateralPanel.Controls.Add(this.SignOutLabel);
             this.VistaLateralPanel.Controls.Add(this.RegisterLabel);
             this.VistaLateralPanel.Controls.Add(this.BookOrderLabel);
@@ -156,22 +169,6 @@
             this.VistaLateralPanel.Name = "VistaLateralPanel";
             this.VistaLateralPanel.Size = new System.Drawing.Size(179, 405);
             this.VistaLateralPanel.TabIndex = 1;
-            // 
-            // BuscarNotaButton
-            // 
-            this.BuscarNotaButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotaButton.BackgroundImage")));
-
-            this.BuscarNotaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BuscarNotaButton.Location = new System.Drawing.Point(16, 180);
-
-            this.BuscarNotaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BuscarNotaButton.Location = new System.Drawing.Point(588, 21);
-
-            this.BuscarNotaButton.Name = "BuscarNotaButton";
-            this.BuscarNotaButton.Size = new System.Drawing.Size(50, 50);
-            this.BuscarNotaButton.TabIndex = 0;
-            this.BuscarNotaButton.UseVisualStyleBackColor = true;
-            this.BuscarNotaButton.Click += new System.EventHandler(this.BuscarNotaButton_Click);
             // 
             // SignOutLabel
             // 
@@ -276,11 +273,8 @@
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-
-            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
-
+            this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.LibraryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
-
             this.LibraryTableLayoutPanel.Location = new System.Drawing.Point(195, 119);
             this.LibraryTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LibraryTableLayoutPanel.Name = "LibraryTableLayoutPanel";
@@ -302,25 +296,15 @@
             this.TimeTimer.Enabled = true;
             this.TimeTimer.Tick += new System.EventHandler(this.TimeTimer_Tick);
             // 
-
-            // BuscarNotaLabel
+            // BuscarNotasButton
             // 
-            this.BuscarNotaLabel.AutoSize = true;
-            this.BuscarNotaLabel.Location = new System.Drawing.Point(76, 199);
-            this.BuscarNotaLabel.Name = "BuscarNotaLabel";
-            this.BuscarNotaLabel.Size = new System.Drawing.Size(71, 13);
-            this.BuscarNotaLabel.TabIndex = 6;
-            this.BuscarNotaLabel.Text = "Buscar Notas";
-
-            // BuscarNotasLabel
-            // 
-            this.BuscarNotasLabel.AutoSize = true;
-            this.BuscarNotasLabel.Location = new System.Drawing.Point(579, 74);
-            this.BuscarNotasLabel.Name = "BuscarNotasLabel";
-            this.BuscarNotasLabel.Size = new System.Drawing.Size(71, 13);
-            this.BuscarNotasLabel.TabIndex = 6;
-            this.BuscarNotasLabel.Text = "Buscar Notas";
-
+            this.BuscarNotasButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BuscarNotasButton.BackgroundImage")));
+            this.BuscarNotasButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BuscarNotasButton.Location = new System.Drawing.Point(588, 20);
+            this.BuscarNotasButton.Name = "BuscarNotasButton";
+            this.BuscarNotasButton.Size = new System.Drawing.Size(50, 50);
+            this.BuscarNotasButton.TabIndex = 7;
+            this.BuscarNotasButton.UseVisualStyleBackColor = true;
             // 
             // NoteBookForm
             // 
@@ -369,10 +353,8 @@
         private System.Windows.Forms.Button SearchBookButton;
         private System.Windows.Forms.Button BuscarNotaButton;
 
-        private System.Windows.Forms.Label BuscarNotaLabel;
-
         private System.Windows.Forms.Label SearchLabel;
         private System.Windows.Forms.Label BuscarNotasLabel;
-
+        private System.Windows.Forms.Button BuscarNotasButton;
     }
 }

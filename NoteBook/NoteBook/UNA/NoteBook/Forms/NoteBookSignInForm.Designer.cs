@@ -33,7 +33,7 @@
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.AvatarPictureBox = new System.Windows.Forms.PictureBox();
             this.panelInferior = new System.Windows.Forms.Panel();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.ConfirmationButton = new System.Windows.Forms.Button();
             this.NameUserLabel = new System.Windows.Forms.Label();
             this.PasswordUserLabel = new System.Windows.Forms.Label();
@@ -69,23 +69,23 @@
             // panelInferior
             // 
             this.panelInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panelInferior.Controls.Add(this.CancelButton);
+            this.panelInferior.Controls.Add(this.ExitButton);
             this.panelInferior.Controls.Add(this.ConfirmationButton);
             this.panelInferior.Location = new System.Drawing.Point(0, 335);
             this.panelInferior.Name = "panelInferior";
             this.panelInferior.Size = new System.Drawing.Size(295, 77);
             this.panelInferior.TabIndex = 3;
             // 
-            // CancelButton
+            // ExitButton
             // 
-            this.CancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CancelButton.BackgroundImage")));
-            this.CancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CancelButton.Location = new System.Drawing.Point(169, 14);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(50, 50);
-            this.CancelButton.TabIndex = 1;
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.ExitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitButton.BackgroundImage")));
+            this.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExitButton.Location = new System.Drawing.Point(169, 14);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(50, 50);
+            this.ExitButton.TabIndex = 1;
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ConfirmationButton
             // 
@@ -182,7 +182,7 @@
         private System.Windows.Forms.Panel PanelSuperior;
         private System.Windows.Forms.PictureBox AvatarPictureBox;
         private System.Windows.Forms.Panel panelInferior;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button ConfirmationButton;
         private System.Windows.Forms.Label NameUserLabel;
         private System.Windows.Forms.Label PasswordUserLabel;

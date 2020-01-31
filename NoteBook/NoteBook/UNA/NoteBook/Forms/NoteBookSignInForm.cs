@@ -13,7 +13,7 @@ namespace NoteBook
 {
     public partial class NoteBookSignInForm : Form
     {
-        List<User> users;
+        readonly List<User> users;
         int user;
         public NoteBookSignInForm()
         {

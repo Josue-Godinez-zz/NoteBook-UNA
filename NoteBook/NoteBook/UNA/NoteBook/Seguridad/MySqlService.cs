@@ -276,17 +276,10 @@ namespace NoteBook.UNA.NoteBook.Seguridad
         }
         public void CrearCategorias(string categoria, string imagen)
         {
-            try
-            {
-                mySqlAccess.OpenConnection();
-                mySqlAccess.EjectSQL("Insert Into categorias(`Nombre`, `Imagen`) values('"+ categoria+"', '"+ DireccionImagen(imagen)+"');");
-                mySqlAccess.CommitTransaction();
-                mySqlAccess.CloseConnection();
-            }
-            catch(Exception ex)
-            {
-
-            }
+            mySqlAccess.OpenConnection();
+            mySqlAccess.EjectSQL("Insert Into categorias(`Nombre`, `Imagen`) values('"+ categoria+"', '"+ DireccionImagen(imagen)+"');");
+            mySqlAccess.CommitTransaction();
+            mySqlAccess.CloseConnection();
         }
         public Dictionary<string, string> ObtenerCategorias()
         {
