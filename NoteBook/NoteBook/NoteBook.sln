@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBook", "NoteBook.csproj", "{42B4572E-D7A6-44F8-B22F-876A2C176FFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseAccess", "..\DataBaseAccess\DataBaseAccess.csproj", "{E8AEF000-AEE6-4CB1-A482-FEBE02F990B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42B4572E-D7A6-44F8-B22F-876A2C176FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B4572E-D7A6-44F8-B22F-876A2C176FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B4572E-D7A6-44F8-B22F-876A2C176FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B4572E-D7A6-44F8-B22F-876A2C176FFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8AEF000-AEE6-4CB1-A482-FEBE02F990B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AEF000-AEE6-4CB1-A482-FEBE02F990B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AEF000-AEE6-4CB1-A482-FEBE02F990B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AEF000-AEE6-4CB1-A482-FEBE02F990B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C16D16A9-7869-403F-8459-9189A8BCAFBA}
+	EndGlobalSection
+EndGlobal

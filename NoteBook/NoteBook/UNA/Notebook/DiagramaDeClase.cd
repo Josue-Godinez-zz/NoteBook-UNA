@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UNA.NoteBook.User">
+    <Position X="1.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\User.cs</FileName>
+      <NewMemberFileName>UNA\Notebook\User.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UNA.NoteBook.Note">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAADAAAAAEAEIVAAgAAAAACAAIAISCBAAAIEAAIACAA=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\Note.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UNA.Notebook.Book">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAkAABAAAAAAAAAAABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NoteBook.ActivityRegister">
+    <Position X="0.5" Y="3.75" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="NoteBook.ActivityRegister.Event">
+        <TypeIdentifier>
+          <NewMemberFileName>UNA\NoteBook\ActivityRegister.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAEAAAAAAAAAAAAAAQAAAAAAAAQAAAAIAAAAA=</HashCode>
+      <FileName>UNA\NoteBook\Seguridad\ActivityRegister.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

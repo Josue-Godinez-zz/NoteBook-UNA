@@ -1,0 +1,28 @@
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\DataBaseAccess.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\DataBaseAccess.pdb
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Google.Protobuf.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\MySql.Data.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Renci.SshNet.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Google.Protobuf.xml
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\MySql.Data.xml
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Renci.SshNet.xml
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.csprojAssemblyReference.cache
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.csproj.CopyComplete
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.dll
+C:\Users\josue\Documents\GitHub\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.pdb
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\DataBaseAccess.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\DataBaseAccess.pdb
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Google.Protobuf.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\MySql.Data.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Renci.SshNet.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Google.Protobuf.xml
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\MySql.Data.xml
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\bin\Debug\Renci.SshNet.xml
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.csprojAssemblyReference.cache
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.csproj.CopyComplete
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.dll
+C:\Users\Dunia Méndez\Desktop\NoteBook\NoteBook-UNA\NoteBook\DataBaseAccess\obj\Debug\DataBaseAccess.pdb
